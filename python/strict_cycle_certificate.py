@@ -19,6 +19,7 @@ import sympy as sp
 
 
 HERE = Path(__file__).resolve().parent
+CERTIFICATE_DIR = HERE.parent / "certificates"
 INSTANCE_ID = "identity_slack_p66_short_v1"
 EPSILON = sp.Rational(1, 1000)
 MU = sp.Rational(8957, 10000)
@@ -438,7 +439,7 @@ def main() -> None:
     parser.add_argument(
         "--output",
         type=Path,
-        default=HERE / "certificate_raw.json",
+        default=CERTIFICATE_DIR / "certificate_raw.json",
     )
     args = parser.parse_args()
     try:

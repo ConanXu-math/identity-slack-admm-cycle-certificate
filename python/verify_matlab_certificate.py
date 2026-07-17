@@ -10,6 +10,7 @@ from typing import Any
 
 
 HERE = Path(__file__).resolve().parent
+CERTIFICATE_DIR = HERE.parent / "certificates"
 INSTANCE_ID = "identity_slack_p66_short_v1"
 
 
@@ -100,17 +101,17 @@ def main() -> None:
     parser.add_argument(
         "--matlab",
         type=Path,
-        default=HERE / "certificate_matlab.json",
+        default=CERTIFICATE_DIR / "certificate_matlab.json",
     )
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=HERE / "instance_manifest.json",
+        default=CERTIFICATE_DIR / "instance_manifest.json",
     )
     parser.add_argument(
         "--raw",
         type=Path,
-        default=HERE / "certificate_raw.json",
+        default=CERTIFICATE_DIR / "certificate_raw.json",
     )
     args = parser.parse_args()
 

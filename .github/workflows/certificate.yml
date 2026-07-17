@@ -28,18 +28,18 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Regenerate and compare both certificates
-        run: python verify_certificate_pair.py
+        run: python python/verify_certificate_pair.py
 
       - name: Compare the tracked MATLAB and Python exact fields
-        run: python verify_matlab_certificate.py
+        run: python python/verify_matlab_certificate.py
 
       - name: Require byte-for-byte stable certificate artifacts
         run: >-
           git diff --exit-code --
-          certificate_raw.json
-          certificate_signed.json
-          instance_manifest.json
-          certificate_matlab.json
+          certificates/certificate_raw.json
+          certificates/certificate_signed.json
+          certificates/instance_manifest.json
+          certificates/certificate_matlab.json
 
       - name: Upload the generated certificate bundle
         if: always()
@@ -47,7 +47,7 @@ jobs:
         with:
           name: exact-period-66-certificate
           path: |
-            certificate_raw.json
-            certificate_signed.json
-            instance_manifest.json
-            certificate_matlab.json
+            certificates/certificate_raw.json
+            certificates/certificate_signed.json
+            certificates/instance_manifest.json
+            certificates/certificate_matlab.json

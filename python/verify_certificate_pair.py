@@ -15,6 +15,7 @@ import strict_cycle_certificate as raw_checker
 
 
 HERE = Path(__file__).resolve().parent
+CERTIFICATE_DIR = HERE.parent / "certificates"
 INSTANCE_ID = "identity_slack_p66_short_v1"
 
 
@@ -218,17 +219,17 @@ def main() -> None:
     parser.add_argument(
         "--raw-output",
         type=Path,
-        default=HERE / "certificate_raw.json",
+        default=CERTIFICATE_DIR / "certificate_raw.json",
     )
     parser.add_argument(
         "--signed-output",
         type=Path,
-        default=HERE / "certificate_signed.json",
+        default=CERTIFICATE_DIR / "certificate_signed.json",
     )
     parser.add_argument(
         "--output",
         type=Path,
-        default=HERE / "instance_manifest.json",
+        default=CERTIFICATE_DIR / "instance_manifest.json",
     )
     args = parser.parse_args()
 

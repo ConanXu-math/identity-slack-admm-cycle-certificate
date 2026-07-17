@@ -34,15 +34,15 @@ exact checkers, comparison drivers, tests, and machine-readable certificates.
 
 ## Verification architecture
 
-The Python package uses two state representations:
+The Python implementation uses two state representations:
 
-1. `signed_cycle_certificate.py` derives and verifies the four-dimensional
+1. `python/signed_cycle_certificate.py` derives and verifies the four-dimensional
    signed recurrence `s = (y, q)`.
-2. `strict_cycle_certificate.py` independently reconstructs affine maps on the
+2. `python/strict_cycle_certificate.py` independently reconstructs affine maps on the
    six-dimensional unreduced essential state `(y, z, lambda)` by exact basis
    evaluation of the original ADMM updates.
 
-Neither checker imports the other.  `verify_certificate_pair.py` regenerates
+Neither checker imports the other.  `python/verify_certificate_pair.py` regenerates
 both JSON certificates and requires exact agreement of the instance, initial
 state, orbit, word, KKT point, minimum margin, and canonical hashes.  This is
 an internal implementation cross-check, not a second mathematical proof or
@@ -53,7 +53,7 @@ MATLAB R2025a and Symbolic Math Toolbox.  Like the raw Python checker, it
 independently solves the exact six-dimensional period equation and then
 reruns all 66 original ADMM updates with the genuine positive-part
 projection.  It does not call Python.  The small Python utility
-`verify_matlab_certificate.py` only compares the resulting JSON fields with
+`python/verify_matlab_certificate.py` only compares the resulting JSON fields with
 the frozen Python artifacts.
 
 ## Quick reproduction
@@ -65,7 +65,7 @@ python3.13 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python verify_certificate_pair.py
+python python/verify_certificate_pair.py
 ```
 
 Expected terminal summary:
@@ -73,26 +73,26 @@ Expected terminal summary:
 ```json
 {
   "instance_id": "identity_slack_p66_short_v1",
-  "output": ".../instance_manifest.json",
+  "output": ".../certificates/instance_manifest.json",
   "valid": true
 }
 ```
 
 The command rewrites the following tracked artifacts deterministically:
 
-- `certificate_raw.json`
-- `certificate_signed.json`
-- `instance_manifest.json`
+- `certificates/certificate_raw.json`
+- `certificates/certificate_signed.json`
+- `certificates/instance_manifest.json`
 
 The MATLAB command similarly rewrites the tracked artifact
-`certificate_matlab.json`.
+`certificates/certificate_matlab.json`.
 
 To confirm that a checkout reproduces the committed certificate exactly, run:
 
 ```bash
-python verify_certificate_pair.py
-python verify_matlab_certificate.py
-git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json certificate_matlab.json
+python python/verify_certificate_pair.py
+python python/verify_matlab_certificate.py
+git diff --exit-code -- certificates/
 ```
 
 ### MATLAB reproduction
@@ -112,11 +112,11 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-This writes `certificate_matlab.json`.  Then compare the MATLAB output with
+This writes `certificates/certificate_matlab.json`.  Then compare the MATLAB output with
 the frozen Python artifacts:
 
 ```bash
-python verify_matlab_certificate.py
+python python/verify_matlab_certificate.py
 ```
 
 Run the class-based MATLAB regression test with:
@@ -134,19 +134,26 @@ push without that private-project token requirement.
 
 ## Repository layout
 
+```text
+.
+├── python/        # Python exact implementations and comparison drivers
+├── matlab/        # MATLAB implementation, tests, and local instructions
+├── certificates/  # Frozen machine-readable JSON artifacts
+├── docs/          # Reproducibility and release documentation
+└── .github/       # Continuous-integration workflows and ownership rules
+```
+
 | Path | Purpose |
 | --- | --- |
-| `strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
-| `signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
-| `verify_certificate_pair.py` | Regenerates, compares, and hashes both certificates |
+| `python/` | Python exact checkers and comparison entry points |
+| `python/strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
+| `python/signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
+| `python/verify_certificate_pair.py` | Regenerates, compares, and hashes both Python certificates |
 | `matlab/verify_exact_cycle_matlab.m` | Independent exact MATLAB checker on `(y,z,lambda)` |
 | `matlab/tests/VerifyExactCycleMatlabTest.m` | Class-based MATLAB regression test |
-| `verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
-| `certificate_raw.json` | Stable machine-readable output of the six-dimensional checker |
-| `certificate_signed.json` | Stable machine-readable output of the signed-state checker |
-| `certificate_matlab.json` | Stable machine-readable output of the MATLAB checker |
-| `instance_manifest.json` | Shared claims, comparisons, runtime, and artifact hashes |
-| `REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
+| `python/verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
+| `certificates/` | Stable machine-readable certificate bundle |
+| `docs/REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
 | `.github/workflows/certificate.yml` | Clean GitHub Actions reproduction |
 | `.github/workflows/matlab-certificate.yml` | Manual licensed MATLAB reproduction |
 

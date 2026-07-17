@@ -41,7 +41,7 @@ The generated certificates close the following finite obligations:
 The signed checker implements the reduced recurrence on `(y,q)`.  The
 six-dimensional checker independently reconstructs affine maps on the
 unreduced essential state `(y,z,lambda)` by exact basis evaluation of the raw
-ADMM update.  Source-import checks in `verify_certificate_pair.py` ensure that
+ADMM update.  Source-import checks in `python/verify_certificate_pair.py` ensure that
 neither implementation imports the other.
 
 The comparison driver requires exact equality of the shared fields and hashes.
@@ -52,27 +52,27 @@ review.
 The MATLAB checker is a third source implementation.  It independently
 constructs the rational QP, solves the affine period equation on
 `(y,z,lambda)`, and reruns the original projection updates.  It does not
-invoke either Python checker.  `verify_matlab_certificate.py` is deliberately
+invoke either Python checker.  `python/verify_matlab_certificate.py` is deliberately
 only a result comparator: it reads JSON and checks common exact rational
 fields, the KKT point, and the initial raw state.
 
 ## Deterministic command
 
 ```bash
-python verify_certificate_pair.py
+python python/verify_certificate_pair.py
 ```
 
 Acceptance requires both:
 
 ```text
 process exit status = 0
-instance_manifest.json.valid = true
+certificates/instance_manifest.json.valid = true
 ```
 
 The committed outputs must remain unchanged after regeneration:
 
 ```bash
-git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json certificate_matlab.json
+git diff --exit-code -- certificates/
 ```
 
 ## MATLAB command and acceptance
@@ -85,11 +85,11 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-This writes `certificate_matlab.json`.  Cross-language acceptance then
+This writes `certificates/certificate_matlab.json`.  Cross-language acceptance then
 requires:
 
 ```bash
-python verify_matlab_certificate.py
+python python/verify_matlab_certificate.py
 ```
 
 The MATLAB test suite is class-based and exercises the public verifier:
@@ -120,15 +120,15 @@ versions above.
 
 ## Artifact meanings
 
-- `certificate_raw.json`: exact obligations evaluated by the six-dimensional
+- `certificates/certificate_raw.json`: exact obligations evaluated by the six-dimensional
   checker.
-- `certificate_signed.json`: exact obligations and cross-term witnesses
+- `certificates/certificate_signed.json`: exact obligations and cross-term witnesses
   evaluated by the signed-state checker.
-- `instance_manifest.json`: common instance record, runtime, agreement checks,
+- `certificates/instance_manifest.json`: common instance record, runtime, agreement checks,
   source hashes, output hashes, and the overall `valid` flag.
-- `certificate_matlab.json`: generated result of the independent MATLAB
+- `certificates/certificate_matlab.json`: generated result of the independent MATLAB
   checker; it is accepted only when both the MATLAB unit test and
-  `verify_matlab_certificate.py` pass.
+  `python/verify_matlab_certificate.py` pass.
 
 The JSON files are theorem evidence only together with the checker sources and
 the immutable commit that generated them.
@@ -139,7 +139,7 @@ Before changing repository visibility to public:
 
 - rerun the certificate in a clean checkout;
 - confirm the GitHub Actions workflow passes;
-- generate and freeze `certificate_matlab.json` under a valid MATLAB license;
+- generate and freeze `certificates/certificate_matlab.json` under a valid MATLAB license;
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;
 - add final citation and author metadata;

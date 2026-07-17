@@ -19,20 +19,20 @@ Block”** 的精确证书包。它验证一个显式有理实例：原始、未
 - 结论边界：证明有界周期不收敛，不声称无界发散，也不否定带附加条件或修正
   步骤的 ADMM 收敛定理
 
-## 两层独立实现
+## 三套实现与交叉检查
 
-1. `signed_cycle_certificate.py`：使用四维 signed state `s = (y,q)`；
-2. `strict_cycle_certificate.py`：不调用上一实现，直接在六维 unreduced
+1. `python/signed_cycle_certificate.py`：使用四维 signed state `s = (y,q)`；
+2. `python/strict_cycle_certificate.py`：不调用上一实现，直接在六维 unreduced
    essential state `(y,z,lambda)` 上由原始 ADMM 更新重建仿射分支。
 
-`verify_certificate_pair.py` 会重新生成两份 JSON，并逐项比较实例、初值、完整
+`python/verify_certificate_pair.py` 会重新生成两份 JSON，并逐项比较实例、初值、完整
 轨道、mask word、KKT 点、最小裕量和规范化哈希。两套程序的吻合是内部软件
 交叉检查，不等同于第二份数学证明或外部同行评审。
 
 仓库还包含第三套、独立编写的 MATLAB 实现
 `matlab/verify_exact_cycle_matlab.m`。它使用 MATLAB R2025a 和 Symbolic Math
 Toolbox，在六维 `(y,z,lambda)` 状态上重新解精确周期方程，再用真实逐坐标正部
-投影重跑全部 66 步；它不调用 Python。`verify_matlab_certificate.py` 只负责比较
+投影重跑全部 66 步；它不调用 Python。`python/verify_matlab_certificate.py` 只负责比较
 MATLAB 输出与冻结 Python 证书的公共字段。
 
 ## 一键复现
@@ -44,7 +44,7 @@ python3.13 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python verify_certificate_pair.py
+python python/verify_certificate_pair.py
 ```
 
 成功输出必须包含：
@@ -56,9 +56,9 @@ python verify_certificate_pair.py
 如需检查生成文件与仓库冻结版本完全一致：
 
 ```bash
-python verify_certificate_pair.py
-python verify_matlab_certificate.py
-git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json certificate_matlab.json
+python python/verify_certificate_pair.py
+python python/verify_matlab_certificate.py
+git diff --exit-code -- certificates/
 ```
 
 GitHub Actions 会在每次 push 和 pull request 上执行同一验证流程。
@@ -73,10 +73,10 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-该命令生成 `certificate_matlab.json`。随后运行跨语言精确比较：
+该命令生成 `certificates/certificate_matlab.json`。随后运行跨语言精确比较：
 
 ```bash
-python verify_matlab_certificate.py
+python python/verify_matlab_certificate.py
 ```
 
 MATLAB 单元测试命令为：
@@ -93,19 +93,26 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 
 ## 文件说明
 
+```text
+.
+├── python/        # Python 精确实现与比较入口
+├── matlab/        # MATLAB 实现、测试和说明
+├── certificates/  # 冻结的机器可读 JSON 证书
+├── docs/          # 复现与发布文档
+└── .github/       # 持续集成与仓库规则
+```
+
 | 文件 | 作用 |
 | --- | --- |
-| `strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
-| `signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
-| `verify_certificate_pair.py` | 重新生成、比较并哈希两套证书 |
+| `python/` | Python 精确检查器与比较入口 |
+| `python/strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
+| `python/signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
+| `python/verify_certificate_pair.py` | 重新生成、比较并哈希两套 Python 证书 |
 | `matlab/verify_exact_cycle_matlab.m` | 六维状态的独立 MATLAB 精确检查器 |
 | `matlab/tests/VerifyExactCycleMatlabTest.m` | MATLAB class-based 回归测试 |
-| `verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
-| `certificate_raw.json` | 六维检查器的稳定机器可读输出 |
-| `certificate_signed.json` | signed-state 检查器的稳定机器可读输出 |
-| `certificate_matlab.json` | MATLAB 检查器的稳定机器可读输出 |
-| `instance_manifest.json` | 公共结论、运行环境、比较结果和文件哈希 |
-| `REPRODUCIBILITY.md` | 证明义务和发布契约 |
+| `python/verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
+| `certificates/` | 四份稳定机器可读证书 |
+| `docs/REPRODUCIBILITY.md` | 证明义务和发布契约 |
 
 ## 公开发布前
 

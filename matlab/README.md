@@ -18,10 +18,10 @@ Symbolic Math Toolbox rationals:
 5. checks strict signs, all 132 margins, subproblem equations, multiplier
    updates, KKT conditions, exact closure, and absence of an earlier return;
 6. compares shared exact fields with the Python-generated
-   `instance_manifest.json`.
+   `certificates/instance_manifest.json`.
 
 The MATLAB checker does not call the Python checkers.  The separate Python
-script `verify_matlab_certificate.py` only compares the generated JSON output
+script `python/verify_matlab_certificate.py` only compares the generated JSON output
 with the frozen Python artifacts.
 
 ## Requirements
@@ -40,11 +40,11 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-The default output is `certificate_matlab.json` in the repository root.
+The default output is `certificates/certificate_matlab.json`.
 After generation, run:
 
 ```bash
-python verify_matlab_certificate.py
+python python/verify_matlab_certificate.py
 ```
 
 ## Test

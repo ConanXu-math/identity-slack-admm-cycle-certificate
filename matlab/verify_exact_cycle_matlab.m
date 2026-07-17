@@ -3,8 +3,8 @@ function result = verify_exact_cycle_matlab(outputPath, manifestPath)
     %   RESULT = VERIFY_EXACT_CYCLE_MATLAB() independently solves the exact
     %   six-dimensional period equation in the state (y,z,lambda), reruns the
     %   original ADMM iteration with the genuine componentwise positive-part
-    %   projection, compares shared fields with instance_manifest.json, and
-    %   writes certificate_matlab.json in the repository root.
+    %   projection, compares shared fields with the frozen instance manifest,
+    %   and writes certificates/certificate_matlab.json.
     %
     %   RESULT = VERIFY_EXACT_CYCLE_MATLAB(OUTPUTPATH) writes the JSON result to
     %   OUTPUTPATH. Pass "" to skip writing a file.
@@ -14,10 +14,12 @@ function result = verify_exact_cycle_matlab(outputPath, manifestPath)
 
     repoRoot = fileparts(fileparts(mfilename("fullpath")));
     if nargin < 1
-        outputPath = fullfile(repoRoot, "certificate_matlab.json");
+        outputPath = fullfile(repoRoot, "certificates", ...
+                              "certificate_matlab.json");
     end
     if nargin < 2
-        manifestPath = fullfile(repoRoot, "instance_manifest.json");
+        manifestPath = fullfile(repoRoot, "certificates", ...
+                                "instance_manifest.json");
     end
     outputPath = string(outputPath);
     manifestPath = string(manifestPath);

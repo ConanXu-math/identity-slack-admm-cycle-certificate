@@ -2,6 +2,11 @@
 
 All notable changes to the certificate package will be recorded here.
 
+## Unreleased
+
+- Separate Python sources, MATLAB sources, generated certificates, and
+  reproducibility documentation into dedicated top-level directories.
+
 ## v0.2.0-private - 2026-07-18
 
 - Add an independently authored MATLAB R2025a / Symbolic Math Toolbox

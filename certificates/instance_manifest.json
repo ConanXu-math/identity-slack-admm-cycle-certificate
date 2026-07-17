@@ -3,11 +3,11 @@
     "raw_certificate": "certificate_raw.json",
     "raw_certificate_JSON_sha256": "a4ebda7b7b8213ef5ad6dedc0fd6b7f284c9869a2b9b62147f34ab2550a162ee",
     "raw_checker_source": "strict_cycle_certificate.py",
-    "raw_checker_source_sha256": "337d2861159c4c79f110ca42dc7a09230b69a27fe34514931448fc828d2dcb0e",
+    "raw_checker_source_sha256": "272bd533b1fe4e7e12bc43399f88952c29ab969ade403c742318add6239b7d9f",
     "signed_certificate": "certificate_signed.json",
     "signed_certificate_JSON_sha256": "a5966892da513267962a32ab4b31923e11a0cf32b148cf303b4acd61566362a4",
     "signed_checker_source": "signed_cycle_certificate.py",
-    "signed_checker_source_sha256": "8292b1d7c25d65a3a51bc2b98ddbf0e0f27b42521e991ba41dfa013a8bcfc9ca"
+    "signed_checker_source_sha256": "20d8a04569f27c88c0d78f5d644194c6fc9a5259e793f95766a9c920a5eeed04"
   },
   "claim_boundary": "Agreement of the two exact implementations is an internal reproducibility cross-check, not external independent review.",
   "comparison_boundary": "The raw 6D and signed 4D checkers share no implementation imports. This driver compares their independently generated exact instance, initial state, margin, and orbit hashes.",
