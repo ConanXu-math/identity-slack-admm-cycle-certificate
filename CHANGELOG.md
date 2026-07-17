@@ -2,6 +2,19 @@
 
 All notable changes to the certificate package will be recorded here.
 
+## v0.2.0-private - 2026-07-18
+
+- Add an independently authored MATLAB R2025a / Symbolic Math Toolbox
+  verifier on the six-dimensional unreduced essential state.
+- Add a class-based MATLAB regression test and a manual licensed GitHub
+  Actions workflow.
+- Add an exact JSON comparator for MATLAB/Python shared certificate fields.
+- Add the stable MATLAB-generated JSON certificate and require its exact
+  agreement with the frozen Python artifacts in continuous integration.
+- Document the private-repository batch-token requirement and preserve the
+  earlier 2026-07-15 Python-only package as historical provenance rather than
+  treating it as the MATLAB implementation of the frozen instance.
+
 ## v0.1.0-private - 2026-07-17
 
 - Freeze the rational instance `identity_slack_p66_short_v1`.

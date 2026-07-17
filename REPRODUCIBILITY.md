@@ -49,6 +49,13 @@ Agreement is a reproducibility guard against implementation, phase-indexing,
 and state-translation mistakes.  It is not a substitute for mathematical peer
 review.
 
+The MATLAB checker is a third source implementation.  It independently
+constructs the rational QP, solves the affine period equation on
+`(y,z,lambda)`, and reruns the original projection updates.  It does not
+invoke either Python checker.  `verify_matlab_certificate.py` is deliberately
+only a result comparator: it reads JSON and checks common exact rational
+fields, the KKT point, and the initial raw state.
+
 ## Deterministic command
 
 ```bash
@@ -65,14 +72,45 @@ instance_manifest.json.valid = true
 The committed outputs must remain unchanged after regeneration:
 
 ```bash
-git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json
+git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json certificate_matlab.json
 ```
+
+## MATLAB command and acceptance
+
+The MATLAB implementation requires MATLAB R2025a and Symbolic Math Toolbox:
+
+```matlab
+addpath("matlab")
+result = verify_exact_cycle_matlab();
+assert(result.valid)
+```
+
+This writes `certificate_matlab.json`.  Cross-language acceptance then
+requires:
+
+```bash
+python verify_matlab_certificate.py
+```
+
+The MATLAB test suite is class-based and exercises the public verifier:
+
+```matlab
+results = runtests("matlab/tests/VerifyExactCycleMatlabTest.m");
+assert(all([results.Passed]))
+```
+
+For the current private repository, the manual GitHub Actions workflow needs
+the repository secret `MLM_LICENSE_TOKEN`.  This is a MathWorks licensing
+requirement for private-project jobs, not theorem data and not part of any
+certificate JSON.
 
 ## Frozen runtime
 
 ```text
 Python 3.13.5
 SymPy  1.13.3
+MATLAB  R2025a (25.1.0.2943329)
+Symbolic Math Toolbox 25.1
 ```
 
 All theorem predicates use SymPy exact rationals and exact comparisons.  A
@@ -88,6 +126,9 @@ versions above.
   evaluated by the signed-state checker.
 - `instance_manifest.json`: common instance record, runtime, agreement checks,
   source hashes, output hashes, and the overall `valid` flag.
+- `certificate_matlab.json`: generated result of the independent MATLAB
+  checker; it is accepted only when both the MATLAB unit test and
+  `verify_matlab_certificate.py` pass.
 
 The JSON files are theorem evidence only together with the checker sources and
 the immutable commit that generated them.
@@ -98,6 +139,7 @@ Before changing repository visibility to public:
 
 - rerun the certificate in a clean checkout;
 - confirm the GitHub Actions workflow passes;
+- generate and freeze `certificate_matlab.json` under a valid MATLAB license;
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;
 - add final citation and author metadata;

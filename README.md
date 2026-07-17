@@ -15,8 +15,8 @@ orbit of minimal period 66, even though the optimization problem has a unique
 KKT point.
 
 The repository is a verification package, not a numerical-search archive.  It
-contains only the frozen instance, two separately implemented exact checkers,
-their comparison driver, and the generated machine-readable certificates.
+contains only the frozen instance, separately implemented Python and MATLAB
+exact checkers, comparison drivers, tests, and machine-readable certificates.
 
 ## Certified statement
 
@@ -34,7 +34,7 @@ their comparison driver, and the generated machine-readable certificates.
 
 ## Verification architecture
 
-The package uses two state representations:
+The Python package uses two state representations:
 
 1. `signed_cycle_certificate.py` derives and verifies the four-dimensional
    signed recurrence `s = (y, q)`.
@@ -47,6 +47,14 @@ both JSON certificates and requires exact agreement of the instance, initial
 state, orbit, word, KKT point, minimum margin, and canonical hashes.  This is
 an internal implementation cross-check, not a second mathematical proof or
 external peer review.
+
+`matlab/verify_exact_cycle_matlab.m` is a third implementation written for
+MATLAB R2025a and Symbolic Math Toolbox.  Like the raw Python checker, it
+independently solves the exact six-dimensional period equation and then
+reruns all 66 original ADMM updates with the genuine positive-part
+projection.  It does not call Python.  The small Python utility
+`verify_matlab_certificate.py` only compares the resulting JSON fields with
+the frozen Python artifacts.
 
 ## Quick reproduction
 
@@ -76,12 +84,53 @@ The command rewrites the following tracked artifacts deterministically:
 - `certificate_signed.json`
 - `instance_manifest.json`
 
+The MATLAB command similarly rewrites the tracked artifact
+`certificate_matlab.json`.
+
 To confirm that a checkout reproduces the committed certificate exactly, run:
 
 ```bash
 python verify_certificate_pair.py
-git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json
+python verify_matlab_certificate.py
+git diff --exit-code -- certificate_raw.json certificate_signed.json instance_manifest.json certificate_matlab.json
 ```
+
+### MATLAB reproduction
+
+Required environment:
+
+- MATLAB R2025a;
+- Symbolic Math Toolbox;
+- a valid local license, or a MATLAB batch licensing token for a private
+  GitHub repository.
+
+From the repository root, run:
+
+```matlab
+addpath("matlab")
+result = verify_exact_cycle_matlab();
+assert(result.valid)
+```
+
+This writes `certificate_matlab.json`.  Then compare the MATLAB output with
+the frozen Python artifacts:
+
+```bash
+python verify_matlab_certificate.py
+```
+
+Run the class-based MATLAB regression test with:
+
+```matlab
+results = runtests("matlab/tests/VerifyExactCycleMatlabTest.m");
+assert(all([results.Passed]))
+```
+
+The MATLAB workflow is intentionally manual while the repository is private.
+MathWorks requires a batch licensing token for private-project jobs; store it
+as the GitHub Actions secret `MLM_LICENSE_TOKEN` before dispatching the
+workflow.  When the repository becomes public, the workflow can be enabled on
+push without that private-project token requirement.
 
 ## Repository layout
 
@@ -90,11 +139,16 @@ git diff --exit-code -- certificate_raw.json certificate_signed.json instance_ma
 | `strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
 | `signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
 | `verify_certificate_pair.py` | Regenerates, compares, and hashes both certificates |
+| `matlab/verify_exact_cycle_matlab.m` | Independent exact MATLAB checker on `(y,z,lambda)` |
+| `matlab/tests/VerifyExactCycleMatlabTest.m` | Class-based MATLAB regression test |
+| `verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
 | `certificate_raw.json` | Stable machine-readable output of the six-dimensional checker |
 | `certificate_signed.json` | Stable machine-readable output of the signed-state checker |
+| `certificate_matlab.json` | Stable machine-readable output of the MATLAB checker |
 | `instance_manifest.json` | Shared claims, comparisons, runtime, and artifact hashes |
 | `REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
 | `.github/workflows/certificate.yml` | Clean GitHub Actions reproduction |
+| `.github/workflows/matlab-certificate.yml` | Manual licensed MATLAB reproduction |
 
 ## Acceptance rule
 
@@ -105,7 +159,7 @@ only as readable renderings of exact rationals.
 
 ## Versioning and release status
 
-The initial private review tag is `v0.1.0-private`.  Before a public research
+The current private review version is `v0.2.0-private`.  Before a public research
 release, the maintainers will:
 
 1. deposit an immutable archive and assign a DOI;
