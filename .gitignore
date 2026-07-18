@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out

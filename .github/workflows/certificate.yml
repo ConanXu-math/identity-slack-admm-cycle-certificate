@@ -1,0 +1,68 @@
+name: Exact certificate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Python 3.13.5 / SymPy 1.13.3
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the frozen source
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+
+      - name: Install the exact dependency set
+        run: python -m pip install -r requirements.txt
+
+      - name: Regenerate and compare both certificates
+        run: python python/verify_certificate_pair.py
+
+      - name: Export all 66 exact cyclic states
+        run: python python/export_orbit_66.py
+
+      - name: Compare the tracked MATLAB and Python exact fields
+        run: python python/verify_matlab_certificate.py
+
+      - name: Regenerate the multiplier-relaxation certificate
+        run: python python/certify_relaxed_multiplier_interval_theory.py
+
+      - name: Run the multiplier-relaxation regression tests
+        run: python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
+
+      - name: Require byte-for-byte stable certificate artifacts
+        run: >-
+          git diff --exit-code --
+          certificates/certificate_raw.json
+          certificates/certificate_signed.json
+          certificates/instance_manifest.json
+          certificates/certificate_matlab.json
+          certificates/orbit_66.json
+          certificates/relaxed_multiplier_certificate.json
+          certificates/relaxed_multiplier_summary.md
+
+      - name: Upload the generated certificate bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-period-66-certificate
+          path: |
+            certificates/certificate_raw.json
+            certificates/certificate_signed.json
+            certificates/instance_manifest.json
+            certificates/certificate_matlab.json
+            certificates/orbit_66.json
+            certificates/relaxed_multiplier_certificate.json
+            certificates/relaxed_multiplier_summary.md

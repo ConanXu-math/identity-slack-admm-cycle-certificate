@@ -1,0 +1,63 @@
+name: MATLAB exact certificate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MLM_LICENSE_TOKEN: ${{ secrets.MLM_LICENSE_TOKEN }}
+
+jobs:
+  verify:
+    name: MATLAB R2025a / Symbolic Math Toolbox
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out the frozen source
+        uses: actions/checkout@v4
+
+      - name: Set up MATLAB R2025a
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2025a
+          products: Symbolic_Math_Toolbox
+
+      - name: Run MATLAB unit tests
+        uses: matlab-actions/run-tests@v3
+        with:
+          source-folder: matlab
+          select-by-folder: matlab/tests
+          strict: true
+          generate-summary: false
+          test-results-junit: test-results/matlab-results.xml
+
+      - name: Generate the MATLAB certificate
+        uses: matlab-actions/run-command@v3
+        with:
+          command: >-
+            addpath("matlab");
+            result = verify_exact_cycle_matlab();
+            assert(result.valid)
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Compare MATLAB and Python exact fields
+        run: python python/verify_matlab_certificate.py
+
+      - name: Require stable MATLAB certificate artifact
+        run: git diff --exit-code -- certificates/certificate_matlab.json
+
+      - name: Upload MATLAB certificate and test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matlab-period-66-certificate
+          path: |
+            certificates/certificate_matlab.json
+            test-results/matlab-results.xml
