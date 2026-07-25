@@ -1,0 +1,428 @@
+{
+  "seed": 20260724,
+  "results": [
+    {
+      "trial": 0,
+      "m": 2,
+      "kind": "proj",
+      "status": "infeasible",
+      "maxnorm": 1.0668806124017336
+    },
+    {
+      "trial": 1,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.2332009137056719
+    },
+    {
+      "trial": 2,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.247916216751852
+    },
+    {
+      "trial": 3,
+      "m": 3,
+      "kind": "proj",
+      "status": "infeasible",
+      "maxnorm": 1.3178631855308864
+    },
+    {
+      "trial": 4,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.003780679747244
+    },
+    {
+      "trial": 5,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.1479147945841004
+    },
+    {
+      "trial": 6,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.414213562373095
+    },
+    {
+      "trial": 7,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0824994071367025
+    },
+    {
+      "trial": 8,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.3255374435871077
+    },
+    {
+      "trial": 9,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.414213562373095
+    },
+    {
+      "trial": 10,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.039514339596937
+    },
+    {
+      "trial": 11,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.0271327032400466
+    },
+    {
+      "trial": 12,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730947
+    },
+    {
+      "trial": 13,
+      "m": 3,
+      "kind": "near1",
+      "status": "infeasible",
+      "maxnorm": 1.1552801587475598
+    },
+    {
+      "trial": 14,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.0797928770269218
+    },
+    {
+      "trial": 15,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730947
+    },
+    {
+      "trial": 16,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0295547466867145
+    },
+    {
+      "trial": 17,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.0804223152308987
+    },
+    {
+      "trial": 18,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730947
+    },
+    {
+      "trial": 19,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0309091610755412
+    },
+    {
+      "trial": 20,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.0171945686249029
+    },
+    {
+      "trial": 21,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730954
+    },
+    {
+      "trial": 22,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.1977551857557778
+    },
+    {
+      "trial": 23,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.1544236307350062
+    },
+    {
+      "trial": 24,
+      "m": 3,
+      "kind": "proj",
+      "status": "solver_error",
+      "maxnorm": 1.3947798813283008
+    },
+    {
+      "trial": 25,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0281603865360704
+    },
+    {
+      "trial": 26,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 0.982461156282267
+    },
+    {
+      "trial": 27,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730947
+    },
+    {
+      "trial": 28,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.070578141644238
+    },
+    {
+      "trial": 29,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.1076072697954085
+    },
+    {
+      "trial": 30,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.0
+    },
+    {
+      "trial": 31,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.2265283817141999
+    },
+    {
+      "trial": 32,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.016088422220824
+    },
+    {
+      "trial": 33,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730951
+    },
+    {
+      "trial": 34,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.1307196250922529
+    },
+    {
+      "trial": 35,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.03881409617811
+    },
+    {
+      "trial": 36,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730951
+    },
+    {
+      "trial": 37,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0681923017380779
+    },
+    {
+      "trial": 38,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.104106348870914
+    },
+    {
+      "trial": 39,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.414213562373094
+    },
+    {
+      "trial": 40,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.055048000088655
+    },
+    {
+      "trial": 41,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.1384517283696165
+    },
+    {
+      "trial": 42,
+      "m": 3,
+      "kind": "proj",
+      "status": "solver_error",
+      "maxnorm": 1.437669515015177
+    },
+    {
+      "trial": 43,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.1609503819776832
+    },
+    {
+      "trial": 44,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.0542455563997155
+    },
+    {
+      "trial": 45,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.414213562373095
+    },
+    {
+      "trial": 46,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0533409143987469
+    },
+    {
+      "trial": 47,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 0.9773869283949539
+    },
+    {
+      "trial": 48,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730954
+    },
+    {
+      "trial": 49,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.1039163607873042
+    },
+    {
+      "trial": 50,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.2321578018518486
+    },
+    {
+      "trial": 51,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730958
+    },
+    {
+      "trial": 52,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.0153463848201665
+    },
+    {
+      "trial": 53,
+      "m": 2,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 0.9058870131916335
+    },
+    {
+      "trial": 54,
+      "m": 2,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730954
+    },
+    {
+      "trial": 55,
+      "m": 3,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.079538053275297
+    },
+    {
+      "trial": 56,
+      "m": 3,
+      "kind": "unif",
+      "status": "feasible",
+      "maxnorm": 1.3135420226191536
+    },
+    {
+      "trial": 57,
+      "m": 3,
+      "kind": "proj",
+      "status": "feasible",
+      "maxnorm": 1.4142135623730954
+    },
+    {
+      "trial": 58,
+      "m": 2,
+      "kind": "near1",
+      "status": "feasible",
+      "maxnorm": 1.3104388394027449
+    },
+    {
+      "trial": 59,
+      "m": 3,
+      "kind": "unif",
+      "status": "infeasible",
+      "maxnorm": 1.049575502974602
+    }
+  ],
+  "feasible": 54,
+  "infeasible": 4,
+  "elapsed_sec": 0.612083911895752
+}

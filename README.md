@@ -13,9 +13,11 @@ Block.”**  It verifies two explicit instances for which the unmodified direct
 three-block ADMM has a bounded, strictly admissible, non-KKT periodic
 sequence, even though each optimization problem has a unique KKT point.
 
-The repository is a verification package, not a numerical-search archive.  It
-contains frozen instances, exact checkers, comparison drivers, route-level
-provenance, and machine-readable certificates.
+The repository has two layers.  The root verification package contains frozen
+instances, exact checkers, comparison drivers, route-level provenance, and
+machine-readable certificates.  The `research-process/` archive preserves the
+important theory notes, numerical experiments, failed routes, state snapshots,
+and review artifacts that explain how the two certificates were reached.
 
 ## Certified results
 
@@ -186,6 +188,7 @@ push without that private-project token requirement.
 ├── matlab/        # MATLAB implementation, tests, and local instructions
 ├── certificates/  # Frozen inputs and machine-readable certificate artifacts
 ├── provenance/    # Route-level accounting and evidence boundaries
+├── research-process/ # Curated agent research states, theory, experiments, and reviews
 ├── docs/          # Reproducibility and release documentation
 └── .github/       # Continuous-integration workflows and ownership rules
 ```
@@ -203,6 +206,7 @@ push without that private-project token requirement.
 | `python/verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
 | `certificates/` | Stable source data and machine-readable certificate bundle |
 | `provenance/` | Descriptive route records; not a controlled benchmark |
+| `research-process/` | Curated Codex and Kimi research-process archive with a hash manifest |
 | `docs/REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
 | `.github/workflows/certificate.yml` | Clean GitHub Actions reproduction |
 | `.github/workflows/matlab-certificate.yml` | Manual licensed MATLAB reproduction |

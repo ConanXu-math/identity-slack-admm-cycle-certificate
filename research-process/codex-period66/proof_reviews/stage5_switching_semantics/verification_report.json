@@ -1,0 +1,22 @@
+{
+  "verdict": "correct",
+  "candidate_problem_id": "stage5-switching-semantics",
+  "critical_errors": [],
+  "gaps": [],
+  "unsupported_assumptions": [],
+  "citation_or_black_box_issues": [],
+  "counterexample_pressure": "true source-target products have not yet been analyzed",
+  "repair_hints": [
+    "Use A_(b,c), not R_c, on a reduced-state switching edge.",
+    "Treat the 16-node graph as an optional history lift, not the minimal Markov representation.",
+    "Use affine polyhedra or tangent cones for cone-restricted inequalities."
+  ],
+  "accepted_evidence": [
+    "Reduced-state unpacking requires the source mask.",
+    "The new target projection contributes S_c while old multiplier recovery contributes I-D_b.",
+    "The direct unpack-step-pack regression test matches the analytic A_(b,c) matrix.",
+    "Stage 4G multiplies self-consistent R_D matrices and therefore does not encode general source-target switching."
+  ],
+  "next_action": "Rebuild true switching products and re-audit determinant, symmetry, and Schur/Jury obligations.",
+  "review_status": "accepted_by_independent_structural_review"
+}

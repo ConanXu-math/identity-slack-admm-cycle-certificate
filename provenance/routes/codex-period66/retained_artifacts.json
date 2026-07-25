@@ -27,6 +27,12 @@
       "role": "instance identity, canonical comparisons, and claim boundary"
     }
   ],
+  "curated_process_archive": {
+    "path": "research-process/codex-period66",
+    "manifest": "research-process/manifest.json",
+    "retained": true,
+    "scope": "Selected persistent state, theory notes, numerical searches, exact outputs, tests, and internal review gates along the decision path to the period-66 certificate."
+  },
   "additional_internal_cross_checks": [
     {
       "path": "certificates/certificate_raw.json",

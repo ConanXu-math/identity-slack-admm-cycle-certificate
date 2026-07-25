@@ -1,0 +1,34 @@
+{
+  "artifact": "notes/fixed_qp_signed_pwa_contraction_theorem.md",
+  "claim": "The stated rational QP lies outside the old SG norm gate and its direct three-block ADMM is a global contraction in signed-state coordinates.",
+  "status": "theorem_with_exact_certificate_and_independent_review",
+  "final_verdict": "correct",
+  "review_manifest": "proof_reviews/fixed_qp_signed_pwa/review_manifest.json",
+  "independent_reviews": [
+    "adversarial_review.json",
+    "proof_obligation_review.json"
+  ],
+  "scope": "Q1=3I, Q2=[[4421,2500],[2500,1921]]/779, A=B=I, rhs=0, beta=1",
+  "review_checks": {
+    "qp_realizability_and_strong_convexity": "passed",
+    "old_sg_a_and_b_bounds_exactly_fail": "passed",
+    "original_admm_signed_recurrence": "passed",
+    "four_branch_common_h_contraction": "passed",
+    "facet_continuity": "passed",
+    "all_16_edge_conjugacies": "passed",
+    "cross_orthant_global_incremental_contraction": "passed",
+    "fixed_point_iff_kkt": "passed",
+    "projection_argument_and_x_recovery_indexing": "passed",
+    "arbitrary_finite_initial_state": "passed"
+  },
+  "gamma": "99/100",
+  "gate_failure_determinants": {
+    "a": "-36725879/2073600000000",
+    "b": "-36725879/25600000000"
+  },
+  "limitations": [
+    "This theorem fixes both Hessians, A=B=I, rhs=0, beta=1.",
+    "It is not a theorem for arbitrary noncommuting high-dimensional models."
+  ],
+  "tests": "7 dedicated tests passed in the final targeted run"
+}

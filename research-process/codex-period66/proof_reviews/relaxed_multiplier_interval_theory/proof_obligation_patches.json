@@ -1,0 +1,19 @@
+{
+  "patches": [
+    {
+      "obligation": "uniform finite-prefix sensitivity",
+      "change": "use the centre matrix T_D(1/2), not T_D(0), in the radius recurrence",
+      "status": "applied_before_acceptance"
+    },
+    {
+      "obligation": "scope separation",
+      "change": "state local common-H convergence separately from the fixed-initial finite-prefix corollary",
+      "status": "applied_before_acceptance"
+    },
+    {
+      "obligation": "exact stability boundary",
+      "change": "replace the numerical threshold by an integer cubic, an exact one-root count, and a rational sign bracket",
+      "status": "applied_before_acceptance"
+    }
+  ]
+}

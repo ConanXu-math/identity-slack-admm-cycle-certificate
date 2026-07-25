@@ -1,0 +1,12 @@
+{
+  "seed": 20260723,
+  "stats": {
+    "m2_instances": 400,
+    "m3_instances": 200,
+    "seqs_checked": 0
+  },
+  "found": [],
+  "K_m2": 8,
+  "K_m3": 5,
+  "elapsed_sec": 401.58749508857727
+}

@@ -1,0 +1,234 @@
+{
+  "status": "decimal_precision_audit_for_strict_66_cycle",
+  "fixed_word_run_length_encoding": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      64
+    ]
+  ],
+  "threshold": "1/1000",
+  "original_stage43_search_box": {
+    "mu": [
+      "0.85",
+      "0.98"
+    ],
+    "nu": [
+      "0.995",
+      "0.9999999"
+    ],
+    "screens": {
+      "three_digits": {
+        "digits": 3,
+        "total_grid_points": 655,
+        "positive_margin_count": 0,
+        "margin_gt_1_over_1000_count": 0,
+        "elapsed_seconds": 0.7109082920001129,
+        "top": [
+          {
+            "mu": "0.895",
+            "nu": "0.998",
+            "floating_minimum_margin": -0.015538399862218152
+          },
+          {
+            "mu": "0.896",
+            "nu": "0.998",
+            "floating_minimum_margin": -0.016635459576389403
+          },
+          {
+            "mu": "0.897",
+            "nu": "0.998",
+            "floating_minimum_margin": -0.03126450381106
+          },
+          {
+            "mu": "0.894",
+            "nu": "0.998",
+            "floating_minimum_margin": -0.03160020422028888
+          },
+          {
+            "mu": "0.891",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.03383746147359683
+          },
+          {
+            "mu": "0.892",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.03471109909737973
+          },
+          {
+            "mu": "0.893",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.03626417577392691
+          },
+          {
+            "mu": "0.890",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.03653806715585203
+          },
+          {
+            "mu": "0.894",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.03857637638686199
+          },
+          {
+            "mu": "0.889",
+            "nu": "0.997",
+            "floating_minimum_margin": -0.04076883805101027
+          }
+        ]
+      },
+      "four_digits": {
+        "digits": 4,
+        "total_grid_points": 65050,
+        "positive_margin_count": 6,
+        "margin_gt_1_over_1000_count": 3,
+        "elapsed_seconds": 3.702620666999792,
+        "top": [
+          {
+            "mu": "0.8957",
+            "nu": "0.9990",
+            "floating_minimum_margin": 0.0037105246944477838
+          },
+          {
+            "mu": "0.8956",
+            "nu": "0.9991",
+            "floating_minimum_margin": 0.0020661263730420015
+          },
+          {
+            "mu": "0.8955",
+            "nu": "0.9992",
+            "floating_minimum_margin": 0.0013038992529046112
+          },
+          {
+            "mu": "0.8954",
+            "nu": "0.9993",
+            "floating_minimum_margin": 0.0008439258910051539
+          },
+          {
+            "mu": "0.8959",
+            "nu": "0.9986",
+            "floating_minimum_margin": 0.0003490961091413575
+          },
+          {
+            "mu": "0.8959",
+            "nu": "0.9987",
+            "floating_minimum_margin": 0.0002291135095453975
+          },
+          {
+            "mu": "0.8953",
+            "nu": "0.9994",
+            "floating_minimum_margin": -0.0006264773705639409
+          },
+          {
+            "mu": "0.8959",
+            "nu": "0.9985",
+            "floating_minimum_margin": -0.0014797044261943785
+          },
+          {
+            "mu": "0.8951",
+            "nu": "0.9995",
+            "floating_minimum_margin": -0.0018227648909083655
+          },
+          {
+            "mu": "0.8952",
+            "nu": "0.9994",
+            "floating_minimum_margin": -0.0019572327012893492
+          }
+        ]
+      }
+    }
+  },
+  "full_admissible_three_digit_screen": {
+    "domain": "0 < mu,nu < 1 on the three-decimal grid",
+    "screen": {
+      "digits": 3,
+      "total_grid_points": 998001,
+      "positive_margin_count": 0,
+      "margin_gt_1_over_1000_count": 0,
+      "elapsed_seconds": 47.26661870800035,
+      "top": [
+        {
+          "mu": "0.895",
+          "nu": "0.998",
+          "floating_minimum_margin": -0.015538399862218152
+        },
+        {
+          "mu": "0.896",
+          "nu": "0.998",
+          "floating_minimum_margin": -0.016635459576389403
+        },
+        {
+          "mu": "0.897",
+          "nu": "0.998",
+          "floating_minimum_margin": -0.03126450381106
+        },
+        {
+          "mu": "0.894",
+          "nu": "0.998",
+          "floating_minimum_margin": -0.03160020422028888
+        },
+        {
+          "mu": "0.891",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.03383746147359683
+        },
+        {
+          "mu": "0.892",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.03471109909737973
+        },
+        {
+          "mu": "0.893",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.03626417577392691
+        },
+        {
+          "mu": "0.890",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.03653806715585203
+        },
+        {
+          "mu": "0.894",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.03857637638686199
+        },
+        {
+          "mu": "0.889",
+          "nu": "0.997",
+          "floating_minimum_margin": -0.04076883805101027
+        }
+      ]
+    }
+  },
+  "exact_four_digit_witness": {
+    "digits": 4,
+    "mu": "8957/10000",
+    "nu": "999/1000",
+    "reduced_certificate_valid": true,
+    "raw_admm_certificate_valid": true,
+    "minimum_margin_exact_decimal": "0.00371052469443529102",
+    "minimum_margin_hashes_match": true,
+    "reduced_failed_checks": [],
+    "raw_failed_checks": [],
+    "reduced_exact_hashes": {
+      "M": "86f8478f6fc5b0e10d25126b8d368fb50bf948f2b743e412ced4c81bac1e3cc6",
+      "N": "5a9a908662d0d57419fd44652c57cb61fd6282b36ea0d3d6acc71ed603f5e608",
+      "signed_initial": "2a1f78a3e77262ba62a90e719c9fba639598a66b1acda04cffa01a8ddf7b1884",
+      "minimum_margin": "f0c44af06734fbaf4f21446ad0f55ba4bf8e84b86c25e516dd0e9c65868c3fb1"
+    },
+    "raw_exact_hashes": {
+      "linear_initial_full_state": "00c0ecacfa976b3a6b49e0e1c7020a8030612f515bb475c9c522021e265961b7",
+      "zero_linear_initial_full_state": "794191227fa1c88df642d69ec2e0dd42d44f907c779774234ebfbe933b59924e",
+      "minimum_margin": "f0c44af06734fbaf4f21446ad0f55ba4bf8e84b86c25e516dd0e9c65868c3fb1"
+    }
+  },
+  "claim_boundary": [
+    "Grid enumeration uses floating point and is discovery evidence.",
+    "The four-digit witness is rebuilt as exact rationals and passes two exact implementations.",
+    "Absence of a three-digit floating hit is not an interval-arithmetic impossibility theorem.",
+    "Decimal-place minimality is relative to this mu,nu parameterization and fixed 66-letter word."
+  ]
+}

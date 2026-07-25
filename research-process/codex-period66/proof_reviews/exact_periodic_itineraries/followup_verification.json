@@ -1,0 +1,32 @@
+{
+  "verdict": "accepted",
+  "review_role": "independent_exact_certificate_followup_reviewer",
+  "resolves": [
+    "verification_report.json"
+  ],
+  "checks": [
+    {
+      "item": "distinct_basepoint_counts",
+      "result": "pass",
+      "detail": "从 340 条 JSON records 独立按 basepoint 去重得到 316；从 336 条 inadmissible records 去重得到 315，与 artifact 显式字段完全一致。"
+    },
+    {
+      "item": "word_count_wording",
+      "result": "pass",
+      "detail": "Markdown 已明确 inadmissible 按标记 word 统计，不表示同样数量的彼此不同 basepoint；336-word 与 315-distinct-basepoint 两个层次不再混淆。"
+    },
+    {
+      "item": "generated_artifact_consistency",
+      "result": "pass",
+      "detail": "JSON 保留 word_count=340、336 条 inadmissible word records、4 条 witness，并新增 distinct_basepoint_count=316 与 distinct_inadmissible_basepoint_count=315。"
+    },
+    {
+      "item": "targeted_test",
+      "result": "pass",
+      "detail": "tests/test_exact_periodic_itineraries.py: 1 passed。"
+    }
+  ],
+  "scope_risk_status": "closed",
+  "accepted_scope": "对固定有理 SPD slack QP、长度不超过 4 的 340 个标记 closed mask words 的 exact periodic-point admissibility certificate；其中 336 个标记 word inadmissible，对应 315 个不同 inadmissible basepoint。",
+  "claim_boundary": "该接受不扩展到严格反例、无限轨道 admissibility、Jordan/affine drift、其他 QP 或更长 words。"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "i": 0,
+    "m": 3,
+    "mask": 4,
+    "modulus": 1.033993455280141,
+    "outcomes": {
+      "conv": 0,
+      "cycle": 30,
+      "growth": 0
+    },
+    "max_ratio": 3550.7409166054663
+  },
+  {
+    "i": 1,
+    "m": 3,
+    "mask": 4,
+    "modulus": 1.0312455008275263,
+    "outcomes": {
+      "conv": 0,
+      "cycle": 30,
+      "growth": 0
+    },
+    "max_ratio": 2411.5631444213927
+  },
+  {
+    "i": 2,
+    "m": 3,
+    "mask": 4,
+    "modulus": 1.030145192870446,
+    "outcomes": {
+      "conv": 0,
+      "cycle": 30,
+      "growth": 0
+    },
+    "max_ratio": 1347.9461095924983
+  },
+  {
+    "i": 3,
+    "m": 4,
+    "mask": 8,
+    "modulus": 1.0265823287848084,
+    "outcomes": {
+      "conv": 0,
+      "cycle": 30,
+      "growth": 0
+    },
+    "max_ratio": 1786.203143667164
+  },
+  {
+    "i": 4,
+    "m": 4,
+    "mask": 12,
+    "modulus": 1.0266484476851774,
+    "outcomes": {
+      "conv": 0,
+      "cycle": 30,
+      "growth": 0
+    },
+    "max_ratio": 1553.4780082538296
+  }
+]

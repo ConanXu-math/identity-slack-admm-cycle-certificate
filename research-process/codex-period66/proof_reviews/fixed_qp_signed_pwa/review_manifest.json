@@ -1,0 +1,12 @@
+{
+  "artifact": "notes/fixed_qp_signed_pwa_contraction_theorem.md",
+  "date": "2026-07-12",
+  "reviews": [
+    "adversarial_review.json",
+    "proof_obligation_review.json"
+  ],
+  "source_sha256": "d3cc64389b46c8b35a996987fe949ca311c41cea2e005e7b822a2ad8ed290944",
+  "theorem_sha256": "0162fa5d5d45029893e841302e01b7519ea827e76fc1c1bf5b3b70e053813fd8",
+  "certificate_sha256": "11442cc456126bbf6dde9ef5ae6032aa6c535de83069d2438963aef0e2f71773",
+  "status": "independently_reviewed"
+}

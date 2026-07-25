@@ -1,0 +1,8 @@
+{
+  "seed": 20260722,
+  "N_scan": 3000,
+  "max_rho_scan": 0.9998806356121124,
+  "max_rho_hillclimb": 1.0000000000000022,
+  "bounded_realizations": true,
+  "elapsed_sec": 2.8467001914978027
+}

@@ -1,0 +1,11 @@
+{
+  "seed": 20260723,
+  "stats": {
+    "instances": 30000,
+    "patterns": 742752,
+    "rho_gt1": 9002,
+    "consistent": 0
+  },
+  "hits": [],
+  "elapsed_sec": 25.641963720321655
+}

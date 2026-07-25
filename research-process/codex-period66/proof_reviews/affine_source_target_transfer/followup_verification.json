@@ -1,0 +1,63 @@
+{
+  "verdict": "accepted",
+  "candidate_problem_id": "affine_source_target_transfer",
+  "review_role": "independent_followup_proof_verifier",
+  "resolves": [
+    "verification_report.json"
+  ],
+  "reviewed_artifact": "notes/affine_source_target_transfer.md",
+  "closed_blockers": [
+    {
+      "id": "B1",
+      "status": "closed",
+      "evidence": "共同 offset 已改为无控制字符的 pmatrix，且两块分别为 beta H_y^{-1}B^T(I-M)h 与 (I-N)(I-M)h。公式可读并与独立重推一致。"
+    },
+    {
+      "id": "B2",
+      "status": "closed",
+      "evidence": "文档已显式定义 Qhat_t、Khat_(d,t)、Fhat_(b,c)(t)、Lhat_b(t)、Hhat_d(t) 以及两个 closed-word period products，并说明 t!=0 的辅助族只用于代数延拓。"
+    }
+  ],
+  "followup_checks": [
+    {
+      "check": "polynomial_perturbation",
+      "result": "correct",
+      "detail": "Qhat_t=Qhat+tI 与 Khat_(d,t)=(Ghat_d-Qhat_t)/2 保持共同 defect。det(Qhat+tI) 是首一非零多项式；非奇异 t 上 similarity 成立，周期 products 和特征多项式系数均对 t 为多项式，因此系数等式严格延拓到 t=0。"
+    },
+    {
+      "check": "rectangular_scope",
+      "result": "correct",
+      "detail": "文档明确区分 (dim y+m) 维 rectangular legacy map 与旧 Stage 4G 的 2m 维 legacy system，没有把旧 length-3 Schur/Jury 谱界错误移植到非方阵 B。"
+    },
+    {
+      "check": "affine_chart",
+      "result": "correct",
+      "detail": "Hhat_d 的最后一行为 [0,-1]，故保持 s=0 并把 s=1 映到 s=-1；整体乘 -1 后得到 affine chart 内的可逆共轭。可逆 Qhat 下固定点、有限/无穷方向类型与完整 Jordan structure 的双向搬运成立。"
+    },
+    {
+      "check": "drift_condition",
+      "result": "correct",
+      "detail": "对 r^+=Pr+a，条件 Pd=d 与 (Fhat-I)[r;1]=[d;0] 给出 F^n(r)=r+nd；文档同时保留 TS-2 无限 itinerary admissibility 这一独立义务。"
+    },
+    {
+      "check": "singular_boundary_and_example",
+      "result": "correct",
+      "detail": "奇异情形仅声称 semiconjugacy 与 characteristic-polynomial transfer。给出的 A=I_2、B 为二阶 Jordan 块、H=[[0,1],[0,0]] 确实满足 AH=HB 且 A、B 同特征多项式，但 Jordan 与 fixed-point 行为不同。"
+    },
+    {
+      "check": "claim_scope",
+      "result": "correct",
+      "detail": "文档未把 affine recurrence transfer 升级为 canonical half-open cell transfer、itinerary admissibility、严格反例、aperiodic stability 或 direct slack ADMM 全局收敛。"
+    }
+  ],
+  "remaining_blockers": [],
+  "accepted_claim": "在 beta>0 且 H_x,H_y 正定的 proof-grade 域内，接受仿射 source-target factorization、mask-independent homogeneous defect、local intertwining、任意有限 closed-word characteristic-polynomial transfer；Qhat 可逆时接受周期 affine maps 的 affine conjugacy。",
+  "scope_exclusions": [
+    "奇异 Qhat 下的 similarity、Jordan 或 fixed-point 双向 transfer",
+    "TS-2 canonical half-open itinerary cells 的自动搬运",
+    "具体 closed word 的可达性证书",
+    "aperiodic switching 稳定性",
+    "原始 direct slack ADMM 的全局收敛或严格反例"
+  ],
+  "acceptance_status": "accepted_by_independent_followup_review"
+}

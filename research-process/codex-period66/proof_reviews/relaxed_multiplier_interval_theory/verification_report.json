@@ -1,0 +1,67 @@
+{
+  "verdict": "correct",
+  "critical_errors": [],
+  "gaps": [],
+  "unsupported_assumptions": [],
+  "citation_or_black_box_issues": [],
+  "proof_obligations": [
+    {
+      "id": "O1",
+      "claim": "the parameterized 6-dimensional branch map equals the original four ADMM updates",
+      "status": "closed",
+      "evidence": "basis-vector reconstruction at tau=2/5, 1/2, 3/5 for selectors 00 and 01"
+    },
+    {
+      "id": "O2",
+      "claim": "one rational H decreases on every tau in [49/100,51/100]",
+      "status": "closed",
+      "evidence": "exact endpoint Sylvester minors and exact Loewner-concavity chord identity"
+    },
+    {
+      "id": "O3",
+      "claim": "the true projection remains in the certified branches and enters the common ellipsoid uniformly",
+      "status": "closed",
+      "evidence": "232-step exact componentwise sensitivity enclosure; positive sign lower bound and positive ellipsoid slack"
+    },
+    {
+      "id": "O4",
+      "claim": "the displayed local stability threshold is exact rather than a numerical eigenvalue estimate",
+      "status": "closed",
+      "evidence": "exact characteristic factorization, all real-Schur margins, one-root Sturm certificate, and rational sign bracket"
+    },
+    {
+      "id": "O5",
+      "claim": "the result is not overstated as arbitrary-initial or full-model global convergence",
+      "status": "closed",
+      "evidence": "the theorem and certificate explicitly separate local, fixed-initial, and global scopes"
+    }
+  ],
+  "counterexample_pressure": [
+    {
+      "risk": "the orbit may switch away from 01 after a locally stable linearization",
+      "resolution": "the H-ellipsoid is contained in the strict 01 projection region and is forward invariant"
+    },
+    {
+      "risk": "only the two tau endpoints may converge",
+      "resolution": "the residual matrix is Loewner-concave, so its value dominates the positive endpoint chord"
+    },
+    {
+      "risk": "the finite prefix may be a floating-point sampling artifact",
+      "resolution": "the enclosure propagates rational componentwise radii for every tau in the closed interval"
+    },
+    {
+      "risk": "the critical tau may be an optimizer-dependent decimal",
+      "resolution": "tau_c is defined as the unique root in (0,1) of an explicit integer cubic"
+    }
+  ],
+  "repair_hints": [],
+  "accepted_evidence": [
+    "outputs/tau_relaxation_theory_2026-07-16/results/certificate.json",
+    "outputs/tau_relaxation_theory_2026-07-16/RUN_SUMMARY.md",
+    "tests/test_relaxed_multiplier_interval_theory.py",
+    "tests/test_relaxed_multiplier_half_convergence_exact.py",
+    "8 targeted tests passed"
+  ],
+  "review_provenance": "fresh Codex verifier-style audit after certificate generation; not an external human review and not a proof-assistant check",
+  "next_action": "replace the fixed tau=1/2-only section of the five-page note by the reviewed theorem hierarchy and exact interval/boundary corollary"
+}

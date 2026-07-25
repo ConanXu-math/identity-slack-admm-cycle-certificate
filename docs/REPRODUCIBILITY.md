@@ -99,6 +99,7 @@ Run both public Python certificate paths with:
 
 ```bash
 python python/verify_all.py
+python python/verify_research_process_archive.py
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
@@ -109,6 +110,7 @@ process exit status = 0
 certificates/instance_manifest.json.valid = true
 certificates/period23_certificate.json.valid = true
 certificates/period23_instance_manifest.json.valid = true
+research-process/manifest.json.valid = true
 ```
 
 The committed outputs must remain unchanged after regeneration:
@@ -196,6 +198,8 @@ Before changing repository visibility to public:
 - confirm the GitHub Actions workflow passes;
 - generate and freeze `certificates/certificate_matlab.json` under a valid MATLAB license;
 - confirm that the period-23 NPZ and canonical exact manifest agree;
+- confirm that the research-process manifest, required-path gate, and privacy
+  scan pass;
 - run an independent secret and privacy scan on the release tree;
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;

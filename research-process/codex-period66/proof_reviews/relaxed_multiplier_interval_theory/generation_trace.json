@@ -1,0 +1,42 @@
+{
+  "route": "parameter-affine branch map, common-H endpoint certificate, finite-prefix sensitivity enclosure, and Schur-Sturm boundary",
+  "theorem_layers": [
+    "strict active-branch local convergence",
+    "common Lyapunov tau interval",
+    "finite strict prefix capture",
+    "exact local Schur boundary for the fixed 01 branch"
+  ],
+  "exact_intervals": {
+    "common_H": ["49/100", "51/100"],
+    "finite_prefix_capture": ["4999999999/10000000000", "5000000001/10000000000"],
+    "tau_c_bracket": ["4683030557/5000000000", "1873212223/2000000000"]
+  },
+  "dependencies": [
+    "strict rational 66-cycle witness",
+    "exact full-state tau=1/2 Lyapunov certificate",
+    "Sylvester criterion",
+    "Loewner concavity of H-T(tau)^T H T(tau)",
+    "componentwise rational sensitivity recurrence",
+    "real Schur recursion",
+    "Sturm root counting"
+  ],
+  "generation_repairs": [
+    {
+      "issue": "an exploratory sensitivity bound initially propagated the radius with T_D(0)",
+      "repair": "the final certifier uses T_D(1/2) in the centre-radius recurrence and was rerun from scratch",
+      "impact": "the invalid exploratory width was discarded; only the corrected exact interval is reported"
+    }
+  ],
+  "known_risks": [
+    "a fixed-branch spectral result could be overstated as global convergence",
+    "endpoint positivity would be insufficient without proving matrix concavity",
+    "sampling tau values would not certify an interval",
+    "a numerical eigenvalue crossing would not define an exact boundary"
+  ],
+  "risk_closures": [
+    "projection-safe invariant ellipsoid",
+    "exact chord identity and endpoint Sylvester minors",
+    "232-step componentwise rational enclosure",
+    "exact characteristic factorization, Schur recursion, and Sturm counts"
+  ]
+}

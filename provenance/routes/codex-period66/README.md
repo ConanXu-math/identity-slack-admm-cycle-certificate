@@ -36,4 +36,5 @@ share a research question and a problem class, not an instance.
 
 See [`accounting.json`](accounting.json) for paper-reported resource figures
 and [`retained_artifacts.json`](retained_artifacts.json) for the curated asset
-inventory.
+inventory. The readable decision-path archive is available under
+[`../../../research-process/codex-period66/`](../../../research-process/codex-period66/).
