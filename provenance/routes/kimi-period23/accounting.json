@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "route_id": "kimi-period23",
+  "system_label": "Kimi Code K3",
+  "comparison_kind": "descriptive_endpoint_aligned",
+  "endpoint": {
+    "id": "first_exact_replayable_nonconvergence_certificate",
+    "result": "exact dyadic minimal period-23 non-KKT orbit, locally attracting in canonical (y,t) state",
+    "same_qp_as_other_route": false
+  },
+  "paper_reported_accounting": {
+    "approximate_run_time_hours": {
+      "display": "approximately 9",
+      "value": 9,
+      "approximate": true
+    },
+    "cumulative_agent_time_hours": {
+      "value": 12.43,
+      "method": "sum of completed-turn intervals",
+      "parallel_time_can_overlap": true
+    },
+    "recorded_tokens": {
+      "total": {
+        "value": 63270000,
+        "approximate": true,
+        "display": "approximately 6.327e7"
+      },
+      "output": {
+        "value": 482300,
+        "display": "4.823e5"
+      },
+      "total_definition": "cached input plus noncached input plus output",
+      "billable_usage_claim": false
+    },
+    "agent_topology": {
+      "main_sessions": 1,
+      "recorded_subagents": 3,
+      "unit": "recorded sessions or subagents at the comparison endpoint"
+    }
+  },
+  "human_and_protocol_context": {
+    "frozen_starting_workspace": true,
+    "codex_candidate_supplied": false,
+    "post_hoc_audit": true,
+    "preregistered": false,
+    "zero_human_involvement_claimed": false
+  },
+  "comparability_limits": {
+    "controlled_benchmark": false,
+    "compute_matched": false,
+    "intervention_matched": false,
+    "tooling_matched": false,
+    "telemetry_directly_comparable": false,
+    "causal_model_ranking_allowed": false
+  },
+  "notes": [
+    "The approximately nine-hour figure is the manuscript's rounded route-level value.",
+    "Cumulative agent time double-counts parallel overlap by design.",
+    "Token totals describe recorded traffic; tokenizer and telemetry definitions differ across routes.",
+    "The explicit rational invariant ellipsoid was a later companion result and is outside the terminal accounting endpoint."
+  ]
+}

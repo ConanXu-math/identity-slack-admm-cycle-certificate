@@ -6,6 +6,13 @@ All notable changes to the certificate package will be recorded here.
 
 - Separate Python sources, MATLAB sources, generated certificates, and
   reproducibility documentation into dedicated top-level directories.
+- Add the frozen Kimi Code K3 period-23 binary64 source, its exact
+  dyadic-rational replay, source manifest, and exact Jury-stability
+  certificate.
+- Add a unified Python verification entry point, regression tests, and CI
+  coverage for both the period-66 and period-23 certificates.
+- Add route-level provenance and explicit limits for the descriptive,
+  endpoint-aligned Codex/Kimi comparison.
 
 ## v0.2.0-private - 2026-07-18
 

@@ -1,0 +1,421 @@
+{
+  "artifacts": {
+    "frozen_certificate": {
+      "canonical_JSON_SHA256": "ecc8bc9d594c9f3287208940fa10edfca5da04fb2900950abc34553ffb738197",
+      "file": "period23_certificate.json",
+      "stable_file_bytes_SHA256": "222804d1a88deca0e06a14892bb89f7f1d5cc1c06e52ba69404a9c5ac650b616"
+    },
+    "public_exact_verifier": {
+      "SHA256": "c4a0159c443f39c5afd7990331680bd8dcb5fd5b230f35176bedba5c8c22aabc",
+      "file": "verify_period23_certificate.py"
+    },
+    "source_binary64": {
+      "SHA256": "aa4309d424f599b66967dfae22ed9a61e36dd6b4c34f7cd197ae3d21c6e18a28",
+      "file": "period23_source_binary64.npz"
+    },
+    "upstream_Kimi_exact_verifier": {
+      "SHA256": "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829",
+      "file": "exp19b_exact_yt.py"
+    }
+  },
+  "checks": {
+    "all_source_arrays_are_exposed": true,
+    "certificate_is_valid": true,
+    "source_SHA256_matches_expected": true
+  },
+  "claim_boundary": "This certificate proves an exact minimal period-23 orbit for one fixed m=3 dyadic QP and exact Schur stability of its strict-cell return map. Together with the positive strict-cell margin, this gives local attraction of the periodic orbit in the canonical reduced (y,t) state. The margin is not an explicit basin radius, and the result is not a parameter interval, a full ambient-state ball, or a global theorem for all instances or initializations.",
+  "instance_id": "identity_slack_p23_dyadic_v1",
+  "schema_version": 1,
+  "source_array_encoding": "The manifest exposes shape, dtype, C-order byte hash, binary64 hexadecimal value, and exact Fraction value for every floating source entry. Integer entries are exposed as exact integers.",
+  "source_arrays": {
+    "A": {
+      "C_order_data_SHA256": "9743398760eca28824e2b4c7a094d9ec93fc1db379b15b090309759dc507f66d",
+      "binary64_hex": [
+        [
+          "0x1.1c76d3d396dc4p-3",
+          "0x1.106838ed7f136p-6",
+          "0x1.07f8412c43906p-2"
+        ],
+        [
+          "0x1.106838ed7f135p-6",
+          "0x1.0968571d39b5cp-4",
+          "0x1.c41a907d67aedp-5"
+        ],
+        [
+          "0x1.07f8412c43906p-2",
+          "0x1.c41a907d67aedp-5",
+          "0x1.d5743c59ee5e5p-1"
+        ]
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        [
+          "1251086649154417/9007199254740992",
+          "2396118355540123/144115188075855872",
+          "2321902427315331/9007199254740992"
+        ],
+        [
+          "4792236711080245/288230376151711744",
+          "1167274877970135/18014398509481984",
+          "7953493584673517/144115188075855872"
+        ],
+        [
+          "2321902427315331/9007199254740992",
+          "7953493584673517/144115188075855872",
+          "8258722914559461/9007199254740992"
+        ]
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3,
+        3
+      ]
+    },
+    "B": {
+      "C_order_data_SHA256": "ee91ae4c3b72939d92b1af2149a6b8c32a3896b6987b9d87a428e63390790f2f",
+      "binary64_hex": [
+        [
+          "0x1.0c362a3fbba96p-4",
+          "0x1.2e06342baf1cap-6",
+          "0x1.ecc66f9297ed5p-5"
+        ],
+        [
+          "0x1.2e06342baf1cbp-6",
+          "0x1.21648f8279e27p-3",
+          "0x1.0b8b3dd7d2a76p-2"
+        ],
+        [
+          "0x1.ecc66f9297ed6p-5",
+          "0x1.0b8b3dd7d2a77p-2",
+          "0x1.d3df1309e55e4p-1"
+        ]
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        [
+          "2359214026382667/36028797018963968",
+          "2656633253361893/144115188075855872",
+          "8668991940296405/144115188075855872"
+        ],
+        [
+          "5313266506723787/288230376151711744",
+          "5091052237594151/36028797018963968",
+          "2353341140997435/9007199254740992"
+        ],
+        [
+          "4334495970148203/72057594037927936",
+          "4706682281994871/18014398509481984",
+          "2057720109176185/2251799813685248"
+        ]
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3,
+        3
+      ]
+    },
+    "F": {
+      "C_order_data_SHA256": "05eefa520814ab84a431d82d7ba2b2bda9532b69a5d0ecdf05c7e00abe24a158",
+      "binary64_hex": [
+        [
+          "0x1.d3f5048d7e927p-1",
+          "-0x1.2093cc556d1dap-6",
+          "-0x1.17a39d188fb97p-2"
+        ],
+        [
+          "-0x1.2093cc556d1dap-6",
+          "0x1.fc263b0552123p-1",
+          "-0x1.def0dc870ae05p-5"
+        ],
+        [
+          "-0x1.17a39d188fb97p-2",
+          "-0x1.def0dc870ae05p-5",
+          "0x1.6fc9da73b84c0p-4"
+        ]
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        [
+          "8232388376652071/9007199254740992",
+          "-2538353097140461/144115188075855872",
+          "-4919463351221143/18014398509481984"
+        ],
+        [
+          "-2538353097140461/144115188075855872",
+          "8939457693950243/9007199254740992",
+          "-8425616801050117/144115188075855872"
+        ],
+        [
+          "-4919463351221143/18014398509481984",
+          "-8425616801050117/144115188075855872",
+          "101096930209299/1125899906842624"
+        ]
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3,
+        3
+      ]
+    },
+    "G": {
+      "C_order_data_SHA256": "d3c4fb62c5edf13b633ad480c11965fe456f54aaf471836d2b31fcdd502362bd",
+      "binary64_hex": [
+        [
+          "0x1.fbc72d186b991p-1",
+          "-0x1.3ff3d9840afefp-6",
+          "-0x1.050364ae1a625p-4"
+        ],
+        [
+          "-0x1.3ff3d9840afefp-6",
+          "0x1.d2a6dc37e30a8p-1",
+          "-0x1.1b6cea2af7cddp-2"
+        ],
+        [
+          "-0x1.050364ae1a625p-4",
+          "-0x1.1b6cea2af7cddp-2",
+          "0x1.7d338c87c8540p-4"
+        ]
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        [
+          "8932925605591441/9007199254740992",
+          "-5628664569966575/288230376151711744",
+          "-4591793742128677/72057594037927936"
+        ],
+        [
+          "-5628664569966575/288230376151711744",
+          "1026178155529749/1125899906842624",
+          "-4986073213009117/18014398509481984"
+        ],
+        [
+          "-4591793742128677/72057594037927936",
+          "-4986073213009117/18014398509481984",
+          "104783832805909/1125899906842624"
+        ]
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3,
+        3
+      ]
+    },
+    "b": {
+      "C_order_data_SHA256": "689584bb5efacedffcf9414c4d6bd72988dd3f39e3f26c61c954e61797a340ab",
+      "binary64_hex": [
+        "-0x1.e0b493b10f2efp-4",
+        "-0x1.250b78a940f3ap-4",
+        "0x1.88bc6486b6cecp-1"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "-8456658452804335/72057594037927936",
+        "-2577649407494045/36028797018963968",
+        "1727270793960251/2251799813685248"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "c1": {
+      "C_order_data_SHA256": "78e97615916047598db4346f459a51ba970745a3216d92fe8b4e0ca2ccb31ab1",
+      "binary64_hex": [
+        "0x1.57c771b535360p-2",
+        "-0x1.51e1022bb8da5p+0",
+        "-0x1.bee72c84abc16p-2"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "188994547260059/562949953421312",
+        "-5944029161950629/4503599627370496",
+        "-3931000562605579/9007199254740992"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "c2": {
+      "C_order_data_SHA256": "0ca282d37afe2c7a3bafca40e535d228b6207fcde79858bf8f1f438e45f9bf0f",
+      "binary64_hex": [
+        "-0x1.407404451beacp-2",
+        "0x1.0e29f3e475d2fp-1",
+        "-0x1.1985d7c00101ap-1"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "-1409368034930603/4503599627370496",
+        "4752773199912239/9007199254740992",
+        "-2476300941920269/4503599627370496"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "lam": {
+      "C_order_data_SHA256": "18f0b09ad2a6483697f3e683e866067d38c915c1f848fe4fc99cb8096bbd9987",
+      "binary64_hex": [
+        "-0x1.2be6d87ae6603p+0",
+        "-0x1.1344f8dd4f4adp+0",
+        "0x0.0p+0"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "-5275927217858051/4503599627370496",
+        "-4842590890685613/4503599627370496",
+        "0"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "per": {
+      "C_order_data_SHA256": "44a0c9eb605abc6ccafaf2c206ad0082bf6804cd65552e81197414da35271d0d",
+      "dtype": "int64",
+      "exact_integer": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        4,
+        4,
+        0,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "interpretation": "exact signed integer",
+      "numpy_dtype_descriptor": "<i8",
+      "shape": [
+        23
+      ]
+    },
+    "rho": {
+      "C_order_data_SHA256": "38b81fd3a9a8928267e182b1582fa661a400b19921dda1699b9792f56b309e9b",
+      "binary64_hex": "0x1.89c1c955b4d34p-1",
+      "dtype": "float64",
+      "exact_dyadic": "1731761504965453/2251799813685248",
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": []
+    },
+    "vfix": {
+      "C_order_data_SHA256": "0a1b13e74d05612beaefc1245eb39ffb4aa15ad37e708109fa059f4bcac440d5",
+      "binary64_hex": [
+        "-0x1.cce6d9682b6c5p-1",
+        "0x1.0dffda70e3ba1p+0",
+        "-0x1.756767b503499p+0",
+        "0x1.d324826892fcep-3",
+        "-0x1.108254cf10b10p+0",
+        "-0x1.730957717dd85p-1",
+        "0x1.5ba324aded312p-4",
+        "-0x1.207e1ee9df9b1p+1",
+        "0x1.9a3b611e25ec6p+1"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "-8108269419804357/9007199254740992",
+        "4749880149818273/4503599627370496",
+        "-6568991339328665/4503599627370496",
+        "4109029895084007/18014398509481984",
+        "-299626931359921/281474976710656",
+        "-6527342970658181/9007199254740992",
+        "3057849839085961/36028797018963968",
+        "-5075216533158321/2251799813685248",
+        "3608438398594915/1125899906842624"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        9
+      ]
+    },
+    "xs": {
+      "C_order_data_SHA256": "867bdc942729d9b88309b54c90b08be6522d82b3434fb18c446588f036047c38",
+      "binary64_hex": [
+        "-0x1.31a6fc968dd94p-1",
+        "0x1.37ed8708a79f9p+0",
+        "-0x1.7cbb582195209p-3"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "-1344272995071845/2251799813685248",
+        "5487492623661561/4503599627370496",
+        "-6697904896561673/36028797018963968"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "ys": {
+      "C_order_data_SHA256": "8961738076d06aab4f6073d455f1f43b3b9560316f1226b5a5a6e83579bff5db",
+      "binary64_hex": [
+        "0x1.93d2d89b7d689p-3",
+        "-0x1.94f18fc974142p-1",
+        "-0x1.5bd58f8e6d8efp-4"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "7104140211115657/36028797018963968",
+        "-3561921576673441/4503599627370496",
+        "-6119164341573871/72057594037927936"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    },
+    "z": {
+      "C_order_data_SHA256": "88619c1daabf99158bf2b6ae2ae6158c76a473cc3bda2b94140ea6f1daa29eed",
+      "binary64_hex": [
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.4bea75c1f52cfp+0"
+      ],
+      "dtype": "float64",
+      "exact_dyadic": [
+        "0",
+        "0",
+        "5839125548585679/4503599627370496"
+      ],
+      "interpretation": "IEEE-754 binary64, interpreted as an exact dyadic rational",
+      "numpy_dtype_descriptor": "<f8",
+      "shape": [
+        3
+      ]
+    }
+  },
+  "source_field_semantics": {
+    "rho": "exploratory binary64 estimate of the return-map spectral radius; it is not the ADMM penalty parameter",
+    "vfix": "exploratory stored full-state fixed-point candidate"
+  },
+  "status": "passed",
+  "valid": true
+}

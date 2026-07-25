@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "route_id": "kimi-period23",
+  "inventory_scope": "curated public terminal-equivalent assets plus explicit post-terminal boundary",
+  "common_endpoint_result": {
+    "instance_id": "identity_slack_p23_dyadic_v1",
+    "dimension": 3,
+    "period": 23,
+    "arithmetic": "exact dyadic rational derived from stored binary64 values",
+    "projection_word": "5^5 6^7 4^2 0 4^8",
+    "strict_projection_checks": 69,
+    "strict_margin_lower_bound": "7/1000",
+    "return_matrix_spectral_radius_approx": 0.7690566
+  },
+  "terminal_or_terminal_equivalent_artifacts": [
+    {
+      "path": "certificates/period23_source_binary64.npz",
+      "role": "source binary64 candidate data",
+      "exact_interpretation": "each stored binary64 value is converted to its exact dyadic rational"
+    },
+    {
+      "path": "python/verify_period23_certificate.py",
+      "role": "self-contained exact replay and Jury verifier"
+    },
+    {
+      "path": "certificates/period23_certificate.json",
+      "role": "stable exact replay and Jury result"
+    }
+  ],
+  "curated_packaging_metadata": [
+    {
+      "path": "certificates/period23_instance_manifest.json",
+      "role": "canonical exact instance data, source hashes, and certificate contract",
+      "terminal_run_artifact": false
+    }
+  ],
+  "later_companion_artifacts": [
+    {
+      "artifact_id": "explicit_rational_invariant_ellipsoid",
+      "description": "A rational Lyapunov ellipsoid e^T P e < 1/2000 certifying a concrete open set of reduced initializations.",
+      "terminal_run_artifact": false,
+      "retained_here": false,
+      "repository_path": null,
+      "attribution_note": "Constructed after the terminal Kimi run; do not attribute it to the terminal artifact set."
+    }
+  ],
+  "manuscript_later_snapshot_not_common_endpoint": {
+    "first_scan_instances": 30000,
+    "first_scan_modes": 742752,
+    "projector_scan_instances": 40000,
+    "projector_expansion_hits": 153,
+    "final_settings": 45,
+    "saved_attracting_sequences": 8,
+    "experiment_and_test_scripts": 26,
+    "json_files": 18,
+    "npz_files": 9,
+    "retained_here_in_full": false,
+    "counting_notes": [
+      "The scans are successive or nested route records and must not be summed into a single trial count.",
+      "Saved sequences and files are not theorem counts.",
+      "The later snapshot includes assets beyond the common comparison endpoint."
+    ]
+  },
+  "excluded": [
+    "raw chat logs and session exports",
+    "credentials and private configuration",
+    "absolute local paths",
+    "teacher-provided images",
+    "caches and virtual environments",
+    "unrelated exploratory outputs"
+  ]
+}

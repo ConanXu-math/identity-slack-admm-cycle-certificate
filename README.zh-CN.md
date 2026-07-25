@@ -1,25 +1,45 @@
-# Identity-Slack 三块 ADMM 的精确周期证书
+# Identity-Slack 三块 ADMM 的精确周期不收敛证书
 
 > **当前状态：私人、投稿前版本。** 数学命题和程序接口已冻结用于内部核查，
 > 但公开归档 DOI、最终作者列表、引用信息和开源许可证尚未确定。
 
 本仓库是论文 **“Direct Three-Block ADMM Can Cycle with an Identity Slack
-Block”** 的精确证书包。它验证一个显式有理实例：原始、未经修正的直接
-三块 ADMM 存在一个有界、严格可容许、非 KKT 的最小周期 66 轨道，而对应优化
-问题仍有唯一 KKT 点。
+Block”** 的精确证书包。它验证两个显式实例：原始、未经修正的直接三块 ADMM
+存在有界、严格可容许、非 KKT 的周期序列，而对应优化问题仍有唯一 KKT 点。
 
 ## 证书结论
 
-- 冻结实例：`identity_slack_p66_short_v1`
-- 模型：`A = B = I_2`，第三块为非负 identity slack，`beta = 1`
-- mask word：`(00)^2(01)^64`
-- 最小周期：`66`
-- 严格符号检查：`132/132` 通过
-- 最小符号裕量：`0.0037105246944352910173... > 1/1000`
-- 结论边界：证明有界周期不收敛，不声称无界发散，也不否定带附加条件或修正
-  步骤的 ADMM 收敛定理
+| 证书 ID | 维数 | 严格结论 | 验证方式 |
+| --- | ---: | --- | --- |
+| `identity_slack_p66_short_v1` | 2 | 最小周期 66 的有界非 KKT 序列 | reduced Python、full-state Python、MATLAB |
+| `identity_slack_p23_dyadic_v1` | 3 | canonical `(y,t)` 状态中局部吸引的最小周期 23 非 KKT 轨道 | 精确 dyadic replay 与 Jury 判据 |
 
-## 三套实现与交叉检查
+### Period 66
+
+- `A = B = I_2`，第三块为非负 identity slack，`beta = 1`；
+- mask word 为 `(00)^2(01)^64`；
+- `132/132` 个严格符号条件全部通过；
+- 最小符号裕量为 `0.0037105246944352910173... > 1/1000`；
+- 只证明有界周期不收敛，不声称无界发散。
+
+### Period 23
+
+- 三维强凸二次实例，第三块为非负 identity slack，`beta = 1`；
+- binary64 数据逐项解释为精确 dyadic rational；
+- 最小周期为 `23`，共 `69` 个投影输入严格远离零，最小裕量大于
+  `7/1000`；
+- 精确 23 步返回矩阵通过 Jury 稳定性判据，因此周期轨道在 canonical
+  `(y,t)` 状态中局部吸引；上述符号裕量不是显式吸引域半径，也不是参数区间；
+- 论文中的显式有理不变邻域是在 Kimi 终局运行之后补充的 companion
+  certificate；它不能混写成 Kimi 原始终局产物，本证书包也暂未收录。
+
+> **比较边界：** `provenance/` 中的 Codex 与 Kimi Code K3 记录是两条已实现
+> 科研路线的描述性、终点对齐比较，不是计算量、工具、遥测或人工干预受控的
+> 模型能力 benchmark。
+
+## 验证架构
+
+### Period-66 的三套实现与交叉检查
 
 1. `python/signed_cycle_certificate.py`：使用四维 signed state `s = (y,q)`；
 2. `python/strict_cycle_certificate.py`：不调用上一实现，直接在六维 unreduced
@@ -35,28 +55,42 @@ Toolbox，在六维 `(y,z,lambda)` 状态上重新解精确周期方程，再用
 投影重跑全部 66 步；它不调用 Python。`python/verify_matlab_certificate.py` 只负责比较
 MATLAB 输出与冻结 Python 证书的公共字段。
 
+### Period-23 精确检查
+
+`python/verify_period23_certificate.py` 读取冻结 NPZ，将每个 binary64 数解释为
+精确 dyadic rational，并检查问题合法性、唯一 KKT 点及其原始最优性条件、严格
+投影符号、23 步精确闭合、最小周期、与 KKT 点分离以及精确 Jury 稳定性。它
+确定性生成：
+
+- `certificates/period23_certificate.json`；
+- `certificates/period23_instance_manifest.json`。
+
+manifest 同时记录数组 shape、dtype、binary64 bit pattern、精确 dyadic 数值以及
+输入和 verifier 的 SHA-256；运行时间不进入冻结证书。
+
 ## 一键复现
 
-冻结环境为 Python 3.13.5 和 SymPy 1.13.3：
+冻结环境为 Python 3.13.5、SymPy 1.13.3 和 NumPy 2.1.3：
 
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python python/verify_certificate_pair.py
+python python/verify_all.py
 ```
 
 成功输出必须包含：
 
 ```json
-{"instance_id": "identity_slack_p66_short_v1", "valid": true}
+{"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
 如需检查生成文件与仓库冻结版本完全一致：
 
 ```bash
-python python/verify_certificate_pair.py
+python python/verify_all.py
+python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py
 git diff --exit-code -- certificates/
 ```
@@ -97,7 +131,8 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 .
 ├── python/        # Python 精确实现与比较入口
 ├── matlab/        # MATLAB 实现、测试和说明
-├── certificates/  # 冻结的机器可读 JSON 证书
+├── certificates/  # 冻结输入与机器可读证书
+├── provenance/    # 路线级统计与证据边界
 ├── docs/          # 复现与发布文档
 └── .github/       # 持续集成与仓库规则
 ```
@@ -108,10 +143,13 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 | `python/strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
 | `python/signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
 | `python/verify_certificate_pair.py` | 重新生成、比较并哈希两套 Python 证书 |
+| `python/verify_period23_certificate.py` | Period-23 精确 dyadic replay 与 Jury 检查 |
+| `python/verify_all.py` | 顺序运行两条证书路径并透传失败 |
 | `matlab/verify_exact_cycle_matlab.m` | 六维状态的独立 MATLAB 精确检查器 |
 | `matlab/tests/VerifyExactCycleMatlabTest.m` | MATLAB class-based 回归测试 |
 | `python/verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
-| `certificates/` | 四份稳定机器可读证书 |
+| `certificates/` | 稳定输入与机器可读证书 |
+| `provenance/` | 描述性路线记录，不构成受控 benchmark |
 | `docs/REPRODUCIBILITY.md` | 证明义务和发布契约 |
 
 ## 公开发布前

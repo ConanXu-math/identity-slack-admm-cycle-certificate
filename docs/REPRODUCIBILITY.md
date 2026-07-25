@@ -2,19 +2,26 @@
 
 ## Scope
 
-This repository certifies one frozen theorem instance:
+This repository certifies two frozen theorem instances:
 
 ```text
 instance_id = identity_slack_p66_short_v1
+dimension   = 2
 period      = 66
 word        = (00)^2(01)^64
 threshold   = 1/1000
+
+instance_id = identity_slack_p23_dyadic_v1
+dimension   = 3
+period      = 23
+word        = 5^5 6^7 4^2 0 4^8
+threshold   = 7/1000
 ```
 
 Search scripts, exploratory floating-point candidates, longer legacy
 instances, and multiplier-relaxation experiments are intentionally excluded.
 
-## Exact proof obligations
+## Period-66 exact proof obligations
 
 The generated certificates close the following finite obligations:
 
@@ -36,7 +43,37 @@ The generated certificates close the following finite obligations:
 9. The lag cross term has one exact positive witness and one exact negative
    witness.
 
-## Implementation separation
+## Period-23 exact proof obligations
+
+The period-23 certificate closes the following finite obligations:
+
+1. Every stored binary64 input is interpreted as its exact dyadic-rational
+   value and recorded canonically in the instance manifest.
+2. `F` and `G` are symmetric positive definite and `A` and `B` are
+   nonsingular.
+3. The affine fixed point in the KKT projection cone is unique, lies in that
+   cone, and satisfies primal feasibility, both stationarity equations,
+   slack and multiplier signs, and complementarity exactly.
+4. The prescribed 23-region word is realized exactly by the reduced `(y,t)`
+   map.
+5. All 69 projection inputs are strict, with minimum margin greater than
+   `7/1000`.
+6. The 23 phase states are pairwise distinct and phase 23 returns exactly to
+   phase 0, establishing minimal period 23.
+7. The periodic sequence differs from the KKT point.
+8. The exact characteristic polynomial of the 23-step return matrix passes
+   the Jury stability criterion.
+
+The explicit rational invariant-neighborhood certificate in the manuscript
+is a later companion artifact and is not part of the terminal Kimi certificate
+defined above.
+
+The strict-cell margin is not an explicit basin radius.  Exact Jury stability
+and strict cell membership prove existence of a locally attracting periodic
+orbit in the canonical reduced `(y,t)` state; they do not certify a parameter
+interval, an arbitrary full ambient-state ball, or global attraction.
+
+## Period-66 implementation separation
 
 The signed checker implements the reduced recurrence on `(y,q)`.  The
 six-dimensional checker independently reconstructs affine maps on the
@@ -56,17 +93,22 @@ invoke either Python checker.  `python/verify_matlab_certificate.py` is delibera
 only a result comparator: it reads JSON and checks common exact rational
 fields, the KKT point, and the initial raw state.
 
-## Deterministic command
+## Deterministic commands
+
+Run both public Python certificate paths with:
 
 ```bash
-python python/verify_certificate_pair.py
+python python/verify_all.py
+python -m unittest discover -s tests -p "test_*.py"
 ```
 
-Acceptance requires both:
+Acceptance requires:
 
 ```text
 process exit status = 0
 certificates/instance_manifest.json.valid = true
+certificates/period23_certificate.json.valid = true
+certificates/period23_instance_manifest.json.valid = true
 ```
 
 The committed outputs must remain unchanged after regeneration:
@@ -109,14 +151,21 @@ certificate JSON.
 ```text
 Python 3.13.5
 SymPy  1.13.3
+NumPy  2.1.3
 MATLAB  R2025a (25.1.0.2943329)
 Symbolic Math Toolbox 25.1
 ```
 
-All theorem predicates use SymPy exact rationals and exact comparisons.  A
-different compatible runtime may reproduce the same mathematical object, but
-the release manifest and continuous-integration workflow are pinned to the
+The period-66 checkers use SymPy exact rationals.  The period-23 checker uses
+`fractions.Fraction` after reading binary64 arrays with NumPy, so every
+arithmetic predicate is evaluated on exact dyadic rationals.  A different
+compatible runtime may reproduce the same mathematical objects, but the
+release manifests and continuous-integration workflow are pinned to the
 versions above.
+
+The period-23 source field `rho` is an exploratory binary64 estimate of the
+return-map spectral radius, not the ADMM penalty parameter.  The certified
+ADMM recurrence uses penalty parameter `1`.
 
 ## Artifact meanings
 
@@ -129,6 +178,12 @@ versions above.
 - `certificates/certificate_matlab.json`: generated result of the independent MATLAB
   checker; it is accepted only when both the MATLAB unit test and
   `python/verify_matlab_certificate.py` pass.
+- `certificates/period23_source_binary64.npz`: frozen source container for the
+  period-23 instance.
+- `certificates/period23_certificate.json`: stable exact replay, strict-sign,
+  minimal-period, non-KKT, and Jury verdicts.
+- `certificates/period23_instance_manifest.json`: canonical shapes, dtypes,
+  binary64 bit patterns, exact dyadic values, and source/verifier hashes.
 
 The JSON files are theorem evidence only together with the checker sources and
 the immutable commit that generated them.
@@ -140,6 +195,8 @@ Before changing repository visibility to public:
 - rerun the certificate in a clean checkout;
 - confirm the GitHub Actions workflow passes;
 - generate and freeze `certificates/certificate_matlab.json` under a valid MATLAB license;
+- confirm that the period-23 NPZ and canonical exact manifest agree;
+- run an independent secret and privacy scan on the release tree;
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;
 - add final citation and author metadata;
