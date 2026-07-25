@@ -1,4 +1,4 @@
-# Exact Period-66 Certificate for Identity-Slack Three-Block ADMM
+# Exact Periodic Nonconvergence Certificates for Identity-Slack Three-Block ADMM
 
 [![Exact certificate](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
 
@@ -7,23 +7,24 @@
 > review, but the public archive DOI, final author list, citation metadata, and
 > open-source license have not yet been assigned.
 
-This repository contains the exact-arithmetic certificate accompanying the
+This repository contains the exact-arithmetic certificates accompanying the
 manuscript **“Direct Three-Block ADMM Can Cycle with an Identity Slack
-Block.”**  It verifies an explicit rational instance for which the unmodified
-direct three-block ADMM has a bounded, strictly admissible, non-KKT periodic
-orbit of minimal period 66, even though the optimization problem has a unique
-KKT point.  The manuscript also proves that the strict primitive cycle
-persists on an open parameter neighborhood and gives exact, deliberately
-local certificates showing how multiplier relaxation stabilizes the frozen
-instance near `tau = 1/2`.
+Block.”**  It verifies two explicit instances for which the unmodified direct
+three-block ADMM has a bounded, strictly admissible, non-KKT periodic
+sequence, even though each optimization problem has a unique KKT point.
 
 The repository is a verification package, not a numerical-search archive.  It
-contains the frozen instance, separately implemented Python and MATLAB exact
-checkers, comparison drivers, tests, machine-readable certificates, and the
-compiled manuscript PDF.  Exploratory search histories and manuscript
-authoring sources remain outside this release.
+contains frozen instances, exact checkers, comparison drivers, route-level
+provenance, and machine-readable certificates.
 
-## Certified statement
+## Certified results
+
+| Certificate ID | Dimension | Certified conclusion | Verification |
+| --- | ---: | --- | --- |
+| `identity_slack_p66_short_v1` | 2 | Bounded non-KKT sequence of minimal period 66 | reduced Python, full-state Python, MATLAB |
+| `identity_slack_p23_dyadic_v1` | 3 | Minimal period-23 non-KKT orbit, locally attracting in canonical `(y,t)` state | exact dyadic replay and Jury stability |
+
+### Period 66
 
 - Model: two-dimensional pure-quadratic problem with `A = B = I_2`, an
   identity nonnegative slack block, and penalty parameter `beta = 1`.
@@ -35,26 +36,52 @@ authoring sources remain outside this release.
   `0.0037105246944352910173... > 1/1000`.
 - The strict primitive word and its period-66 orbit persist on an open
   neighborhood of the rational parameters.
-- Proof boundary: bounded periodic nonconvergence; no claim of unbounded
-  divergence or failure of every modified ADMM scheme.
+- Proof boundary: bounded periodic nonconvergence only; no claim of unbounded
+  divergence or failure of ADMM variants with additional assumptions or
+  correction steps.
 
-## Certified multiplier-relaxation results
+### Period 23
 
-For the same rational QP, with the multiplier step changed from `1` to `tau`,
-the exact certificate proves three narrower statements:
+- Model: three-dimensional strongly convex quadratic problem with a
+  nonnegative identity slack block and penalty parameter `beta = 1`.
+- Instance identifier: `identity_slack_p23_dyadic_v1`.
+- Stored binary64 values are interpreted exactly as dyadic rationals.
+- Minimal period: `23`.
+- All `69` projection inputs are separated from zero, with exact minimum
+  margin greater than `7/1000`.
+- The exact 23-step return matrix satisfies the Jury stability criterion, so
+  the periodic orbit is locally attracting in the canonical reduced `(y,t)`
+  state.  The sign margin is not an explicit basin radius or a parameter
+  interval.
+- The explicit rational invariant-neighborhood certificate used in the
+  manuscript was added after the terminal Kimi run and is not included in
+  this terminal-equivalent package.
+
+### Multiplier relaxation for the period-66 instance
+
+For the same rational QP, with multiplier step size `tau`, the exact
+certificate proves three local statements:
 
 - one rational Lyapunov matrix works on the strict KKT branch for every
   `tau in [49/100, 51/100]`;
-- the former period-66 initial state follows the certified strict prefix for
+- the former period-66 initial state follows a certified strict prefix for
   232 steps and enters the invariant Lyapunov ellipsoid for every
   `tau in [1/2 - 10^-10, 1/2 + 10^-10]`;
 - the strict KKT branch has a unique Schur boundary in `(0,1)`, bracketed by
   `0.9366061114 < tau_c < 0.9366061115`.
 
-These statements do **not** prove global convergence from arbitrary initial
-points, nor a uniform theorem for all identity-slack problems.
+These statements do not prove global convergence from arbitrary initial
+points or a uniform convergence theorem for the model class.
+
+> [!IMPORTANT]
+> The Codex and Kimi Code K3 records in `provenance/` are a descriptive,
+> endpoint-aligned comparison of two realized research routes.  The runs were
+> not matched in compute, tools, telemetry, or human intervention and do not
+> support a causal ranking of model capability.
 
 ## Verification architecture
+
+### Period-66 certificate
 
 The Python implementation uses two state representations:
 
@@ -78,26 +105,41 @@ projection.  It does not call Python.  The small Python utility
 `python/verify_matlab_certificate.py` only compares the resulting JSON fields with
 the frozen Python artifacts.
 
-`python/certify_relaxed_multiplier_interval_theory.py` reconstructs the
-parameterized six-dimensional branch map from the original four updates.  It
-uses exact Sylvester tests, a rational finite-prefix enclosure, Schur
-recursion, and Sturm root counting.  The targeted tests independently replay
-both endpoints of the capture interval.
-
 `python/export_orbit_66.py` writes all 66 cyclic phases to
 `certificates/orbit_66.json`.  This is a complete exact data rendering, not an
-additional proof or independent implementation.
+additional proof.
+
+`python/certify_relaxed_multiplier_interval_theory.py` reconstructs the
+parameterized six-dimensional branch map from the original ADMM updates and
+checks the Lyapunov interval, finite-prefix capture, and Schur boundary by
+exact algebra.
+
+### Period-23 certificate
+
+`python/verify_period23_certificate.py` loads the frozen binary64 source data,
+converts every entry to its exact dyadic-rational value, rebuilds the
+six-dimensional `(y,t)` branch maps, and checks instance validity, the unique
+KKT point and its raw optimality conditions, strict projection signs, exact
+23-step closure, minimality, separation from the KKT point, and exact Jury
+stability.  It deterministically regenerates:
+
+- `certificates/period23_certificate.json`;
+- `certificates/period23_instance_manifest.json`.
+
+The manifest records shapes, dtypes, binary64 bit patterns, exact dyadic
+values, and source/verifier hashes.  Runtime telemetry is intentionally
+excluded from the frozen certificate.
 
 ## Quick reproduction
 
-The frozen runtime is Python 3.13.5 with SymPy 1.13.3 and pytest 8.3.4.
+The frozen runtime is Python 3.13.5 with SymPy 1.13.3 and NumPy 2.1.3.
 
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python python/verify_certificate_pair.py
+python python/verify_all.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
@@ -106,18 +148,16 @@ python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
 Expected terminal summary:
 
 ```json
-{
-  "instance_id": "identity_slack_p66_short_v1",
-  "output": ".../certificates/instance_manifest.json",
-  "valid": true
-}
+{"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
-These commands rewrite the following tracked artifacts deterministically:
+The command rewrites the following tracked artifacts deterministically:
 
 - `certificates/certificate_raw.json`
 - `certificates/certificate_signed.json`
 - `certificates/instance_manifest.json`
+- `certificates/period23_certificate.json`
+- `certificates/period23_instance_manifest.json`
 - `certificates/orbit_66.json`
 - `certificates/relaxed_multiplier_certificate.json`
 - `certificates/relaxed_multiplier_summary.md`
@@ -128,7 +168,11 @@ The MATLAB command similarly rewrites the tracked artifact
 To confirm that a checkout reproduces the committed certificate exactly, run:
 
 ```bash
-python python/verify_certificate_pair.py
+python python/verify_all.py
+python python/export_orbit_66.py
+python python/certify_relaxed_multiplier_interval_theory.py
+python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
+python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py
 git diff --exit-code -- certificates/
 ```
@@ -176,9 +220,10 @@ push without that private-project token requirement.
 .
 ├── python/        # Python exact implementations and comparison drivers
 ├── matlab/        # MATLAB implementation, tests, and local instructions
-├── certificates/  # Frozen certificates, summaries, and complete orbit data
+├── certificates/  # Frozen inputs and machine-readable certificate artifacts
+├── provenance/    # Route-level accounting and evidence boundaries
 ├── docs/          # Reproducibility and release documentation
-├── paper/         # Compiled manuscript PDF only
+├── paper/         # Compiled manuscript PDF
 └── .github/       # Continuous-integration workflows and ownership rules
 ```
 
@@ -188,25 +233,29 @@ push without that private-project token requirement.
 | `python/strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
 | `python/signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
 | `python/verify_certificate_pair.py` | Regenerates, compares, and hashes both Python certificates |
-| `python/export_orbit_66.py` | Exports every exact cyclic phase as machine-readable data |
+| `python/verify_period23_certificate.py` | Exact dyadic period-23 replay and Jury verifier |
+| `python/verify_all.py` | Runs both certificate paths and propagates failures |
+| `python/export_orbit_66.py` | Exports every exact period-66 phase as machine-readable data |
 | `python/certify_relaxed_multiplier_interval_theory.py` | Certifies the local multiplier-relaxation intervals and Schur boundary |
-| `python/tests/test_relaxed_multiplier_interval_theory.py` | Direct-replay and algebraic regression tests for the relaxation certificate |
+| `python/tests/test_relaxed_multiplier_interval_theory.py` | Direct-replay and algebraic regression tests for multiplier relaxation |
 | `matlab/verify_exact_cycle_matlab.m` | Independent exact MATLAB checker on `(y,z,lambda)` |
 | `matlab/tests/VerifyExactCycleMatlabTest.m` | Class-based MATLAB regression test |
 | `python/verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
-| `certificates/` | Stable machine-readable certificate bundle |
-| `paper/slack_admm_arxiv.pdf` | Compiled manuscript; authoring sources are intentionally not distributed here |
+| `certificates/` | Stable source data and machine-readable certificate bundle |
+| `provenance/` | Descriptive route records; not a controlled benchmark |
+| `paper/slack_admm_arxiv.pdf` | Compiled manuscript; authoring sources are intentionally excluded |
 | `docs/REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
 | `.github/workflows/certificate.yml` | Clean GitHub Actions reproduction |
 | `.github/workflows/matlab-certificate.yml` | Manual licensed MATLAB reproduction |
 
 ## Acceptance rule
 
-The process exits successfully only when every exact predicate passes.  The
-two counterexample representations must agree on every shared certificate
-field, and the separate relaxation predicates and regression tests must all
-pass.  No floating-point tolerance is used for theorem acceptance.  Decimal
-values are included only as readable renderings of exact rationals.
+The process exits successfully only when every result-specific exact
+predicate passes; the period-66 representations must additionally agree on
+every shared certificate field, and the multiplier-relaxation predicates and
+regression tests must pass.  No floating-point tolerance is used for period
+closure, minimality, projection signs, Jury acceptance, or the relaxation
+certificate.
 
 ## Versioning and release status
 

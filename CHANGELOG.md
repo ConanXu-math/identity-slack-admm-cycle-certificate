@@ -4,15 +4,21 @@ All notable changes to the certificate package will be recorded here.
 
 ## Unreleased
 
-- Keep `paper/` PDF-only and remove the TeX source, bibliography, figure
-  sources, and manuscript working files from the repository.
+- Keep `paper/` PDF-only and exclude manuscript working files from the
+  repository.
+- Add the frozen Kimi Code K3 period-23 binary64 source, its exact
+  dyadic-rational replay, source manifest, and exact Jury-stability
+  certificate.
+- Add a unified Python verification entry point, regression tests, and CI
+  coverage for both the period-66 and period-23 certificates.
+- Add route-level provenance and explicit limits for the descriptive,
+  endpoint-aligned Codex/Kimi comparison.
 
 ## v0.3.0-private - 2026-07-18
 
 - Separate Python sources, MATLAB sources, generated certificates, and
   reproducibility documentation into dedicated top-level directories.
-- Add the arXiv manuscript source, compiled PDF, bibliography, and vector
-  figures under `paper/`.
+- Add the compiled manuscript PDF under `paper/`.
 - Prove that the strict primitive period-66 orbit persists on an open
   parameter neighborhood, while keeping the explicit rational instance as
   the frozen reproducibility target.

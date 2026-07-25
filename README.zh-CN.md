@@ -1,29 +1,42 @@
-# Identity-Slack 三块 ADMM 的精确周期证书
+# Identity-Slack 三块 ADMM 的精确周期不收敛证书
 
 > **当前状态：私人、投稿前版本。** 数学命题和程序接口已冻结用于内部核查，
 > 但公开归档 DOI、最终作者列表、引用信息和开源许可证尚未确定。
 
 本仓库是论文 **“Direct Three-Block ADMM Can Cycle with an Identity Slack
-Block”** 的精确证书包。它验证一个显式有理实例：原始、未经修正的直接
-三块 ADMM 存在一个有界、严格可容许、非 KKT 的最小周期 66 轨道，而对应优化
-问题仍有唯一 KKT 点。论文还证明该严格 primitive 周期轨道在参数开邻域内保持，
-并给出一组范围明确的精确证书，说明乘子松弛在 `tau = 1/2` 附近如何稳定这一
-冻结实例。
+Block”** 的精确证书包。它验证两个显式实例：原始、未经修正的直接三块 ADMM
+存在有界、严格可容许、非 KKT 的周期序列，而对应优化问题仍有唯一 KKT 点。
 
 ## 证书结论
 
-- 冻结实例：`identity_slack_p66_short_v1`
-- 模型：`A = B = I_2`，第三块为非负 identity slack，`beta = 1`
-- mask word：`(00)^2(01)^64`
-- 最小周期：`66`
-- 严格符号检查：`132/132` 通过
-- 最小符号裕量：`0.0037105246944352910173... > 1/1000`
-- 严格 primitive word 及其周期 66 轨道在有理参数的一个开邻域内保持
-- 结论边界：证明有界周期不收敛，不声称无界发散，也不否定所有修正 ADMM
+| 证书 ID | 维数 | 严格结论 | 验证方式 |
+| --- | ---: | --- | --- |
+| `identity_slack_p66_short_v1` | 2 | 最小周期 66 的有界非 KKT 序列 | reduced Python、full-state Python、MATLAB |
+| `identity_slack_p23_dyadic_v1` | 3 | canonical `(y,t)` 状态中局部吸引的最小周期 23 非 KKT 轨道 | 精确 dyadic replay 与 Jury 判据 |
 
-## 乘子松弛的精确结论
+### Period 66
 
-在同一个有理 QP 上，把乘子步长从 `1` 改成 `tau`，证书证明：
+- `A = B = I_2`，第三块为非负 identity slack，`beta = 1`；
+- mask word 为 `(00)^2(01)^64`；
+- `132/132` 个严格符号条件全部通过；
+- 最小符号裕量为 `0.0037105246944352910173... > 1/1000`；
+- 该严格 primitive word 及周期 66 轨道在有理参数的一个开邻域内保持；
+- 只证明有界周期不收敛，不声称无界发散。
+
+### Period 23
+
+- 三维强凸二次实例，第三块为非负 identity slack，`beta = 1`；
+- binary64 数据逐项解释为精确 dyadic rational；
+- 最小周期为 `23`，共 `69` 个投影输入严格远离零，最小裕量大于
+  `7/1000`；
+- 精确 23 步返回矩阵通过 Jury 稳定性判据，因此周期轨道在 canonical
+  `(y,t)` 状态中局部吸引；上述符号裕量不是显式吸引域半径，也不是参数区间；
+- 论文中的显式有理不变邻域是在 Kimi 终局运行之后补充的 companion
+  certificate；它不能混写成 Kimi 原始终局产物，本证书包也暂未收录。
+
+### Period-66 实例的乘子松弛
+
+在同一个有理 QP 上，把乘子步长改为 `tau`，精确证书证明：
 
 - 对所有 `tau in [49/100, 51/100]`，严格 KKT 分支共享同一个有理 Lyapunov
   矩阵；
@@ -35,7 +48,13 @@ Block”** 的精确证书包。它验证一个显式有理实例：原始、未
 这些结论不等于任意初值的全局收敛，也不是对所有 identity-slack 问题的统一
 收敛定理。
 
-## 三套实现与交叉检查
+> **比较边界：** `provenance/` 中的 Codex 与 Kimi Code K3 记录是两条已实现
+> 科研路线的描述性、终点对齐比较，不是计算量、工具、遥测或人工干预受控的
+> 模型能力 benchmark。
+
+## 验证架构
+
+### Period-66 的三套实现与交叉检查
 
 1. `python/signed_cycle_certificate.py`：使用四维 signed state `s = (y,q)`；
 2. `python/strict_cycle_certificate.py`：不调用上一实现，直接在六维 unreduced
@@ -51,24 +70,36 @@ Toolbox，在六维 `(y,z,lambda)` 状态上重新解精确周期方程，再用
 投影重跑全部 66 步；它不调用 Python。`python/verify_matlab_certificate.py` 只负责比较
 MATLAB 输出与冻结 Python 证书的公共字段。
 
-`python/certify_relaxed_multiplier_interval_theory.py` 从四个原始 ADMM 更新重新
-构造含 `tau` 的六维分支映射，并通过精确 Sylvester 判据、有理有限前缀包络、
-Schur 递推和 Sturm 根计数完成上述松弛证书。定向测试还会直接重放捕获区间的
-两个端点。
+`python/export_orbit_66.py` 将 66 个循环相位完整写入
+`certificates/orbit_66.json`。该文件是精确数据导出，不是额外证明。
 
-`python/export_orbit_66.py` 把全部 66 个循环相位写入
-`certificates/orbit_66.json`。它是完整数据导出，不是额外证明或独立实现。
+`python/certify_relaxed_multiplier_interval_theory.py` 从原始 ADMM 更新重建含
+`tau` 的六维分支映射，并用精确代数验证 Lyapunov 区间、有限步捕获和 Schur
+边界。
+
+### Period-23 精确检查
+
+`python/verify_period23_certificate.py` 读取冻结 NPZ，将每个 binary64 数解释为
+精确 dyadic rational，并检查问题合法性、唯一 KKT 点及其原始最优性条件、严格
+投影符号、23 步精确闭合、最小周期、与 KKT 点分离以及精确 Jury 稳定性。它
+确定性生成：
+
+- `certificates/period23_certificate.json`；
+- `certificates/period23_instance_manifest.json`。
+
+manifest 同时记录数组 shape、dtype、binary64 bit pattern、精确 dyadic 数值以及
+输入和 verifier 的 SHA-256；运行时间不进入冻结证书。
 
 ## 一键复现
 
-冻结环境为 Python 3.13.5、SymPy 1.13.3 和 pytest 8.3.4：
+冻结环境为 Python 3.13.5、SymPy 1.13.3 和 NumPy 2.1.3：
 
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python python/verify_certificate_pair.py
+python python/verify_all.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
@@ -77,13 +108,17 @@ python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
 成功输出必须包含：
 
 ```json
-{"instance_id": "identity_slack_p66_short_v1", "valid": true}
+{"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
 如需检查生成文件与仓库冻结版本完全一致：
 
 ```bash
-python python/verify_certificate_pair.py
+python python/verify_all.py
+python python/export_orbit_66.py
+python python/certify_relaxed_multiplier_interval_theory.py
+python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
+python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py
 git diff --exit-code -- certificates/
 ```
@@ -124,9 +159,10 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 .
 ├── python/        # Python 精确实现与比较入口
 ├── matlab/        # MATLAB 实现、测试和说明
-├── certificates/  # 冻结证书、摘要与完整轨道数据
+├── certificates/  # 冻结输入与机器可读证书
+├── provenance/    # 路线级统计与证据边界
 ├── docs/          # 复现与发布文档
-├── paper/         # 仅保留编译后的论文 PDF
+├── paper/         # 编译后的论文 PDF
 └── .github/       # 持续集成与仓库规则
 ```
 
@@ -136,14 +172,17 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 | `python/strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
 | `python/signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
 | `python/verify_certificate_pair.py` | 重新生成、比较并哈希两套 Python 证书 |
-| `python/export_orbit_66.py` | 导出 66 个相位的完整精确轨道数据 |
-| `python/certify_relaxed_multiplier_interval_theory.py` | 验证松弛局部区间与 Schur 边界 |
+| `python/verify_period23_certificate.py` | Period-23 精确 dyadic replay 与 Jury 检查 |
+| `python/verify_all.py` | 顺序运行两条证书路径并透传失败 |
+| `python/export_orbit_66.py` | 导出全部 66 个精确循环相位 |
+| `python/certify_relaxed_multiplier_interval_theory.py` | 验证局部乘子松弛区间与 Schur 边界 |
 | `python/tests/test_relaxed_multiplier_interval_theory.py` | 松弛证书的直接重放与代数回归测试 |
 | `matlab/verify_exact_cycle_matlab.m` | 六维状态的独立 MATLAB 精确检查器 |
 | `matlab/tests/VerifyExactCycleMatlabTest.m` | MATLAB class-based 回归测试 |
 | `python/verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
-| `certificates/` | 稳定的机器可读证书与完整轨道数据 |
-| `paper/slack_admm_arxiv.pdf` | 编译后的论文；本仓库不分发排版源码 |
+| `certificates/` | 稳定输入与机器可读证书 |
+| `provenance/` | 描述性路线记录，不构成受控 benchmark |
+| `paper/slack_admm_arxiv.pdf` | 编译后的论文；不包含排版工作文件 |
 | `docs/REPRODUCIBILITY.md` | 证明义务和发布契约 |
 
 ## 公开发布前

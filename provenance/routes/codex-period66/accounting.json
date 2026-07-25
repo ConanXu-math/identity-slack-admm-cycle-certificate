@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "route_id": "codex-period66",
+  "system_label": "GPT-5.6 Sol through Codex",
+  "comparison_kind": "descriptive_endpoint_aligned",
+  "endpoint": {
+    "id": "first_exact_replayable_nonconvergence_certificate",
+    "result": "exact rational bounded non-KKT sequence of minimal period 66",
+    "same_qp_as_other_route": false
+  },
+  "paper_reported_accounting": {
+    "approximate_run_time_hours": {
+      "display": "approximately 40",
+      "value": 40,
+      "approximate": true
+    },
+    "endpoint_adjusted_active_wall_time_hours": {
+      "lower": 36,
+      "upper": 44,
+      "approximate": true,
+      "method": "estimated removal of setup and restart overhead"
+    },
+    "observed_completed_turn_active_wall_time_hours": {
+      "value": 52.14,
+      "note": "Observed before the endpoint-specific overhead adjustment."
+    },
+    "cumulative_agent_time_hours": {
+      "value": 75.06,
+      "method": "sum of completed-turn intervals",
+      "parallel_time_can_overlap": true
+    },
+    "recorded_tokens": {
+      "total": {
+        "value": 1704000000,
+        "approximate": true,
+        "display": "approximately 1.704e9"
+      },
+      "output": {
+        "value": 7869000,
+        "display": "7.869e6"
+      },
+      "total_definition": "cached input plus noncached input plus output",
+      "billable_usage_claim": false
+    },
+    "agent_topology": {
+      "top_level_rollouts": 4,
+      "subagent_rollouts": 237,
+      "unit": "recorded rollouts at the comparison endpoint"
+    }
+  },
+  "human_involvement": {
+    "present": true,
+    "roles": [
+      "problem specification",
+      "evidence requirements",
+      "search-priority decisions"
+    ]
+  },
+  "comparability_limits": {
+    "controlled_benchmark": false,
+    "compute_matched": false,
+    "intervention_matched": false,
+    "tooling_matched": false,
+    "telemetry_directly_comparable": false,
+    "causal_model_ranking_allowed": false
+  },
+  "notes": [
+    "Active wall time is not human labor, CPU time, or GPU time.",
+    "Cumulative agent time double-counts parallel overlap by design.",
+    "Token totals describe recorded traffic; tokenizer and telemetry definitions differ across routes.",
+    "The endpoint figures must not be mixed with later whole-project inventory counts."
+  ]
+}

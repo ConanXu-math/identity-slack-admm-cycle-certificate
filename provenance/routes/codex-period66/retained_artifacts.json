@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "route_id": "codex-period66",
+  "inventory_scope": "curated public package plus manuscript-reported later snapshot",
+  "common_endpoint_result": {
+    "instance_id": "identity_slack_p66_short_v1",
+    "dimension": 2,
+    "period": 66,
+    "arithmetic": "exact rational",
+    "projection_word": "(00)^2(01)^64",
+    "strict_projection_checks": 132,
+    "strict_margin_lower_bound": "1/1000"
+  },
+  "endpoint_equivalent_public_artifacts": [
+    {
+      "path": "certificates/certificate_signed.json",
+      "role": "exact signed reduced-state certificate"
+    },
+    {
+      "path": "python/signed_cycle_certificate.py",
+      "role": "generator and verifier for the signed reduced-state certificate"
+    }
+  ],
+  "curated_packaging_metadata": [
+    {
+      "path": "certificates/instance_manifest.json",
+      "role": "instance identity, canonical comparisons, and claim boundary"
+    }
+  ],
+  "additional_internal_cross_checks": [
+    {
+      "path": "certificates/certificate_raw.json",
+      "role": "exact full-state certificate"
+    },
+    {
+      "path": "python/strict_cycle_certificate.py",
+      "role": "separately implemented full-state replay"
+    },
+    {
+      "path": "python/verify_certificate_pair.py",
+      "role": "pairwise exact comparison of the reduced- and full-state certificates"
+    },
+    {
+      "path": "certificates/certificate_matlab.json",
+      "role": "MATLAB exact-replay certificate"
+    },
+    {
+      "path": "matlab/verify_exact_cycle_matlab.m",
+      "role": "independent-language exact replay"
+    },
+    {
+      "path": "python/verify_matlab_certificate.py",
+      "role": "Python-to-MATLAB certificate comparison"
+    }
+  ],
+  "claim_boundary": {
+    "logical_counterexamples": 1,
+    "cross_checks_are_external_review": false,
+    "note": "Multiple implementations reduce implementation risk for one period-66 result."
+  },
+  "manuscript_later_snapshot_not_common_endpoint": {
+    "top_level_scenario_classes": 9,
+    "nested_projection_sign_sequences_length_2_to_8": 87348,
+    "canonical_margin_patterns": 157,
+    "exact_tagged_patterns_for_one_fixed_qp": 340,
+    "collectable_pytest_items": 261,
+    "machine_readable_certificate_json_files": 68,
+    "proof_review_packages": 65,
+    "retained_here_in_full": false,
+    "counting_notes": [
+      "Search counts are nested and must not be summed.",
+      "Artifact counts are not theorem counts.",
+      "The pytest number is a collection count, not a completed full-suite claim."
+    ]
+  },
+  "excluded": [
+    "raw chat logs",
+    "credentials and private configuration",
+    "absolute local paths",
+    "caches and virtual environments",
+    "unrelated exploratory outputs"
+  ]
+}

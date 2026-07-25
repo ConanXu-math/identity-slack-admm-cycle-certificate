@@ -1,0 +1,101 @@
+schema_version: 1
+comparison_id: codex-period66_vs_kimi-period23
+comparison_kind: descriptive_endpoint_aligned
+purpose: >-
+  Describe two realized AI-assisted routes to an exact, replayable
+  nonconvergence certificate for direct three-block slack ADMM.
+
+research_scope:
+  same_research_question: true
+  shared_question: >-
+    Does the identity/slack third block, by itself, guarantee convergence of
+    the unmodified direct three-block ADMM?
+  same_problem_class: true
+  same_qp_instance: false
+  route_instances:
+    codex-period66:
+      dimension: 2
+      arithmetic: rational
+      result: bounded non-KKT sequence of minimal period 66
+    kimi-period23:
+      dimension: 3
+      arithmetic: exact dyadic rational
+      result: >-
+        minimal period-23 non-KKT orbit, locally attracting in the canonical
+        reduced (y,t) state
+
+common_endpoint:
+  id: first_exact_replayable_nonconvergence_certificate
+  definition: >-
+    The first route-local artifact set that exactly replays a valid
+    non-KKT ADMM sequence, verifies strict projection consistency and minimal
+    period, and can be rerun without relying on the exploratory transcript.
+  alignment_claim: same evidence endpoint
+  alignment_does_not_mean:
+    - same QP instance
+    - same search space
+    - same hardware or software environment
+    - same wall-clock budget
+    - same token accounting system
+    - same tool access
+    - same human intervention policy
+
+control_status:
+  controlled_benchmark: false
+  compute_matched: false
+  intervention_matched: false
+  tooling_matched: false
+  telemetry_directly_comparable: false
+  preregistered_head_to_head: false
+  causal_model_ranking_allowed: false
+
+cross_route_information:
+  kimi_started_from_problem_statement: true
+  codex_candidate_supplied_to_kimi: false
+  kimi_starting_materials:
+    - problem statement
+    - three teacher-provided slides
+    - generic research and evidence rules
+  prescribed_counterexample_method: false
+  note: >-
+    Absence of the Codex candidate from the Kimi starting workspace reduces
+    direct candidate transfer; it does not make the two routes a controlled
+    capability experiment.
+
+human_involvement:
+  present: true
+  codex-period66:
+    active_during_route: true
+    roles:
+      - problem specification
+      - evidence requirements
+      - search-priority decisions
+  kimi-period23:
+    frozen_starting_workspace: true
+    post_hoc_audit: true
+    preregistered: false
+    note: >-
+      The public provenance does not use an unverified claim of zero human
+      involvement as a comparison advantage.
+
+artifact_boundary:
+  raw_chat_logs_retained: false
+  sensitive_local_paths_retained: false
+  credentials_retained: false
+  route_records_are_curated: true
+  kimi_terminal_artifacts:
+    - source binary64 data interpreted as exact dyadic rationals
+    - exact period-23 replay
+    - exact Jury stability verification
+  kimi_later_companion:
+    terminal_run_artifact: false
+    retained_here: false
+    description: >-
+      The explicit rational invariant ellipsoid certifying a concrete open
+      set of reduced initializations was constructed after the terminal Kimi
+      run and must not be attributed to that terminal artifact set.
+
+interpretation: >-
+  The records support a descriptive comparison of two successful research
+  routes. They do not support a causal claim that one model, agent system, or
+  workflow is faster, cheaper, or more capable than the other.
