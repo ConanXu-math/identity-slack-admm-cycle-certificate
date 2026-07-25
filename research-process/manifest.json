@@ -1,0 +1,879 @@
+{
+  "archive_type": "curated_agent_research_process",
+  "checks": {
+    "forbidden_text_hits": [],
+    "missing_required_paths": []
+  },
+  "claim_boundary": "Historical process evidence; root exact certificates and verifiers remain the mathematical acceptance layer.",
+  "excluded": [
+    "raw chats and session JSONL",
+    "credentials and private configuration",
+    "user-specific absolute paths",
+    "caches and virtual environments",
+    "installed third-party skills",
+    "teacher-provided images",
+    "repetitive bulk outputs outside the selected decision path"
+  ],
+  "files": [
+    {
+      "bytes": 6222,
+      "path": "INDEX.md",
+      "sha256": "3575513b9a8d27daa44dae47fe3d9e862d88ad8ab2843a19facce23607cf08d0"
+    },
+    {
+      "bytes": 2205,
+      "path": "README.md",
+      "sha256": "6df97041d920989e9a414e51d195f1d1a29dd04d334f69bc7c51c8e13e6f1c06"
+    },
+    {
+      "bytes": 2188,
+      "path": "codex-period66/README.md",
+      "sha256": "9adb642b203346004b7de2f4d97f42517c54ef0c15384d3e6e37bc8c58920354"
+    },
+    {
+      "bytes": 15368,
+      "path": "codex-period66/experiments/breakthrough/analyze_relaxed_multiplier_66_cycle.py",
+      "sha256": "475d912e3aa08af7fc8142be670357f1de0cf8fc3df7f59f26cd9b776d28f8ec"
+    },
+    {
+      "bytes": 7728,
+      "path": "codex-period66/experiments/breakthrough/audit_strict_66_cycle_decimal_precision.py",
+      "sha256": "433577a033e81d9c745ecb3e131899fb68c96c6574f844faef4544ecd00888e2"
+    },
+    {
+      "bytes": 15856,
+      "path": "codex-period66/experiments/breakthrough/audit_strict_rational_66_cycle_independent.py",
+      "sha256": "7daaa54d2895079cb08671210aaf7c1a1284e559b3ada7ab0be38864550c514f"
+    },
+    {
+      "bytes": 21640,
+      "path": "codex-period66/experiments/breakthrough/certify_exact_periodic_itineraries.py",
+      "sha256": "17a96b4b6ee835da178713bf98f78e4f98213ad27f0fd4145e370b7e40f17d6b"
+    },
+    {
+      "bytes": 8991,
+      "path": "codex-period66/experiments/breakthrough/certify_fixed_qp_signed_pwa.py",
+      "sha256": "d3cc64389b46c8b35a996987fe949ca311c41cea2e005e7b822a2ad8ed290944"
+    },
+    {
+      "bytes": 4156,
+      "path": "codex-period66/experiments/breakthrough/certify_local_expansion_history_obstruction.py",
+      "sha256": "6878c85e94db4d98ce7452b7196864706019728a876d98e10280fa9b38a920c7"
+    },
+    {
+      "bytes": 31520,
+      "path": "codex-period66/experiments/breakthrough/certify_relaxed_multiplier_interval_theory.py",
+      "sha256": "da018693c97541e8acd8f34d189873f37429bb5c966d0a7136efa28ec16f9037"
+    },
+    {
+      "bytes": 9719,
+      "path": "codex-period66/experiments/breakthrough/certify_strict_rational_66_cycle.py",
+      "sha256": "dc9862d0d6a8f51de6af33c719b58ff3580e46ff3608b547fddc4140458c1f77"
+    },
+    {
+      "bytes": 11088,
+      "path": "codex-period66/experiments/breakthrough/optimize_nonconstant_periodic_margin.py",
+      "sha256": "95088902483eed150ed70a4da668bb368d3c0cd810724393e296a4b625c2a0c2"
+    },
+    {
+      "bytes": 21892,
+      "path": "codex-period66/experiments/breakthrough/search_affine_drift_counterexample.py",
+      "sha256": "86533c01d60e4830445bb0d6f3b07ba54ade088f3903dc09294e7eff6c1fa06a"
+    },
+    {
+      "bytes": 14945,
+      "path": "codex-period66/experiments/breakthrough/search_path_complete_lyapunov.py",
+      "sha256": "7fa4bdbacec53554f3c94e1e6c7926ee1ff682c6993ba550cead5a26a0652d66"
+    },
+    {
+      "bytes": 11022,
+      "path": "codex-period66/experiments/breakthrough/search_phase_edge_certificate.py",
+      "sha256": "ef1d40bcc1fa540a9cef8df7fa7b76bab34d7cdac2d4381fde9c7b5e143d20bf"
+    },
+    {
+      "bytes": 8897,
+      "path": "codex-period66/experiments/breakthrough/search_stage43_to_strict_66_cycle.py",
+      "sha256": "bb88cb5710feb60490f2f7820a8eef97de7bba19ca8e64514bebb2669a9056ac"
+    },
+    {
+      "bytes": 6958,
+      "path": "codex-period66/experiments/slack_admm_core.py",
+      "sha256": "47be16bb770135c3dfd1a455e990bc98692f64805eab3e440044d96a91950b81"
+    },
+    {
+      "bytes": 2654,
+      "path": "codex-period66/notes/active_set_effective_recurrence.md",
+      "sha256": "ef804c66cba2653c3ca39bb8d47003e7eaf92694e117eecd37bf1d6175ffc1a3"
+    },
+    {
+      "bytes": 5069,
+      "path": "codex-period66/notes/affine_source_target_transfer.md",
+      "sha256": "1c08c541d42e42750474da148570adb6682cdd96fc154860d94161a7923161a4"
+    },
+    {
+      "bytes": 7376,
+      "path": "codex-period66/notes/fixed_mask_invariant_impossible_lemma.md",
+      "sha256": "864510501739b70bb3179f8dd51625e3a709f1b1b6c9734afd8de9bcec488786"
+    },
+    {
+      "bytes": 3021,
+      "path": "codex-period66/notes/fixed_qp_phase_lyapunov_theorem.md",
+      "sha256": "4fcbb34b069b92902f077c513bcfc2793232e1b0d1dca5aa3490117374296fdf"
+    },
+    {
+      "bytes": 12586,
+      "path": "codex-period66/notes/general_active_mask_reduction.md",
+      "sha256": "da1c775210db0555fced11d691cc49f6aa05dca2458a63767ab73d51e272ea22"
+    },
+    {
+      "bytes": 5428,
+      "path": "codex-period66/notes/length2_pair_class_consolidation.md",
+      "sha256": "6ec245cecef730b87ab0fedffc8c1ea700b7893242f8c0b481eb95b187ddee75"
+    },
+    {
+      "bytes": 34065,
+      "path": "codex-period66/notes/length3_switching_gate.md",
+      "sha256": "9c88fdb8213f01629b454ac7aa43d76861ff862c637fd50a39d34669deac2c5b"
+    },
+    {
+      "bytes": 3688,
+      "path": "codex-period66/notes/local_expansion_history_lyapunov_obstruction.md",
+      "sha256": "25ee80e978718b88a71caeee74e8967c5366f35b587cfc44643f36e27a3ccd09"
+    },
+    {
+      "bytes": 50872,
+      "path": "codex-period66/notes/pause_summary.md",
+      "sha256": "96e0f58fcde50765e294b8d7792e12bc20ce9df9cc514493d6fee5d23b7c6776"
+    },
+    {
+      "bytes": 3162,
+      "path": "codex-period66/notes/phase_metric_six_parameter_ansatz.md",
+      "sha256": "1ca095bed5dedeb8fddce3b8c891d1fa1189523a7183d59556abadbdf5008517"
+    },
+    {
+      "bytes": 12117,
+      "path": "codex-period66/notes/prior_art_novelty_audit_2026-07-14.md",
+      "sha256": "d740f3f173cc8239a983b44c49a02699b398392de5a855e9d071422ed7de1244"
+    },
+    {
+      "bytes": 1453,
+      "path": "codex-period66/notes/problem_formulation.md",
+      "sha256": "7d9d6b5d9b3d81c5373a30fff9270bcd9e0d969ced51946f1e5d11abbb00b600"
+    },
+    {
+      "bytes": 7935,
+      "path": "codex-period66/notes/relaxed_multiplier_interval_theory.md",
+      "sha256": "8a7d304a53915e9fd0dc1101cd995caa85a52736ce4e08d2664e3a71362f89ed"
+    },
+    {
+      "bytes": 2815,
+      "path": "codex-period66/notes/signed_pwa_two_layer_closure_summary.md",
+      "sha256": "4934a9cca4d53e7827d45036889e5ddf8cdfeb79fc1e2ab2b5331cf4fef618a0"
+    },
+    {
+      "bytes": 4870,
+      "path": "codex-period66/notes/strict_rational_66_cycle_counterexample.md",
+      "sha256": "db465496275d5b47ebecc5f5c22c439375e4f49f6c2dea43ce1985fac00fd8d6"
+    },
+    {
+      "bytes": 1767,
+      "path": "codex-period66/notes/z_projection_identity.md",
+      "sha256": "35759fac129c80250d8e73a4fedf0234af6056e43f36dabfbcaa89d8d48ed6cd"
+    },
+    {
+      "bytes": 63530,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage10_phase_edge_certificate/phase_edge_rational.json",
+      "sha256": "d6cb1e65323780d2f3b6ae34170e2decd6621145b4e18850336c58489bd1ca0b"
+    },
+    {
+      "bytes": 1272,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage10_phase_edge_certificate/phase_edge_rational.md",
+      "sha256": "0d7f347af152ce132fa60542d138462240e552b193e28bb368f4e9c37923da6a"
+    },
+    {
+      "bytes": 17913,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage10_phase_edge_certificate/phase_edge_screen.json",
+      "sha256": "04f0666c81536527c62f1748e479ebab35759e498017cc434ef13629d553c8e3"
+    },
+    {
+      "bytes": 11105,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage25_fixed_qp_signed_pwa/fixed_qp_signed_pwa.json",
+      "sha256": "11442cc456126bbf6dde9ef5ae6032aa6c535de83069d2438963aef0e2f71773"
+    },
+    {
+      "bytes": 494,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage25_fixed_qp_signed_pwa/fixed_qp_signed_pwa.md",
+      "sha256": "a958c0e47d7531360d4bd7e5c063588633e0a74e5bb27b24002029e0dcf175bf"
+    },
+    {
+      "bytes": 32248,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin/periodic_margin_optimization.json",
+      "sha256": "cccf799e537e0d5559a05a8d7c9678eaf7a345d2915895b6dd0d4640d7dae9ce"
+    },
+    {
+      "bytes": 991,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin/periodic_margin_optimization.md",
+      "sha256": "c74444719a20e7f087e5067e2df3b0a20c95b42a76a857dce9a858a5e75e3310"
+    },
+    {
+      "bytes": 92404,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin_length4/periodic_margin_optimization.json",
+      "sha256": "ddde977a9f40bcda20c9ce6e3dd88dae52cb1430df1136a8737d6c4159b0bf41"
+    },
+    {
+      "bytes": 1030,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin_length4/periodic_margin_optimization.md",
+      "sha256": "7d3b822d3044ebfe157d4e9392ec8a506e9880bceb96d86ea116e7490353cfe1"
+    },
+    {
+      "bytes": 295011,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin_length5/periodic_margin_optimization.json",
+      "sha256": "d2484b358d129074925dedd5ff275e8dd5edb7d1e8ff189655a654be68a17869"
+    },
+    {
+      "bytes": 1072,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage27_periodic_margin_length5/periodic_margin_optimization.md",
+      "sha256": "5e1902f5f3b741db1a2f1cbf2a642bd54ff55efc926d732c876b6279dfe33ce4"
+    },
+    {
+      "bytes": 971,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage43_local_expansion_history_obstruction/certificate.json",
+      "sha256": "b5573e4767e4382ee059e78252ce4399b0162b483fd76e29082ea3fc3a57f182"
+    },
+    {
+      "bytes": 6103,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage43_to_stage44_discovery/search.json",
+      "sha256": "f81700bd6758fc0f2179f5b1bbf1274b7d3601ea9a619e360ba27d104e72d992"
+    },
+    {
+      "bytes": 2016,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage44_strict_rational_66_cycle/certificate.json",
+      "sha256": "ae6811e587131e8d0f39f9b90e855bda8d32900804eb215d70c6b6e178645d78"
+    },
+    {
+      "bytes": 3724,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage45_independent_raw_admm_audit/certificate.json",
+      "sha256": "63612e783fa13509f56484ca3a46beeaecb65170ee130780f51f7cc78fd0c9db"
+    },
+    {
+      "bytes": 6700,
+      "path": "codex-period66/outputs/breakthrough_attempts/stage46_decimal_precision_audit/certificate.json",
+      "sha256": "b0d91c0862c21188d10cba69bdc73cd7cb4de542b39038506e82901b2ba06390"
+    },
+    {
+      "bytes": 6354,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/RUN_SUMMARY.md",
+      "sha256": "e0a28dfcb7c7f2901f813e54c0be2562e77808453943e3b0e8af4d0c69bc536d"
+    },
+    {
+      "bytes": 26358,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/exact_half_convergence_certificate.json",
+      "sha256": "d832388c1017ac3793a084fb6e211735349ac598aa699feddb6685e0611a75ac"
+    },
+    {
+      "bytes": 1046107,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/figures/critical_region_convergence.svg",
+      "sha256": "dbead528c401b05615332138d3d5a802155f99287308a995b7c090f5ca42d22a"
+    },
+    {
+      "bytes": 40366,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/figures/local_01_spectral_radius.svg",
+      "sha256": "d76a641173ae2f86b780efb6d58dc206fceb7e6665775eeac7ee4c809a48907c"
+    },
+    {
+      "bytes": 332800,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/figures/tau_convergence.svg",
+      "sha256": "11121b72c96bd413b460ca846df281812bb779f3c33c9402b0d3686d01fa368e"
+    },
+    {
+      "bytes": 1684,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/plan.md",
+      "sha256": "27198873115770cf285febeb720c4460cb6065105684db46717e0968b88e8a69"
+    },
+    {
+      "bytes": 9511,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/results/summary.json",
+      "sha256": "a729484c003e436b081ae0ef863b64bfd9a7c75ea5911df70643bdeee91b5c73"
+    },
+    {
+      "bytes": 2021,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/results/tau_refinement_0900_0950.csv",
+      "sha256": "7a582efb64619be323cb9b4d9cff82f2b0dc5b2c03affe6b4c27d5109d4eb49d"
+    },
+    {
+      "bytes": 3755,
+      "path": "codex-period66/outputs/tau_multiplier_relaxation_2026-07-15/results/tau_sweep.csv",
+      "sha256": "de7676aa0f61c38def90c418dd144403e4565835fb3196935b8a4a94d96fbfab"
+    },
+    {
+      "bytes": 1316,
+      "path": "codex-period66/outputs/tau_relaxation_theory_2026-07-16/RUN_SUMMARY.md",
+      "sha256": "94f8f364d0f31e68f4a1106d2596732a0c73020857da642d10d6afb69de0b948"
+    },
+    {
+      "bytes": 1544,
+      "path": "codex-period66/outputs/tau_relaxation_theory_2026-07-16/claim_evidence_ledger.md",
+      "sha256": "970039dbb9c860fce1d8b6d6b2f7e954b33dadf2a59575f5ddd0e320d6d606f3"
+    },
+    {
+      "bytes": 1331,
+      "path": "codex-period66/outputs/tau_relaxation_theory_2026-07-16/latex_audit.md",
+      "sha256": "da152f3f2c7d4140aa936e3e35e22a0e16928258f782835f5bc1ee0dd973d0bd"
+    },
+    {
+      "bytes": 1512,
+      "path": "codex-period66/outputs/tau_relaxation_theory_2026-07-16/plan.md",
+      "sha256": "e52d10d1baab05ddd433b21a957acff615da02e6259b0271cf58d7f911b14d27"
+    },
+    {
+      "bytes": 20013,
+      "path": "codex-period66/outputs/tau_relaxation_theory_2026-07-16/results/certificate.json",
+      "sha256": "8c38035a3edd501a915bf51e190c127dc926b358c89eb87d06ab645a2a36995c"
+    },
+    {
+      "bytes": 3296,
+      "path": "codex-period66/proof_reviews/affine_source_target_transfer/followup_verification.json",
+      "sha256": "8d459097c34db7de104048753590d8d2b2afee90335e21d028c25d0bbb269a9f"
+    },
+    {
+      "bytes": 1514,
+      "path": "codex-period66/proof_reviews/exact_periodic_itineraries/followup_verification.json",
+      "sha256": "4348356cbd983f2f6f15a524bbd62f7979a6d6ec8907afc5299fe4147993c28a"
+    },
+    {
+      "bytes": 908,
+      "path": "codex-period66/proof_reviews/fixed_qp_phase_lyapunov/final_verification.json",
+      "sha256": "709363aa15d96f8bd10515a569d03fb5a6d2d0c1dee154b7027321cd8b315b47"
+    },
+    {
+      "bytes": 763,
+      "path": "codex-period66/proof_reviews/fixed_qp_signed_pwa/adversarial_review.json",
+      "sha256": "e03f7f0d9c1e286d2f270e2a51c892049d695655b186e6d3760eb8adc2cb28bc"
+    },
+    {
+      "bytes": 630,
+      "path": "codex-period66/proof_reviews/fixed_qp_signed_pwa/final_summary.md",
+      "sha256": "2fd347f2da43cb88a1d5a959ffc2282d32be35f91f221a8c06fd44290c1581b4"
+    },
+    {
+      "bytes": 1449,
+      "path": "codex-period66/proof_reviews/fixed_qp_signed_pwa/final_verification.json",
+      "sha256": "bba005f0b55eaabf8786597a206612c3a77cbe57cc739edc14e3736842deea78"
+    },
+    {
+      "bytes": 481,
+      "path": "codex-period66/proof_reviews/fixed_qp_signed_pwa/proof_obligation_review.json",
+      "sha256": "774d604e7e9cdb67721df2b92693845c8794cb13c4365b9aa9ef57c9f47a03c2"
+    },
+    {
+      "bytes": 484,
+      "path": "codex-period66/proof_reviews/fixed_qp_signed_pwa/review_manifest.json",
+      "sha256": "4c2fcf42b3b8f3a6ff4336f99ef8c2c1ad44f46fe5d7ad7501d63e3d140f6980"
+    },
+    {
+      "bytes": 635,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/acceptance_gate.md",
+      "sha256": "e88b8a896a16a47c440103eb21bbc808012cf7a26921707bace70da1cb429580"
+    },
+    {
+      "bytes": 1789,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/generation_trace.json",
+      "sha256": "828c5f0f710dc4ef1555e22d23f82a468949ff80ac30a1ae929c3a2fac7df1c8"
+    },
+    {
+      "bytes": 1200,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/problem_intake.md",
+      "sha256": "710a705c991f763cf546ef033b4e19c6867ed22bd36dcd803b16760df15c5aa2"
+    },
+    {
+      "bytes": 1714,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/proof_blueprint.md",
+      "sha256": "d3c5d76bae48bde34e7974c289c5e291467d77007307a307beadd21ab70c2dff"
+    },
+    {
+      "bytes": 661,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/proof_obligation_patches.json",
+      "sha256": "089535b6460476bbbd8fd70c543fe6fab75d354ee93ed6d92669259e8f31bf59"
+    },
+    {
+      "bytes": 595,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/repair_hints.md",
+      "sha256": "beb78fb04337c8aa959c32bf98c0b415800e8340069917efb3749cbbe41be4d6"
+    },
+    {
+      "bytes": 2962,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/verification_report.json",
+      "sha256": "28341395ec847668714bfd12581e665a6fe34e4c498589514941e237bf729851"
+    },
+    {
+      "bytes": 925,
+      "path": "codex-period66/proof_reviews/relaxed_multiplier_interval_theory/verification_summary.md",
+      "sha256": "218ee1a0f7036cce6ca96536038bc2a1628282ed5c5477ee95491977ef4a7d53"
+    },
+    {
+      "bytes": 1117,
+      "path": "codex-period66/proof_reviews/stage5_switching_semantics/verification_report.json",
+      "sha256": "2799e39aaecd2dfc9897198a8af1826d53fa578f1bb38138cb08b1afc3e9ae00"
+    },
+    {
+      "bytes": 5458,
+      "path": "codex-period66/proof_reviews/strict_rational_66_cycle/adversarial_risk_register.md",
+      "sha256": "1eecdb6071beb08a6b94d3c99f4ef6e0b779a38d6686b2204623f61d64a73ffa"
+    },
+    {
+      "bytes": 20209,
+      "path": "codex-period66/report/ai_assisted_research_process_audit_2026-07-19.md",
+      "sha256": "1ea60156b6145fa890e055bc0f3a92c31d32d1b9d9b4b81177b5e77889aa72da"
+    },
+    {
+      "bytes": 16170,
+      "path": "codex-period66/report/search_workflow_theory_numerics_counterexample.md",
+      "sha256": "0e411c4d812a8f12a5410bfe177f3945e7666495002d9d4dc033948ee4814af2"
+    },
+    {
+      "bytes": 100527,
+      "path": "codex-period66/research_state.md",
+      "sha256": "d441d3d6c0c2e1f6d8ee4c108c454f428f54ad621fc53965a72986c408dcdeae"
+    },
+    {
+      "bytes": 4126,
+      "path": "codex-period66/skills/admm-proof-workflow/SKILL.md",
+      "sha256": "e352e05977930cfdcd1483d69ebe6703e2d6f6054fac16b174cd649af350b4de"
+    },
+    {
+      "bytes": 3308,
+      "path": "codex-period66/tests/test_exact_periodic_itineraries.py",
+      "sha256": "2fbfc707b6ab85a5f5c6ae16261c494229134716bc6e64835a8d66d9c798659f"
+    },
+    {
+      "bytes": 5795,
+      "path": "codex-period66/tests/test_fixed_qp_signed_pwa.py",
+      "sha256": "956a3eb2e17197a136d5061c90c4009efa7e8bdccb1837da8f962720901856de"
+    },
+    {
+      "bytes": 1360,
+      "path": "codex-period66/tests/test_independent_strict_rational_66_cycle_audit.py",
+      "sha256": "4d1a19243e6f56ef3a4c42b20787728ec2722cf95b7806696048e19fde33ee39"
+    },
+    {
+      "bytes": 510,
+      "path": "codex-period66/tests/test_local_expansion_history_obstruction.py",
+      "sha256": "c561310ce6f34a01dde45d99c5d3ba95abb5e2288cd29044c8ca82d4994c76e6"
+    },
+    {
+      "bytes": 1593,
+      "path": "codex-period66/tests/test_nonconstant_periodic_margin.py",
+      "sha256": "33a2cc5cee4882863b4be48e5db61b3152f8875fe8627c55d661052b70bf296c"
+    },
+    {
+      "bytes": 3346,
+      "path": "codex-period66/tests/test_phase_edge_certificate.py",
+      "sha256": "f3ca5b31003e462ba8194a049d22c79ad7459626de57ce401369a0414eb92b21"
+    },
+    {
+      "bytes": 3036,
+      "path": "codex-period66/tests/test_phase_edge_rational.py",
+      "sha256": "33b365f18d5b9ac4c3f85fac6cb60c3f9418ad8117294c7d46fbbd319a4181ad"
+    },
+    {
+      "bytes": 2302,
+      "path": "codex-period66/tests/test_relaxed_multiplier_66_cycle.py",
+      "sha256": "3aa65ae67689d211ccb0c1aa5fe6fbdfa936dfe2d92b990270401038bd5b2b3c"
+    },
+    {
+      "bytes": 6045,
+      "path": "codex-period66/tests/test_relaxed_multiplier_interval_theory.py",
+      "sha256": "b644bcbc56163b8510055662f16e38ad3979bf7c76d58e74c7ceacc705e7a756"
+    },
+    {
+      "bytes": 782,
+      "path": "codex-period66/tests/test_stage43_to_strict_66_cycle_search.py",
+      "sha256": "3536d0f124661bb16dfe13021c3ed010e63521648936f53ff5874b6fd7b98131"
+    },
+    {
+      "bytes": 633,
+      "path": "codex-period66/tests/test_strict_66_cycle_decimal_precision.py",
+      "sha256": "514e8f8191cdf00ea6146f66129f5d6643cb840f199d507e366ac6670e414e54"
+    },
+    {
+      "bytes": 1243,
+      "path": "codex-period66/tests/test_strict_rational_66_cycle.py",
+      "sha256": "c79c9b5a11268ce209d3a014cc4e9024426df6487e71713dbd7bb13da5d4ab5d"
+    },
+    {
+      "bytes": 46738,
+      "path": "codex-period66/work_orders.md",
+      "sha256": "63c2dabfd4c1c97034d75f7b16c9370e44b296d8daaf3b5a61499743ec185eed"
+    },
+    {
+      "bytes": 619,
+      "path": "kimi-period23/AGENTS.md",
+      "sha256": "e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614"
+    },
+    {
+      "bytes": 1738,
+      "path": "kimi-period23/README.md",
+      "sha256": "d41ba46d9264cd9287e70bde8db72d9511e3aa2e07218093460217d3d6501cea"
+    },
+    {
+      "bytes": 24599,
+      "path": "kimi-period23/RESEARCH_LOG.md",
+      "sha256": "d902e70607171146cc00e083c79762ce9957a230d61399756a82201ee0ee5b5e"
+    },
+    {
+      "bytes": 573,
+      "path": "kimi-period23/START_GOAL.txt",
+      "sha256": "52229654b82d90a2eb7741bfa57f6e09759ece728b4b42301997b89cb9efd4a0"
+    },
+    {
+      "bytes": 2474,
+      "path": "kimi-period23/experiments/README.md",
+      "sha256": "a571d5a3322aabdfd5d0e9d17be18e3445c6a865936d9ad3e3a5b41f3b3ef8b9"
+    },
+    {
+      "bytes": 4470,
+      "path": "kimi-period23/experiments/admm_core.py",
+      "sha256": "b84e66b4330315486a878dbc980cc1030e214d3e072b23e2989d1b74396ed8a4"
+    },
+    {
+      "bytes": 3220,
+      "path": "kimi-period23/experiments/exp10_complex_eigenplane.py",
+      "sha256": "e3a6f73d74b732a018cb40d1e2b3ebf4eb1d8ea441ec3465372fa1b96008bd47"
+    },
+    {
+      "bytes": 2761,
+      "path": "kimi-period23/experiments/exp11_cqlf.py",
+      "sha256": "35f1c628b31d89bede94eac4ca8276dd6ccb705e4e68279359bd3ca0cf240f0a"
+    },
+    {
+      "bytes": 7235,
+      "path": "kimi-period23/experiments/exp12_repelling_kkt.py",
+      "sha256": "5b1179ceb8ac08d4cd292c289ab40d8b8ed5581c088eb57ee50fccdfb29859b8"
+    },
+    {
+      "bytes": 3703,
+      "path": "kimi-period23/experiments/exp13_deep_cycles.py",
+      "sha256": "f2d6c0b7204a45e60a5bf8e769167ce5bb735e3b2acf50119ec94e5c254fff02"
+    },
+    {
+      "bytes": 4554,
+      "path": "kimi-period23/experiments/exp14_targeted_repellent.py",
+      "sha256": "5920f49ff6dfc73c40a8e509a4b0c2b6509d451820c5d4ea6fc454a38707271b"
+    },
+    {
+      "bytes": 5447,
+      "path": "kimi-period23/experiments/exp16_trapping.py",
+      "sha256": "b21d1f12581572a036ff724d88c97926a95e5f5ab6d4df7b019f92ded2405a63"
+    },
+    {
+      "bytes": 5359,
+      "path": "kimi-period23/experiments/exp17_period_locking.py",
+      "sha256": "f7b075ff995306ca4ec12e5ab282199ce67530f52881d4191370884a448ae4c0"
+    },
+    {
+      "bytes": 5442,
+      "path": "kimi-period23/experiments/exp17b_dense_scan.py",
+      "sha256": "610ae785369d107058b15dd4b711442c1c3fed7df13b7cde04355d9694923f85"
+    },
+    {
+      "bytes": 6143,
+      "path": "kimi-period23/experiments/exp17c_selfcontained.py",
+      "sha256": "3fb5cf420344723a7a9669921584b8f6835e34e8186faaee1fd4de79e78376ca"
+    },
+    {
+      "bytes": 7545,
+      "path": "kimi-period23/experiments/exp18_periodic_points.py",
+      "sha256": "a82296f09baaa5befe5c4397b1bc4bf03d065a0010aba6392161358d2936dc8b"
+    },
+    {
+      "bytes": 12813,
+      "path": "kimi-period23/experiments/exp19_exact_certify.py",
+      "sha256": "c89730875ecce65bff0b9c4e28bbfb7baa817ae2fab5945de67d4290ffa260ee"
+    },
+    {
+      "bytes": 10669,
+      "path": "kimi-period23/experiments/exp19b_exact_yt.py",
+      "sha256": "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829"
+    },
+    {
+      "bytes": 2050,
+      "path": "kimi-period23/experiments/exp1_chyy.py",
+      "sha256": "4828c3ed9f9733bbe0a702db67efac1ca1adc1822be469f2ebfb408a9043e813"
+    },
+    {
+      "bytes": 5078,
+      "path": "kimi-period23/experiments/exp2_spectral_search.py",
+      "sha256": "68a236dcfe9a68206b24cffa93e4b040aa1cebe9d44623e3d33f9b48d1f8a25e"
+    },
+    {
+      "bytes": 2994,
+      "path": "kimi-period23/experiments/exp2b_verify_thmH.py",
+      "sha256": "2d4fdd479710bbe393413c23dd106a4bbb971aa0070bfb6c249fbf55eb2bdb8d"
+    },
+    {
+      "bytes": 5737,
+      "path": "kimi-period23/experiments/exp3_practical.py",
+      "sha256": "8e1d38c4795e49c11000f8a53c10018c0d2252348d917871e94eaac2ef5739fd"
+    },
+    {
+      "bytes": 2447,
+      "path": "kimi-period23/experiments/exp3b_v_increases.py",
+      "sha256": "96a2356fddc93e0294533c08accca5295c828b29a0ee2e0fbac46a5541ea0cdb"
+    },
+    {
+      "bytes": 4111,
+      "path": "kimi-period23/experiments/exp4_verify_thmQ.py",
+      "sha256": "210e9393e9e1ab34432e186389e418d7881e34bd8bb89ed5734a859f23f93484"
+    },
+    {
+      "bytes": 6071,
+      "path": "kimi-period23/experiments/exp5_jsr.py",
+      "sha256": "7ed18d3cce85d1df0abcb1fb1c7410e28567755ce462bd23b4175f4fd01160da"
+    },
+    {
+      "bytes": 3905,
+      "path": "kimi-period23/experiments/exp5_jsr_lite.py",
+      "sha256": "2c5133cf6ca8c55bc45f58eed95f57a3d35016a4caa11f5f9ae0705ffb6c7f2d"
+    },
+    {
+      "bytes": 4426,
+      "path": "kimi-period23/experiments/exp6_jsr_deep.py",
+      "sha256": "aa6091274afc1b164b0f73950b0735eb5c97e0d6c8fe12f59410228bf8635238"
+    },
+    {
+      "bytes": 5043,
+      "path": "kimi-period23/experiments/exp7_realizable_cycles.py",
+      "sha256": "c9f3736533e03f68dd545a8fa881d8d3aaf0c98c513ab7c885ba6f464e8e9dc0"
+    },
+    {
+      "bytes": 5345,
+      "path": "kimi-period23/experiments/exp8_adversarial.py",
+      "sha256": "8488a0d83cf897dd1348ce4d4b680d4ce2c38db461168a5dc16606a329902269"
+    },
+    {
+      "bytes": 3997,
+      "path": "kimi-period23/experiments/exp9_consistent_search.py",
+      "sha256": "3ed04edf01b21a48df47e2b3b08d24eefaf8577e594f3bfdb434566b5eb8f8e7"
+    },
+    {
+      "bytes": 185,
+      "path": "kimi-period23/experiments/results/exp10_summary.json",
+      "sha256": "80d3bc54263c93f49da65b92be3f3a4bf468a20e79786d5a33180efc0fc04beb"
+    },
+    {
+      "bytes": 8029,
+      "path": "kimi-period23/experiments/results/exp11_summary.json",
+      "sha256": "f25c46f90bdd313d15b2792116f8503d62f30b613ce59d9bfca08ee634bd3ada"
+    },
+    {
+      "bytes": 189,
+      "path": "kimi-period23/experiments/results/exp12_summary.json",
+      "sha256": "0afd67c1f9074ef99e981e1ed04114f4651d74ec4754d287ffa0c8476b354827"
+    },
+    {
+      "bytes": 121,
+      "path": "kimi-period23/experiments/results/exp13_summary.json",
+      "sha256": "a74ee10e0cf74eb9abf8b4aa4c57fbbb1d13bd218d5a8c73b37f611c57d08ca3"
+    },
+    {
+      "bytes": 118,
+      "path": "kimi-period23/experiments/results/exp14_summary.json",
+      "sha256": "e7c2e44cc804ac4b1840a8e95a7bb5295e1323677ed739f9012b0858f9323e19"
+    },
+    {
+      "bytes": 3806,
+      "path": "kimi-period23/experiments/results/exp14_top_projector_hits.npz",
+      "sha256": "53ae26f6ae0494313a70f33e6a3a6e6ad3d39faca18550d6975a59b7e5fa861e"
+    },
+    {
+      "bytes": 991,
+      "path": "kimi-period23/experiments/results/exp15_summary.json",
+      "sha256": "b2a02b68cf4eba398f3dbe6977602418b409d031ddf940810ed7c9363849c7af"
+    },
+    {
+      "bytes": 523,
+      "path": "kimi-period23/experiments/results/exp16_attractor.json",
+      "sha256": "77744a8662523f4e283bb7d62c3a0a7171f52215c5fe4d971f63dd2b80590048"
+    },
+    {
+      "bytes": 2920,
+      "path": "kimi-period23/experiments/results/exp17b_summary.json",
+      "sha256": "0518818c4db993b5aa51c017c68313797ad1ced5115dfbf80ceee44d44e2551a"
+    },
+    {
+      "bytes": 4044,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i0_e0.0038.npz",
+      "sha256": "aa4309d424f599b66967dfae22ed9a61e36dd6b4c34f7cd197ae3d21c6e18a28"
+    },
+    {
+      "bytes": 4036,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i0_e0.0045.npz",
+      "sha256": "1103e76c0db9f3eac42e46c0c2bb155b0baa2c4e4fbf5de76b4216e153e67b8c"
+    },
+    {
+      "bytes": 18412,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i0_e0.0090.npz",
+      "sha256": "5ed7d9d857ea3e71c1482356156f6c992a5fc64bec9613327e37c53fa52fea6d"
+    },
+    {
+      "bytes": 4828,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i1_e0.0023.npz",
+      "sha256": "fa4c145993f11418b9692b2fafb24be4144775d86d591a75ed89294d7b284f4a"
+    },
+    {
+      "bytes": 4828,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i1_e0.0038.npz",
+      "sha256": "b46c8033f4c316875b1e14cd377be110299fe17f1e8eba76cc2f8c5e7412028f"
+    },
+    {
+      "bytes": 4444,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i1_e0.0060.npz",
+      "sha256": "873d06dcbb17f7422f705a77eb3c936a1a207fb65c9cb5eac35fae2868a94b36"
+    },
+    {
+      "bytes": 7012,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i2_e0.0052.npz",
+      "sha256": "310a9754ceee067d70071bc7fd39a8552ba8f8aaf049e7b8788172a8ff7cf088"
+    },
+    {
+      "bytes": 4492,
+      "path": "kimi-period23/experiments/results/exp17c_cycle_i2_e0.0112.npz",
+      "sha256": "ff58329e46794e36e77182df0821967e0af0264b10e5c3bf4ad0ee34b2adb3ad"
+    },
+    {
+      "bytes": 2723,
+      "path": "kimi-period23/experiments/results/exp17c_summary.json",
+      "sha256": "bfa2537f393aef3dcc06cb218f2112b2ca09e223ffb0bdf09842fe9a16cc6795"
+    },
+    {
+      "bytes": 584,
+      "path": "kimi-period23/experiments/results/exp19_certificate.json",
+      "sha256": "5de9886bfdd97b49aa9e3aa1ab9d9b8f36a64aa84e36eb2783cbae73987806f3"
+    },
+    {
+      "bytes": 1808,
+      "path": "kimi-period23/experiments/results/exp2_summary.json",
+      "sha256": "3da26c14b9120f397833dea3979dee357fe28d4d57856749b83fbc3870b69e0f"
+    },
+    {
+      "bytes": 173,
+      "path": "kimi-period23/experiments/results/exp3_summary.json",
+      "sha256": "4c87f9db53cfe87cfcabb54228a738330a8af27d8a700b78904373f7d17daba2"
+    },
+    {
+      "bytes": 191,
+      "path": "kimi-period23/experiments/results/exp4_summary.json",
+      "sha256": "bba29ccf643a56f8cbe8846bcb7a070a4a9da2ecfb73253830a8dec0d2f54b0e"
+    },
+    {
+      "bytes": 12503,
+      "path": "kimi-period23/experiments/results/exp5_summary.json",
+      "sha256": "5e9552d41aca6f2db5822d446ddd48aebcd125f8e42e0b56d4d2c55f48e3eb4c"
+    },
+    {
+      "bytes": 4033,
+      "path": "kimi-period23/experiments/results/exp6_summary.json",
+      "sha256": "cec9d80aaa30eb1adf3af15840c37fda79645ae797eedc46bc1701fce488ea09"
+    },
+    {
+      "bytes": 191,
+      "path": "kimi-period23/experiments/results/exp7_summary.json",
+      "sha256": "46342b51166c66e528b5b9931e79c2dec165f66ed56374c8d5568e3095c942ec"
+    },
+    {
+      "bytes": 135,
+      "path": "kimi-period23/experiments/results/exp8_summary.json",
+      "sha256": "8b79be656713328850bf8e9fee3b65e2464d10e9d1f339f10568fd2628323bb8"
+    },
+    {
+      "bytes": 181,
+      "path": "kimi-period23/experiments/results/exp9_summary.json",
+      "sha256": "6ed043e752cb83b7439088b62ca41b77e819569f1e0007fbf72553d192595f55"
+    },
+    {
+      "bytes": 3515,
+      "path": "kimi-period23/experiments/test_t_reduction.py",
+      "sha256": "8702b015a083cb31d485b26e474b698d3cf3ce0c9f81b546cacc603a4086fc68"
+    },
+    {
+      "bytes": 1753,
+      "path": "kimi-period23/inputs/problem_statement.md",
+      "sha256": "cf08832b5e15b5545b56e408fc0a1aef0e03f4ecbfc107f18f40499f97d5311a"
+    },
+    {
+      "bytes": 6865,
+      "path": "kimi-period23/references/literature_notes.md",
+      "sha256": "2b2006df087cac94be4f749b89f92fa323111e38c8446030ba1ba4e13c6f8ae4"
+    },
+    {
+      "bytes": 19490,
+      "path": "kimi-period23/report/main.md",
+      "sha256": "050601790c051b4b8ecc1153f8d9c4c2cf53a944c0f0ceb3e986c128388aa988"
+    },
+    {
+      "bytes": 6590,
+      "path": "kimi-period23/research/01_theory_notes.md",
+      "sha256": "b5a8b00187168c386c1bdf96beb65f634c228e9209698176eef64fe0ecbaf0d1"
+    },
+    {
+      "bytes": 4178,
+      "path": "kimi-period23/research/02_theorem_H.md",
+      "sha256": "a0bd1b7cf9d4a9f3b1350dadf708e1bcbcddeb6bf30526d8276649f2b6b070c3"
+    },
+    {
+      "bytes": 5107,
+      "path": "kimi-period23/research/03_theorem_Q.md",
+      "sha256": "c4169e9ffb4963d75e67d4bb67660825112485fd1f76212555ca54f00239a63a"
+    },
+    {
+      "bytes": 2826,
+      "path": "kimi-period23/research/04_proof_obligations.md",
+      "sha256": "3932e008b6f407fe611970152fd098dcc66df335bf9b2b8ca451b46bff5d79bf"
+    },
+    {
+      "bytes": 4270,
+      "path": "kimi-period23/research/05_theorem_m1.md",
+      "sha256": "4d80aafc416e42af8b47c825435869bc5c20f0683a6131c109d236423385bb24"
+    },
+    {
+      "bytes": 4072,
+      "path": "kimi-period23/research/06_theorem_S.md",
+      "sha256": "be94a5a2d356cf78f12962ae5cff300eac43eef5880101b6fa429a54ef1bec51"
+    },
+    {
+      "bytes": 4135,
+      "path": "kimi-period23/research/07_proof_attempts.md",
+      "sha256": "e9d558f8d258a8c9f361bb6ac028149f64b4385ebcb2f258c9d7f4d3ba910d75"
+    },
+    {
+      "bytes": 5440,
+      "path": "kimi-period23/research/08_conditional_theorems.md",
+      "sha256": "b1081310ae4a2f8a2543feb76d1aa218fa2d030f639a2f900ca050c1a5fb099e"
+    },
+    {
+      "bytes": 4156,
+      "path": "kimi-period23/research/09_counterexample.md",
+      "sha256": "d77891ed3ca1bc73f114ea2f34d0a63df1b8c439270deffe61e814bb45a75fd0"
+    }
+  ],
+  "schema_version": 1,
+  "summary": {
+    "file_count": 168,
+    "route_counts": {
+      "[root]": 2,
+      "codex-period66": 96,
+      "kimi-period23": 70
+    },
+    "suffix_counts": {
+      ".csv": 2,
+      ".json": 43,
+      ".md": 58,
+      ".npz": 9,
+      ".py": 52,
+      ".svg": 3,
+      ".txt": 1
+    },
+    "total_bytes": 2959298
+  },
+  "valid": true
+}

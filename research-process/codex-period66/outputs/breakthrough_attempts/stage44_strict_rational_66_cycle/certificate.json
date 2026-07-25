@@ -1,0 +1,59 @@
+{
+  "status": "proof_grade_strict_rational_66_cycle_counterexample",
+  "scope": "pure strongly convex rational A=B=I two-dimensional slack QP (zero linear terms after exact translation)",
+  "period": 66,
+  "word_run_length_encoding": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      64
+    ]
+  ],
+  "design_parameters": {
+    "epsilon": "1/1000",
+    "mu": "8957/10000",
+    "nu": "999/1000"
+  },
+  "checks": {
+    "M_spectrum": true,
+    "N_spectrum": true,
+    "Q1_positive_definite": true,
+    "Q2_positive_definite": true,
+    "kkt_primal_feasibility": true,
+    "kkt_x_stationarity": true,
+    "kkt_y_stationarity": true,
+    "kkt_strict_complementarity": true,
+    "zero_linear_kkt_primal_feasibility": true,
+    "zero_linear_kkt_x_stationarity": true,
+    "zero_linear_kkt_y_stationarity": true,
+    "period_system_invertible": true,
+    "signed_period_closure": true,
+    "all_branch_recurrences_exact": true,
+    "all_strict_itinerary_margins": true,
+    "uniform_margin_gt_1_over_1000": true,
+    "all_original_admm_steps_exact": true,
+    "all_zero_linear_original_admm_steps_exact": true,
+    "non_kkt_cycle": true,
+    "word_has_minimal_period_66": true
+  },
+  "minimum_margin_decimal": "0.00371052469443529102",
+  "minimum_margin_phase": 2,
+  "minimum_margin_coordinate": 1,
+  "signed_initial_decimal": [
+    "-0.0779208051139269772",
+    "0.777674455445787508",
+    "-1.15176716342351766",
+    "-0.00861916616136340125"
+  ],
+  "exact_hashes": {
+    "M": "86f8478f6fc5b0e10d25126b8d368fb50bf948f2b743e412ced4c81bac1e3cc6",
+    "N": "5a9a908662d0d57419fd44652c57cb61fd6282b36ea0d3d6acc71ed603f5e608",
+    "signed_initial": "2a1f78a3e77262ba62a90e719c9fba639598a66b1acda04cffa01a8ddf7b1884",
+    "minimum_margin": "f0c44af06734fbaf4f21446ad0f55ba4bf8e84b86c25e516dd0e9c65868c3fb1"
+  },
+  "claim_boundary": "This is an exact bounded non-KKT 66-cycle of the original direct three-block slack ADMM. It refutes unconditional global convergence, but does not claim unbounded iterates.",
+  "valid": true
+}

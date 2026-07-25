@@ -1,0 +1,10 @@
+{
+  "seed": 20260724,
+  "stats": {
+    "instances": 30000,
+    "with_complex_gt1": 228,
+    "max_growth": 1.9308311349411302
+  },
+  "suspects": [],
+  "elapsed_sec": 59.45673680305481
+}

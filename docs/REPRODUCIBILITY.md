@@ -134,6 +134,7 @@ Run both public Python certificate paths with:
 
 ```bash
 python python/verify_all.py
+python python/verify_research_process_archive.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
@@ -148,6 +149,7 @@ certificates/instance_manifest.json.valid = true
 certificates/period23_certificate.json.valid = true
 certificates/period23_instance_manifest.json.valid = true
 certificates/relaxed_multiplier_certificate.json.valid = true
+research-process/manifest.json.valid = true
 ```
 
 The committed outputs must remain unchanged after regeneration:
@@ -244,6 +246,8 @@ Before changing repository visibility to public:
 - confirm that all 66 exported phases and the relaxation artifacts regenerate
   byte for byte;
 - confirm that the period-23 NPZ and canonical exact manifest agree;
+- confirm that the research-process manifest, required-path gate, and privacy
+  scan pass;
 - run an independent secret and privacy scan on the release tree;
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;

@@ -1,0 +1,22 @@
+{
+  "claim": "固定二维强凸 slack QP 的 phase-dependent Lyapunov 任意切换收敛定理",
+  "verdict": "accept",
+  "status": "theorem_with_exact_certificate",
+  "scope": "Q1=3I, Q2=[[7,4],[4,3]], A=B=I, rhs=0, beta=1",
+  "review_checks": {
+    "independent_reduced_recurrence_derivation": "passed",
+    "all_16_source_target_maps": "passed",
+    "dissipation_order_delta_lambda_delta_y_delta_z": "passed",
+    "core_principal_minors": 60,
+    "edge_principal_minors": 240,
+    "negative_principal_minors": 0,
+    "canonical_indexing_from_k_ge_1": "passed",
+    "coercivity_and_boundedness": "passed",
+    "stationarity_and_kkt_bridge": "passed",
+    "half_open_tie_semantics": "not_needed_because_full_space_lmis"
+  },
+  "limitations": [
+    "This is a theorem for one fixed rational QP, not for the general slack-variable three-block ADMM model.",
+    "It is not a divergence counterexample."
+  ]
+}

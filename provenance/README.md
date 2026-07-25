@@ -70,8 +70,22 @@ review.
 See [`comparison_scope.yaml`](comparison_scope.yaml) for the machine-readable
 scope contract and the route directories for curated asset inventories.
 
+## Curated research-process archive
+
+The terminal certificates alone do not explain the discovery process.
+[`../research-process/`](../research-process/) therefore retains the important
+agent-generated state files, theory notes, experimental scripts, numerical
+outputs, withdrawn attempts, and review records for both routes.  The Codex
+side is a decision-path selection from a much larger workspace; the Kimi side
+preserves the complete research arc of the isolated run, excluding installed
+third-party skills and teacher-provided images.
+
+The archive is historical evidence, not a second acceptance layer.  Current
+mathematical acceptance remains governed by the exact checkers and frozen
+certificates at the repository root.
+
 ## Privacy boundary
 
-No raw chats, credentials, private configuration, or absolute local paths are
-included. The provenance records describe claims, accounting definitions, and
-retained repository artifacts only.
+No raw chats, credentials, private configuration, or user-specific absolute
+paths are included. The provenance records describe claims, accounting
+definitions, and retained repository artifacts only.

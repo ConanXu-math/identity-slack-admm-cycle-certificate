@@ -1,0 +1,139 @@
+{
+  "status": "independent_exact_raw_admm_audit_passed",
+  "scope": "full-state exact audit of the strict rational period-66 orbit in both linear and zero-linear formulations",
+  "implementation_boundary": "This module does not import or call certify_strict_rational_66_cycle.py, does not use its signed-state recurrence, and applies the orthant projection from exact signs rather than a preset mask during the cycle audit.",
+  "period": 66,
+  "word_run_length_encoding": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      64
+    ]
+  ],
+  "design_parameters": {
+    "epsilon": "1/1000",
+    "mu": "8957/10000",
+    "nu": "999/1000"
+  },
+  "checks": {
+    "Q1_positive_definite": true,
+    "Q2_positive_definite": true,
+    "subproblem_inverse_M_matches_input": true,
+    "subproblem_inverse_N_matches_input": true,
+    "linear_kkt_primal_feasibility": true,
+    "linear_kkt_stationarity": true,
+    "linear_kkt_complementarity": true,
+    "zero_linear_kkt_primal_feasibility": true,
+    "zero_linear_kkt_stationarity": true,
+    "linear_period_system_invertible": true,
+    "zero_linear_period_system_invertible": true,
+    "translated_initial_matches": true,
+    "all_state_conjugacies_exact": true,
+    "all_x_conjugacies_exact": true,
+    "linear_cycle_closes": true,
+    "zero_linear_cycle_closes": true,
+    "all_source_decompositions_exact": true,
+    "all_x_subproblems_exact": true,
+    "all_y_subproblems_exact": true,
+    "all_projection_steps_exact": true,
+    "raw_projection_itinerary_matches_word": true,
+    "all_multiplier_steps_exact": true,
+    "all_strict_itinerary_margins": true,
+    "uniform_margin_gt_1_over_1000": true,
+    "linear_and_zero_linear_margins_match": true,
+    "linear_cycle_is_non_kkt": true,
+    "zero_linear_cycle_is_non_kkt": true,
+    "no_earlier_return_before_66": true
+  },
+  "minimum_margin_decimal": "0.00371052469443529102",
+  "minimum_margin_phase": 2,
+  "minimum_margin_coordinate": 1,
+  "linear_initial_full_state_decimal": [
+    "-0.0779208051139269772",
+    "0.777674455445787508",
+    "0",
+    "0",
+    "-1.15176716342351766",
+    "-0.00861916616136340125"
+  ],
+  "zero_linear_initial_full_state_decimal": [
+    "-9.97000100412481906",
+    "99.6884664355446983",
+    "0",
+    "0",
+    "-1.15176716342351766",
+    "-0.00861916616136340125"
+  ],
+  "exact_problem_data": {
+    "Q1": [
+      [
+        "3579218243/3591757",
+        "178940000/3591757"
+      ],
+      [
+        "178940000/3591757",
+        "9365243/3591757"
+      ]
+    ],
+    "Q2": [
+      [
+        "99800101/100899",
+        "9980000/100899"
+      ],
+      [
+        "9980000/100899",
+        "998101/100899"
+      ]
+    ],
+    "zero_linear_rhs": [
+      [
+        "-418394646086/42200300457"
+      ],
+      [
+        "470482042273/4688922273"
+      ]
+    ],
+    "zero_linear_kkt_x": [
+      [
+        "-9365243/417824757"
+      ],
+      [
+        "178940000/417824757"
+      ]
+    ],
+    "zero_linear_kkt_y": [
+      [
+        "-998101/100899"
+      ],
+      [
+        "9980000/100899"
+      ]
+    ],
+    "zero_linear_kkt_z": [
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "zero_linear_kkt_lambda": [
+      [
+        "-1"
+      ],
+      [
+        "0"
+      ]
+    ]
+  },
+  "exact_hashes": {
+    "linear_initial_full_state": "00c0ecacfa976b3a6b49e0e1c7020a8030612f515bb475c9c522021e265961b7",
+    "zero_linear_initial_full_state": "794191227fa1c88df642d69ec2e0dd42d44f907c779774234ebfbe933b59924e",
+    "minimum_margin": "f0c44af06734fbaf4f21446ad0f55ba4bf8e84b86c25e516dd0e9c65868c3fb1"
+  },
+  "claim_boundary": "The exact bounded non-KKT orbit refutes unconditional global convergence. It is not a claim of unbounded divergence or external independent review.",
+  "valid": true
+}

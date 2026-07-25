@@ -1,0 +1,22 @@
+{
+  "F_symmetric": true,
+  "G_symmetric": true,
+  "F_posdef": true,
+  "G_posdef": true,
+  "detA_nonzero": true,
+  "detB_nonzero": true,
+  "exact_fixed_point_dist": 5.411070263505229e-17,
+  "exact_fixed_point_in_cone": true,
+  "cycle_patterns_exact": true,
+  "strict_cell_margin": 0.007384723691570341,
+  "strict_cell_margin_gt_7_over_1000": true,
+  "cycle_states_distinct": true,
+  "cycle_closed_exact": true,
+  "cycle_not_fixed": true,
+  "minimal_period_23": true,
+  "cycle_neq_kkt": true,
+  "jury_stable": true,
+  "period": 23,
+  "elapsed_sec": 1.695047378540039,
+  "valid": true
+}

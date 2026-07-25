@@ -1,0 +1,10 @@
+{
+  "seed": 20260725,
+  "stats": {
+    "random_instances": 8000,
+    "kkt_complex_gt1": 0,
+    "max_modulus": 0.9690850961515622
+  },
+  "phase_S": [],
+  "elapsed_sec": 0.5722899436950684
+}

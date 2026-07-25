@@ -1,0 +1,20 @@
+{
+  "reviewer": "Hubble",
+  "reviewer_id": "019f556a-b94d-7dc1-a6df-2423f2388899",
+  "method": "adversarial-review",
+  "date": "2026-07-12",
+  "artifact": "notes/fixed_qp_signed_pwa_contraction_theorem.md",
+  "checks": [
+    "original ADMM elimination and arbitrary-initial-state indexing",
+    "continuous PWA global incremental contraction",
+    "full-state geometric rate",
+    "fixed-point if and only if KKT",
+    "machine-certificate and review-provenance separation"
+  ],
+  "mathematical_verdict": "correct",
+  "release_rounds": [
+    "needs_fix: stale generated outputs and self-reported review status",
+    "needs_fix: external review manifest missing"
+  ],
+  "remaining_condition": "resolved by review_manifest.json and canonical output regeneration"
+}

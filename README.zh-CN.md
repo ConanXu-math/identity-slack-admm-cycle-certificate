@@ -7,6 +7,10 @@
 Block”** 的精确证书包。它验证两个显式实例：原始、未经修正的直接三块 ADMM
 存在有界、严格可容许、非 KKT 的周期序列，而对应优化问题仍有唯一 KKT 点。
 
+仓库分为两层：根目录保存冻结实例、精确检查器和机器证书；
+`research-process/` 保存两条 agent 路线中重要的研究状态、理论推导、失败路线、
+数值实验、结果文件和复核材料，用于回答“结果是怎样找到的”。
+
 ## 证书结论
 
 | 证书 ID | 维数 | 严格结论 | 验证方式 |
@@ -161,6 +165,7 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 ├── matlab/        # MATLAB 实现、测试和说明
 ├── certificates/  # 冻结输入与机器可读证书
 ├── provenance/    # 路线级统计与证据边界
+├── research-process/ # 精选的 agent 状态、理论、实验、结果和复核档案
 ├── docs/          # 复现与发布文档
 ├── paper/         # 编译后的论文 PDF
 └── .github/       # 持续集成与仓库规则
@@ -182,6 +187,7 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 | `python/verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
 | `certificates/` | 稳定输入与机器可读证书 |
 | `provenance/` | 描述性路线记录，不构成受控 benchmark |
+| `research-process/` | Codex/Kimi 过程性研究档案及哈希清单 |
 | `paper/slack_admm_arxiv.pdf` | 编译后的论文；不包含排版工作文件 |
 | `docs/REPRODUCIBILITY.md` | 证明义务和发布契约 |
 

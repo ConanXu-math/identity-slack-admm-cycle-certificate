@@ -1,0 +1,29 @@
+{
+  "status": "exact_strict_kkt_local_expansion_history_lyapunov_obstruction",
+  "scope": "strongly convex rational A=B=I slack QP with a strict mixed-mask KKT point",
+  "checks": {
+    "M_spectrum": true,
+    "N_spectrum": true,
+    "Q1_positive_definite": true,
+    "Q2_positive_definite": true,
+    "primal_feasibility": true,
+    "x_stationarity": true,
+    "y_stationarity": true,
+    "strict_complementarity": true,
+    "strict_signed_orthant": true,
+    "signed_recurrence_fixed_point": true,
+    "zero_characteristic_root": true,
+    "negative_jury_mid": true
+  },
+  "jury_mid": "-433775258062294638209/40047143579101562500000000",
+  "selector": [
+    0,
+    1
+  ],
+  "q_star": [
+    "-1",
+    "1"
+  ],
+  "claim_boundary": "Local branch expansion rules out locally norm-controlling monotone static or finite-history quadratic Lyapunov functions. It is not an ADMM divergence counterexample because trajectories may exit the branch and return.",
+  "valid": true
+}

@@ -1,0 +1,10 @@
+{
+  "seed": 20260722,
+  "n_runs": 96,
+  "n_converged": 94,
+  "n_failed": 2,
+  "n_V_increase": 16,
+  "median_k": 194.0,
+  "max_k": 3421,
+  "elapsed_sec": 5.347138166427612
+}

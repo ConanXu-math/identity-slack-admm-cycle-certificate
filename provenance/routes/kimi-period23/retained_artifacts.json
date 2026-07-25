@@ -34,6 +34,12 @@
       "terminal_run_artifact": false
     }
   ],
+  "curated_process_archive": {
+    "path": "research-process/kimi-period23",
+    "manifest": "research-process/manifest.json",
+    "retained": true,
+    "scope": "Sanitized isolated-workspace snapshot containing the starting contract, research log, nine theory notes, all experiment and test scripts, saved JSON/NPZ results, literature notes, and terminal report."
+  },
   "later_companion_artifacts": [
     {
       "artifact_id": "explicit_rational_invariant_ellipsoid",

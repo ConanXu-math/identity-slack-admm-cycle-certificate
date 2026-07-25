@@ -47,4 +47,5 @@ not evidence for a causal model ranking.
 
 See [`accounting.json`](accounting.json) for paper-reported resource figures
 and [`retained_artifacts.json`](retained_artifacts.json) for the curated asset
-inventory.
+inventory. The sanitized isolated-workspace archive is available under
+[`../../../research-process/kimi-period23/`](../../../research-process/kimi-period23/).

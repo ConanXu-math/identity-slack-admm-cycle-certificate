@@ -30,6 +30,9 @@ jobs:
       - name: Regenerate and verify all exact certificates
         run: python python/verify_all.py
 
+      - name: Verify the curated research-process archive
+        run: python python/verify_research_process_archive.py
+
       - name: Export all 66 exact cyclic states
         run: python python/export_orbit_66.py
 

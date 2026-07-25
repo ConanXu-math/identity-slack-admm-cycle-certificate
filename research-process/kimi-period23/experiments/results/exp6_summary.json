@@ -1,0 +1,220 @@
+{
+  "seed": 555,
+  "results": [
+    {
+      "kind": "proj",
+      "idx": 0,
+      "sustained_rate": 1.0000124703818443,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 1,
+      "cycle": [
+        3
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 1,
+      "sustained_rate": 1.0000130341475113,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 2,
+      "cycle": [
+        4,
+        6
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 2,
+      "sustained_rate": 1.0000006964711767,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 1,
+      "cycle": [
+        2
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 3,
+      "sustained_rate": 1.000002199581161,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 3,
+      "cycle": [
+        7,
+        5,
+        6
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 4,
+      "sustained_rate": 1.000002771183235,
+      "cycle_rho": 1.0000000000000007,
+      "cycle_len": 1,
+      "cycle": [
+        3
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 5,
+      "sustained_rate": 1.0000009143541928,
+      "cycle_rho": 1.0000000000000007,
+      "cycle_len": 3,
+      "cycle": [
+        3,
+        4,
+        7
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 6,
+      "sustained_rate": 1.00000190468145,
+      "cycle_rho": 1.0000000000000007,
+      "cycle_len": 1,
+      "cycle": [
+        7
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 7,
+      "sustained_rate": 1.0000146847249891,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 1,
+      "cycle": [
+        6
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 8,
+      "sustained_rate": 1.000006080959039,
+      "cycle_rho": 1.0000000000000007,
+      "cycle_len": 1,
+      "cycle": [
+        7
+      ]
+    },
+    {
+      "kind": "proj",
+      "idx": 9,
+      "sustained_rate": 1.0000044594324158,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 1,
+      "cycle": [
+        1
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 0,
+      "sustained_rate": 1.000007041934075,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 3,
+      "cycle": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 1,
+      "sustained_rate": 1.0000097908528154,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 3,
+      "cycle": [
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 2,
+      "sustained_rate": 0.9221680219950725,
+      "cycle_rho": 1.0,
+      "cycle_len": 1,
+      "cycle": [
+        0
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 3,
+      "sustained_rate": 1.000001717742503,
+      "cycle_rho": 1.0000000000000002,
+      "cycle_len": 2,
+      "cycle": [
+        1,
+        6
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 4,
+      "sustained_rate": 1.0000052449976937,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 2,
+      "cycle": [
+        7,
+        1
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 5,
+      "sustained_rate": 1.000006390180873,
+      "cycle_rho": 1.000000000000001,
+      "cycle_len": 2,
+      "cycle": [
+        7,
+        2
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 6,
+      "sustained_rate": 1.0000059158078014,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 1,
+      "cycle": [
+        2
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 7,
+      "sustained_rate": 1.0000010683962322,
+      "cycle_rho": 1.0000000000000009,
+      "cycle_len": 2,
+      "cycle": [
+        4,
+        7
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 8,
+      "sustained_rate": 1.0000027644497498,
+      "cycle_rho": 1.0000000000000004,
+      "cycle_len": 2,
+      "cycle": [
+        7,
+        2
+      ]
+    },
+    {
+      "kind": "contr",
+      "idx": 9,
+      "sustained_rate": 1.0000080408155085,
+      "cycle_rho": 1.0000000000000002,
+      "cycle_len": 1,
+      "cycle": [
+        7
+      ]
+    }
+  ],
+  "elapsed_sec": 7.529765844345093
+}

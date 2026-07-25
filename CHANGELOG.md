@@ -13,6 +13,11 @@ All notable changes to the certificate package will be recorded here.
   coverage for both the period-66 and period-23 certificates.
 - Add route-level provenance and explicit limits for the descriptive,
   endpoint-aligned Codex/Kimi comparison.
+- Add a 168-file curated `research-process/` archive covering persistent
+  state, theory notes, failed routes, experiment scripts, saved results, and
+  internal reviews for both agent workflows.
+- Add a deterministic SHA-256 manifest, required-path checks, and a privacy
+  regression gate for the process archive.
 
 ## v0.3.0-private - 2026-07-18
 

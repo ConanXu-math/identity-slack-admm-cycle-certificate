@@ -1,0 +1,243 @@
+{
+  "status": "numerical_screen_recovered_from_stage43_to_stage44_search",
+  "stage43_mother_parameters": {
+    "epsilon": 0.001,
+    "mu": 0.9,
+    "nu": 0.999,
+    "first_direction": [
+      -1,
+      20
+    ],
+    "second_direction": [
+      -1,
+      10
+    ]
+  },
+  "search_family": "(00)^zero_count (01)^one_count",
+  "zero_count_range": [
+    2,
+    6
+  ],
+  "one_count_range": [
+    60,
+    66
+  ],
+  "mu_bounds": [
+    0.85,
+    0.98
+  ],
+  "nu_bounds": [
+    0.995,
+    0.9999999
+  ],
+  "base_seed": 20260714,
+  "seed_formula": "base_seed + 100 * zero_count + one_count",
+  "maxiter": 35,
+  "popsize": 6,
+  "stop_margin": 1e-07,
+  "software_versions": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3"
+  },
+  "records": [
+    {
+      "mu": 0.85,
+      "nu": 0.995,
+      "zero_count": 2,
+      "one_count": 60,
+      "word_run_length_encoding": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          60
+        ]
+      ],
+      "minimum_margin": -0.5042578423252415,
+      "minimum_margin_phase": 0,
+      "minimum_margin_coordinate": 1,
+      "initial_state": [
+        -0.022996589489764102,
+        0.21937497693717517,
+        -2.04766742429695,
+        0.5042578423252415
+      ],
+      "period_spectral_radius": 0.7957644757354975,
+      "floating_closure_error_inf": 9.992007221626409e-16,
+      "seed": 20260974,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "optimizer_iterations": 35,
+      "optimizer_evaluations": 438
+    },
+    {
+      "mu": 0.8500011023981694,
+      "nu": 0.9950007070100411,
+      "zero_count": 2,
+      "one_count": 61,
+      "word_run_length_encoding": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          61
+        ]
+      ],
+      "minimum_margin": -0.3318581911968609,
+      "minimum_margin_phase": 0,
+      "minimum_margin_coordinate": 1,
+      "initial_state": [
+        -0.044132995663607434,
+        0.4337215660990194,
+        -1.7527706451854819,
+        0.3318581911968609
+      ],
+      "period_spectral_radius": 0.8158084386424607,
+      "floating_closure_error_inf": 2.7755575615628914e-16,
+      "seed": 20260975,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "optimizer_iterations": 35,
+      "optimizer_evaluations": 435
+    },
+    {
+      "mu": 0.8500000025251606,
+      "nu": 0.9976770301129356,
+      "zero_count": 2,
+      "one_count": 62,
+      "word_run_length_encoding": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          62
+        ]
+      ],
+      "minimum_margin": -0.17959095526417604,
+      "minimum_margin_phase": 0,
+      "minimum_margin_coordinate": 1,
+      "initial_state": [
+        -0.060611981195988554,
+        0.6000169997214172,
+        -1.6037743174019754,
+        0.17959095526417604
+      ],
+      "period_spectral_radius": 0.8951530790723472,
+      "floating_closure_error_inf": 1.0269562977782698e-15,
+      "seed": 20260976,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "optimizer_iterations": 35,
+      "optimizer_evaluations": 444
+    },
+    {
+      "mu": 0.8636614502578887,
+      "nu": 0.9999999,
+      "zero_count": 2,
+      "one_count": 63,
+      "word_run_length_encoding": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          63
+        ]
+      ],
+      "minimum_margin": -0.004319325126791007,
+      "minimum_margin_phase": 1,
+      "minimum_margin_coordinate": 1,
+      "initial_state": [
+        -0.08536633801038682,
+        0.8531549902133804,
+        -1.0502853056204455,
+        0.004319251061777758
+      ],
+      "period_spectral_radius": 0.9839122985534338,
+      "floating_closure_error_inf": 2.014013955609073e-15,
+      "seed": 20260977,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "optimizer_iterations": 35,
+      "optimizer_evaluations": 552
+    },
+    {
+      "mu": 0.8958151634836763,
+      "nu": 0.9988350057523546,
+      "zero_count": 2,
+      "one_count": 64,
+      "word_run_length_encoding": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          64
+        ]
+      ],
+      "minimum_margin": 0.004339988810890699,
+      "minimum_margin_phase": 0,
+      "minimum_margin_coordinate": 1,
+      "initial_state": [
+        -0.07774311617005392,
+        0.7759854308379355,
+        -1.143089036861467,
+        -0.004339988810890699
+      ],
+      "period_spectral_radius": 0.9997013755382231,
+      "floating_closure_error_inf": 1.5543122344752192e-15,
+      "seed": 20260978,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "optimizer_iterations": 35,
+      "optimizer_evaluations": 558
+    }
+  ],
+  "hit": {
+    "mu": 0.8958151634836763,
+    "nu": 0.9988350057523546,
+    "zero_count": 2,
+    "one_count": 64,
+    "word_run_length_encoding": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        64
+      ]
+    ],
+    "minimum_margin": 0.004339988810890699,
+    "minimum_margin_phase": 0,
+    "minimum_margin_coordinate": 1,
+    "initial_state": [
+      -0.07774311617005392,
+      0.7759854308379355,
+      -1.143089036861467,
+      -0.004339988810890699
+    ],
+    "period_spectral_radius": 0.9997013755382231,
+    "floating_closure_error_inf": 1.5543122344752192e-15,
+    "seed": 20260978,
+    "optimizer_success": false,
+    "optimizer_message": "Maximum number of iterations has been exceeded.",
+    "optimizer_iterations": 35,
+    "optimizer_evaluations": 558
+  },
+  "claim_boundary": [
+    "This differential-evolution run is numerical discovery evidence only.",
+    "A positive floating margin is not proof of exact closure or branch admissibility.",
+    "The rounded parameters must be rebuilt and checked by the exact Stage 44 and Stage 45 certifiers.",
+    "Failure to find a hit for a word is not a proof that the word is impossible."
+  ]
+}
