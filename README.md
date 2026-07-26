@@ -56,6 +56,9 @@ and review artifacts that explain how the two certificates were reached.
   `y^0=(0.227998838986, -1.06559716363, -0.727978937701)`,
   `z^0=(0.0824586174945, 0, 3.20834050771)`, and
   `lambda^0=(0, -2.25308612194, 0)` in the repository sign convention.
+- The same certificate exposes every exact rational entry of the
+  six-dimensional 23-step return matrix `M_per` and offset `c_per`, together
+  with a compact decimal display.
 - Minimal period: `23`.
 - All `69` projection inputs are separated from zero, with exact minimum
   margin greater than `1/250`.

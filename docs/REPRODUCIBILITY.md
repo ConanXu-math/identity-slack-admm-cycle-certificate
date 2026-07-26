@@ -67,7 +67,8 @@ The period-23 certificate closes the following finite obligations:
 5. The frozen certificate exposes the exact rational phase-zero
    `(x,y,z,lambda)` initialization as well as a 12-significant-digit display;
    its exact reduced `(y,t)` coordinates reproduce the recorded phase-zero
-   hash.
+   hash.  It also exposes every exact entry of the 23-step return matrix and
+   offset; their hashes and fixed-point equation are checked independently.
 6. All 69 projection inputs are strict, with minimum margin greater than
    `1/250`.
 7. The 23 phase states are pairwise distinct and phase 23 returns exactly to

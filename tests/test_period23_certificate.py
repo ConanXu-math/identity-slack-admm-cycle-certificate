@@ -108,6 +108,37 @@ class Period23CertificateTests(unittest.TestCase):
                 "-0.727978937701",
             ],
         )
+        return_certificate = certificate["return_map_certificate"]
+        return_matrix = [
+            [Fraction(value) for value in row]
+            for row in return_certificate["return_matrix_exact"]
+        ]
+        return_offset = [
+            Fraction(value)
+            for value in return_certificate["return_offset_exact"]
+        ]
+        phase_zero = [
+            Fraction(value)
+            for value in (
+                exact_initialization["y"]
+                + exact_initialization["t_z_plus_lambda"]
+            )
+        ]
+        self.assertEqual(
+            VERIFIER.canonical_matrix_digest(return_matrix),
+            return_certificate["return_matrix_exact_sha256"],
+        )
+        self.assertEqual(
+            VERIFIER.canonical_vector_digest(return_offset),
+            return_certificate["return_offset_exact_sha256"],
+        )
+        self.assertEqual(
+            VERIFIER.vector_add(
+                VERIFIER.matrix_vector(return_matrix, phase_zero),
+                return_offset,
+            ),
+            phase_zero,
+        )
         self.assertGreater(
             certificate["periodic_orbit_certificate"][
                 "minimum_projection_margin"

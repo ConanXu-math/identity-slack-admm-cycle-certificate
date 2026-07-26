@@ -137,6 +137,12 @@ def matrix_text(matrix: Sequence[Sequence[Fraction]]) -> list[list[str]]:
     return [vector_text(row) for row in matrix]
 
 
+def matrix_decimal_text(
+    matrix: Sequence[Sequence[Fraction]],
+) -> list[list[str]]:
+    return [vector_decimal_text(row) for row in matrix]
+
+
 def sha256_bytes(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
@@ -979,9 +985,23 @@ def verify_instance(input_path: Path) -> dict[str, Any]:
             "determinant_B": fraction_text(determinant_b),
         },
         "return_map_certificate": {
+            "coordinate_order": [
+                "y1",
+                "y2",
+                "y3",
+                "t1=z1+lambda1",
+                "t2=z2+lambda2",
+                "t3=z3+lambda3",
+            ],
             "determinant_I_minus_Mper": fraction_text(
                 determinant_identity_minus_return
             ),
+            "return_matrix_exact": matrix_text(return_matrix),
+            "return_offset_exact": vector_text(return_offset),
+            "decimal_display_only": {
+                "return_matrix": matrix_decimal_text(return_matrix),
+                "return_offset": vector_decimal_text(return_offset),
+            },
             "return_matrix_exact_sha256": canonical_matrix_digest(
                 return_matrix
             ),
