@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from fractions import Fraction
 from pathlib import Path
 
 
@@ -43,6 +44,69 @@ class Period23CertificateTests(unittest.TestCase):
         self.assertEqual(
             certificate["periodic_orbit_certificate"]["phase_state_count"],
             23,
+        )
+        initialization = certificate["periodic_orbit_certificate"][
+            "phase_zero_initialization"
+        ]
+        self.assertEqual(initialization["phase_zero_mask"], [1, 0, 1])
+        exact_initialization = initialization["exact"]
+        self.assertEqual(
+            VERIFIER.canonical_vector_digest(
+                [
+                    Fraction(value)
+                    for value in (
+                        exact_initialization["y"]
+                        + exact_initialization["t_z_plus_lambda"]
+                    )
+                ]
+            ),
+            certificate["return_map_certificate"][
+                "phase_zero_exact_sha256"
+            ],
+        )
+        t_values = [
+            Fraction(value)
+            for value in exact_initialization["t_z_plus_lambda"]
+        ]
+        self.assertEqual(
+            [
+                Fraction(value)
+                for value in exact_initialization["z"]
+            ],
+            [max(value, 0) for value in t_values],
+        )
+        self.assertEqual(
+            [
+                Fraction(value)
+                for value in exact_initialization[
+                    "lambda_repo_sign_convention"
+                ]
+            ],
+            [min(value, 0) for value in t_values],
+        )
+        self.assertEqual(
+            [
+                Fraction(z_value) + Fraction(lambda_value)
+                for z_value, lambda_value in zip(
+                    exact_initialization["z"],
+                    exact_initialization[
+                        "lambda_repo_sign_convention"
+                    ],
+                    strict=True,
+                )
+            ],
+            [
+                Fraction(value)
+                for value in exact_initialization["t_z_plus_lambda"]
+            ],
+        )
+        self.assertEqual(
+            initialization["decimal_display_only"]["y"],
+            [
+                "0.227998838986",
+                "-1.06559716363",
+                "-0.727978937701",
+            ],
         )
         self.assertGreater(
             certificate["periodic_orbit_certificate"][

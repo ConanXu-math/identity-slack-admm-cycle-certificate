@@ -13,6 +13,7 @@ import hashlib
 import json
 import math
 import sys
+from decimal import Decimal, localcontext
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Sequence
@@ -77,12 +78,16 @@ EXACT_CHECK_NAMES = (
     "B_is_nonsingular",
     "I_minus_Mper_is_nonsingular",
     "periodic_fixed_point_is_exact",
+    "phase_zero_projection_identity_holds",
+    "phase_zero_mask_is_101",
     "original_admm_update_equations_hold",
     "exact_replay_closes_after_23_steps",
+    "full_state_closes_after_23_steps",
     "realized_word_matches_W23",
     "phase_state_count_is_23",
     "phase_states_are_pairwise_distinct",
     "minimal_period_is_23",
+    "full_state_minimal_period_is_23",
     "projection_margin_exceeds_1_over_250",
     "kkt_linear_system_is_nonsingular",
     "kkt_stationarity_holds",
@@ -112,8 +117,20 @@ def rounded_numerical_display(value: float, digits: int = 12) -> float:
     return 0.0 if abs(rounded) < 10.0 ** (-digits) else rounded
 
 
+def decimal_text(value: Fraction, digits: int = 12) -> str:
+    """Return a deterministic, human-readable significant-digit display."""
+    with localcontext() as context:
+        context.prec = digits + 4
+        decimal_value = Decimal(value.numerator) / Decimal(value.denominator)
+        return format(decimal_value, f".{digits}g")
+
+
 def vector_text(vector: Sequence[Fraction]) -> list[str]:
     return [fraction_text(value) for value in vector]
+
+
+def vector_decimal_text(vector: Sequence[Fraction]) -> list[str]:
+    return [decimal_text(value) for value in vector]
 
 
 def matrix_text(matrix: Sequence[Sequence[Fraction]]) -> list[list[str]]:
@@ -614,6 +631,7 @@ def verify_instance(input_path: Path) -> dict[str, Any]:
     states: list[Vector] = []
     realized_word: list[tuple[int, int, int]] = []
     update_checks: list[bool] = []
+    x_updates: list[Vector] = []
     projection_margins: list[tuple[Fraction, int, int]] = []
     state = phase_zero[:]
     for phase in range(len(W23)):
@@ -630,13 +648,62 @@ def verify_instance(input_path: Path) -> dict[str, Any]:
         y = state[:DIMENSION]
         z = [value if value > 0 else F0 for value in t]
         lam = [value if value < 0 else F0 for value in t]
-        _, y_new, _, _, q, checks_for_step = step_from_y_z_lambda(
+        x_new, y_new, _, _, q, checks_for_step = step_from_y_z_lambda(
             y,
             z,
             lam,
         )
+        x_updates.append(x_new)
         update_checks.append(all(checks_for_step.values()))
         state = y_new + q
+
+    phase_zero_y = phase_zero[:DIMENSION]
+    phase_zero_t = phase_zero[DIMENSION:]
+    phase_zero_z = [
+        value if value > 0 else F0 for value in phase_zero_t
+    ]
+    phase_zero_lambda = [
+        value if value < 0 else F0 for value in phase_zero_t
+    ]
+    # The final transition maps phase 22 back to phase 0.  Its x-update is
+    # therefore the x-coordinate paired with the phase-zero (y,z,lambda)
+    # state, making the displayed full initialization exactly 23-periodic.
+    phase_zero_x = x_updates[-1]
+    phase_zero_mask = tuple(
+        1 if value > 0 else 0 for value in phase_zero_t
+    )
+    phase_zero_projection_identity = (
+        vector_add(phase_zero_z, phase_zero_lambda) == phase_zero_t
+        and phase_zero_z
+        == [value if value > 0 else F0 for value in phase_zero_t]
+        and phase_zero_lambda
+        == [value if value < 0 else F0 for value in phase_zero_t]
+    )
+
+    def full_state(
+        x_value: Sequence[Fraction],
+        reduced_state: Sequence[Fraction],
+    ) -> Vector:
+        y_value = list(reduced_state[:DIMENSION])
+        t_value = list(reduced_state[DIMENSION:])
+        z_value = [value if value > 0 else F0 for value in t_value]
+        lambda_value = [
+            value if value < 0 else F0 for value in t_value
+        ]
+        return list(x_value) + y_value + z_value + lambda_value
+
+    full_phase_states = [
+        full_state(
+            x_updates[phase - 1] if phase > 0 else x_updates[-1],
+            states[phase],
+        )
+        for phase in range(len(states))
+    ]
+    final_full_state = full_state(x_updates[-1], state)
+    full_state_closes = final_full_state == full_phase_states[0]
+    full_states_distinct = (
+        len({tuple(value) for value in full_phase_states}) == len(W23)
+    )
 
     minimum_margin, margin_phase, margin_coordinate = min(
         projection_margins,
@@ -818,12 +885,20 @@ def verify_instance(input_path: Path) -> dict[str, Any]:
             determinant_identity_minus_return != 0
         ),
         "periodic_fixed_point_is_exact": fixed_point_exact,
+        "phase_zero_projection_identity_holds": (
+            phase_zero_projection_identity
+        ),
+        "phase_zero_mask_is_101": phase_zero_mask == W23[0],
         "original_admm_update_equations_hold": all(update_checks),
         "exact_replay_closes_after_23_steps": replay_closes,
+        "full_state_closes_after_23_steps": full_state_closes,
         "realized_word_matches_W23": tuple(realized_word) == W23,
         "phase_state_count_is_23": len(states) == 23,
         "phase_states_are_pairwise_distinct": states_distinct,
         "minimal_period_is_23": replay_closes and states_distinct,
+        "full_state_minimal_period_is_23": (
+            full_state_closes and full_states_distinct
+        ),
         "projection_margin_exceeds_1_over_250": (
             minimum_margin > Fraction(1, 250)
         ),
@@ -919,6 +994,40 @@ def verify_instance(input_path: Path) -> dict[str, Any]:
             "phase_state_count": len(states),
             "phase_state_exact_sha256": phase_state_hashes,
             "cycle_exact_sha256": sha256_text("|".join(phase_state_hashes)),
+            "phase_zero_initialization": {
+                "phase_convention": (
+                    "state immediately after the z and multiplier updates; "
+                    "x is the update produced on the phase-22 to phase-0 "
+                    "transition"
+                ),
+                "reduced_coordinate_order": [
+                    "y1",
+                    "y2",
+                    "y3",
+                    "t1=z1+lambda1",
+                    "t2=z2+lambda2",
+                    "t3=z3+lambda3",
+                ],
+                "phase_zero_mask": list(phase_zero_mask),
+                "exact": {
+                    "x": vector_text(phase_zero_x),
+                    "y": vector_text(phase_zero_y),
+                    "z": vector_text(phase_zero_z),
+                    "lambda_repo_sign_convention": vector_text(
+                        phase_zero_lambda
+                    ),
+                    "t_z_plus_lambda": vector_text(phase_zero_t),
+                },
+                "decimal_display_only": {
+                    "x": vector_decimal_text(phase_zero_x),
+                    "y": vector_decimal_text(phase_zero_y),
+                    "z": vector_decimal_text(phase_zero_z),
+                    "lambda_repo_sign_convention": vector_decimal_text(
+                        phase_zero_lambda
+                    ),
+                    "t_z_plus_lambda": vector_decimal_text(phase_zero_t),
+                },
+            },
             "realized_word_masks": [list(mask) for mask in realized_word],
             "minimum_projection_margin": {
                 "exact": fraction_text(minimum_margin),

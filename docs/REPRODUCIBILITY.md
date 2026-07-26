@@ -64,14 +64,18 @@ The period-23 certificate closes the following finite obligations:
    slack and multiplier signs, and complementarity exactly.
 4. The prescribed 23-region word is realized exactly by the reduced `(y,t)`
    map.
-5. All 69 projection inputs are strict, with minimum margin greater than
+5. The frozen certificate exposes the exact rational phase-zero
+   `(x,y,z,lambda)` initialization as well as a 12-significant-digit display;
+   its exact reduced `(y,t)` coordinates reproduce the recorded phase-zero
+   hash.
+6. All 69 projection inputs are strict, with minimum margin greater than
    `1/250`.
-6. The 23 phase states are pairwise distinct and phase 23 returns exactly to
+7. The 23 phase states are pairwise distinct and phase 23 returns exactly to
    phase 0, establishing minimal period 23.
-7. The periodic sequence differs from the KKT point.
-8. The rational matrix `P` and the Lyapunov gap
+8. The periodic sequence differs from the KKT point.
+9. The rational matrix `P` and the Lyapunov gap
    `P - M_per^T P M_per` are positive definite by exact Sylvester tests.
-9. All 69 support ratios are positive and exceed
+10. All 69 support ratios are positive and exceed
    `29/100000 > 1/4000`.
 
 Consequently, `e^T P e < 1/4000` is an explicit return-invariant open set in

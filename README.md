@@ -50,6 +50,12 @@ and review artifacts that explain how the two certificates were reached.
 - Instance identifier: `identity_slack_p23_rational_v1`.
 - Every primitive QP coefficient is an exact reduced fraction whose numerator
   and denominator have absolute value at most `100`.
+- The certificate records the complete exact phase-zero initialization
+  `(x^0,y^0,z^0,lambda^0)`.  Its readable decimal display is
+  `x^0=(-0.901163422016, 1.05776189013, -1.45863466777)`,
+  `y^0=(0.227998838986, -1.06559716363, -0.727978937701)`,
+  `z^0=(0.0824586174945, 0, 3.20834050771)`, and
+  `lambda^0=(0, -2.25308612194, 0)` in the repository sign convention.
 - Minimal period: `23`.
 - All `69` projection inputs are separated from zero, with exact minimum
   margin greater than `1/250`.

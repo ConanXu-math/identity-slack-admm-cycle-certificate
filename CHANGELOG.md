@@ -9,6 +9,9 @@ All notable changes to the certificate package will be recorded here.
 - Designate an exact denominator-100 rational period-23 instance as the
   canonical Kimi-route certificate, with exact replay, KKT, strict-sign,
   Lyapunov, and invariant-neighborhood checks.
+- Expose the complete exact phase-zero `(x,y,z,lambda)` initialization and
+  verify its projection identity, first mask, full-state closure, and minimal
+  period.
 - Add a unified Python verification entry point, regression tests, and CI
   coverage for both the period-66 and period-23 certificates.
 - Add route-level provenance and explicit limits for the descriptive,
