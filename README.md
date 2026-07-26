@@ -1,186 +1,113 @@
 # Exact Periodic Nonconvergence Certificates for Identity-Slack Three-Block ADMM
 
+**English** | [简体中文](README.zh-CN.md)
+
 [![Exact certificate](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
 
-> **Repository status:** private pre-publication research artifact.  The
-> mathematical statement and software interface are frozen for internal
-> review, but the public archive DOI, final author list, citation metadata, and
-> open-source license have not yet been assigned.
+This repository accompanies the manuscript
+**“A Counterexample to the Convergence of Three-Block ADMM with an Identity
+Third Constraint Block.”** It provides exact, replayable evidence for two
+fixed convex quadratic programs on which the unmodified direct three-block
+ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 
-This repository contains the exact-arithmetic certificates accompanying the
-manuscript **“A Counterexample to the Convergence of Three-Block ADMM with an
-Identity Third Constraint Block.”**  It verifies two explicit instances for
-which the unmodified direct three-block ADMM has a bounded, strictly
-admissible, non-KKT periodic
-sequence, even though each optimization problem has a unique KKT point.
+> [!NOTE]
+> This is a private pre-publication artifact (`v0.3.0-private`). The final
+> authors, citation metadata, archival DOI, and software license have not yet
+> been assigned.
 
-The repository has two layers.  The root verification package contains frozen
-instances, exact checkers, comparison drivers, route-level provenance, and
-machine-readable certificates.  The `research-process/` archive preserves the
-important theory notes, numerical experiments, failed routes, state snapshots,
-and review artifacts that explain how the two certificates were reached.
+## Start here
+
+| If you want to... | Start with |
+| --- | --- |
+| Read the mathematical argument | [Compiled manuscript](paper/slack_admm_arxiv.pdf) |
+| Verify both counterexamples | [Five-minute verification](#five-minute-verification) |
+| Inspect the exact machine certificates | [`certificates/`](certificates/) |
+| Understand what each checker proves | [Reproducibility contract](docs/REPRODUCIBILITY.md) |
+| Follow the Codex and Kimi discovery routes | [Research-stage index](research-process/INDEX.md) |
+| Review time, token, and agent accounting | [Computational provenance](provenance/README.md) |
+| Run the independent MATLAB check | [MATLAB instructions](matlab/README.md) |
+
+The root package is the acceptance layer. The
+[`research-process/`](research-process/) archive is historical evidence about
+how the results were found; it is not a second acceptance layer.
 
 ## Certified results
 
-| Certificate ID | Dimension | Certified conclusion | Verification |
-| --- | ---: | --- | --- |
-| `identity_slack_p66_short_v1` | 2 | Bounded non-KKT sequence of minimal period 66 | reduced Python, full-state Python, MATLAB |
-| `identity_slack_p23_rational_v1` | 3 | Minimal period-23 non-KKT orbit with an explicit invariant neighborhood in canonical `(y,t)` state | exact rational replay and Lyapunov certificate |
+| Certificate ID | Fixed instance | Exact conclusion | Main evidence |
+| --- | --- | --- | --- |
+| `identity_slack_p66_short_v1` | `m = 2`, `A = B = I_2`, `beta = 1` | A specified initialization generates a bounded non-KKT orbit of minimal period 66 | two independent Python representations and a MATLAB implementation |
+| `identity_slack_p23_rational_v1` | `m = 3`, rational QP data, `beta = 1` | An open invariant set of reduced initializations converges phasewise to a non-KKT orbit of minimal period 23 | exact rational replay and Lyapunov certificate |
 
 ### Period 66
 
-- Model: two-dimensional pure-quadratic problem with `A = B = I_2`, an
-  identity nonnegative slack block, and penalty parameter `beta = 1`.
-- Instance identifier: `identity_slack_p66_short_v1`.
-- Active-set word: `(00)^2(01)^64`.
-- Minimal period: `66`.
-- Strict projection tests: all `132` signed coordinate inequalities pass.
-- Certified minimum signed margin:
+- Projection word: `(00)^2(01)^64`.
+- Exact closure and minimal period: `66`.
+- Strict projection checks: `132/132`.
+- Minimum signed margin:
   `0.0037105246944352910173... > 1/1000`.
-- The strict primitive word and its period-66 orbit persist on an open
-  neighborhood of the rational parameters.
-- Proof boundary: bounded periodic nonconvergence only; no claim of unbounded
-  divergence or failure of ADMM variants with additional assumptions or
-  correction steps.
+- The orbit is bounded and non-KKT; the QP has a unique KKT point.
+- This certificate concerns a deliberately specified initialization. It does
+  not claim attraction, unbounded divergence, or failure of corrected ADMM
+  variants.
 
 ### Period 23
 
-- Model: three-dimensional strongly convex quadratic problem with a
-  nonnegative identity slack block and penalty parameter `beta = 1`.
-- Instance identifier: `identity_slack_p23_rational_v1`.
-- Every primitive QP coefficient is an exact reduced fraction whose numerator
-  and denominator have absolute value at most `100`.
-- The certificate records the complete exact phase-zero initialization
-  `(x^0,y^0,z^0,lambda^0)`.  Its readable decimal display is
-  `x^0=(-0.901163422016, 1.05776189013, -1.45863466777)`,
-  `y^0=(0.227998838986, -1.06559716363, -0.727978937701)`,
-  `z^0=(0.0824586174945, 0, 3.20834050771)`, and
-  `lambda^0=(0, -2.25308612194, 0)` in the repository sign convention.
-- The same certificate exposes every exact rational entry of the
-  six-dimensional 23-step return matrix `M_per` and offset `c_per`, together
-  with a compact decimal display.
-- Minimal period: `23`.
-- All `69` projection inputs are separated from zero, with exact minimum
-  margin greater than `1/250`.
+- All primitive QP coefficients are reduced fractions with numerator
+  magnitude and denominator at most `100`.
+- The frozen certificate contains the complete exact phase-zero state
+  `(x^0,y^0,z^0,lambda^0)`.
+- Exact closure and minimal period: `23`.
+- Strict projection checks: `69/69`, with minimum margin greater than `1/250`.
 - A rational matrix `P` satisfies
-  `P - M_per^T P M_per > 0` exactly.  The support-ratio certificate gives
-  `rbar^2 > 29/100000 > 1/4000`.
-- Consequently, `e^T P e < 1/4000` is an explicit return-invariant
-  neighborhood of reduced initializations whose phase subsequences approach
-  the non-KKT period-23 orbit.
-- The exploratory Kimi route files remain under `research-process/` as
-  historical discovery evidence; root acceptance is defined by the rational
-  instance and exact verifier above.
+  `P - M_per^T P M_per > 0` exactly.
+- The ellipsoid `e^T P e < 1/4000` is return-invariant in the canonical
+  reduced `(y,t)` state, and every initialization in it converges phasewise
+  to the period-23 sequence.
+- This is a neighborhood of initializations for one fixed QP, not a
+  perturbation result for the QP data or a global attraction theorem.
 
-### Multiplier relaxation for the period-66 instance
+### Multiplier relaxation for the period-66 QP
 
-For the same rational QP, with multiplier step size `tau`, the exact
-certificate proves three local statements:
+The exact relaxation certificate proves three separate statements:
 
-- one rational Lyapunov matrix works on the strict KKT branch for every
-  `tau in [49/100, 51/100]`;
-- the former period-66 initial state follows a certified strict prefix for
-  232 steps and enters the invariant Lyapunov ellipsoid for every
-  `tau in [1/2 - 10^-10, 1/2 + 10^-10]`;
-- the strict KKT branch has a unique Schur boundary in `(0,1)`, bracketed by
-  `0.9366061114 < tau_c < 0.9366061115`.
+1. one rational Lyapunov matrix works on the strict KKT branch for every
+   `tau in [49/100, 51/100]`;
+2. the former period-66 initialization follows a certified strict prefix for
+   232 steps and enters the invariant ellipsoid for every
+   `tau in [1/2 - 10^-10, 1/2 + 10^-10]`;
+3. the strict KKT branch has a unique Schur boundary satisfying
+   `0.9366061114 < tau_c < 0.9366061115`.
 
-These statements do not prove global convergence from arbitrary initial
-points or a uniform convergence theorem for the model class.
+These are local or fixed-initialization results. They do not establish global
+convergence from arbitrary initial points.
 
-> [!IMPORTANT]
-> The Codex and Kimi Code K3 records in `provenance/` are a descriptive,
-> endpoint-aligned comparison of two realized research routes.  The runs were
-> not matched in compute, tools, telemetry, or human intervention and do not
-> support a causal ranking of model capability.
+## Five-minute verification
 
-## Verification architecture
-
-### Period-66 certificate
-
-The Python implementation uses two state representations:
-
-1. `python/signed_cycle_certificate.py` derives and verifies the four-dimensional
-   signed recurrence `s = (y, q)`.
-2. `python/strict_cycle_certificate.py` independently reconstructs affine maps on the
-   six-dimensional unreduced essential state `(y, z, lambda)` by exact basis
-   evaluation of the original ADMM updates.
-
-Neither checker imports the other.  `python/verify_certificate_pair.py` regenerates
-both JSON certificates and requires exact agreement of the instance, initial
-state, orbit, word, KKT point, minimum margin, and canonical hashes.  This is
-an internal implementation cross-check, not a second mathematical proof or
-external peer review.
-
-`matlab/verify_exact_cycle_matlab.m` is a third implementation written for
-MATLAB R2025a and Symbolic Math Toolbox.  Like the raw Python checker, it
-independently solves the exact six-dimensional period equation and then
-reruns all 66 original ADMM updates with the genuine positive-part
-projection.  It does not call Python.  The small Python utility
-`python/verify_matlab_certificate.py` only compares the resulting JSON fields with
-the frozen Python artifacts.
-
-`python/export_orbit_66.py` writes all 66 cyclic phases to
-`certificates/orbit_66.json`.  This is a complete exact data rendering, not an
-additional proof.
-
-`python/certify_relaxed_multiplier_interval_theory.py` reconstructs the
-parameterized six-dimensional branch map from the original ADMM updates and
-checks the Lyapunov interval, finite-prefix capture, and Schur boundary by
-exact algebra.
-
-### Period-23 certificate
-
-`python/verify_period23_certificate.py` reads
-`certificates/period23_instance.json` directly as canonical fractions.  It
-rebuilds the six-dimensional `(y,t)` branch maps and checks positive
-definiteness, nonsingularity, the unique strictly complementary KKT point,
-the original ADMM update equations, exact 23-step closure, minimality, strict
-projection signs, separation from the KKT point, the rational Lyapunov
-inequality, and the explicit sign-preserving support radius.  It
-deterministically regenerates `certificates/period23_certificate.json`.
-Runtime telemetry is excluded from the frozen certificate.
-
-## Quick reproduction
-
-The frozen runtime is Python 3.13.5 with SymPy 1.13.3 and NumPy 2.1.3.
+The frozen Python environment is 3.13.5 with SymPy 1.13.3, NumPy 2.1.3, and
+pytest 8.3.4.
 
 ```bash
+git clone https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate.git
+cd identity-slack-admm-cycle-certificate
 python3.13 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+
 python python/verify_all.py
-python python/export_orbit_66.py
-python python/certify_relaxed_multiplier_interval_theory.py
-python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
+python python/verify_research_process_archive.py
 ```
 
-Expected terminal summary:
+The certificate command should end with:
 
 ```json
 {"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
-The commands read the fixed input
-`certificates/period23_instance.json` and rewrite the following tracked
-artifacts deterministically:
-
-- `certificates/certificate_raw.json`
-- `certificates/certificate_signed.json`
-- `certificates/instance_manifest.json`
-- `certificates/period23_certificate.json`
-- `certificates/orbit_66.json`
-- `certificates/relaxed_multiplier_certificate.json`
-- `certificates/relaxed_multiplier_summary.md`
-
-The MATLAB command similarly rewrites the tracked artifact
-`certificates/certificate_matlab.json`.
-
-To confirm that a checkout reproduces the committed certificate exactly, run:
+For the full release check used by GitHub Actions:
 
 ```bash
 python python/verify_all.py
+python python/verify_research_process_archive.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
@@ -189,16 +116,52 @@ python python/verify_matlab_certificate.py
 git diff --exit-code -- certificates/
 ```
 
-### MATLAB reproduction
+The last command is part of acceptance: regeneration must leave every tracked
+certificate byte-for-byte unchanged.
 
-Required environment:
+## How the evidence is organized
 
-- MATLAB R2025a;
-- Symbolic Math Toolbox;
-- a valid local license, or a MATLAB batch licensing token for a private
-  GitHub repository.
+| Layer | Purpose | Authoritative entry point |
+| --- | --- | --- |
+| Exact acceptance | Rebuilds the fixed QPs and checks every finite proof obligation | [`python/verify_all.py`](python/verify_all.py) |
+| Frozen data | Canonical inputs, exact orbits, verdicts, hashes, and Lyapunov data | [`certificates/`](certificates/) |
+| Implementation cross-checks | Independent signed-state, full-state, and MATLAB implementations for period 66 | [`python/README.md`](python/README.md), [`matlab/README.md`](matlab/README.md) |
+| Process archive | Selected theory, experiments, failures, state files, and internal reviews | [`research-process/INDEX.md`](research-process/INDEX.md) |
+| Route accounting | Scope and telemetry for the Codex/Kimi comparison | [`provenance/README.md`](provenance/README.md) |
+| Continuous integration | Clean-environment regeneration and artifact-stability gate | [Exact certificate workflow](.github/workflows/certificate.yml) |
 
-From the repository root, run:
+Agreement between implementations is an internal reproducibility cross-check,
+not external peer review.
+
+## Reading the research process
+
+Use [`research-process/INDEX.md`](research-process/INDEX.md) rather than
+browsing the archive chronologically:
+
+- **Codex / period 66:** begin with the persistent task state and algebraic
+  reductions, then follow Stages 43–46 from obstruction to numerical
+  discovery, rationalization, exact replay, and precision audit.
+- **Kimi Code K3 / period 23:** begin with `START_GOAL.txt` and
+  `RESEARCH_LOG.md`, then follow the withdrawn routes, targeted instability
+  experiments, period locking, and the exact certificate.
+
+Archive labels matter:
+
+- `numerical_screen` and `proof_attempt` are exploratory;
+- `withdrawn` records a route that was rejected;
+- `theorem` and `exact_certificate` are accepted only within their stated
+  scope;
+- `review` means an internal check, not external peer review.
+
+Raw chats, credentials, private configuration, local absolute paths, caches,
+and repetitive bulk outputs are intentionally excluded. The 168 retained
+files are covered by [`research-process/manifest.json`](research-process/manifest.json)
+and checked in CI.
+
+## MATLAB reproduction
+
+The MATLAB verifier covers the period-66 instance and requires MATLAB R2025a,
+Symbolic Math Toolbox, and a valid license:
 
 ```matlab
 addpath("matlab")
@@ -206,87 +169,47 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-This writes `certificates/certificate_matlab.json`.  Then compare the MATLAB output with
-the frozen Python artifacts:
+Then compare the generated MATLAB JSON against the frozen Python fields:
 
 ```bash
 python python/verify_matlab_certificate.py
 ```
 
-Run the class-based MATLAB regression test with:
+See [`matlab/README.md`](matlab/README.md) for the class-based test and licensed
+GitHub Actions instructions.
 
-```matlab
-results = runtests("matlab/tests/VerifyExactCycleMatlabTest.m");
-assert(all([results.Passed]))
-```
-
-The MATLAB workflow is intentionally manual while the repository is private.
-MathWorks requires a batch licensing token for private-project jobs; store it
-as the GitHub Actions secret `MLM_LICENSE_TOKEN` before dispatching the
-workflow.  When the repository becomes public, the workflow can be enabled on
-push without that private-project token requirement.
-
-## Repository layout
+## Repository map
 
 ```text
 .
-├── python/        # Python exact implementations and comparison drivers
-├── matlab/        # MATLAB implementation, tests, and local instructions
-├── certificates/  # Frozen inputs and machine-readable certificate artifacts
-├── provenance/    # Route-level accounting and evidence boundaries
-├── research-process/ # Curated agent research states, theory, experiments, and reviews
-├── docs/          # Reproducibility and release documentation
-├── paper/         # Compiled manuscript PDF
-└── .github/       # Continuous-integration workflows and ownership rules
+├── python/             exact Python verifiers and comparison drivers
+├── matlab/             independent period-66 MATLAB verifier and tests
+├── certificates/       frozen inputs and machine-readable certificates
+├── research-process/   curated Codex and Kimi discovery archives
+├── provenance/         comparison scope, accounting, and evidence boundaries
+├── docs/               detailed reproducibility contract
+├── paper/              compiled manuscript PDF
+└── .github/            CI workflows and ownership rules
 ```
 
-| Path | Purpose |
-| --- | --- |
-| `python/` | Python exact checkers and comparison entry points |
-| `python/strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
-| `python/signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
-| `python/verify_certificate_pair.py` | Regenerates, compares, and hashes both Python certificates |
-| `python/verify_period23_certificate.py` | Exact rational period-23 replay and invariant-neighborhood verifier |
-| `python/verify_all.py` | Runs both certificate paths and propagates failures |
-| `python/export_orbit_66.py` | Exports every exact period-66 phase as machine-readable data |
-| `python/certify_relaxed_multiplier_interval_theory.py` | Certifies the local multiplier-relaxation intervals and Schur boundary |
-| `python/tests/test_relaxed_multiplier_interval_theory.py` | Direct-replay and algebraic regression tests for multiplier relaxation |
-| `matlab/verify_exact_cycle_matlab.m` | Independent exact MATLAB checker on `(y,z,lambda)` |
-| `matlab/tests/VerifyExactCycleMatlabTest.m` | Class-based MATLAB regression test |
-| `python/verify_matlab_certificate.py` | Compares MATLAB JSON with frozen Python artifacts |
-| `certificates/` | Stable source data and machine-readable certificate bundle |
-| `provenance/` | Descriptive route records; not a controlled benchmark |
-| `research-process/` | Curated Codex and Kimi research-process archive with a hash manifest |
-| `paper/slack_admm_arxiv.pdf` | Compiled manuscript; authoring sources are intentionally excluded |
-| `docs/REPRODUCIBILITY.md` | Detailed proof-obligation and release contract |
-| `.github/workflows/certificate.yml` | Clean GitHub Actions reproduction |
-| `.github/workflows/matlab-certificate.yml` | Manual licensed MATLAB reproduction |
+For script-level descriptions, see [`python/README.md`](python/README.md). For
+the exact predicates, artifact meanings, runtime contract, and release
+checklist, see [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
-## Acceptance rule
+## Scope of the Codex–Kimi comparison
 
-The process exits successfully only when every result-specific exact
-predicate passes; the period-66 representations must additionally agree on
-every shared certificate field, and the multiplier-relaxation predicates and
-regression tests must pass.  No floating-point tolerance is used for period
-closure, minimality, projection signs, the Lyapunov/support-radius
-certificate, or the relaxation certificate.
+The two routes independently reached exact counterexamples to the same
+proposed convergence principle, but they did not solve the same QP and were
+not matched in compute, tools, telemetry, stopping policy, or human
+intervention. The comparison is descriptive and endpoint-aligned; it cannot
+support a causal ranking of model speed, cost, or capability.
 
-## Versioning and release status
+## Release and citation status
 
-The current private review version is `v0.3.0-private`.  Before a public research
-release, the maintainers will:
-
-1. deposit an immutable archive and assign a DOI;
-2. freeze the final author and citation metadata;
-3. choose and add an explicit software license;
-4. link the accepted or public manuscript version;
-5. create a public release tag whose commit matches the archived source.
-
-Until those steps are complete, no public license is granted and this private
-repository should not be cited as the archival record.
-
-## Contact
+This repository is currently private and has no public software license.
+Before public release, the maintainers must freeze the author list, add
+`CITATION.cff`, select a license, create an immutable tagged archive, assign
+a DOI, and make the manuscript and code-availability statement point to that
+same release.
 
 Repository owner: [ConanXu-math](https://github.com/ConanXu-math).
-
-For the Chinese overview, see [README.zh-CN.md](README.zh-CN.md).

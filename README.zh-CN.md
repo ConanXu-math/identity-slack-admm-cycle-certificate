@@ -1,130 +1,103 @@
 # Identity-Slack 三块 ADMM 的精确周期不收敛证书
 
-> **当前状态：私人、投稿前版本。** 数学命题和程序接口已冻结用于内部核查，
-> 但公开归档 DOI、最终作者列表、引用信息和开源许可证尚未确定。
+[English](README.md) | **简体中文**
 
-本仓库是论文 **“A Counterexample to the Convergence of Three-Block ADMM with
-an Identity Third Constraint Block”** 的精确证书包。它验证两个显式实例：
-原始、未经修正的直接三块 ADMM 存在有界、严格可容许、非 KKT 的周期序列，
-而对应优化问题仍有唯一 KKT 点。
+[![精确证书](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
 
-仓库分为两层：根目录保存冻结实例、精确检查器和机器证书；
-`research-process/` 保存两条 agent 路线中重要的研究状态、理论推导、失败路线、
-数值实验、结果文件和复核材料，用于回答“结果是怎样找到的”。
+本仓库对应论文 **“A Counterexample to the Convergence of Three-Block ADMM
+with an Identity Third Constraint Block”**。仓库为两个固定凸二次规划实例提供
+可精确重放的证据：虽然问题具有唯一 KKT 点，未经修正的直接三块 ADMM
+仍可产生有界、非 KKT 的周期序列。
 
-## 证书结论
+> [!NOTE]
+> 当前版本是私人、投稿前研究制品（`v0.3.0-private`）。最终作者、引用信息、
+> 归档 DOI 和软件许可证尚未确定。
 
-| 证书 ID | 维数 | 严格结论 | 验证方式 |
-| --- | ---: | --- | --- |
-| `identity_slack_p66_short_v1` | 2 | 最小周期 66 的有界非 KKT 序列 | reduced Python、full-state Python、MATLAB |
-| `identity_slack_p23_rational_v1` | 3 | canonical `(y,t)` 状态中具有显式不变邻域的最小周期 23 非 KKT 轨道 | 精确有理数重放与 Lyapunov 证书 |
+## 从这里开始
 
-### Period 66
+| 你的目的 | 建议入口 |
+| --- | --- |
+| 阅读数学论证 | [编译后的论文](paper/slack_admm_arxiv.pdf) |
+| 复现两个反例 | [五分钟验证](#五分钟验证) |
+| 查看精确机器证书 | [`certificates/`](certificates/) |
+| 了解每个检查器究竟证明什么 | [复现与证书契约](docs/REPRODUCIBILITY.md) |
+| 追踪 Codex 与 Kimi 的发现过程 | [研究阶段索引](research-process/INDEX.md) |
+| 查看时间、token 与 agent 统计 | [计算过程说明](provenance/README.md) |
+| 运行独立 MATLAB 检查 | [MATLAB 说明](matlab/README.md) |
 
-- `A = B = I_2`，第三块为非负 identity slack，`beta = 1`；
-- mask word 为 `(00)^2(01)^64`；
-- `132/132` 个严格符号条件全部通过；
-- 最小符号裕量为 `0.0037105246944352910173... > 1/1000`；
-- 该严格 primitive word 及周期 66 轨道在有理参数的一个开邻域内保持；
-- 只证明有界周期不收敛，不声称无界发散。
+根目录中的证书与检查器是正式验收层。`research-process/` 是“这些结果如何被
+找到”的历史证据，不构成第二套验收标准。
 
-### Period 23
+## 已认证结果
 
-- 三维强凸二次实例，第三块为非负 identity slack，`beta = 1`；
+| 证书 ID | 固定实例 | 精确结论 | 主要证据 |
+| --- | --- | --- | --- |
+| `identity_slack_p66_short_v1` | `m = 2`，`A = B = I_2`，`beta = 1` | 一个指定初始点产生最小周期 66 的有界非 KKT 轨道 | 两种独立 Python 状态表示与一套 MATLAB 实现 |
+| `identity_slack_p23_rational_v1` | `m = 3`，有理 QP 数据，`beta = 1` | 一组开集中的降维初始点按相位收敛到最小周期 23 的非 KKT 轨道 | 精确有理数重放与 Lyapunov 证书 |
+
+### 周期 66
+
+- 投影词为 `(00)^2(01)^64`；
+- 精确闭合，最小周期为 `66`；
+- `132/132` 个严格投影条件全部通过；
+- 最小符号裕量为
+  `0.0037105246944352910173... > 1/1000`；
+- 轨道有界且非 KKT，而该 QP 的 KKT 点唯一；
+- 证书针对一个特意构造的指定初始点，不声称该周期具有吸引性、序列无界发散，
+  也不否定带校正步骤或附加条件的 ADMM 变体。
+
+### 周期 23
+
 - 所有原始 QP 系数都是最简分数，分子绝对值和分母均不超过 `100`；
-- 证书保存完整的精确相位零初始点 `(x^0,y^0,z^0,lambda^0)`；便于阅读的
-  十进制值为 `x^0=(-0.901163422016, 1.05776189013, -1.45863466777)`、
-  `y^0=(0.227998838986, -1.06559716363, -0.727978937701)`、
-  `z^0=(0.0824586174945, 0, 3.20834050771)`，以及本仓库符号约定下的
-  `lambda^0=(0, -2.25308612194, 0)`；
-- 同一证书还保存六维 23 步返回矩阵 `M_per` 与偏移 `c_per` 的全部精确
-  有理数条目，并附紧凑十进制展示；
-- 最小周期为 `23`，共 `69` 个投影输入严格远离零，最小裕量大于
-  `1/250`；
-- 有理数矩阵 `P` 精确满足 `P - M_per^T P M_per > 0`，支撑比证书给出
-  `rbar^2 > 29/100000 > 1/4000`；
-- 因此，`e^T P e < 1/4000` 是一个显式返回不变邻域，其中每个降维初始点
-  都按相位趋近于该非 KKT 周期 23 轨道；
-- Kimi 路线的探索过程文件保留在 `research-process/` 作为发现证据；
-  根目录的有理数实例与精确验证器定义正式验收结果。
+- 冻结证书包含完整的精确相位零状态 `(x^0,y^0,z^0,lambda^0)`；
+- 精确闭合，最小周期为 `23`；
+- `69/69` 个投影条件均严格成立，最小裕量大于 `1/250`；
+- 有理矩阵 `P` 精确满足
+  `P - M_per^T P M_per > 0`；
+- 在规范降维状态 `(y,t)` 中，椭球 `e^T P e < 1/4000` 是返回不变集，
+  其中每个初始点都按相位收敛到周期 23 序列；
+- 这是一个固定 QP 的初始点邻域，不是 QP 数据扰动结论，也不是全局吸引定理。
 
-### Period-66 实例的乘子松弛
+### 周期 66 QP 的乘子松弛
 
-在同一个有理 QP 上，把乘子步长改为 `tau`，精确证书证明：
+精确松弛证书分别证明：
 
-- 对所有 `tau in [49/100, 51/100]`，严格 KKT 分支共享同一个有理 Lyapunov
-  矩阵；
-- 对所有 `tau in [1/2 - 10^-10, 1/2 + 10^-10]`，原周期初值按严格分支运行
-  232 步后进入不变 Lyapunov 椭球；
-- 严格 KKT 分支在 `(0,1)` 内有唯一 Schur 边界，并满足
-  `0.9366061114 < tau_c < 0.9366061115`。
+1. 对所有 `tau in [49/100, 51/100]`，严格 KKT 分支共享一个有理 Lyapunov
+   矩阵；
+2. 对所有 `tau in [1/2 - 10^-10, 1/2 + 10^-10]`，原周期初值保持严格分支
+   232 步后进入不变椭球；
+3. 严格 KKT 分支存在唯一 Schur 边界，并满足
+   `0.9366061114 < tau_c < 0.9366061115`。
 
-这些结论不等于任意初值的全局收敛，也不是对所有 identity-slack 问题的统一
-收敛定理。
+这些是局部或固定初始点结论，不证明任意初始点的全局收敛。
 
-> **比较边界：** `provenance/` 中的 Codex 与 Kimi Code K3 记录是两条已实现
-> 科研路线的描述性、终点对齐比较，不是计算量、工具、遥测或人工干预受控的
-> 模型能力 benchmark。
+## 五分钟验证
 
-## 验证架构
-
-### Period-66 的三套实现与交叉检查
-
-1. `python/signed_cycle_certificate.py`：使用四维 signed state `s = (y,q)`；
-2. `python/strict_cycle_certificate.py`：不调用上一实现，直接在六维 unreduced
-   essential state `(y,z,lambda)` 上由原始 ADMM 更新重建仿射分支。
-
-`python/verify_certificate_pair.py` 会重新生成两份 JSON，并逐项比较实例、初值、完整
-轨道、mask word、KKT 点、最小裕量和规范化哈希。两套程序的吻合是内部软件
-交叉检查，不等同于第二份数学证明或外部同行评审。
-
-仓库还包含第三套、独立编写的 MATLAB 实现
-`matlab/verify_exact_cycle_matlab.m`。它使用 MATLAB R2025a 和 Symbolic Math
-Toolbox，在六维 `(y,z,lambda)` 状态上重新解精确周期方程，再用真实逐坐标正部
-投影重跑全部 66 步；它不调用 Python。`python/verify_matlab_certificate.py` 只负责比较
-MATLAB 输出与冻结 Python 证书的公共字段。
-
-`python/export_orbit_66.py` 将 66 个循环相位完整写入
-`certificates/orbit_66.json`。该文件是精确数据导出，不是额外证明。
-
-`python/certify_relaxed_multiplier_interval_theory.py` 从原始 ADMM 更新重建含
-`tau` 的六维分支映射，并用精确代数验证 Lyapunov 区间、有限步捕获和 Schur
-边界。
-
-### Period-23 精确检查
-
-`python/verify_period23_certificate.py` 直接把
-`certificates/period23_instance.json` 解析为规范分数，重建六维 `(y,t)` 分支映射，
-并检查正定性、非奇异性、唯一严格互补 KKT 点、原始 ADMM 更新方程、23 步精确
-闭合、最小周期、严格投影符号、与 KKT 点分离、有理 Lyapunov 不等式和显式
-符号保持半径。它确定性生成
-`certificates/period23_certificate.json`；运行时间不进入冻结证书。
-
-## 一键复现
-
-冻结环境为 Python 3.13.5、SymPy 1.13.3 和 NumPy 2.1.3：
+冻结 Python 环境为 3.13.5，依赖 SymPy 1.13.3、NumPy 2.1.3 和
+pytest 8.3.4。
 
 ```bash
+git clone https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate.git
+cd identity-slack-admm-cycle-certificate
 python3.13 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+
 python python/verify_all.py
-python python/export_orbit_66.py
-python python/certify_relaxed_multiplier_interval_theory.py
-python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
+python python/verify_research_process_archive.py
 ```
 
-成功输出必须包含：
+证书命令应以以下结果结束：
 
 ```json
 {"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
-如需检查生成文件与仓库冻结版本完全一致：
+与 GitHub Actions 一致的完整发布检查为：
 
 ```bash
 python python/verify_all.py
+python python/verify_research_process_archive.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
@@ -133,11 +106,47 @@ python python/verify_matlab_certificate.py
 git diff --exit-code -- certificates/
 ```
 
-GitHub Actions 会在每次 push 和 pull request 上执行同一验证流程。
+最后一条也是验收条件：重新生成后，仓库中冻结的证书必须逐字节保持不变。
 
-### MATLAB 复现
+## 证据如何组织
 
-需要 MATLAB R2025a、Symbolic Math Toolbox 和有效许可证。在仓库根目录运行：
+| 层级 | 作用 | 权威入口 |
+| --- | --- | --- |
+| 精确验收 | 重建固定 QP 并检查全部有限证明义务 | [`python/verify_all.py`](python/verify_all.py) |
+| 冻结数据 | 规范输入、精确轨道、判定结果、哈希和 Lyapunov 数据 | [`certificates/`](certificates/) |
+| 实现交叉检查 | 周期 66 的 signed-state、full-state 与 MATLAB 独立实现 | [`python/README.md`](python/README.md)、[`matlab/README.md`](matlab/README.md) |
+| 研究过程 | 精选理论、实验、失败路线、状态文件和内部复核 | [`research-process/INDEX.md`](research-process/INDEX.md) |
+| 路线统计 | Codex/Kimi 比较的统计定义与适用边界 | [`provenance/README.md`](provenance/README.md) |
+| 持续集成 | 在干净环境中重建证书并检查产物稳定性 | [精确证书 workflow](.github/workflows/certificate.yml) |
+
+多套实现的一致性属于内部复现交叉检查，不等于外部同行评审。
+
+## 如何阅读研究过程
+
+不要按文件夹顺序盲目浏览，建议从
+[`research-process/INDEX.md`](research-process/INDEX.md) 进入：
+
+- **Codex / 周期 66：**先看持续任务状态和代数降维，再沿 Stage 43–46 阅读
+  “障碍识别—数值发现—有理化—精确重放—精度审计”的路径；
+- **Kimi Code K3 / 周期 23：**先看 `START_GOAL.txt` 和 `RESEARCH_LOG.md`，
+  再看撤回路线、定向不稳定性实验、周期锁定与最终精确证书。
+
+阅读时应区分证据标签：
+
+- `numerical_screen` 与 `proof_attempt` 只是探索；
+- `withdrawn` 表示该路线已被否定；
+- `theorem` 与 `exact_certificate` 只在其明示范围内成立；
+- `review` 表示内部检查，不是外部同行评审。
+
+仓库有意排除了原始聊天、凭据、私人配置、本机绝对路径、缓存与重复的大批量输出。
+保留的 168 个过程文件由
+[`research-process/manifest.json`](research-process/manifest.json) 记录哈希，并由
+CI 检查。
+
+## MATLAB 复现
+
+MATLAB 检查器只覆盖周期 66 实例，需要 MATLAB R2025a、Symbolic Math
+Toolbox 和有效许可证：
 
 ```matlab
 addpath("matlab")
@@ -145,66 +154,42 @@ result = verify_exact_cycle_matlab();
 assert(result.valid)
 ```
 
-该命令生成 `certificates/certificate_matlab.json`。随后运行跨语言精确比较：
+随后比较 MATLAB JSON 与冻结 Python 字段：
 
 ```bash
 python python/verify_matlab_certificate.py
 ```
 
-MATLAB 单元测试命令为：
+基于类的测试与需许可证的 GitHub Actions 说明见
+[`matlab/README.md`](matlab/README.md)。
 
-```matlab
-results = runtests("matlab/tests/VerifyExactCycleMatlabTest.m");
-assert(all([results.Passed]))
-```
-
-由于仓库目前是私有项目，MathWorks 的 GitHub Actions 运行需要 batch licensing
-token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运行
-`MATLAB exact certificate` workflow。仓库公开后可把该 workflow 改为每次 push
-自动运行。
-
-## 文件说明
+## 仓库结构
 
 ```text
 .
-├── python/        # Python 精确实现与比较入口
-├── matlab/        # MATLAB 实现、测试和说明
-├── certificates/  # 冻结输入与机器可读证书
-├── provenance/    # 路线级统计与证据边界
-├── research-process/ # 精选的 agent 状态、理论、实验、结果和复核档案
-├── docs/          # 复现与发布文档
-├── paper/         # 编译后的论文 PDF
-└── .github/       # 持续集成与仓库规则
+├── python/             Python 精确检查器与比较入口
+├── matlab/             独立的周期 66 MATLAB 检查器与测试
+├── certificates/       冻结输入与机器可读证书
+├── research-process/   精选 Codex 与 Kimi 发现过程
+├── provenance/         比较范围、统计定义与证据边界
+├── docs/               详细复现与证书契约
+├── paper/              编译后的论文 PDF
+└── .github/            CI 与仓库规则
 ```
 
-| 文件 | 作用 |
-| --- | --- |
-| `python/` | Python 精确检查器与比较入口 |
-| `python/strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
-| `python/signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
-| `python/verify_certificate_pair.py` | 重新生成、比较并哈希两套 Python 证书 |
-| `python/verify_period23_certificate.py` | Period-23 精确有理数重放与不变邻域检查 |
-| `python/verify_all.py` | 顺序运行两条证书路径并透传失败 |
-| `python/export_orbit_66.py` | 导出全部 66 个精确循环相位 |
-| `python/certify_relaxed_multiplier_interval_theory.py` | 验证局部乘子松弛区间与 Schur 边界 |
-| `python/tests/test_relaxed_multiplier_interval_theory.py` | 松弛证书的直接重放与代数回归测试 |
-| `matlab/verify_exact_cycle_matlab.m` | 六维状态的独立 MATLAB 精确检查器 |
-| `matlab/tests/VerifyExactCycleMatlabTest.m` | MATLAB class-based 回归测试 |
-| `python/verify_matlab_certificate.py` | 比较 MATLAB 与 Python 证书公共字段 |
-| `certificates/` | 稳定输入与机器可读证书 |
-| `provenance/` | 描述性路线记录，不构成受控 benchmark |
-| `research-process/` | Codex/Kimi 过程性研究档案及哈希清单 |
-| `paper/slack_admm_arxiv.pdf` | 编译后的论文；不包含排版工作文件 |
-| `docs/REPRODUCIBILITY.md` | 证明义务和发布契约 |
+脚本级说明见 [`python/README.md`](python/README.md)；精确谓词、产物含义、运行
+环境与发布检查见 [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)。
 
-## 公开发布前
+## Codex–Kimi 比较边界
 
-当前私人审阅版本为 `v0.3.0-private`。正式公开前还需：
+两条路线分别得到了针对同一拟议收敛原则的精确反例，但它们没有求解同一个 QP，
+也未对计算量、工具、遥测、停止规则或人工干预进行匹配。因此，该比较只能描述
+两次已实现的研究过程及其共同证据终点，不能用于因果性地排序模型速度、成本或能力。
 
-1. 建立永久归档并取得 DOI；
-2. 确认最终作者和引用信息；
-3. 确定并加入软件许可证；
-4. 关联公开论文版本；
-5. 确保公开 release tag、归档代码和论文记录指向同一 commit。
+## 发布与引用状态
 
-在完成这些事项前，本仓库不作为公开引用记录，也不授予公开使用许可证。
+仓库目前为私人版本，尚未提供公开软件许可证。正式公开前，需要确定最终作者与
+添加 `CITATION.cff`，选择许可证，建立不可变 release tag 与归档，取得 DOI，并确保
+论文和代码可用性声明共同指向该版本。
+
+仓库维护者：[ConanXu-math](https://github.com/ConanXu-math)。
