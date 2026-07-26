@@ -1,9 +1,9 @@
-"""Verify the Kimi Code K3 period-23 ADMM certificate exactly.
+"""Fail-closed exact verifier for the rational period-23 QP.
 
-The source instance is stored as NumPy binary64 arrays.  Every floating-point
-entry is converted to ``Fraction(float(entry))`` before any mathematical
-operation, so the replay proves a statement about the exact dyadic instance
-encoded by the NPZ file rather than about a tolerance-based simulation.
+The verifier reads only the repository-contained JSON instance.  It does not
+read the archived Kimi NPZ and does not import either of the earlier period-23
+verification/search scripts.  Every proof-grade check uses fractions.Fraction;
+NumPy is used only for the explicitly non-proof spectral-radius display.
 """
 
 from __future__ import annotations
@@ -11,1027 +11,1109 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import sys
 from fractions import Fraction
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Sequence
 
 import numpy as np
-
 
 if hasattr(sys, "set_int_max_str_digits"):
     sys.set_int_max_str_digits(0)
 
 
-HERE = Path(__file__).resolve().parent
-CERTIFICATE_DIR = HERE.parent / "certificates"
-DEFAULT_SOURCE = CERTIFICATE_DIR / "period23_source_binary64.npz"
-DEFAULT_CERTIFICATE = CERTIFICATE_DIR / "period23_certificate.json"
-DEFAULT_MANIFEST = CERTIFICATE_DIR / "period23_instance_manifest.json"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_INPUT = (
+    REPO_ROOT
+    / "certificates"
+    / "period23_instance.json"
+)
+DEFAULT_OUTPUT = (
+    REPO_ROOT
+    / "certificates"
+    / "period23_certificate.json"
+)
 
-INSTANCE_ID = "identity_slack_p23_dyadic_v1"
-EXPECTED_SOURCE_SHA256 = (
-    "aa4309d424f599b66967dfae22ed9a61e36dd6b4c34f7cd197ae3d21c6e18a28"
-)
-UPSTREAM_VERIFIER_SHA256 = (
-    "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829"
-)
 DIMENSION = 3
-KKT_MASK = 4
-STRICT_MARGIN_LOWER_BOUND = Fraction(7, 1000)
-KKT_CANDIDATE_TOLERANCE = Fraction(1, 10**12)
+REDUCED_DIMENSION = 2 * DIMENSION
+F0 = Fraction(0)
+F1 = Fraction(1)
 
-EXPECTED_ARRAYS = {
-    "A": ((3, 3), "float64"),
-    "B": ((3, 3), "float64"),
-    "F": ((3, 3), "float64"),
-    "G": ((3, 3), "float64"),
-    "b": ((3,), "float64"),
-    "c1": ((3,), "float64"),
-    "c2": ((3,), "float64"),
-    "lam": ((3,), "float64"),
-    "per": ((23,), "int64"),
-    "rho": ((), "float64"),
-    "vfix": ((9,), "float64"),
-    "xs": ((3,), "float64"),
-    "ys": ((3,), "float64"),
-    "z": ((3,), "float64"),
-}
+# One means t_i > 0, hence z_i=t_i and lambda_i=0.
+W23 = (
+    ((1, 0, 1),) * 5
+    + ((0, 1, 1),) * 7
+    + ((0, 0, 1),) * 2
+    + ((0, 0, 0),)
+    + ((0, 0, 1),) * 8
+)
 
-ExactMatrix = list[list[Fraction]]
-ExactVector = list[Fraction]
+P_NUMERATOR = (
+    (2, 0, 0, 0, -1, 1),
+    (0, 2, 1, 0, -2, 2),
+    (0, 1, 6, 2, -7, 7),
+    (0, 0, 2, 3, -3, 3),
+    (-1, -2, -7, -3, 16, -13),
+    (1, 2, 7, 3, -13, 14),
+)
 
-
-def _stable_json(payload: dict[str, Any]) -> str:
-    return json.dumps(
-        payload,
-        ensure_ascii=False,
-        indent=2,
-        sort_keys=True,
-    ) + "\n"
+Matrix = list[list[Fraction]]
+Vector = list[Fraction]
 
 
-def _canonical_json_hash(payload: Any) -> str:
-    encoded = json.dumps(
-        payload,
-        ensure_ascii=False,
-        separators=(",", ":"),
-        sort_keys=True,
-    ).encode("utf-8")
-    return hashlib.sha256(encoded).hexdigest()
+EXACT_CHECK_NAMES = (
+    "input_schema_matches",
+    "instance_id_matches",
+    "dimension_is_3",
+    "beta_is_1",
+    "input_entry_count_is_45",
+    "all_input_entries_have_numerator_and_denominator_at_most_100",
+    "F_is_symmetric",
+    "F_is_positive_definite",
+    "G_is_symmetric",
+    "G_is_positive_definite",
+    "A_is_nonsingular",
+    "B_is_nonsingular",
+    "I_minus_Mper_is_nonsingular",
+    "periodic_fixed_point_is_exact",
+    "original_admm_update_equations_hold",
+    "exact_replay_closes_after_23_steps",
+    "realized_word_matches_W23",
+    "phase_state_count_is_23",
+    "phase_states_are_pairwise_distinct",
+    "minimal_period_is_23",
+    "projection_margin_exceeds_1_over_250",
+    "kkt_linear_system_is_nonsingular",
+    "kkt_stationarity_holds",
+    "kkt_primal_feasibility_holds",
+    "kkt_complementarity_holds",
+    "kkt_is_strictly_complementary",
+    "kkt_point_is_unique",
+    "no_phase_state_is_the_kkt_point",
+    "P_is_symmetric",
+    "P_is_positive_definite",
+    "lyapunov_gap_is_symmetric",
+    "lyapunov_gap_is_positive_definite",
+    "support_ratio_count_is_69",
+    "support_quadratic_forms_are_positive",
+    "all_support_ratios_exceed_1_over_4000",
+    "all_support_ratios_exceed_29_over_100000",
+)
 
 
-def _stable_json_bytes_hash(payload: dict[str, Any]) -> str:
-    return hashlib.sha256(_stable_json(payload).encode("utf-8")).hexdigest()
+def fraction_text(value: Fraction) -> str:
+    return str(value)
 
 
-def _file_hash(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def rounded_numerical_display(value: float, digits: int = 12) -> float:
+    """Normalize display-only floating output across linear-algebra backends."""
+    rounded = round(float(value), digits)
+    return 0.0 if abs(rounded) < 10.0 ** (-digits) else rounded
 
 
-def _fraction_text(value: Fraction) -> str:
-    if value.denominator == 1:
-        return str(value.numerator)
-    return f"{value.numerator}/{value.denominator}"
+def vector_text(vector: Sequence[Fraction]) -> list[str]:
+    return [fraction_text(value) for value in vector]
 
 
-def _fraction_vector(values: ExactVector) -> list[str]:
-    return [_fraction_text(value) for value in values]
+def matrix_text(matrix: Sequence[Sequence[Fraction]]) -> list[list[str]]:
+    return [vector_text(row) for row in matrix]
 
 
-def _fraction_matrix(values: ExactMatrix) -> list[list[str]]:
-    return [_fraction_vector(row) for row in values]
+def sha256_bytes(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
 
 
-def _load_source(path: Path) -> dict[str, np.ndarray]:
-    with np.load(path, allow_pickle=False) as archive:
-        arrays = {
-            name: np.array(archive[name], copy=True)
-            for name in archive.files
-        }
-    names = set(arrays)
-    expected_names = set(EXPECTED_ARRAYS)
-    if names != expected_names:
-        missing = sorted(expected_names - names)
-        extra = sorted(names - expected_names)
-        raise ValueError(f"source array names differ: missing={missing}, extra={extra}")
-    for name, (shape, dtype) in EXPECTED_ARRAYS.items():
-        array = arrays[name]
-        if tuple(array.shape) != shape or str(array.dtype) != dtype:
-            raise ValueError(
-                f"{name} has shape={array.shape}, dtype={array.dtype}; "
-                f"expected shape={shape}, dtype={dtype}"
-            )
-    return arrays
+def sha256_text(payload: str) -> str:
+    return sha256_bytes(payload.encode("utf-8"))
 
 
-def _to_exact_matrix(array: np.ndarray) -> ExactMatrix:
+def repo_relative(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return str(resolved.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(resolved)
+
+
+def parse_canonical_fraction(value: Any, location: str) -> Fraction:
+    if not isinstance(value, str):
+        raise ValueError(f"{location} must be a canonical fraction string")
+    if value != value.strip():
+        raise ValueError(f"{location} contains surrounding whitespace")
+    try:
+        parsed = Fraction(value)
+    except (ValueError, ZeroDivisionError) as exc:
+        raise ValueError(f"{location} is not a valid rational: {value!r}") from exc
+    if value != fraction_text(parsed):
+        raise ValueError(
+            f"{location} must be in canonical lowest terms; "
+            f"received {value!r}, canonical form is {fraction_text(parsed)!r}"
+        )
+    return parsed
+
+
+def parse_matrix(data: dict[str, Any], key: str, size: int) -> Matrix:
+    raw = data.get(key)
+    if not isinstance(raw, list) or len(raw) != size:
+        raise ValueError(f"{key} must be a {size}x{size} array")
+    matrix: Matrix = []
+    for i, raw_row in enumerate(raw):
+        if not isinstance(raw_row, list) or len(raw_row) != size:
+            raise ValueError(f"{key}[{i}] must contain exactly {size} entries")
+        matrix.append(
+            [
+                parse_canonical_fraction(value, f"{key}[{i}][{j}]")
+                for j, value in enumerate(raw_row)
+            ]
+        )
+    return matrix
+
+
+def parse_vector(data: dict[str, Any], key: str, size: int) -> Vector:
+    raw = data.get(key)
+    if not isinstance(raw, list) or len(raw) != size:
+        raise ValueError(f"{key} must contain exactly {size} entries")
     return [
-        [Fraction(float(entry)) for entry in row]
-        for row in np.asarray(array)
+        parse_canonical_fraction(value, f"{key}[{i}]")
+        for i, value in enumerate(raw)
     ]
 
 
-def _to_exact_vector(array: np.ndarray) -> ExactVector:
-    return [Fraction(float(entry)) for entry in np.asarray(array)]
+def zero_matrix(rows: int, columns: int) -> Matrix:
+    return [[F0 for _ in range(columns)] for _ in range(rows)]
 
 
-def _transpose(matrix: ExactMatrix) -> ExactMatrix:
+def identity(size: int) -> Matrix:
+    return [
+        [F1 if i == j else F0 for j in range(size)]
+        for i in range(size)
+    ]
+
+
+def transpose(matrix: Sequence[Sequence[Fraction]]) -> Matrix:
     return [list(row) for row in zip(*matrix)]
 
 
-def _identity(size: int) -> ExactMatrix:
+def matrix_add(
+    left: Sequence[Sequence[Fraction]],
+    right: Sequence[Sequence[Fraction]],
+) -> Matrix:
     return [
-        [Fraction(int(row == column)) for column in range(size)]
-        for row in range(size)
+        [left[i][j] + right[i][j] for j in range(len(left[0]))]
+        for i in range(len(left))
     ]
 
 
-def _matmul(left: ExactMatrix, right: ExactMatrix) -> ExactMatrix:
+def matrix_subtract(
+    left: Sequence[Sequence[Fraction]],
+    right: Sequence[Sequence[Fraction]],
+) -> Matrix:
+    return [
+        [left[i][j] - right[i][j] for j in range(len(left[0]))]
+        for i in range(len(left))
+    ]
+
+
+def matrix_multiply(
+    left: Sequence[Sequence[Fraction]],
+    right: Sequence[Sequence[Fraction]],
+) -> Matrix:
     return [
         [
             sum(
-                left[row][index] * right[index][column]
-                for index in range(len(right))
+                (
+                    left[i][k] * right[k][j]
+                    for k in range(len(right))
+                ),
+                F0,
             )
-            for column in range(len(right[0]))
+            for j in range(len(right[0]))
         ]
-        for row in range(len(left))
+        for i in range(len(left))
     ]
 
 
-def _matvec(matrix: ExactMatrix, vector: ExactVector) -> ExactVector:
+def matrix_vector(
+    matrix: Sequence[Sequence[Fraction]],
+    vector: Sequence[Fraction],
+) -> Vector:
     return [
         sum(
-            matrix[row][column] * vector[column]
-            for column in range(len(vector))
+            (matrix[i][j] * vector[j] for j in range(len(vector))),
+            F0,
         )
-        for row in range(len(matrix))
+        for i in range(len(matrix))
     ]
 
 
-def _solve_exact(matrix: ExactMatrix, rhs: ExactVector) -> ExactVector:
+def vector_add(left: Sequence[Fraction], right: Sequence[Fraction]) -> Vector:
+    return [a + b for a, b in zip(left, right)]
+
+
+def vector_subtract(
+    left: Sequence[Fraction],
+    right: Sequence[Fraction],
+) -> Vector:
+    return [a - b for a, b in zip(left, right)]
+
+
+def solve_columns(
+    matrix: Sequence[Sequence[Fraction]],
+    right_hand_sides: Sequence[Sequence[Fraction]],
+) -> list[Vector]:
     size = len(matrix)
+    if size == 0 or any(len(row) != size for row in matrix):
+        raise ValueError("exact solve requires a nonempty square matrix")
+    if any(len(column) != size for column in right_hand_sides):
+        raise ValueError("exact solve received an incompatible right-hand side")
+
     augmented = [
-        row[:] + [rhs[row_index]]
-        for row_index, row in enumerate(matrix)
+        list(matrix[i]) + [column[i] for column in right_hand_sides]
+        for i in range(size)
     ]
+    width = size + len(right_hand_sides)
+
     for column in range(size):
-        pivot = max(
-            range(column, size),
-            key=lambda row_index: abs(augmented[row_index][column]),
+        pivot = next(
+            (
+                row
+                for row in range(column, size)
+                if augmented[row][column] != 0
+            ),
+            None,
         )
-        if augmented[pivot][column] == 0:
-            raise ValueError("exact linear system is singular")
+        if pivot is None:
+            raise ValueError("singular exact linear system")
         augmented[column], augmented[pivot] = (
             augmented[pivot],
             augmented[column],
         )
         pivot_value = augmented[column][column]
         augmented[column] = [
-            entry / pivot_value for entry in augmented[column]
+            value / pivot_value for value in augmented[column]
         ]
-        for row_index in range(size):
-            if row_index == column or augmented[row_index][column] == 0:
+        for row in range(size):
+            if row == column or augmented[row][column] == 0:
                 continue
-            factor = augmented[row_index][column]
-            augmented[row_index] = [
-                entry - factor * pivot_entry
-                for entry, pivot_entry in zip(
-                    augmented[row_index],
-                    augmented[column],
-                )
+            factor = augmented[row][column]
+            augmented[row] = [
+                augmented[row][j] - factor * augmented[column][j]
+                for j in range(width)
             ]
-    return [augmented[row_index][size] for row_index in range(size)]
 
-
-def _det_exact(matrix: ExactMatrix) -> Fraction:
-    size = len(matrix)
-    work = [row[:] for row in matrix]
-    sign = 1
-    previous = Fraction(1)
-    for column in range(size - 1):
-        if work[column][column] == 0:
-            for row_index in range(column + 1, size):
-                if work[row_index][column] != 0:
-                    work[column], work[row_index] = (
-                        work[row_index],
-                        work[column],
-                    )
-                    sign = -sign
-                    break
-            else:
-                return Fraction(0)
-        for row_index in range(column + 1, size):
-            for column_index in range(column + 1, size):
-                work[row_index][column_index] = (
-                    work[row_index][column_index] * work[column][column]
-                    - work[row_index][column] * work[column][column_index]
-                ) / previous
-        previous = work[column][column]
-    return sign * work[size - 1][size - 1]
-
-
-def _leading_minors(matrix: ExactMatrix) -> list[Fraction]:
     return [
-        _det_exact([row[:size] for row in matrix[:size]])
+        [augmented[i][size + rhs] for i in range(size)]
+        for rhs in range(len(right_hand_sides))
+    ]
+
+
+def solve_vector(
+    matrix: Sequence[Sequence[Fraction]],
+    right_hand_side: Sequence[Fraction],
+) -> Vector:
+    return solve_columns(matrix, [right_hand_side])[0]
+
+
+def inverse(matrix: Sequence[Sequence[Fraction]]) -> Matrix:
+    return transpose(
+        solve_columns(
+            matrix,
+            [
+                [F1 if i == j else F0 for i in range(len(matrix))]
+                for j in range(len(matrix))
+            ],
+        )
+    )
+
+
+def determinant(matrix: Sequence[Sequence[Fraction]]) -> Fraction:
+    size = len(matrix)
+    if size == 0 or any(len(row) != size for row in matrix):
+        raise ValueError("determinant requires a nonempty square matrix")
+    work = [list(row) for row in matrix]
+    result = F1
+    for column in range(size):
+        pivot = next(
+            (
+                row
+                for row in range(column, size)
+                if work[row][column] != 0
+            ),
+            None,
+        )
+        if pivot is None:
+            return F0
+        if pivot != column:
+            work[column], work[pivot] = work[pivot], work[column]
+            result = -result
+        pivot_value = work[column][column]
+        result *= pivot_value
+        for row in range(column + 1, size):
+            if work[row][column] == 0:
+                continue
+            factor = work[row][column] / pivot_value
+            for j in range(column, size):
+                work[row][j] -= factor * work[column][j]
+    return result
+
+
+def leading_principal_minors(
+    matrix: Sequence[Sequence[Fraction]],
+) -> list[Fraction]:
+    return [
+        determinant([list(row[:size]) for row in matrix[:size]])
         for size in range(1, len(matrix) + 1)
     ]
 
 
-class ExactADMMMap:
-    """Piecewise-affine ADMM map in the six-dimensional ``(y, t)`` state."""
-
-    def __init__(self, arrays: dict[str, np.ndarray]) -> None:
-        self.dimension = DIMENSION
-        self.A = _to_exact_matrix(arrays["A"])
-        self.B = _to_exact_matrix(arrays["B"])
-        self.F = _to_exact_matrix(arrays["F"])
-        self.G = _to_exact_matrix(arrays["G"])
-        self.b = _to_exact_vector(arrays["b"])
-        self.c1 = _to_exact_vector(arrays["c1"])
-        self.c2 = _to_exact_vector(arrays["c2"])
-
-        identity = _identity(self.dimension)
-        hessian_x = [
-            [
-                self.F[row][column]
-                + sum(
-                    self.A[index][row] * self.A[index][column]
-                    for index in range(self.dimension)
-                )
-                for column in range(self.dimension)
-            ]
-            for row in range(self.dimension)
-        ]
-        hessian_y = [
-            [
-                self.G[row][column]
-                + sum(
-                    self.B[index][row] * self.B[index][column]
-                    for index in range(self.dimension)
-                )
-                for column in range(self.dimension)
-            ]
-            for row in range(self.dimension)
-        ]
-        self.hessian_x_inverse = _transpose(
-            [_solve_exact(hessian_x, basis) for basis in identity]
-        )
-        self.hessian_y_inverse = _transpose(
-            [_solve_exact(hessian_y, basis) for basis in identity]
-        )
-
-    def branch(self, mask: int) -> tuple[ExactMatrix, ExactVector]:
-        dimension = self.dimension
-        positive = [
-            [
-                Fraction(int(row == column and bool((mask >> row) & 1)))
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-        negative = [
-            [
-                Fraction(int(row == column)) - positive[row][column]
-                if row == column
-                else Fraction(0)
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-        signed = [
-            [
-                positive[row][row] - negative[row][row]
-                if row == column
-                else Fraction(0)
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-
-        x_from_y = _matmul(
-            self.hessian_x_inverse,
-            [
-                [-entry for entry in row]
-                for row in _matmul(_transpose(self.A), self.B)
-            ],
-        )
-        x_from_t = _matmul(
-            self.hessian_x_inverse,
-            [
-                [-entry for entry in row]
-                for row in _matmul(_transpose(self.A), signed)
-            ],
-        )
-        x_offset = _matvec(
-            self.hessian_x_inverse,
-            [
-                -self.c1[index]
-                + sum(
-                    self.A[row][index] * self.b[row]
-                    for row in range(dimension)
-                )
-                for index in range(dimension)
-            ],
-        )
-
-        y_from_x = _matmul(
-            self.hessian_y_inverse,
-            [
-                [-entry for entry in row]
-                for row in _matmul(_transpose(self.B), self.A)
-            ],
-        )
-        y_from_t_direct = _matmul(
-            self.hessian_y_inverse,
-            [
-                [-entry for entry in row]
-                for row in _matmul(_transpose(self.B), signed)
-            ],
-        )
-        y_from_y = _matmul(y_from_x, x_from_y)
-        y_from_t = [
-            [
-                sum(
-                    y_from_x[row][index] * x_from_t[index][column]
-                    for index in range(dimension)
-                )
-                + y_from_t_direct[row][column]
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-        y_offset_direct = _matvec(
-            self.hessian_y_inverse,
-            [
-                -self.c2[index]
-                + sum(
-                    self.B[row][index] * self.b[row]
-                    for row in range(dimension)
-                )
-                for index in range(dimension)
-            ],
-        )
-        y_offset = [
-            sum(
-                y_from_x[row][index] * x_offset[index]
-                for index in range(dimension)
-            )
-            + y_offset_direct[row]
-            for row in range(dimension)
-        ]
-
-        t_from_y = [
-            [
-                -sum(
-                    self.A[row][index] * x_from_y[index][column]
-                    for index in range(dimension)
-                )
-                - sum(
-                    self.B[row][index] * y_from_y[index][column]
-                    for index in range(dimension)
-                )
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-        t_from_t = [
-            [
-                negative[row][column]
-                - sum(
-                    self.A[row][index] * x_from_t[index][column]
-                    for index in range(dimension)
-                )
-                - sum(
-                    self.B[row][index] * y_from_t[index][column]
-                    for index in range(dimension)
-                )
-                for column in range(dimension)
-            ]
-            for row in range(dimension)
-        ]
-        t_offset = [
-            self.b[row]
-            - sum(
-                self.A[row][index] * x_offset[index]
-                for index in range(dimension)
-            )
-            - sum(
-                self.B[row][index] * y_offset[index]
-                for index in range(dimension)
-            )
-            for row in range(dimension)
-        ]
-
-        matrix = [
-            y_from_y[row] + y_from_t[row]
-            for row in range(dimension)
-        ] + [
-            t_from_y[row] + t_from_t[row]
-            for row in range(dimension)
-        ]
-        return matrix, y_offset + t_offset
-
-    def step(self, state: ExactVector, mask: int) -> ExactVector:
-        matrix, offset = self.branch(mask)
-        return [
-            sum(
-                matrix[row][column] * state[column]
-                for column in range(2 * self.dimension)
-            )
-            + offset[row]
-            for row in range(2 * self.dimension)
-        ]
-
-    def mask(self, state: ExactVector) -> int:
-        return sum(
-            1 << index
-            for index in range(self.dimension)
-            if state[self.dimension + index] > 0
-        )
+def is_symmetric(matrix: Sequence[Sequence[Fraction]]) -> bool:
+    return list(map(list, matrix)) == transpose(matrix)
 
 
-def _compose_word(
-    admm_map: ExactADMMMap,
-    word: list[int],
-) -> tuple[ExactMatrix, ExactVector]:
-    state_dimension = 2 * admm_map.dimension
-    product = _identity(state_dimension)
-    offset = [Fraction(0)] * state_dimension
-    for mask in word:
-        branch_matrix, branch_offset = admm_map.branch(mask)
-        offset = [
-            sum(
-                branch_matrix[row][column] * offset[column]
-                for column in range(state_dimension)
-            )
-            + branch_offset[row]
-            for row in range(state_dimension)
-        ]
-        product = _matmul(branch_matrix, product)
-    return product, offset
+def positive_definite_data(
+    matrix: Sequence[Sequence[Fraction]],
+) -> tuple[bool, list[Fraction]]:
+    minors = leading_principal_minors(matrix)
+    return is_symmetric(matrix) and all(value > 0 for value in minors), minors
 
 
-def _fixed_point(
-    matrix: ExactMatrix,
-    offset: ExactVector,
-) -> ExactVector:
-    identity = _identity(len(matrix))
-    return _solve_exact(
-        [
-            [
-                identity[row][column] - matrix[row][column]
-                for column in range(len(matrix))
-            ]
-            for row in range(len(matrix))
-        ],
-        offset,
-    )
+def quadratic_row(
+    row: Sequence[Fraction],
+    matrix: Sequence[Sequence[Fraction]],
+) -> Fraction:
+    image = matrix_vector(matrix, row)
+    return sum((a * b for a, b in zip(row, image)), F0)
 
 
-def _characteristic_polynomial(matrix: ExactMatrix) -> list[Fraction]:
-    """Return coefficients of ``lambda^n + c1 lambda^(n-1) + ... + cn``."""
-    size = len(matrix)
-    auxiliary = _identity(size)
-    coefficients: list[Fraction] = []
-    for index in range(1, size + 1):
-        multiplied = _matmul(matrix, auxiliary)
-        trace = sum(multiplied[row][row] for row in range(size))
-        coefficient = -trace / index
-        coefficients.append(coefficient)
-        auxiliary = [
-            [
-                multiplied[row][column]
-                + (coefficient if row == column else Fraction(0))
-                for column in range(size)
-            ]
-            for row in range(size)
-        ]
-    return coefficients
+def canonical_vector_digest(vector: Sequence[Fraction]) -> str:
+    return sha256_text("|".join(fraction_text(value) for value in vector))
 
 
-def _jury_certificate(
-    coefficients: list[Fraction],
-) -> tuple[bool, bool, list[list[Fraction]], dict[str, Fraction]]:
-    polynomial = [Fraction(1)] + coefficients
-    degree = len(coefficients)
-    value_at_one = sum(polynomial)
-    signed_value_at_minus_one = (
-        (-1) ** degree
-        * sum(
-            polynomial[index] * ((-1) ** (degree - index))
-            for index in range(degree + 1)
+def canonical_matrix_digest(
+    matrix: Sequence[Sequence[Fraction]],
+) -> str:
+    return sha256_text(
+        "|".join(
+            fraction_text(value)
+            for row in matrix
+            for value in row
         )
     )
-    preliminary = (
-        value_at_one > 0
-        and signed_value_at_minus_one > 0
-        and abs(coefficients[-1]) < 1
+
+
+def verify_instance(input_path: Path) -> dict[str, Any]:
+    raw_input = input_path.read_bytes()
+    input_sha256 = sha256_bytes(raw_input)
+    try:
+        data = json.loads(raw_input.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError("input must be valid UTF-8 JSON") from exc
+    if not isinstance(data, dict):
+        raise ValueError("input JSON must contain an object")
+
+    schema = data.get("schema")
+    instance_id = data.get("instance_id")
+    dimension = data.get("dimension")
+    beta = parse_canonical_fraction(data.get("beta"), "beta")
+    matrix_a = parse_matrix(data, "A", DIMENSION)
+    matrix_b = parse_matrix(data, "B", DIMENSION)
+    matrix_f = parse_matrix(data, "F", DIMENSION)
+    matrix_g = parse_matrix(data, "G", DIMENSION)
+    vector_b = parse_vector(data, "b", DIMENSION)
+    vector_c1 = parse_vector(data, "c1", DIMENSION)
+    vector_c2 = parse_vector(data, "c2", DIMENSION)
+
+    input_entries = [
+        value
+        for matrix in (matrix_a, matrix_b, matrix_f, matrix_g)
+        for row in matrix
+        for value in row
+    ] + vector_b + vector_c1 + vector_c2
+
+    f_positive, f_minors = positive_definite_data(matrix_f)
+    g_positive, g_minors = positive_definite_data(matrix_g)
+    determinant_a = determinant(matrix_a)
+    determinant_b = determinant(matrix_b)
+
+    transpose_a = transpose(matrix_a)
+    transpose_b = transpose(matrix_b)
+    hessian_x = matrix_add(
+        matrix_f,
+        matrix_multiply(transpose_a, matrix_a),
     )
-    table = [polynomial]
-    stable = preliminary
-    while stable and len(table[-1]) > 2:
-        row = table[-1]
-        last_index = len(row) - 1
-        next_row = [
-            row[0] * row[index] - row[last_index] * row[last_index - index]
-            for index in range(last_index)
+    hessian_y = matrix_add(
+        matrix_g,
+        matrix_multiply(transpose_b, matrix_b),
+    )
+
+    def step_from_y_z_lambda(
+        y: Sequence[Fraction],
+        z: Sequence[Fraction],
+        lam: Sequence[Fraction],
+    ) -> tuple[Vector, Vector, Vector, Vector, Vector, dict[str, bool]]:
+        x_rhs = vector_subtract(
+            matrix_vector(
+                transpose_a,
+                vector_subtract(
+                    vector_add(vector_b, lam),
+                    vector_add(matrix_vector(matrix_b, y), z),
+                ),
+            ),
+            vector_c1,
+        )
+        x_new = solve_vector(hessian_x, x_rhs)
+
+        y_rhs = vector_subtract(
+            matrix_vector(
+                transpose_b,
+                vector_subtract(
+                    vector_add(vector_b, lam),
+                    vector_add(matrix_vector(matrix_a, x_new), z),
+                ),
+            ),
+            vector_c2,
+        )
+        y_new = solve_vector(hessian_y, y_rhs)
+
+        q = vector_subtract(
+            vector_add(vector_b, lam),
+            vector_add(
+                matrix_vector(matrix_a, x_new),
+                matrix_vector(matrix_b, y_new),
+            ),
+        )
+        z_new = [value if value > 0 else F0 for value in q]
+        lambda_projection = [
+            q[i] - z_new[i] for i in range(DIMENSION)
         ]
-        table.append(next_row)
-        if not abs(next_row[0]) > abs(next_row[-1]):
-            stable = False
-    witnesses = {
-        "p_at_1": value_at_one,
-        "signed_p_at_minus_1": signed_value_at_minus_one,
-        "constant_coefficient_absolute_value": abs(coefficients[-1]),
-    }
-    return preliminary, stable, table, witnesses
+        residual = vector_subtract(
+            vector_add(
+                vector_add(
+                    matrix_vector(matrix_a, x_new),
+                    matrix_vector(matrix_b, y_new),
+                ),
+                z_new,
+            ),
+            vector_b,
+        )
+        lambda_multiplier = vector_subtract(lam, residual)
 
+        x_old_y_residual = vector_subtract(
+            vector_add(
+                vector_add(
+                    matrix_vector(matrix_a, x_new),
+                    matrix_vector(matrix_b, y),
+                ),
+                z,
+            ),
+            vector_b,
+        )
+        y_old_z_residual = vector_subtract(
+            vector_add(
+                vector_add(
+                    matrix_vector(matrix_a, x_new),
+                    matrix_vector(matrix_b, y_new),
+                ),
+                z,
+            ),
+            vector_b,
+        )
+        x_stationarity = vector_add(
+            vector_subtract(
+                vector_add(
+                    matrix_vector(matrix_f, x_new),
+                    vector_c1,
+                ),
+                matrix_vector(transpose_a, lam),
+            ),
+            matrix_vector(transpose_a, x_old_y_residual),
+        )
+        y_stationarity = vector_add(
+            vector_subtract(
+                vector_add(
+                    matrix_vector(matrix_g, y_new),
+                    vector_c2,
+                ),
+                matrix_vector(transpose_b, lam),
+            ),
+            matrix_vector(transpose_b, y_old_z_residual),
+        )
+        update_checks = {
+            "x_subproblem_stationarity": all(
+                value == 0 for value in x_stationarity
+            ),
+            "y_subproblem_stationarity": all(
+                value == 0 for value in y_stationarity
+            ),
+            "z_is_exact_orthant_projection": all(
+                z_new[i] == (q[i] if q[i] > 0 else F0)
+                for i in range(DIMENSION)
+            ),
+            "multiplier_update_matches_projection_identity": (
+                lambda_projection == lambda_multiplier
+            ),
+        }
+        return (
+            x_new,
+            y_new,
+            z_new,
+            lambda_multiplier,
+            q,
+            update_checks,
+        )
 
-def _exact_hash(values: Any) -> str:
-    def encode(value: Any) -> Any:
-        if isinstance(value, Fraction):
-            return _fraction_text(value)
-        if isinstance(value, list):
-            return [encode(entry) for entry in value]
-        if isinstance(value, tuple):
-            return [encode(entry) for entry in value]
-        if isinstance(value, dict):
-            return {
-                str(key): encode(entry)
-                for key, entry in value.items()
-            }
-        return value
+    def fixed_source_reduced_step(
+        state: Sequence[Fraction],
+        mask: Sequence[int],
+    ) -> Vector:
+        y = list(state[:DIMENSION])
+        t = list(state[DIMENSION:])
+        z = [t[i] if mask[i] else F0 for i in range(DIMENSION)]
+        lam = [F0 if mask[i] else t[i] for i in range(DIMENSION)]
+        _, y_new, _, _, q, _ = step_from_y_z_lambda(y, z, lam)
+        return y_new + q
 
-    return _canonical_json_hash(encode(values))
+    def branch_map(mask: Sequence[int]) -> tuple[Matrix, Vector]:
+        zero = [F0] * REDUCED_DIMENSION
+        offset = fixed_source_reduced_step(zero, mask)
+        columns: list[Vector] = []
+        for coordinate in range(REDUCED_DIMENSION):
+            basis = zero[:]
+            basis[coordinate] = F1
+            image = fixed_source_reduced_step(basis, mask)
+            columns.append(vector_subtract(image, offset))
+        return transpose(columns), offset
 
+    return_matrix = identity(REDUCED_DIMENSION)
+    return_offset = [F0] * REDUCED_DIMENSION
+    partial_linear_maps: list[Matrix] = []
+    for mask in W23:
+        partial_linear_maps.append([row[:] for row in return_matrix])
+        branch_matrix, branch_offset = branch_map(mask)
+        return_matrix = matrix_multiply(branch_matrix, return_matrix)
+        return_offset = vector_add(
+            matrix_vector(branch_matrix, return_offset),
+            branch_offset,
+        )
 
-def certificate_payload(source: Path = DEFAULT_SOURCE) -> dict[str, Any]:
-    arrays = _load_source(source)
-    source_hash = _file_hash(source)
-    word = [int(value) for value in arrays["per"]]
-    admm_map = ExactADMMMap(arrays)
-
-    leading_minors_f = _leading_minors(admm_map.F)
-    leading_minors_g = _leading_minors(admm_map.G)
-    symmetric_f = admm_map.F == _transpose(admm_map.F)
-    symmetric_g = admm_map.G == _transpose(admm_map.G)
-    determinant_a = _det_exact(admm_map.A)
-    determinant_b = _det_exact(admm_map.B)
-
-    kkt_matrix, kkt_offset = admm_map.branch(KKT_MASK)
-    kkt_fixed_point = _fixed_point(kkt_matrix, kkt_offset)
-    kkt_y = kkt_fixed_point[:DIMENSION]
-    kkt_t = kkt_fixed_point[DIMENSION:]
-    kkt_z = [max(value, Fraction(0)) for value in kkt_t]
-    kkt_lambda = [min(value, Fraction(0)) for value in kkt_t]
-    kkt_x = _solve_exact(
-        admm_map.F,
-        [
-            sum(
-                admm_map.A[row][column] * kkt_lambda[row]
-                for row in range(DIMENSION)
-            )
-            - admm_map.c1[column]
-            for column in range(DIMENSION)
-        ],
+    identity_six = identity(REDUCED_DIMENSION)
+    identity_minus_return = matrix_subtract(
+        identity_six,
+        return_matrix,
     )
-    kkt_x_stationarity = [
-        sum(
-            admm_map.F[row][column] * kkt_x[column]
-            for column in range(DIMENSION)
-        )
-        + admm_map.c1[row]
-        - sum(
-            admm_map.A[column][row] * kkt_lambda[column]
-            for column in range(DIMENSION)
-        )
-        for row in range(DIMENSION)
-    ]
-    kkt_y_stationarity = [
-        sum(
-            admm_map.G[row][column] * kkt_y[column]
-            for column in range(DIMENSION)
-        )
-        + admm_map.c2[row]
-        - sum(
-            admm_map.B[column][row] * kkt_lambda[column]
-            for column in range(DIMENSION)
-        )
-        for row in range(DIMENSION)
-    ]
-    kkt_primal_residual = [
-        sum(
-            admm_map.A[row][column] * kkt_x[column]
-            for column in range(DIMENSION)
-        )
-        + sum(
-            admm_map.B[row][column] * kkt_y[column]
-            for column in range(DIMENSION)
-        )
-        + kkt_z[row]
-        - admm_map.b[row]
-        for row in range(DIMENSION)
-    ]
-    stored_kkt_candidate = _to_exact_vector(arrays["ys"]) + [
-        Fraction(float(z_value)) + Fraction(float(lambda_value))
-        for z_value, lambda_value in zip(arrays["z"], arrays["lam"])
-    ]
-    kkt_candidate_distance = max(
-        abs(exact - stored)
-        for exact, stored in zip(kkt_fixed_point, stored_kkt_candidate)
-    )
+    determinant_identity_minus_return = determinant(identity_minus_return)
+    if determinant_identity_minus_return == 0:
+        raise ValueError("I-M_per is singular; the periodic fixed point is not unique")
+    phase_zero = solve_vector(identity_minus_return, return_offset)
+    fixed_point_exact = vector_add(
+        matrix_vector(return_matrix, phase_zero),
+        return_offset,
+    ) == phase_zero
 
-    return_matrix, return_offset = _compose_word(admm_map, word)
-    phase_zero = _fixed_point(return_matrix, return_offset)
+    states: list[Vector] = []
+    realized_word: list[tuple[int, int, int]] = []
+    update_checks: list[bool] = []
+    projection_margins: list[tuple[Fraction, int, int]] = []
     state = phase_zero[:]
-    states: list[ExactVector] = []
-    actual_masks: list[int] = []
-    for expected_mask in word:
+    for phase in range(len(W23)):
         states.append(state[:])
-        actual_masks.append(admm_map.mask(state))
-        state = admm_map.step(state, expected_mask)
+        t = state[DIMENSION:]
+        realized_word.append(
+            tuple(1 if value > 0 else 0 for value in t)
+        )
+        projection_margins.extend(
+            (abs(t[coordinate]), phase, coordinate + 1)
+            for coordinate in range(DIMENSION)
+        )
 
-    strict_margin = min(
-        abs(cycle_state[DIMENSION + index])
-        for cycle_state in states
-        for index in range(DIMENSION)
+        y = state[:DIMENSION]
+        z = [value if value > 0 else F0 for value in t]
+        lam = [value if value < 0 else F0 for value in t]
+        _, y_new, _, _, q, checks_for_step = step_from_y_z_lambda(
+            y,
+            z,
+            lam,
+        )
+        update_checks.append(all(checks_for_step.values()))
+        state = y_new + q
+
+    minimum_margin, margin_phase, margin_coordinate = min(
+        projection_margins,
+        key=lambda item: item[0],
     )
-    states_distinct = len({tuple(cycle_state) for cycle_state in states}) == len(
-        states
+    replay_closes = state == phase_zero
+    states_distinct = len({tuple(value) for value in states}) == len(W23)
+
+    # Active set at the unique KKT point:
+    # z_1=z_2=0, lambda_3=0.  The solved signs are checked below.
+    kkt_size = 3 * DIMENSION
+    kkt_matrix = zero_matrix(kkt_size, kkt_size)
+    kkt_rhs = [F0] * kkt_size
+    for i in range(DIMENSION):
+        for j in range(DIMENSION):
+            kkt_matrix[i][j] = matrix_f[i][j]
+            kkt_matrix[DIMENSION + i][DIMENSION + j] = matrix_g[i][j]
+            kkt_matrix[2 * DIMENSION + i][j] = matrix_a[i][j]
+            kkt_matrix[2 * DIMENSION + i][DIMENSION + j] = matrix_b[i][j]
+        for active_coordinate in range(2):
+            kkt_matrix[i][2 * DIMENSION + active_coordinate] = (
+                -transpose_a[i][active_coordinate]
+            )
+            kkt_matrix[DIMENSION + i][
+                2 * DIMENSION + active_coordinate
+            ] = -transpose_b[i][active_coordinate]
+        kkt_rhs[i] = -vector_c1[i]
+        kkt_rhs[DIMENSION + i] = -vector_c2[i]
+        kkt_rhs[2 * DIMENSION + i] = vector_b[i]
+    kkt_matrix[2 * DIMENSION + 2][2 * DIMENSION + 2] = F1
+
+    kkt_determinant = determinant(kkt_matrix)
+    if kkt_determinant == 0:
+        raise ValueError("the exact active-set KKT system is singular")
+    kkt_solution = solve_vector(kkt_matrix, kkt_rhs)
+    kkt_x = kkt_solution[:DIMENSION]
+    kkt_y = kkt_solution[DIMENSION : 2 * DIMENSION]
+    kkt_lambda = [
+        kkt_solution[2 * DIMENSION],
+        kkt_solution[2 * DIMENSION + 1],
+        F0,
+    ]
+    kkt_z = [F0, F0, kkt_solution[2 * DIMENSION + 2]]
+
+    kkt_stationarity_x = vector_subtract(
+        vector_add(matrix_vector(matrix_f, kkt_x), vector_c1),
+        matrix_vector(transpose_a, kkt_lambda),
     )
-    cycle_closed = state == phase_zero
-    cycle_not_fixed = (
-        admm_map.step(phase_zero, admm_map.mask(phase_zero)) != phase_zero
+    kkt_stationarity_y = vector_subtract(
+        vector_add(matrix_vector(matrix_g, kkt_y), vector_c2),
+        matrix_vector(transpose_b, kkt_lambda),
     )
-    minimal_period = (
-        len(word) == 23
-        and cycle_closed
-        and cycle_not_fixed
-        and states_distinct
+    kkt_primal_residual = vector_subtract(
+        vector_add(
+            vector_add(
+                matrix_vector(matrix_a, kkt_x),
+                matrix_vector(matrix_b, kkt_y),
+            ),
+            kkt_z,
+        ),
+        vector_b,
+    )
+    kkt_stationarity = all(
+        value == 0
+        for value in kkt_stationarity_x + kkt_stationarity_y
+    )
+    kkt_feasibility = all(value == 0 for value in kkt_primal_residual)
+    kkt_complementarity = (
+        all(value >= 0 for value in kkt_z)
+        and all(value <= 0 for value in kkt_lambda)
+        and all(
+            kkt_z[i] * kkt_lambda[i] == 0
+            for i in range(DIMENSION)
+        )
+    )
+    kkt_strict = all(
+        (
+            kkt_z[i] > 0
+            and kkt_lambda[i] == 0
+        )
+        or (
+            kkt_z[i] == 0
+            and kkt_lambda[i] < 0
+        )
+        for i in range(DIMENSION)
+    )
+    kkt_reduced_state = kkt_y + vector_add(kkt_z, kkt_lambda)
+    no_phase_is_kkt = all(
+        state_value != kkt_reduced_state for state_value in states
     )
 
-    characteristic_coefficients = _characteristic_polynomial(return_matrix)
-    (
-        jury_preliminary,
-        jury_stable,
-        jury_table,
-        jury_witnesses,
-    ) = _jury_certificate(characteristic_coefficients)
+    matrix_p = [
+        [Fraction(value, 2) for value in row]
+        for row in P_NUMERATOR
+    ]
+    p_positive, p_minors = positive_definite_data(matrix_p)
+    lyapunov_gap = matrix_subtract(
+        matrix_p,
+        matrix_multiply(
+            transpose(return_matrix),
+            matrix_multiply(matrix_p, return_matrix),
+        ),
+    )
+    gap_positive, gap_minors = positive_definite_data(lyapunov_gap)
 
-    checks = {
-        "source_SHA256_matches_frozen_artifact": (
-            source_hash == EXPECTED_SOURCE_SHA256
+    inverse_p = inverse(matrix_p)
+    support_ratios: list[tuple[Fraction, int, int]] = []
+    support_forms_positive = True
+    for phase, state_value in enumerate(states):
+        for coordinate in range(DIMENSION):
+            support_row = partial_linear_maps[phase][
+                DIMENSION + coordinate
+            ]
+            support_form = quadratic_row(support_row, inverse_p)
+            if support_form <= 0:
+                support_forms_positive = False
+                continue
+            support_ratios.append(
+                (
+                    state_value[DIMENSION + coordinate] ** 2
+                    / support_form,
+                    phase,
+                    coordinate + 1,
+                )
+            )
+
+    if not support_ratios:
+        raise ValueError("no positive support ratios were constructed")
+    rbar2, rbar_phase, rbar_coordinate = min(
+        support_ratios,
+        key=lambda item: item[0],
+    )
+
+    float_return_matrix = np.array(
+        [[float(value) for value in row] for row in return_matrix],
+        dtype=float,
+    )
+    eigenvalues = np.linalg.eigvals(float_return_matrix)
+    raw_spectral_radius = float(max(abs(value) for value in eigenvalues))
+    if not math.isfinite(raw_spectral_radius):
+        raise ValueError("numerical spectral-radius display is not finite")
+    spectral_radius = rounded_numerical_display(raw_spectral_radius)
+    display_eigenvalues = sorted(
+        (
+            {
+                "real": rounded_numerical_display(value.real),
+                "imag": rounded_numerical_display(value.imag),
+            }
+            for value in eigenvalues
         ),
-        "F_is_exactly_symmetric": symmetric_f,
-        "G_is_exactly_symmetric": symmetric_g,
-        "F_is_positive_definite_by_exact_Sylvester_test": (
-            symmetric_f and all(value > 0 for value in leading_minors_f)
+        key=lambda value: (
+            -(value["real"] ** 2 + value["imag"] ** 2),
+            -value["real"],
+            -value["imag"],
         ),
-        "G_is_positive_definite_by_exact_Sylvester_test": (
-            symmetric_g and all(value > 0 for value in leading_minors_g)
+    )
+
+    exact_checks = {
+        "input_schema_matches": (
+            schema == "identity_slack_p23_rational_instance_v1"
         ),
-        "A_is_nonsingular_exactly": determinant_a != 0,
-        "B_is_nonsingular_exactly": determinant_b != 0,
-        "KKT_branch_fixed_point_has_mask_4": (
-            admm_map.mask(kkt_fixed_point) == KKT_MASK
+        "instance_id_matches": (
+            instance_id == "identity_slack_p23_rational_v1"
         ),
-        "KKT_primal_feasibility_holds_exactly": all(
-            value == 0 for value in kkt_primal_residual
+        "dimension_is_3": dimension == DIMENSION,
+        "beta_is_1": beta == F1,
+        "input_entry_count_is_45": len(input_entries) == 45,
+        "all_input_entries_have_numerator_and_denominator_at_most_100": all(
+            abs(value.numerator) <= 100 and value.denominator <= 100
+            for value in input_entries
         ),
-        "KKT_x_stationarity_holds_exactly": all(
-            value == 0 for value in kkt_x_stationarity
+        "F_is_symmetric": is_symmetric(matrix_f),
+        "F_is_positive_definite": f_positive,
+        "G_is_symmetric": is_symmetric(matrix_g),
+        "G_is_positive_definite": g_positive,
+        "A_is_nonsingular": determinant_a != 0,
+        "B_is_nonsingular": determinant_b != 0,
+        "I_minus_Mper_is_nonsingular": (
+            determinant_identity_minus_return != 0
         ),
-        "KKT_y_stationarity_holds_exactly": all(
-            value == 0 for value in kkt_y_stationarity
+        "periodic_fixed_point_is_exact": fixed_point_exact,
+        "original_admm_update_equations_hold": all(update_checks),
+        "exact_replay_closes_after_23_steps": replay_closes,
+        "realized_word_matches_W23": tuple(realized_word) == W23,
+        "phase_state_count_is_23": len(states) == 23,
+        "phase_states_are_pairwise_distinct": states_distinct,
+        "minimal_period_is_23": replay_closes and states_distinct,
+        "projection_margin_exceeds_1_over_250": (
+            minimum_margin > Fraction(1, 250)
         ),
-        "KKT_slack_is_nonnegative": all(value >= 0 for value in kkt_z),
-        "KKT_multiplier_is_nonpositive": all(
-            value <= 0 for value in kkt_lambda
-        ),
-        "KKT_complementarity_holds_exactly": all(
-            slack * multiplier == 0
-            for slack, multiplier in zip(kkt_z, kkt_lambda)
-        ),
-        "KKT_uniqueness_conditions_hold": (
-            symmetric_f
-            and symmetric_g
-            and all(value > 0 for value in leading_minors_f)
-            and all(value > 0 for value in leading_minors_g)
+        "kkt_linear_system_is_nonsingular": kkt_determinant != 0,
+        "kkt_stationarity_holds": kkt_stationarity,
+        "kkt_primal_feasibility_holds": kkt_feasibility,
+        "kkt_complementarity_holds": kkt_complementarity,
+        "kkt_is_strictly_complementary": kkt_strict,
+        "kkt_point_is_unique": (
+            f_positive
+            and g_positive
             and determinant_a != 0
+            and kkt_stationarity
+            and kkt_feasibility
+            and kkt_complementarity
         ),
-        "stored_KKT_candidate_is_within_1e-12": (
-            kkt_candidate_distance < KKT_CANDIDATE_TOLERANCE
+        "no_phase_state_is_the_kkt_point": no_phase_is_kkt,
+        "P_is_symmetric": is_symmetric(matrix_p),
+        "P_is_positive_definite": p_positive,
+        "lyapunov_gap_is_symmetric": is_symmetric(lyapunov_gap),
+        "lyapunov_gap_is_positive_definite": gap_positive,
+        "support_ratio_count_is_69": len(support_ratios) == 69,
+        "support_quadratic_forms_are_positive": support_forms_positive,
+        "all_support_ratios_exceed_1_over_4000": all(
+            ratio > Fraction(1, 4000)
+            for ratio, _, _ in support_ratios
         ),
-        "cycle_masks_match_exactly": actual_masks == word,
-        "strict_cell_margin_exceeds_7_over_1000": (
-            strict_margin > STRICT_MARGIN_LOWER_BOUND
+        "all_support_ratios_exceed_29_over_100000": all(
+            ratio > Fraction(29, 100000)
+            for ratio, _, _ in support_ratios
         ),
-        "all_23_cycle_states_are_distinct_exactly": (
-            len(states) == 23 and states_distinct
-        ),
-        "cycle_closes_after_23_steps_exactly": cycle_closed,
-        "cycle_is_not_a_fixed_point": cycle_not_fixed,
-        "minimal_period_is_23": minimal_period,
-        "cycle_phase_differs_from_KKT_fixed_point": (
-            phase_zero != kkt_fixed_point
-        ),
-        "Jury_preconditions_hold_exactly": jury_preliminary,
-        "return_map_is_Schur_stable_by_exact_Jury_test": jury_stable,
     }
-    valid = all(checks.values())
 
-    return {
-        "schema_version": 1,
-        "instance_id": INSTANCE_ID,
-        "status": "passed" if valid else "failed",
-        "valid": valid,
-        "formulation": {
-            "problem": (
-                "min 0.5*x^T*F*x+c1^T*x+0.5*y^T*G*y+c2^T*y"
-                "+delta_{R_+^3}(z), s.t. A*x+B*y+z=b"
-            ),
-            "algorithm": "direct three-block ADMM",
-            "penalty_parameter": "1",
-            "exact_state": "(y,t) with t=z+lambda",
-            "projection": "z=[t]_+ and lambda=[t]_- componentwise",
+    exact_check_set_matches = (
+        tuple(exact_checks.keys()) == EXACT_CHECK_NAMES
+    )
+    all_exact_checks_pass = (
+        exact_check_set_matches
+        and all(exact_checks.get(name) is True for name in EXACT_CHECK_NAMES)
+    )
+
+    phase_state_hashes = [
+        canonical_vector_digest(state_value) for state_value in states
+    ]
+    certificate = {
+        "schema": "identity_slack_p23_rational_certificate_v1",
+        "instance_id": instance_id,
+        "verifier": {
+            "path": repo_relative(Path(__file__)),
+            "sha256": sha256_bytes(Path(__file__).read_bytes()),
+            "arithmetic": "fractions.Fraction exact rational arithmetic",
+            "external_npz_read": False,
+            "imports_prior_period23_verifier_or_search": False,
         },
-        "source_interpretation": (
-            "Every float64 entry in the NPZ source is converted with "
-            "Fraction(float(entry)); all replay, closure, active-set, "
-            "determinant, characteristic-polynomial, and Jury checks are exact."
-        ),
-        "period": len(word),
-        "mask_word": word,
-        "KKT_mask": KKT_MASK,
-        "checks": checks,
-        "exact_witnesses": {
-            "determinant_A": _fraction_text(determinant_a),
-            "determinant_B": _fraction_text(determinant_b),
-            "F_leading_principal_minors": _fraction_vector(leading_minors_f),
-            "G_leading_principal_minors": _fraction_vector(leading_minors_g),
-            "KKT_candidate_max_norm_distance": _fraction_text(
-                kkt_candidate_distance
+        "input": {
+            "path": repo_relative(input_path),
+            "sha256": input_sha256,
+            "byte_size": len(raw_input),
+            "schema": schema,
+            "entry_count": len(input_entries),
+            "maximum_absolute_numerator": max(
+                abs(value.numerator) for value in input_entries
             ),
-            "KKT_point_x": _fraction_vector(kkt_x),
-            "KKT_point_y": _fraction_vector(kkt_y),
-            "KKT_point_z": _fraction_vector(kkt_z),
-            "KKT_point_lambda": _fraction_vector(kkt_lambda),
-            "KKT_primal_residual": _fraction_vector(kkt_primal_residual),
-            "KKT_x_stationarity_residual": _fraction_vector(
-                kkt_x_stationarity
+            "maximum_denominator": max(
+                value.denominator for value in input_entries
             ),
-            "KKT_y_stationarity_residual": _fraction_vector(
-                kkt_y_stationarity
+        },
+        "problem": {
+            "dimension": dimension,
+            "beta": fraction_text(beta),
+            "word_masks": [list(mask) for mask in W23],
+            "word_compact": "101^5 011^7 001^2 000 001^8",
+        },
+        "assumption_certificate": {
+            "F_leading_principal_minors": vector_text(f_minors),
+            "G_leading_principal_minors": vector_text(g_minors),
+            "determinant_A": fraction_text(determinant_a),
+            "determinant_B": fraction_text(determinant_b),
+        },
+        "return_map_certificate": {
+            "determinant_I_minus_Mper": fraction_text(
+                determinant_identity_minus_return
             ),
-            "strict_cell_margin": _fraction_text(strict_margin),
-            "strict_cell_margin_lower_bound": _fraction_text(
-                STRICT_MARGIN_LOWER_BOUND
+            "return_matrix_exact_sha256": canonical_matrix_digest(
+                return_matrix
             ),
-            "phase_zero": _fraction_vector(phase_zero),
-            "KKT_fixed_point": _fraction_vector(kkt_fixed_point),
-            "return_map_characteristic_polynomial": [
-                "1",
-                *_fraction_vector(characteristic_coefficients),
-            ],
-            "Jury_precondition_witnesses": {
-                name: _fraction_text(value)
-                for name, value in jury_witnesses.items()
+            "return_offset_exact_sha256": canonical_vector_digest(
+                return_offset
+            ),
+            "phase_zero_exact_sha256": canonical_vector_digest(phase_zero),
+        },
+        "periodic_orbit_certificate": {
+            "phase_state_count": len(states),
+            "phase_state_exact_sha256": phase_state_hashes,
+            "cycle_exact_sha256": sha256_text("|".join(phase_state_hashes)),
+            "realized_word_masks": [list(mask) for mask in realized_word],
+            "minimum_projection_margin": {
+                "exact": fraction_text(minimum_margin),
+                "decimal": float(minimum_margin),
+                "controlling_phase_zero_based": margin_phase,
+                "controlling_coordinate_one_based": margin_coordinate,
+                "certified_lower_bound": "1/250",
             },
         },
-        "exact_hashes": {
-            "source_instance_arrays": _exact_hash(
-                {
-                    name: _nested_encode(
-                        arrays[name].tolist(),
-                        (
-                            lambda value: Fraction(float(value))
-                            if np.issubdtype(
-                                arrays[name].dtype,
-                                np.floating,
-                            )
-                            else int(value)
-                        ),
-                    )
-                    for name in sorted(arrays)
-                }
+        "kkt_certificate": {
+            "active_coordinates_one_based": [1, 2],
+            "inactive_coordinates_one_based": [3],
+            "linear_system_determinant": fraction_text(kkt_determinant),
+            "x": vector_text(kkt_x),
+            "y": vector_text(kkt_y),
+            "z": vector_text(kkt_z),
+            "lambda_repo_sign_convention": vector_text(kkt_lambda),
+            "reduced_state_exact_sha256": canonical_vector_digest(
+                kkt_reduced_state
             ),
-            "mask_word": _exact_hash(word),
-            "cycle_states_y_t": _exact_hash(states),
-            "phase_zero_y_t": _exact_hash(phase_zero),
-            "KKT_fixed_point_y_t": _exact_hash(kkt_fixed_point),
-            "return_affine_map": _exact_hash(
-                {"matrix": return_matrix, "offset": return_offset}
-            ),
-            "return_map_characteristic_polynomial": _exact_hash(
-                [Fraction(1), *characteristic_coefficients]
-            ),
-            "Jury_table": _exact_hash(jury_table),
         },
-        "claim_boundary": (
-            "This certificate proves an exact minimal period-23 orbit for one "
-            "fixed m=3 dyadic QP and exact Schur stability of its strict-cell "
-            "return map. Together with the positive strict-cell margin, this "
-            "gives local attraction of the periodic orbit in the canonical "
-            "reduced (y,t) state. The margin is not an explicit basin radius, "
-            "and the result is not a parameter interval, a full ambient-state "
-            "ball, or a global theorem for all instances or initializations."
-        ),
+        "lyapunov_certificate": {
+            "P": matrix_text(matrix_p),
+            "P_leading_principal_minors": vector_text(p_minors),
+            "P_minus_MtPM_leading_principal_minors": vector_text(
+                gap_minors
+            ),
+        },
+        "support_radius_certificate": {
+            "support_ratio_count": len(support_ratios),
+            "certified_radius_squared": "1/4000",
+            "rbar2": {
+                "exact": fraction_text(rbar2),
+                "decimal": float(rbar2),
+                "controlling_phase_zero_based": rbar_phase,
+                "controlling_coordinate_one_based": rbar_coordinate,
+            },
+            "rbar2_gt_1_over_4000": rbar2 > Fraction(1, 4000),
+            "rbar2_gt_29_over_100000": (
+                rbar2 > Fraction(29, 100000)
+            ),
+        },
+        "numerical_display_only": {
+            "spectral_radius": spectral_radius,
+            "eigenvalues": display_eigenvalues,
+            "proof_status": (
+                "informational floating-point display; excluded from the "
+                "fail-closed exact-check aggregate"
+            ),
+        },
+        "exact_checks": exact_checks,
+        "aggregate": {
+            "policy": (
+                "fail_closed: valid is true only when the exact check set "
+                "matches the verifier contract and every exact check is true"
+            ),
+            "expected_exact_checks": list(EXACT_CHECK_NAMES),
+            "exact_check_set_matches_contract": exact_check_set_matches,
+            "all_exact_checks_pass": all_exact_checks_pass,
+            "valid": all_exact_checks_pass,
+        },
+        "valid": all_exact_checks_pass,
     }
+    return certificate
 
 
-def _nested_encode(
-    value: Any,
-    scalar_encoder: Callable[[Any], Any],
-) -> Any:
-    if isinstance(value, list):
-        return [
-            _nested_encode(entry, scalar_encoder)
-            for entry in value
-        ]
-    return scalar_encoder(value)
-
-
-def _source_array_manifest(array: np.ndarray) -> dict[str, Any]:
-    result: dict[str, Any] = {
-        "shape": list(array.shape),
-        "dtype": str(array.dtype),
-        "numpy_dtype_descriptor": array.dtype.str,
-        "C_order_data_SHA256": hashlib.sha256(
-            array.tobytes(order="C")
-        ).hexdigest(),
-    }
-    values = array.tolist()
-    if np.issubdtype(array.dtype, np.floating):
-        result.update(
-            {
-                "interpretation": (
-                    "IEEE-754 binary64, interpreted as an exact dyadic rational"
-                ),
-                "binary64_hex": _nested_encode(
-                    values,
-                    lambda value: float(value).hex(),
-                ),
-                "exact_dyadic": _nested_encode(
-                    values,
-                    lambda value: _fraction_text(Fraction(float(value))),
-                ),
-            }
-        )
-    elif np.issubdtype(array.dtype, np.integer):
-        result.update(
-            {
-                "interpretation": "exact signed integer",
-                "exact_integer": _nested_encode(
-                    values,
-                    lambda value: int(value),
-                ),
-            }
-        )
-    else:
-        raise TypeError(f"unsupported source dtype: {array.dtype}")
-    return result
-
-
-def instance_manifest(
-    certificate: dict[str, Any],
-    source: Path = DEFAULT_SOURCE,
+def invalid_certificate(
+    input_path: Path,
+    error: Exception,
 ) -> dict[str, Any]:
-    arrays = _load_source(source)
-    verifier_source = Path(__file__).resolve()
-    checks = {
-        "certificate_is_valid": bool(certificate.get("valid", False)),
-        "source_SHA256_matches_expected": (
-            _file_hash(source) == EXPECTED_SOURCE_SHA256
-        ),
-        "all_source_arrays_are_exposed": (
-            set(arrays) == set(EXPECTED_ARRAYS)
-        ),
+    input_metadata: dict[str, Any] = {
+        "path": repo_relative(input_path),
     }
-    valid = all(checks.values())
+    try:
+        raw_input = input_path.read_bytes()
+    except OSError:
+        pass
+    else:
+        input_metadata.update(
+            {
+                "sha256": sha256_bytes(raw_input),
+                "byte_size": len(raw_input),
+            }
+        )
     return {
-        "schema_version": 1,
-        "instance_id": INSTANCE_ID,
-        "status": "passed" if valid else "failed",
-        "valid": valid,
-        "checks": checks,
-        "artifacts": {
-            "source_binary64": {
-                "file": DEFAULT_SOURCE.name,
-                "SHA256": _file_hash(source),
-            },
-            "public_exact_verifier": {
-                "file": verifier_source.name,
-                "SHA256": _file_hash(verifier_source),
-            },
-            "frozen_certificate": {
-                "file": DEFAULT_CERTIFICATE.name,
-                "canonical_JSON_SHA256": _canonical_json_hash(certificate),
-                "stable_file_bytes_SHA256": _stable_json_bytes_hash(certificate),
-            },
-            "upstream_Kimi_exact_verifier": {
-                "file": "exp19b_exact_yt.py",
-                "SHA256": UPSTREAM_VERIFIER_SHA256,
-            },
+        "schema": "identity_slack_p23_rational_certificate_v1",
+        "instance_id": "identity_slack_p23_rational_v1",
+        "verifier": {
+            "path": repo_relative(Path(__file__)),
+            "sha256": sha256_bytes(Path(__file__).read_bytes()),
+            "arithmetic": "fractions.Fraction exact rational arithmetic",
+            "external_npz_read": False,
+            "imports_prior_period23_verifier_or_search": False,
         },
-        "source_array_encoding": (
-            "The manifest exposes shape, dtype, C-order byte hash, binary64 "
-            "hexadecimal value, and exact Fraction value for every floating "
-            "source entry. Integer entries are exposed as exact integers."
-        ),
-        "source_field_semantics": {
-            "rho": (
-                "exploratory binary64 estimate of the return-map spectral "
-                "radius; it is not the ADMM penalty parameter"
+        "input": input_metadata,
+        "error": {
+            "type": type(error).__name__,
+            "message": str(error),
+        },
+        "exact_checks": {},
+        "aggregate": {
+            "policy": (
+                "fail_closed: any input, arithmetic, or verification error "
+                "forces valid=false"
             ),
-            "vfix": "exploratory stored full-state fixed-point candidate",
+            "expected_exact_checks": list(EXACT_CHECK_NAMES),
+            "exact_check_set_matches_contract": False,
+            "all_exact_checks_pass": False,
+            "valid": False,
         },
-        "source_arrays": {
-            name: _source_array_manifest(arrays[name])
-            for name in sorted(arrays)
-        },
-        "claim_boundary": certificate["claim_boundary"],
+        "valid": False,
     }
 
 
-def _write_payload(payload: dict[str, Any], output: Path) -> None:
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(_stable_json(payload), encoding="utf-8")
+def write_certificate(output_path: Path, certificate: dict[str, Any]) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = output_path.with_name(output_path.name + ".tmp")
+    temporary_path.write_text(
+        json.dumps(certificate, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    temporary_path.replace(output_path)
 
 
-def main() -> None:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Regenerate the exact dyadic period-23 ADMM certificate and "
-            "its source-data manifest."
+            "Verify the rational K3 period-23 QP using exact "
+            "repository-contained rational data."
         )
     )
     parser.add_argument(
-        "--source",
+        "--input",
         type=Path,
-        default=DEFAULT_SOURCE,
+        default=DEFAULT_INPUT,
+        help=f"instance JSON (default: {repo_relative(DEFAULT_INPUT)})",
     )
     parser.add_argument(
-        "--certificate-output",
+        "--output",
         type=Path,
-        default=DEFAULT_CERTIFICATE,
+        default=DEFAULT_OUTPUT,
+        help=f"certificate JSON (default: {repo_relative(DEFAULT_OUTPUT)})",
     )
-    parser.add_argument(
-        "--manifest-output",
-        type=Path,
-        default=DEFAULT_MANIFEST,
-    )
-    args = parser.parse_args()
+    return parser
 
-    try:
-        certificate = certificate_payload(args.source)
-        manifest = instance_manifest(certificate, args.source)
-    except Exception as error:
+
+def main() -> int:
+    args = build_parser().parse_args()
+    input_path = args.input.resolve()
+    output_path = args.output.resolve()
+
+    if input_path == output_path:
+        certificate = invalid_certificate(
+            input_path,
+            ValueError("input and output paths must be different"),
+        )
+    else:
+        try:
+            certificate = verify_instance(input_path)
+        except Exception as exc:  # Fail closed and preserve machine evidence.
+            certificate = invalid_certificate(input_path, exc)
+
+    write_certificate(output_path, certificate)
+    print(f"certificate: {output_path}")
+    print(f"valid: {certificate['valid']}")
+    if certificate["valid"]:
+        margin = certificate["periodic_orbit_certificate"][
+            "minimum_projection_margin"
+        ]
+        rbar2 = certificate["support_radius_certificate"]["rbar2"]
+        spectral_radius = certificate["numerical_display_only"][
+            "spectral_radius"
+        ]
         print(
-            _stable_json(
-                {
-                    "instance_id": INSTANCE_ID,
-                    "status": "error",
-                    "valid": False,
-                    "error": f"{type(error).__name__}: {error}",
-                }
-            ),
-            file=sys.stderr,
-            end="",
+            "minimum projection margin: "
+            f"{margin['decimal']:.16g} > {margin['certified_lower_bound']}"
         )
-        raise SystemExit(1) from error
-
-    if not certificate["valid"] or not manifest["valid"]:
         print(
-            _stable_json(
-                {
-                    "instance_id": INSTANCE_ID,
-                    "status": "failed",
-                    "valid": False,
-                    "checks": certificate["checks"],
-                }
-            ),
-            file=sys.stderr,
-            end="",
+            "rbar^2: "
+            f"{rbar2['decimal']:.16g} > "
+            f"{certificate['support_radius_certificate']['certified_radius_squared']}"
         )
-        raise SystemExit(1)
+        print(
+            "spectral radius (numerical display only): "
+            f"{spectral_radius:.16g}"
+        )
+        return 0
 
-    _write_payload(certificate, args.certificate_output)
-    _write_payload(manifest, args.manifest_output)
     print(
-        json.dumps(
-            {
-                "certificate": str(args.certificate_output.resolve()),
-                "instance_id": INSTANCE_ID,
-                "manifest": str(args.manifest_output.resolve()),
-                "period": certificate["period"],
-                "valid": True,
-            },
-            sort_keys=True,
-        )
+        "verification failed closed: "
+        f"{certificate.get('error', {}).get('message', 'an exact check failed')}",
+        file=sys.stderr,
     )
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

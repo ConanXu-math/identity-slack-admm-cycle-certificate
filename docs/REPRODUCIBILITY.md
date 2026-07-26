@@ -11,11 +11,12 @@ period      = 66
 word        = (00)^2(01)^64
 threshold   = 1/1000
 
-instance_id = identity_slack_p23_dyadic_v1
+instance_id = identity_slack_p23_rational_v1
 dimension   = 3
 period      = 23
-word        = 5^5 6^7 4^2 0 4^8
-threshold   = 7/1000
+word        = 101^5 011^7 001^2 000 001^8
+threshold   = 1/250
+basin level = 1/4000
 ```
 
 The root acceptance package also certifies three multiplier-relaxation
@@ -54,8 +55,8 @@ proof implementation.
 
 The period-23 certificate closes the following finite obligations:
 
-1. Every stored binary64 input is interpreted as its exact dyadic-rational
-   value and recorded canonically in the instance manifest.
+1. Every primitive QP input is a canonical reduced fraction; all 45 entries
+   have numerator absolute value and denominator at most 100.
 2. `F` and `G` are symmetric positive definite and `A` and `B` are
    nonsingular.
 3. The affine fixed point in the KKT projection cone is unique, lies in that
@@ -64,21 +65,19 @@ The period-23 certificate closes the following finite obligations:
 4. The prescribed 23-region word is realized exactly by the reduced `(y,t)`
    map.
 5. All 69 projection inputs are strict, with minimum margin greater than
-   `7/1000`.
+   `1/250`.
 6. The 23 phase states are pairwise distinct and phase 23 returns exactly to
    phase 0, establishing minimal period 23.
 7. The periodic sequence differs from the KKT point.
-8. The exact characteristic polynomial of the 23-step return matrix passes
-   the Jury stability criterion.
+8. The rational matrix `P` and the Lyapunov gap
+   `P - M_per^T P M_per` are positive definite by exact Sylvester tests.
+9. All 69 support ratios are positive and exceed
+   `29/100000 > 1/4000`.
 
-The explicit rational invariant-neighborhood certificate in the manuscript
-is a later companion artifact and is not part of the terminal Kimi certificate
-defined above.
-
-The strict-cell margin is not an explicit basin radius.  Exact Jury stability
-and strict cell membership prove existence of a locally attracting periodic
-orbit in the canonical reduced `(y,t)` state; they do not certify a parameter
-interval, an arbitrary full ambient-state ball, or global attraction.
+Consequently, `e^T P e < 1/4000` is an explicit return-invariant open set in
+the canonical reduced `(y,t)` state.  This is an initialization neighborhood
+for one fixed QP, not a parameter interval, an arbitrary full
+ambient-state ball, or a global attraction theorem.
 
 ## Exact multiplier-relaxation obligations
 
@@ -147,7 +146,6 @@ Acceptance requires:
 process exit status = 0
 certificates/instance_manifest.json.valid = true
 certificates/period23_certificate.json.valid = true
-certificates/period23_instance_manifest.json.valid = true
 certificates/relaxed_multiplier_certificate.json.valid = true
 research-process/manifest.json.valid = true
 ```
@@ -198,16 +196,12 @@ MATLAB  R2025a (25.1.0.2943329)
 Symbolic Math Toolbox 25.1
 ```
 
-The period-66 checkers use SymPy exact rationals.  The period-23 checker uses
-`fractions.Fraction` after reading binary64 arrays with NumPy, so every
-arithmetic predicate is evaluated on exact dyadic rationals.  A different
-compatible runtime may reproduce the same mathematical objects, but the
-release manifests and continuous-integration workflow are pinned to the
-versions above.
-
-The period-23 source field `rho` is an exploratory binary64 estimate of the
-return-map spectral radius, not the ADMM penalty parameter.  The certified
-ADMM recurrence uses penalty parameter `1`.
+The period-66 checkers use SymPy exact rationals.  The period-23 checker parses
+canonical JSON fractions directly with `fractions.Fraction`; NumPy is used
+only for a non-proof spectral-radius display.  A different compatible runtime
+may reproduce the same mathematical objects, but the release manifests and
+continuous-integration workflow are pinned to the versions above.  The
+certified ADMM recurrence uses penalty parameter `1`.
 
 ## Artifact meanings
 
@@ -220,12 +214,10 @@ ADMM recurrence uses penalty parameter `1`.
 - `certificates/certificate_matlab.json`: generated result of the independent MATLAB
   checker; it is accepted only when both the MATLAB unit test and
   `python/verify_matlab_certificate.py` pass.
-- `certificates/period23_source_binary64.npz`: frozen source container for the
-  period-23 instance.
+- `certificates/period23_instance.json`: canonical exact rational input for
+  the period-23 instance.
 - `certificates/period23_certificate.json`: stable exact replay, strict-sign,
-  minimal-period, non-KKT, and Jury verdicts.
-- `certificates/period23_instance_manifest.json`: canonical shapes, dtypes,
-  binary64 bit patterns, exact dyadic values, and source/verifier hashes.
+  minimal-period, non-KKT, Lyapunov, and support-radius verdicts.
 - `certificates/orbit_66.json`: complete exact and decimal rendering of all
   period-66 cyclic phases.
 - `certificates/relaxed_multiplier_certificate.json`: exact common-Lyapunov,
@@ -245,7 +237,8 @@ Before changing repository visibility to public:
 - generate and freeze `certificates/certificate_matlab.json` under a valid MATLAB license;
 - confirm that all 66 exported phases and the relaxation artifacts regenerate
   byte for byte;
-- confirm that the period-23 NPZ and canonical exact manifest agree;
+- confirm that the period-23 canonical rational input regenerates the frozen
+  certificate byte for byte;
 - confirm that the research-process manifest, required-path gate, and privacy
   scan pass;
 - run an independent secret and privacy scan on the release tree;

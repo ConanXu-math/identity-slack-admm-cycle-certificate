@@ -7,9 +7,11 @@ exact, replayable nonconvergence certificate.
 
 The routes address the same research question, but they do **not** solve the
 same QP instance. The Codex route produced a rational two-dimensional
-period-66 example; the Kimi Code K3 route produced a dyadic
-three-dimensional period-23 example. Both lie in the identity-slack problem
-class, the latter after invertible changes of variables.
+period-66 example. The Kimi Code K3 route established the three-dimensional
+period-23 mechanism; the root acceptance layer uses the exact
+denominator-100 rational instance as its canonical public certificate. Both
+lie in the identity-slack problem class, the latter after invertible changes
+of variables.
 
 ## What the comparison supports
 
@@ -54,13 +56,14 @@ caveats:
 - [`routes/codex-period66/accounting.json`](routes/codex-period66/accounting.json)
 - [`routes/kimi-period23/accounting.json`](routes/kimi-period23/accounting.json)
 
-## Terminal and later artifacts
+## Route history and release acceptance
 
-For Kimi, the terminal artifact set established the exact dyadic period-23
-sequence, strict signs, and exact Jury stability of the 23-step return map.
-The explicit rational invariant ellipsoid used later to certify a concrete
-open set of reduced initializations is a subsequent companion result. It is
-not attributed to the terminal Kimi run and is not retained in this package.
+The Kimi process archive preserves the route-original witness and its
+discovery scripts as historical evidence. The root acceptance package
+designates the exact denominator-100 rational representative as the public
+period-23 certificate and verifies its explicit invariant ellipsoid. Resource
+accounting remains tied to the recorded Kimi route endpoint; it is descriptive
+and is not a timing claim for rebuilding the release certificate.
 
 The current Codex package also contains cross-checks added around or after the
 first certificate, including separately implemented full-state and MATLAB

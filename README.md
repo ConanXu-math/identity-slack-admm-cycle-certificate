@@ -8,9 +8,10 @@
 > open-source license have not yet been assigned.
 
 This repository contains the exact-arithmetic certificates accompanying the
-manuscript **“Direct Three-Block ADMM Can Cycle with an Identity Slack
-Block.”**  It verifies two explicit instances for which the unmodified direct
-three-block ADMM has a bounded, strictly admissible, non-KKT periodic
+manuscript **“A Counterexample to the Convergence of Three-Block ADMM with an
+Identity Third Constraint Block.”**  It verifies two explicit instances for
+which the unmodified direct three-block ADMM has a bounded, strictly
+admissible, non-KKT periodic
 sequence, even though each optimization problem has a unique KKT point.
 
 The repository has two layers.  The root verification package contains frozen
@@ -24,7 +25,7 @@ and review artifacts that explain how the two certificates were reached.
 | Certificate ID | Dimension | Certified conclusion | Verification |
 | --- | ---: | --- | --- |
 | `identity_slack_p66_short_v1` | 2 | Bounded non-KKT sequence of minimal period 66 | reduced Python, full-state Python, MATLAB |
-| `identity_slack_p23_dyadic_v1` | 3 | Minimal period-23 non-KKT orbit, locally attracting in canonical `(y,t)` state | exact dyadic replay and Jury stability |
+| `identity_slack_p23_rational_v1` | 3 | Minimal period-23 non-KKT orbit with an explicit invariant neighborhood in canonical `(y,t)` state | exact rational replay and Lyapunov certificate |
 
 ### Period 66
 
@@ -46,18 +47,21 @@ and review artifacts that explain how the two certificates were reached.
 
 - Model: three-dimensional strongly convex quadratic problem with a
   nonnegative identity slack block and penalty parameter `beta = 1`.
-- Instance identifier: `identity_slack_p23_dyadic_v1`.
-- Stored binary64 values are interpreted exactly as dyadic rationals.
+- Instance identifier: `identity_slack_p23_rational_v1`.
+- Every primitive QP coefficient is an exact reduced fraction whose numerator
+  and denominator have absolute value at most `100`.
 - Minimal period: `23`.
 - All `69` projection inputs are separated from zero, with exact minimum
-  margin greater than `7/1000`.
-- The exact 23-step return matrix satisfies the Jury stability criterion, so
-  the periodic orbit is locally attracting in the canonical reduced `(y,t)`
-  state.  The sign margin is not an explicit basin radius or a parameter
-  interval.
-- The explicit rational invariant-neighborhood certificate used in the
-  manuscript was added after the terminal Kimi run and is not included in
-  this terminal-equivalent package.
+  margin greater than `1/250`.
+- A rational matrix `P` satisfies
+  `P - M_per^T P M_per > 0` exactly.  The support-ratio certificate gives
+  `rbar^2 > 29/100000 > 1/4000`.
+- Consequently, `e^T P e < 1/4000` is an explicit return-invariant
+  neighborhood of reduced initializations whose phase subsequences approach
+  the non-KKT period-23 orbit.
+- The exploratory Kimi route files remain under `research-process/` as
+  historical discovery evidence; root acceptance is defined by the rational
+  instance and exact verifier above.
 
 ### Multiplier relaxation for the period-66 instance
 
@@ -118,19 +122,15 @@ exact algebra.
 
 ### Period-23 certificate
 
-`python/verify_period23_certificate.py` loads the frozen binary64 source data,
-converts every entry to its exact dyadic-rational value, rebuilds the
-six-dimensional `(y,t)` branch maps, and checks instance validity, the unique
-KKT point and its raw optimality conditions, strict projection signs, exact
-23-step closure, minimality, separation from the KKT point, and exact Jury
-stability.  It deterministically regenerates:
-
-- `certificates/period23_certificate.json`;
-- `certificates/period23_instance_manifest.json`.
-
-The manifest records shapes, dtypes, binary64 bit patterns, exact dyadic
-values, and source/verifier hashes.  Runtime telemetry is intentionally
-excluded from the frozen certificate.
+`python/verify_period23_certificate.py` reads
+`certificates/period23_instance.json` directly as canonical fractions.  It
+rebuilds the six-dimensional `(y,t)` branch maps and checks positive
+definiteness, nonsingularity, the unique strictly complementary KKT point,
+the original ADMM update equations, exact 23-step closure, minimality, strict
+projection signs, separation from the KKT point, the rational Lyapunov
+inequality, and the explicit sign-preserving support radius.  It
+deterministically regenerates `certificates/period23_certificate.json`.
+Runtime telemetry is excluded from the frozen certificate.
 
 ## Quick reproduction
 
@@ -153,13 +153,14 @@ Expected terminal summary:
 {"checks": [{"name": "period66", "returncode": 0, "status": "passed"}, {"name": "period23", "returncode": 0, "status": "passed"}], "valid": true}
 ```
 
-The command rewrites the following tracked artifacts deterministically:
+The commands read the fixed input
+`certificates/period23_instance.json` and rewrite the following tracked
+artifacts deterministically:
 
 - `certificates/certificate_raw.json`
 - `certificates/certificate_signed.json`
 - `certificates/instance_manifest.json`
 - `certificates/period23_certificate.json`
-- `certificates/period23_instance_manifest.json`
 - `certificates/orbit_66.json`
 - `certificates/relaxed_multiplier_certificate.json`
 - `certificates/relaxed_multiplier_summary.md`
@@ -236,7 +237,7 @@ push without that private-project token requirement.
 | `python/strict_cycle_certificate.py` | Independent exact checker on `(y,z,lambda)` |
 | `python/signed_cycle_certificate.py` | Independent exact checker on `(y,q)` |
 | `python/verify_certificate_pair.py` | Regenerates, compares, and hashes both Python certificates |
-| `python/verify_period23_certificate.py` | Exact dyadic period-23 replay and Jury verifier |
+| `python/verify_period23_certificate.py` | Exact rational period-23 replay and invariant-neighborhood verifier |
 | `python/verify_all.py` | Runs both certificate paths and propagates failures |
 | `python/export_orbit_66.py` | Exports every exact period-66 phase as machine-readable data |
 | `python/certify_relaxed_multiplier_interval_theory.py` | Certifies the local multiplier-relaxation intervals and Schur boundary |
@@ -258,8 +259,8 @@ The process exits successfully only when every result-specific exact
 predicate passes; the period-66 representations must additionally agree on
 every shared certificate field, and the multiplier-relaxation predicates and
 regression tests must pass.  No floating-point tolerance is used for period
-closure, minimality, projection signs, Jury acceptance, or the relaxation
-certificate.
+closure, minimality, projection signs, the Lyapunov/support-radius
+certificate, or the relaxation certificate.
 
 ## Versioning and release status
 

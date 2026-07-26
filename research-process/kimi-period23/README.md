@@ -30,11 +30,12 @@ rather than agent-generated research output.
 The shortest discovery chain is
 `exp14_targeted_repellent.py` -> `exp17c_selfcontained.py` ->
 `exp19b_exact_yt.py`. It moves from a locally repelling KKT construction to
-frequency locking and then to exact dyadic replay with the Jury test.
+frequency locking and then to an exact route-original replay.
 
-## Attribution boundary
+## Acceptance boundary
 
-These files document the terminal Kimi route. The later explicit rational
-invariant ellipsoid used in the manuscript was constructed after that run and
-is not included or attributed to Kimi. Raw chats, credentials, installed
-skills, caches, and local machine paths are excluded.
+These files document the historical Kimi route; they are not the root
+acceptance layer. The canonical release certificate is the exact
+denominator-100 rational instance under `../../certificates/`, verified by
+`../../python/verify_period23_certificate.py`. Raw chats, credentials,
+installed skills, caches, and local machine paths are excluded.

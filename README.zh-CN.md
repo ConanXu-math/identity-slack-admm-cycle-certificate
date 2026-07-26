@@ -3,9 +3,10 @@
 > **当前状态：私人、投稿前版本。** 数学命题和程序接口已冻结用于内部核查，
 > 但公开归档 DOI、最终作者列表、引用信息和开源许可证尚未确定。
 
-本仓库是论文 **“Direct Three-Block ADMM Can Cycle with an Identity Slack
-Block”** 的精确证书包。它验证两个显式实例：原始、未经修正的直接三块 ADMM
-存在有界、严格可容许、非 KKT 的周期序列，而对应优化问题仍有唯一 KKT 点。
+本仓库是论文 **“A Counterexample to the Convergence of Three-Block ADMM with
+an Identity Third Constraint Block”** 的精确证书包。它验证两个显式实例：
+原始、未经修正的直接三块 ADMM 存在有界、严格可容许、非 KKT 的周期序列，
+而对应优化问题仍有唯一 KKT 点。
 
 仓库分为两层：根目录保存冻结实例、精确检查器和机器证书；
 `research-process/` 保存两条 agent 路线中重要的研究状态、理论推导、失败路线、
@@ -16,7 +17,7 @@ Block”** 的精确证书包。它验证两个显式实例：原始、未经修
 | 证书 ID | 维数 | 严格结论 | 验证方式 |
 | --- | ---: | --- | --- |
 | `identity_slack_p66_short_v1` | 2 | 最小周期 66 的有界非 KKT 序列 | reduced Python、full-state Python、MATLAB |
-| `identity_slack_p23_dyadic_v1` | 3 | canonical `(y,t)` 状态中局部吸引的最小周期 23 非 KKT 轨道 | 精确 dyadic replay 与 Jury 判据 |
+| `identity_slack_p23_rational_v1` | 3 | canonical `(y,t)` 状态中具有显式不变邻域的最小周期 23 非 KKT 轨道 | 精确有理数重放与 Lyapunov 证书 |
 
 ### Period 66
 
@@ -30,13 +31,15 @@ Block”** 的精确证书包。它验证两个显式实例：原始、未经修
 ### Period 23
 
 - 三维强凸二次实例，第三块为非负 identity slack，`beta = 1`；
-- binary64 数据逐项解释为精确 dyadic rational；
+- 所有原始 QP 系数都是最简分数，分子绝对值和分母均不超过 `100`；
 - 最小周期为 `23`，共 `69` 个投影输入严格远离零，最小裕量大于
-  `7/1000`；
-- 精确 23 步返回矩阵通过 Jury 稳定性判据，因此周期轨道在 canonical
-  `(y,t)` 状态中局部吸引；上述符号裕量不是显式吸引域半径，也不是参数区间；
-- 论文中的显式有理不变邻域是在 Kimi 终局运行之后补充的 companion
-  certificate；它不能混写成 Kimi 原始终局产物，本证书包也暂未收录。
+  `1/250`；
+- 有理数矩阵 `P` 精确满足 `P - M_per^T P M_per > 0`，支撑比证书给出
+  `rbar^2 > 29/100000 > 1/4000`；
+- 因此，`e^T P e < 1/4000` 是一个显式返回不变邻域，其中每个降维初始点
+  都按相位趋近于该非 KKT 周期 23 轨道；
+- Kimi 路线的探索过程文件保留在 `research-process/` 作为发现证据；
+  根目录的有理数实例与精确验证器定义正式验收结果。
 
 ### Period-66 实例的乘子松弛
 
@@ -83,16 +86,12 @@ MATLAB 输出与冻结 Python 证书的公共字段。
 
 ### Period-23 精确检查
 
-`python/verify_period23_certificate.py` 读取冻结 NPZ，将每个 binary64 数解释为
-精确 dyadic rational，并检查问题合法性、唯一 KKT 点及其原始最优性条件、严格
-投影符号、23 步精确闭合、最小周期、与 KKT 点分离以及精确 Jury 稳定性。它
-确定性生成：
-
-- `certificates/period23_certificate.json`；
-- `certificates/period23_instance_manifest.json`。
-
-manifest 同时记录数组 shape、dtype、binary64 bit pattern、精确 dyadic 数值以及
-输入和 verifier 的 SHA-256；运行时间不进入冻结证书。
+`python/verify_period23_certificate.py` 直接把
+`certificates/period23_instance.json` 解析为规范分数，重建六维 `(y,t)` 分支映射，
+并检查正定性、非奇异性、唯一严格互补 KKT 点、原始 ADMM 更新方程、23 步精确
+闭合、最小周期、严格投影符号、与 KKT 点分离、有理 Lyapunov 不等式和显式
+符号保持半径。它确定性生成
+`certificates/period23_certificate.json`；运行时间不进入冻结证书。
 
 ## 一键复现
 
@@ -177,7 +176,7 @@ token。先把 token 保存为仓库 secret `MLM_LICENSE_TOKEN`，再手动运�
 | `python/strict_cycle_certificate.py` | 六维原变量 Markov 状态的精确检查器 |
 | `python/signed_cycle_certificate.py` | 四维 signed-state 精确检查器 |
 | `python/verify_certificate_pair.py` | 重新生成、比较并哈希两套 Python 证书 |
-| `python/verify_period23_certificate.py` | Period-23 精确 dyadic replay 与 Jury 检查 |
+| `python/verify_period23_certificate.py` | Period-23 精确有理数重放与不变邻域检查 |
 | `python/verify_all.py` | 顺序运行两条证书路径并透传失败 |
 | `python/export_orbit_66.py` | 导出全部 66 个精确循环相位 |
 | `python/certify_relaxed_multiplier_interval_theory.py` | 验证局部乘子松弛区间与 Schur 边界 |

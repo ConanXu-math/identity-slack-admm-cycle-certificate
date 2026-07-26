@@ -10,8 +10,8 @@ stored beside executable code.
 - `strict_cycle_certificate.py`: independent exact six-dimensional checker.
 - `verify_certificate_pair.py`: regenerates both Python certificates and the
   shared manifest.
-- `verify_period23_certificate.py`: regenerates the exact dyadic period-23
-  replay, source manifest, and Jury-stability certificate.
+- `verify_period23_certificate.py`: regenerates the exact rational period-23
+  replay, Lyapunov, and invariant-neighborhood certificate.
 - `verify_all.py`: runs the period-66 and period-23 certificate paths and
   propagates the first failure.
 - `verify_matlab_certificate.py`: compares the frozen MATLAB JSON with the

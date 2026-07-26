@@ -5,7 +5,7 @@
   "comparison_kind": "descriptive_endpoint_aligned",
   "endpoint": {
     "id": "first_exact_replayable_nonconvergence_certificate",
-    "result": "exact dyadic minimal period-23 non-KKT orbit, locally attracting in canonical (y,t) state",
+    "result": "exact minimal period-23 non-KKT orbit, locally attracting in canonical (y,t) state",
     "same_qp_as_other_route": false
   },
   "paper_reported_accounting": {
@@ -57,6 +57,6 @@
     "The approximately nine-hour figure is the manuscript's rounded route-level value.",
     "Cumulative agent time double-counts parallel overlap by design.",
     "Token totals describe recorded traffic; tokenizer and telemetry definitions differ across routes.",
-    "The explicit rational invariant ellipsoid was a later companion result and is outside the terminal accounting endpoint."
+    "The accounting endpoint describes the realized research run and excludes the runtime of regenerating the canonical release certificate."
   ]
 }

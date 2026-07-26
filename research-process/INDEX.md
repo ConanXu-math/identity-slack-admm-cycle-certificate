@@ -33,7 +33,7 @@ Directories contain additional scripts, tests, machine outputs, and reviews.
 | Failed proof routes | proof attempts and numerical falsification | [`07_proof_attempts.md`](kimi-period23/research/07_proof_attempts.md), [`exp11_cqlf.py`](kimi-period23/experiments/exp11_cqlf.py) |
 | Targeted instability mechanism | numerical screen | [`exp14_targeted_repellent.py`](kimi-period23/experiments/exp14_targeted_repellent.py), [`exp16_trapping.py`](kimi-period23/experiments/exp16_trapping.py) |
 | Period locking | candidate discovery and floating replay | [`exp17c_selfcontained.py`](kimi-period23/experiments/exp17c_selfcontained.py), [`exp17c_summary.json`](kimi-period23/experiments/results/exp17c_summary.json), [saved cycle NPZ files](kimi-period23/experiments/results/) |
-| Exact period-23 result | exact dyadic certificate | [`09_counterexample.md`](kimi-period23/research/09_counterexample.md), [`exp19b_exact_yt.py`](kimi-period23/experiments/exp19b_exact_yt.py), [`exp19_certificate.json`](kimi-period23/experiments/results/exp19_certificate.json) |
+| Exact period-23 result | route-original exact certificate | [`09_counterexample.md`](kimi-period23/research/09_counterexample.md), [`exp19b_exact_yt.py`](kimi-period23/experiments/exp19b_exact_yt.py), [`exp19_certificate.json`](kimi-period23/experiments/results/exp19_certificate.json) |
 | Literature and final synthesis | research report | [`literature_notes.md`](kimi-period23/references/literature_notes.md), [`main.md`](kimi-period23/report/main.md) |
 
 The root `certificates/` and `python/` directories remain the portable,

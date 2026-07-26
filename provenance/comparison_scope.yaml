@@ -19,10 +19,10 @@ research_scope:
       result: bounded non-KKT sequence of minimal period 66
     kimi-period23:
       dimension: 3
-      arithmetic: exact dyadic rational
+      arithmetic: exact rational with input denominators at most 100
       result: >-
-        minimal period-23 non-KKT orbit, locally attracting in the canonical
-        reduced (y,t) state
+        minimal period-23 non-KKT orbit with an explicit invariant
+        neighborhood in the canonical reduced (y,t) state
 
 common_endpoint:
   id: first_exact_replayable_nonconvergence_certificate
@@ -83,17 +83,15 @@ artifact_boundary:
   sensitive_local_paths_retained: false
   credentials_retained: false
   route_records_are_curated: true
-  kimi_terminal_artifacts:
-    - source binary64 data interpreted as exact dyadic rationals
-    - exact period-23 replay
-    - exact Jury stability verification
-  kimi_later_companion:
-    terminal_run_artifact: false
-    retained_here: false
-    description: >-
-      The explicit rational invariant ellipsoid certifying a concrete open
-      set of reduced initializations was constructed after the terminal Kimi
-      run and must not be attributed to that terminal artifact set.
+  kimi_route_history:
+    - archived discovery scripts, logs, and route-original witness
+  kimi_release_acceptance:
+    - canonical denominator-100 rational QP data
+    - exact period-23 raw ADMM replay
+    - exact rational Lyapunov and support-radius certificate
+  accounting_boundary: >-
+    Recorded route timing describes the realized Kimi research run and is not
+    a timing claim for regenerating the canonical release certificate.
 
 interpretation: >-
   The records support a descriptive comparison of two successful research

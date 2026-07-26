@@ -16,9 +16,9 @@
   ],
   "files": [
     {
-      "bytes": 6222,
+      "bytes": 6230,
       "path": "INDEX.md",
-      "sha256": "3575513b9a8d27daa44dae47fe3d9e862d88ad8ab2843a19facce23607cf08d0"
+      "sha256": "397ddfde9fe3fb105ff46cd0219829cb486f85da7b03a1f78a936cc94edee2d0"
     },
     {
       "bytes": 2205,
@@ -511,9 +511,9 @@
       "sha256": "e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614"
     },
     {
-      "bytes": 1738,
+      "bytes": 1795,
       "path": "kimi-period23/README.md",
-      "sha256": "d41ba46d9264cd9287e70bde8db72d9511e3aa2e07218093460217d3d6501cea"
+      "sha256": "8049bf71feb695bee7a820b3a93729e4d4c0adfe797ea5589010047c063e557e"
     },
     {
       "bytes": 24599,
@@ -873,7 +873,7 @@
       ".svg": 3,
       ".txt": 1
     },
-    "total_bytes": 2959298
+    "total_bytes": 2959363
   },
   "valid": true
 }

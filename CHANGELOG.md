@@ -6,9 +6,9 @@ All notable changes to the certificate package will be recorded here.
 
 - Keep `paper/` PDF-only and exclude manuscript working files from the
   repository.
-- Add the frozen Kimi Code K3 period-23 binary64 source, its exact
-  dyadic-rational replay, source manifest, and exact Jury-stability
-  certificate.
+- Designate an exact denominator-100 rational period-23 instance as the
+  canonical Kimi-route certificate, with exact replay, KKT, strict-sign,
+  Lyapunov, and invariant-neighborhood checks.
 - Add a unified Python verification entry point, regression tests, and CI
   coverage for both the period-66 and period-23 certificates.
 - Add route-level provenance and explicit limits for the descriptive,
