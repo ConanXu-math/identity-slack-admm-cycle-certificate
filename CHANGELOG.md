@@ -4,6 +4,11 @@ All notable changes to the certificate package will be recorded here.
 
 ## Unreleased
 
+- Refresh the compiled manuscript to the July 30, 2026 25-page revision,
+  incorporating the exact period-23 certificate, the conditional
+  small-dual-step convergence theorem, the class-wide no-uniform-step
+  boundary, the adaptive backtracking rule, and the bounded descriptive
+  Codex/Kimi comparison.
 - Keep `paper/` PDF-only and exclude manuscript working files from the
   repository.
 - Designate an exact denominator-100 rational period-23 instance as the
