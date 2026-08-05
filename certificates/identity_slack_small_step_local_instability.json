@@ -1,0 +1,70 @@
+{
+  "status": "exact_symbolic_local_instability",
+  "scope": "identity_slack_projector_boundary_kkt_branch",
+  "orbit_scope": "not_settled",
+  "parameter_range": "0 < r <= 1/4",
+  "relative_step": "80*r**2/(7*(r**2 + 1))",
+  "characteristic_polynomial": "z**4*(7*r**2*z + 73*r**2 + 7*z - 7)*(1225*r**8*z**4 + 20069*r**8*z**3 + 76507*r**8*z**2 + 4599*r**8*z + 4900*r**6*z**4 + 28693*r**6*z**3 - 53431*r**6*z**2 + 19103*r**6*z + 735*r**6 + 7350*r**4*z**4 - 4361*r**4*z**3 - 10633*r**4*z**2 + 4949*r**4*z + 2695*r**4 + 4900*r**2*z**4 - 17885*r**2*z**3 + 24255*r**2*z**2 - 14455*r**2*z + 3185*r**2 + 1225*z**4 - 4900*z**3 + 7350*z**2 - 4900*z + 1225)/(8575*(r**2 + 1)**5)",
+  "characteristic_denominator": "8575*(r**2 + 1)**5",
+  "quartic_numerator": "7*(1225*r**8*z**4 + 20069*r**8*z**3 + 76507*r**8*z**2 + 4599*r**8*z + 4900*r**6*z**4 + 28693*r**6*z**3 - 53431*r**6*z**2 + 19103*r**6*z + 735*r**6 + 7350*r**4*z**4 - 4361*r**4*z**3 - 10633*r**4*z**2 + 4949*r**4*z + 2695*r**4 + 4900*r**2*z**4 - 17885*r**2*z**3 + 24255*r**2*z**2 - 14455*r**2*z + 3185*r**2 + 1225*z**4 - 4900*z**3 + 7350*z**2 - 4900*z + 1225)",
+  "schur_deltas": [
+    "2941225*r**2*(r**2 + 1)**4*(5*r**2 + 7)*(5*r**4 + 13*r**2 + 10)",
+    "-451960398400*r**8*(r**2 + 1)**6*(130*r**4 + 397*r**2 + 237)*(1205*r**8 + 1977*r**6 - 4643*r**4 - 7385*r**2 - 2450)",
+    "130731649102007502438400000*r**20*(r**2 + 1)**12*(5*r**2 + 7)*(5*r**4 + 13*r**2 + 10)*(105*r**4 + 162*r**2 + 277)*(14530*r**10 + 57137*r**8 - 131931*r**6 - 449323*r**4 - 329735*r**2 - 82950)",
+    "-1116131531554639609384008907553971065847808000000000000*r**44*(r**2 + 1)**22*(5*r**2 + 7)**2*(5*r**4 + 13*r**2 + 10)**2*(105*r**4 + 162*r**2 + 277)**2*(130*r**4 + 397*r**2 + 237)*(1205*r**8 + 1977*r**6 - 4643*r**4 - 7385*r**2 - 2450)*(6633*r**8 - 11949*r**6 - 147*r**4 + 8085*r**2 + 2450)"
+  ],
+  "decisive_delta_index": 2,
+  "sign_argument": {
+    "delta_0": "positive for r > 0",
+    "delta_1_sign_factor": "1205*r**8 + 1977*r**6 - 4643*r**4 - 7385*r**2 - 2450",
+    "delta_1_upper_bound": "-1461*r**4 - 7385*r**2 - 2450",
+    "delta_1_conclusion": "positive for 0 < r <= 1",
+    "delta_2_sign_factor": "14530*r**10 + 57137*r**8 - 131931*r**6 - 449323*r**4 - 329735*r**2 - 82950",
+    "delta_2_upper_bound": "-60264*r**6 - 449323*r**4 - 329735*r**2 - 82950",
+    "delta_2_conclusion": "negative for 0 < r <= 1",
+    "spectral_conclusion": "the quartic has a root of modulus greater than one"
+  },
+  "strictification": {
+    "parameters": "choose rational q in (0,1), s=2q/(1+q^2), t=(1-q^2)/(1+q^2)",
+    "image_factors": "A_q=t*P_A+s*(I-P_A), B_q=t*P_B+s*(I-P_B)",
+    "objectives": "F_q=I-A_q^T*A_q=s^2*P_A+t^2*(I-P_A)>0; G_q analogous",
+    "continuity_boundary": "for every fixed rational r, sufficiently small rational q preserves the strict spectral-radius inequality"
+  },
+  "numeric_sanity_checks": [
+    {
+      "slope": 0.1,
+      "theta": 0.11315417256011315,
+      "spectral_radius": 1.0038272749534891
+    },
+    {
+      "slope": 0.01,
+      "theta": 0.0011427428685702858,
+      "spectral_radius": 1.0000387577931686
+    },
+    {
+      "slope": 0.001,
+      "theta": 1.1428560000011428e-05,
+      "spectral_radius": 1.0000003876275743
+    }
+  ],
+  "strict_rational_sanity_checks": [
+    {
+      "slope": 0.1,
+      "strict_parameter": 0.001,
+      "theta": 0.11315417256011315,
+      "spectral_radius": 1.0038244960537543
+    },
+    {
+      "slope": 0.01,
+      "strict_parameter": 1e-05,
+      "theta": 0.0011427428685702858,
+      "spectral_radius": 1.000038757565899
+    },
+    {
+      "slope": 0.001,
+      "strict_parameter": 1e-07,
+      "theta": 1.1428560000011428e-05,
+      "spectral_radius": 1.0000003876275534
+    }
+  ]
+}

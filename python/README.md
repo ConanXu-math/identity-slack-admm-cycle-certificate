@@ -20,6 +20,12 @@ stored beside executable code.
 - `export_orbit_66.py`: writes all 66 cyclic phases as exact and decimal data.
 - `certify_relaxed_multiplier_half_convergence.py`: exact `tau = 1/2` base
   certificate.
+- `analyze_identity_slack_universal_step_obstruction.py`: exact obstruction to a
+  problem-independent relative multiplier step.
+- `analyze_identity_slack_small_step_local_instability.py`: companion local
+  instability family used by the universal-step obstruction.
+- `verify_universal_step_obstruction.py`: regenerate/check the tracked
+  universal-step obstruction certificate.
 - `certify_relaxed_multiplier_interval_theory.py`: exact common-Lyapunov,
   finite-prefix capture, and local-Schur certificates.
 - `tests/test_relaxed_multiplier_interval_theory.py`: direct-replay and

@@ -1,0 +1,37 @@
+{
+  "status": "exact_symbolic_identity_slack_nonconvergent_orbit_existence",
+  "scope": "strongly_convex_full_row_rank_identity_slack_qp",
+  "relative_step_range": "0 < theta <= 80/119",
+  "slope_inverse": "r = sqrt(7*theta/(80 - 7*theta))",
+  "unstable_endpoint": {
+    "path_parameter": "q = 0",
+    "certificate": "certificates/identity_slack_small_step_local_instability.json",
+    "conclusion": "spectral radius strictly greater than one"
+  },
+  "stable_endpoint": {
+    "path_parameter": "q = sqrt(2) - 1",
+    "data": "A=B=I/sqrt(2), Q1=Q2=I/2",
+    "active_characteristic": "(2*z - 1)**2*(theta + z - 1)/4",
+    "inactive_characteristic": "z*(3*theta*z - theta + 4*z**2 - 5*z + 1)/4",
+    "jury_inequalities": {
+      "leading_minus_abs_constant_lower_bound": "277/119",
+      "value_at_plus_one": "2*theta > 0",
+      "value_at_minus_one_lower_bound": "870/119"
+    },
+    "conclusion": "every scalar branch is strictly Schur stable for 0 < theta <= 80/119"
+  },
+  "continuity_step": {
+    "statement": "for every theta in the stated interval, continuity of the branch spectral radius along q in [0,sqrt(2)-1] yields an interior q_c with spectral radius one",
+    "strictness": "q_c>0 gives Q1,Q2 positive definite and A,B nonsingular"
+  },
+  "unit_eigenvalue_exclusion": {
+    "statement": "eigenvalue +1 would create a second nearby fixed point inside the strict affine branch",
+    "contradiction": "every fixed point of the raw ADMM map is a KKT point, whereas strong convexity and full row rank give a unique KKT point"
+  },
+  "orbit_lift": {
+    "unit_modulus_mode": "the unit-circle eigenvalue is either -1 or nonreal",
+    "branch_invariance": "scale a real eigenmode sufficiently small; its powers are bounded and the strict KKT projection signs never change",
+    "conclusion": "the resulting raw ADMM orbit is bounded and does not converge to the unique KKT point"
+  },
+  "quantified_conclusion": "for every 0 < theta <= 80/119 there exists a strict identity-slack QP with a bounded nonconvergent ADMM orbit"
+}

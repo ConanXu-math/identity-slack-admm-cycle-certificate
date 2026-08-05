@@ -48,6 +48,10 @@ jobs:
       - name: Compare the tracked MATLAB and Python exact fields
         run: python python/verify_matlab_certificate.py
 
+
+      - name: Regenerate the universal-step obstruction certificate
+        run: python python/verify_universal_step_obstruction.py --check
+
       - name: Require byte-for-byte stable certificate artifacts
         run: git diff --exit-code -- certificates/
 

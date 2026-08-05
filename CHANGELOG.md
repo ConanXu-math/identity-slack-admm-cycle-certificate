@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- Provenance overlays: workspace manifests, prompt ledger, interventions, and
+  `claim_to_artifact.json` for the manuscript research-harness narrative.
+- Exact universal relative-step obstruction scripts and tracked certificates
+  under `python/` and `certificates/`, with CI check
+  `verify_universal_step_obstruction.py --check`.
+
+
 All notable changes to the certificate package will be recorded here.
 
 ## Unreleased

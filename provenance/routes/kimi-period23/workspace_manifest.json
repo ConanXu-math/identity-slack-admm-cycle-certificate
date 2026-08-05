@@ -1,0 +1,51 @@
+{
+  "route": "kimi_code_k3",
+  "model": "Kimi Code K3",
+  "freeze_date": "2026-07-22",
+  "workspace_source": "deliverables/kimi_k3_strict_blind_v1/kimi_k3_strict_blind_workspace_v1.zip",
+  "run_directory": "kimi-admm-strict-blind-run-20260722/workspace",
+  "blinding": {
+    "period66_candidate_visible": false,
+    "other_route_outputs_visible": false,
+    "parent_dirs_readable": false,
+    "codex_matrices_visible": false,
+    "codex_projection_word_visible": false,
+    "codex_initialization_visible": false,
+    "codex_certificates_visible": false,
+    "project_specific_route_guidance_visible": false,
+    "observer_directory_visible": false
+  },
+  "visible_inputs": [
+    "inputs/problem_statement.md",
+    "inputs/teacher_slides/",
+    "AGENTS.md",
+    "START_GOAL.txt"
+  ],
+  "visible_skills": [
+    "discover-math-problems",
+    "math-paper-reading",
+    "paper-to-skill",
+    "paper-writing",
+    "proof-blueprint-review",
+    "scientific-computing-reproduction"
+  ],
+  "available_tools": [
+    "shell",
+    "python",
+    "file_edit",
+    "web_search"
+  ],
+  "evidence_rules_summary": [
+    "Use only the current workspace and public sources; do not inspect parent or sibling directories.",
+    "Treat inputs/ as raw material, not established conclusions.",
+    "Numerical screens are exploratory; exact proofs or counterexamples must be independently checkable."
+  ],
+  "starting_prompt_ref": "prompts/kimi/P-K-01_start_goal.txt",
+  "brief_refs": [
+    "briefs/kimi_problem_statement.md",
+    "briefs/kimi_START_GOAL.txt",
+    "briefs/kimi_AGENTS.md"
+  ],
+  "start_tree_ref": "workspaces/kimi_start_tree.txt",
+  "notes": "Strict-blind package: workspace/ is the only content exposed to the agent; observer/ stays outside the agent view."
+}

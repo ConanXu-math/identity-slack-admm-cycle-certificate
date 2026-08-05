@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate",
+  "one_shot_acceptance": "python python/verify_all.py",
+  "claims": {
+    "period66_theorem": {
+      "paper_label": "Theorem (exact rational period-66)",
+      "discovery_route": "codex-period66",
+      "verification_command": "python python/verify_certificate_pair.py",
+      "release_artifacts": [
+        "certificates/orbit_66.json",
+        "certificates/certificate_signed.json",
+        "certificates/certificate_raw.json",
+        "python/verify_certificate_pair.py"
+      ]
+    },
+    "dual_step_ranges": {
+      "paper_label": "Theorem (dual-step ranges for period-66 instance)",
+      "discovery_route": "codex-period66",
+      "verification_command": "python python/certify_relaxed_multiplier_interval_theory.py",
+      "release_artifacts": [
+        "certificates/relaxed_multiplier_certificate.json",
+        "python/certify_relaxed_multiplier_interval_theory.py"
+      ]
+    },
+    "no_universal_dual_step": {
+      "paper_label": "Theorem (no problem-independent relative-step interval)",
+      "discovery_route": "codex-period66",
+      "verification_command": "python python/verify_universal_step_obstruction.py --check",
+      "status": "synced",
+      "release_artifacts": [
+        "certificates/identity_slack_universal_step_obstruction.json",
+        "certificates/identity_slack_small_step_local_instability.json",
+        "python/analyze_identity_slack_universal_step_obstruction.py",
+        "python/analyze_identity_slack_small_step_local_instability.py",
+        "python/verify_universal_step_obstruction.py"
+      ]
+    },
+    "period23_proposition": {
+      "paper_label": "Proposition (exact period-23 for nearby initializations)",
+      "discovery_route": "kimi-period23",
+      "verification_command": "python python/verify_period23_certificate.py",
+      "release_artifacts": [
+        "certificates/period23_instance.json",
+        "certificates/period23_certificate.json",
+        "python/verify_period23_certificate.py"
+      ]
+    }
+  }
+}

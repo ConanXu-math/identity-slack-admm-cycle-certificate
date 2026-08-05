@@ -92,3 +92,16 @@ certificates at the repository root.
 No raw chats, credentials, private configuration, or user-specific absolute
 paths are included. The provenance records describe claims, accounting
 definitions, and retained repository artifacts only.
+
+## Route initialization and claim map
+
+Additional machine-readable provenance for the manuscript:
+
+- [`claim_to_artifact.json`](claim_to_artifact.json): claim → verifier → artifact map
+- [`prompts/ledger.yaml`](prompts/ledger.yaml): prompt provenance classes
+- [`interventions/human_interventions.csv`](interventions/human_interventions.csv): key human gates
+- [`routes/*/workspace_manifest.json`](routes/codex-period66/workspace_manifest.json): what each route could see at start
+
+These files document starting conditions and attribution. They are not part of
+the mathematical acceptance layer under `certificates/` and `python/`.
+

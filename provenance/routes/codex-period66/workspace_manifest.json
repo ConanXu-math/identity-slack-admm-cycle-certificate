@@ -1,0 +1,44 @@
+{
+  "route": "gpt56_sol_codex",
+  "model": "GPT-5.6 Sol (Codex)",
+  "freeze_date": null,
+  "provenance_class_of_this_manifest": "reconstructed",
+  "workspace_source": "long-running project repository (not a single frozen zip)",
+  "run_directory": "Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计",
+  "blinding": {
+    "period66_candidate_visible": "self_produced_after_discovery",
+    "other_route_outputs_visible": false,
+    "kimi_outputs_visible_during_discovery": false,
+    "parent_dirs_readable": true,
+    "project_specific_route_guidance_visible": true
+  },
+  "visible_inputs_at_start_reconstructed": [
+    "scientific brief: identity-slack three-block ADMM open question",
+    "literature boundary (Chen–He–Ye–Yuan and related multi-block results)",
+    "AGENTS.md / research_state.md / work_orders.md (project steering files)",
+    "skills/admm-proof-workflow/",
+    "Python / NumPy / pytest experiment toolchain"
+  ],
+  "visible_skills": [
+    "admm-proof-workflow",
+    "project research notes and VeryMath routing docs"
+  ],
+  "available_tools": [
+    "shell",
+    "python",
+    "file_edit",
+    "web_search",
+    "computer-algebra / exact rational scripts in experiments/"
+  ],
+  "evidence_rules_summary": [
+    "Floating-point orbits nominate candidates only.",
+    "Promotion requires exact rational closure, strict branch checks, raw ADMM replay, and quantifier audit (gates G1–G7).",
+    "Human direction sets search priorities and evidence requirements iteratively."
+  ],
+  "starting_prompt_ref": "briefs/codex_scientific_brief.md",
+  "key_prompt_refs": [
+    "prompts/codex/P-C-relax_distilled.md"
+  ],
+  "start_tree_ref": "workspaces/README_codex_start.md",
+  "notes": "Unlike the Kimi route, the Codex route was refined over many sessions. This manifest reconstructs the starting scientific conditions; it is not a claim that a single zip freeze existed on day one. Exact mathematical claims are carried by certificates, not by this reconstructed environment list."
+}

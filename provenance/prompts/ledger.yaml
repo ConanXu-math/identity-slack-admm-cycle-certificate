@@ -1,0 +1,43 @@
+# Prompt ledger
+# Classes: verbatim_historical | reconstructed | retrospective_distilled
+
+entries:
+  - id: P-K-01
+    route: kimi_code_k3
+    stage: route_initialization
+    class: verbatim_historical
+    path: prompts/kimi/P-K-01_start_goal.txt
+    assert_verbatim: true
+    note: "START_GOAL.txt issued at the opening of the strict-blind run."
+
+  - id: P-K-02
+    route: kimi_code_k3
+    stage: problem_brief
+    class: verbatim_historical
+    path: briefs/kimi_problem_statement.md
+    assert_verbatim: true
+    note: "Neutral mathematical problem statement visible to the agent."
+
+  - id: P-K-03
+    route: kimi_code_k3
+    stage: workspace_rules
+    class: verbatim_historical
+    path: briefs/kimi_AGENTS.md
+    assert_verbatim: true
+    note: "Includes prohibition on inspecting parent/sibling directories."
+
+  - id: P-C-01
+    route: gpt56_sol_codex
+    stage: scientific_brief
+    class: reconstructed
+    path: briefs/codex_scientific_brief.md
+    assert_verbatim: false
+    note: "Reconstructed from retained project steering files; not a single day-one message."
+
+  - id: P-C-02
+    route: gpt56_sol_codex
+    stage: multiplier_relaxation
+    class: retrospective_distilled
+    path: prompts/codex/P-C-relax_distilled.md
+    assert_verbatim: false
+    note: "Distilled reusable workflow from retained artifacts; must not be cited as verbatim historical input."
