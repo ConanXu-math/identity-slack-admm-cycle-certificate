@@ -10,11 +10,6 @@ Third Constraint Block.”** It provides exact, replayable evidence for two
 fixed convex quadratic programs on which the unmodified direct three-block
 ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 
-> [!NOTE]
-> This is a private pre-publication artifact (`v0.3.0-private`). The final
-> authors, citation metadata, archival DOI, and software license have not yet
-> been assigned.
-
 ## Start here
 
 | If you want to... | Start with |
