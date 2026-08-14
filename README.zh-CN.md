@@ -1,11 +1,12 @@
-# Identity-Slack 三块 ADMM 的精确周期不收敛证书
+# AI 辅助发现并构造第三约束块为单位矩阵的三块 ADMM 收敛反例
 
 [English](README.md) | **简体中文**
 
 [![精确证书](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
 
-本仓库对应论文 **“A Counterexample to the Convergence of Three-Block ADMM
-with an Identity Third Constraint Block”**。仓库为两个固定凸二次规划实例提供
+本仓库对应论文 **“AI-Assisted Discovery and Construction of a Counterexample
+to the Convergence of Three-Block ADMM with the Identity Matrix as Its Third
+Constraint Block”**。仓库为两个固定凸二次规划实例提供
 可精确重放的证据：虽然问题具有唯一 KKT 点，未经修正的直接三块 ADMM
 仍可产生有界、非 KKT 的周期序列。
 

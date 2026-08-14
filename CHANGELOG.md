@@ -16,8 +16,10 @@
   totals, private-record hashes, and post-route certificate lineage.
 - Make the universal-step verifier regenerate both its local-instability
   dependency and the aggregate obstruction certificate.
-- Refresh the compiled manuscript to the 33-page August 14, 2026 build
-  (title-page date August 5, 2026), incorporating the exact period-23
+- Refresh the compiled manuscript to the 34-page August 14, 2026 build,
+  titled “AI-Assisted Discovery and Construction of a Counterexample to the
+  Convergence of Three-Block ADMM with the Identity Matrix as Its Third
+  Constraint Block,” incorporating the exact period-23
   certificate, the conditional
   small-dual-step convergence theorem, the class-wide no-uniform-step
   boundary, the adaptive backtracking rule, and the bounded descriptive

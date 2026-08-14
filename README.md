@@ -1,12 +1,13 @@
-# Exact Periodic Nonconvergence Certificates for Identity-Slack Three-Block ADMM
+# AI-Assisted Discovery and Construction of a Counterexample to the Convergence of Three-Block ADMM with the Identity Matrix as Its Third Constraint Block
 
 **English** | [简体中文](README.zh-CN.md)
 
 [![Exact certificate](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
 
 This repository accompanies the manuscript
-**“A Counterexample to the Convergence of Three-Block ADMM with an Identity
-Third Constraint Block.”** It provides exact, replayable evidence for two
+**“AI-Assisted Discovery and Construction of a Counterexample to the
+Convergence of Three-Block ADMM with the Identity Matrix as Its Third
+Constraint Block.”** It provides exact, replayable evidence for two
 fixed convex quadratic programs on which the unmodified direct three-block
 ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 
