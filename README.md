@@ -123,6 +123,11 @@ git diff --exit-code -- certificates/
 The last command is part of acceptance: regeneration must leave every tracked
 certificate byte-for-byte unchanged.
 
+The universal-step check keeps the JSON structure and every exact symbolic
+field byte-strict. Its six NumPy/LAPACK spectral-radius values are explicitly
+numerical sanity checks and use absolute tolerance `1e-12` across platforms;
+the smallest stored excess above one is greater than `3.87e-7`.
+
 ## How the evidence is organized
 
 | Layer | Purpose | Authoritative entry point |

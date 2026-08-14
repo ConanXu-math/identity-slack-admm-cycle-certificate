@@ -25,7 +25,9 @@ stored beside executable code.
 - `analyze_identity_slack_small_step_local_instability.py`: companion local
   instability family used by the universal-step obstruction.
 - `verify_universal_step_obstruction.py`: regenerate/check the tracked
-  universal-step obstruction certificate.
+  universal-step obstruction certificate. Exact fields remain byte-strict;
+  only the six platform-dependent NumPy/LAPACK spectral-radius sanity values
+  use absolute tolerance `1e-12`.
 - `verify_kimi_provenance.py`: verify the sanitized Kimi route ledger,
   terminal bytes, accounting, frozen-start inventory, and route file hashes.
 - `certify_relaxed_multiplier_interval_theory.py`: exact common-Lyapunov,
