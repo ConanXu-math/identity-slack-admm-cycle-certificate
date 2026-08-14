@@ -235,9 +235,9 @@ certified ADMM recurrence uses penalty parameter `1`.
 The JSON files are theorem evidence only together with the checker sources and
 the immutable commit that generated them.
 
-## Release checklist
+## Archival release checklist
 
-Before changing repository visibility to public:
+Before creating a tagged archival release:
 
 - rerun the certificate in a clean checkout;
 - confirm the GitHub Actions workflow passes;
@@ -252,5 +252,6 @@ Before changing repository visibility to public:
 - freeze the final public tag;
 - create a DOI-bearing archive from that tag;
 - add final citation and author metadata;
-- choose an explicit public software license;
+- confirm that the MIT license scope and its manuscript/prose exclusions
+  remain accurate;
 - update the manuscript's code-availability statement with the DOI and tag.

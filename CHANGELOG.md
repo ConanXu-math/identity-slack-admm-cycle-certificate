@@ -7,6 +7,9 @@
   start inventory.
 
 ### Added
+- Add an MIT License for software source code and machine-readable certificate
+  data, while explicitly excluding the manuscript PDF and prose research
+  materials from that license grant.
 - Provenance overlays: workspace manifests, prompt ledger, interventions, and
   `claim_to_artifact.json` for the manuscript research-harness narrative.
 - Exact universal relative-step obstruction scripts and tracked certificates

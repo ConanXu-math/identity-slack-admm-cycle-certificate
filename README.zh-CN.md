@@ -194,10 +194,15 @@ python python/verify_matlab_certificate.py
 也未对计算量、工具、遥测、停止规则或人工干预进行匹配。因此，该比较只能描述
 两次已实现的研究过程及其共同证据终点，不能用于因果性地排序模型速度、成本或能力。
 
+## 许可证
+
+本仓库的软件源代码和机器可读证书数据采用 [MIT License](LICENSE)。`paper/`
+目录中的论文 PDF 与研究正文不属于 MIT License 的授权范围；除非文件另有声明，
+其权利均予保留。
+
 ## 发布与引用状态
 
-仓库目前为私人版本，尚未提供公开软件许可证。正式公开前，需要确定最终作者与
-添加 `CITATION.cff`，选择许可证，建立不可变 release tag 与归档，取得 DOI，并确保
-论文和代码可用性声明共同指向该版本。
+建立不可变的正式归档版本前，需要确定最终作者、添加 `CITATION.cff`、建立 release
+tag 与归档、取得 DOI，并确保论文和代码可用性声明共同指向该版本。
 
 仓库维护者：[ConanXu-math](https://github.com/ConanXu-math)。

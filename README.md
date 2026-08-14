@@ -214,12 +214,17 @@ not matched in compute, tools, telemetry, stopping policy, or human
 intervention. The comparison is descriptive and endpoint-aligned; it cannot
 support a causal ranking of model speed, cost, or capability.
 
+## License
+
+The software source code and machine-readable certificate data in this
+repository are licensed under the [MIT License](LICENSE). The manuscript PDF
+under `paper/` and prose research materials are excluded from the MIT License
+and remain all rights reserved unless a file states otherwise.
+
 ## Release and citation status
 
-This repository is currently private and has no public software license.
-Before public release, the maintainers must freeze the author list, add
-`CITATION.cff`, select a license, create an immutable tagged archive, assign
-a DOI, and make the manuscript and code-availability statement point to that
-same release.
+Before creating an immutable archival release, the maintainers must freeze the
+author list, add `CITATION.cff`, create a tagged archive, assign a DOI, and make
+the manuscript and code-availability statement point to that same release.
 
 Repository owner: [ConanXu-math](https://github.com/ConanXu-math).
