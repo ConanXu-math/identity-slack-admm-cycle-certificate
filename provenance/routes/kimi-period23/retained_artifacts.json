@@ -1,8 +1,23 @@
 {
   "schema_version": 2,
   "route_id": "kimi-period23",
-  "inventory_scope": "canonical release certificate plus historical process archive",
+  "inventory_scope": "route-original endpoint, post-route canonical release certificate, and historical process archive",
+  "route_original_result": {
+    "terminal_run_artifact": true,
+    "instance_arithmetic": "binary64 values interpreted as exact dyadic rationals",
+    "dimension": 3,
+    "period": 23,
+    "conclusion": "exact nonconstant period-23 non-KKT orbit with exact Jury stability and local attraction in the canonical reduced (y,t) state; minimality was made explicit by post-hoc verifier hardening",
+    "explicit_basin_radius_at_endpoint": false,
+    "endpoint_script_explicit_minimality_check": false,
+    "minimality_made_explicit_by_post_hoc_hardening": true,
+    "endpoint_attestation": "provenance/routes/kimi-period23/run_attestation.json",
+    "endpoint_script_sha256": "964825bddd485f461cae3238f449c02a2f4b8469e473ec06418132de4fac7dcb",
+    "endpoint_stdout_sha256": "6f544229ae709400dc62efc5464f087dec4d047f60df58f41c6f1a01438eb202"
+  },
   "canonical_release_result": {
+    "terminal_run_artifact": false,
+    "lineage": "post-route simplification and independent strengthening of the period-23 mechanism",
     "instance_id": "identity_slack_p23_rational_v1",
     "dimension": 3,
     "period": 23,
@@ -28,12 +43,28 @@
       "role": "stable machine-readable exact certificate"
     }
   ],
+  "route_archive_artifacts": [
+    {
+      "path": "research-process/kimi-period23/experiments/results/exp17c_cycle_i0_e0.0038.npz",
+      "role": "route-original binary64 instance and periodic candidate used by exp19b"
+    },
+    {
+      "path": "research-process/kimi-period23/experiments/exp19b_exact_yt.py",
+      "role": "post-hoc hardened descendant of the endpoint exact dyadic verifier",
+      "sha256": "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829",
+      "byte_identical_to_endpoint_script": false
+    },
+    {
+      "path": "research-process/kimi-period23/experiments/results/exp19_certificate.json",
+      "role": "regenerated route-level result; mathematical fields correspond to the dyadic certificate, while elapsed time is runtime-dependent"
+    }
+  ],
   "curated_process_archive": {
     "path": "research-process/kimi-period23",
     "manifest": "research-process/manifest.json",
     "retained": true,
     "acceptance_layer": false,
-    "scope": "Sanitized isolated-workspace snapshot containing the starting contract, research log, theory notes, experiment and test scripts, saved JSON and NPZ results, literature notes, and terminal report."
+    "scope": "Sanitized frozen-start workspace snapshot containing the starting contract, research log, theory notes, experiment and test scripts, saved JSON and NPZ results, literature notes, and terminal report; no operating-system isolation claim is made."
   },
   "accounting_snapshot": {
     "first_scan_instances": 30000,
@@ -48,7 +79,8 @@
     "counting_notes": [
       "The scans are successive or nested route records and must not be summed into a single trial count.",
       "Saved sequences and files are not theorem counts.",
-      "Recorded route timing is not a timing claim for regenerating the canonical release certificate."
+      "Recorded route timing ends at the exact dyadic replay and Jury endpoint.",
+      "Construction and regeneration of the denominator-100 canonical certificate and explicit invariant ellipsoid are excluded from the route endpoint."
     ]
   },
   "excluded": [

@@ -5,29 +5,53 @@
   "comparison_kind": "descriptive_endpoint_aligned",
   "endpoint": {
     "id": "first_exact_replayable_nonconvergence_certificate",
-    "result": "exact minimal period-23 non-KKT orbit, locally attracting in canonical (y,t) state",
+    "result": "exact dyadic nonconstant period-23 non-KKT orbit with exact Jury stability verification and local attraction in the canonical (y,t) state; minimality was made explicit by post-hoc verifier hardening",
     "same_qp_as_other_route": false
+  },
+  "audited_route_endpoint": {
+    "attestation": "run_attestation.json",
+    "event": "successful tool result of python3 -u exp19b_exact_yt.py",
+    "unix_ms": 1784743665718,
+    "utc": "2026-07-22T18:07:45.718Z",
+    "llm_requests": 370,
+    "usage_records": 346,
+    "recorded_tokens": {
+      "input_cache_creation": 0,
+      "input_cache_read": 59962225,
+      "input_other": 2824693,
+      "output": 482292,
+      "total": 63269210
+    },
+    "timing_hours": {
+      "merged_active_wall": 8.9653475,
+      "cumulative_agent": 12.4316925,
+      "session_created_to_endpoint": 10.209235833333333
+    },
+    "terminal_artifact_boundary": "The endpoint contains the exact dyadic replay and Jury certificate. The denominator-100 QP and explicit invariant ellipsoid are later release strengthening and are excluded from these route totals."
   },
   "paper_reported_accounting": {
     "approximate_run_time_hours": {
       "display": "approximately 9",
       "value": 9,
-      "approximate": true
+      "approximate": true,
+      "method": "8.9653475 active wall hours after merging overlapping completed-step intervals through the route endpoint"
     },
     "cumulative_agent_time_hours": {
       "value": 12.43,
-      "method": "sum of completed-turn intervals",
+      "method": "12.4316925 hours from the sum of 346 completed-step intervals through the route endpoint",
       "parallel_time_can_overlap": true
     },
     "recorded_tokens": {
       "total": {
         "value": 63270000,
         "approximate": true,
-        "display": "approximately 6.327e7"
+        "display": "approximately 6.327e7",
+        "audited_exact_value_before_rounding": 63269210
       },
       "output": {
         "value": 482300,
-        "display": "4.823e5"
+        "display": "4.823e5",
+        "audited_exact_value_before_rounding": 482292
       },
       "total_definition": "cached input plus noncached input plus output",
       "billable_usage_claim": false
@@ -54,9 +78,10 @@
     "causal_model_ranking_allowed": false
   },
   "notes": [
-    "The approximately nine-hour figure is the manuscript's rounded route-level value.",
+    "The approximately nine-hour figure is the merged union of completed-step intervals; session-open elapsed time is not used for this display.",
     "Cumulative agent time double-counts parallel overlap by design.",
     "Token totals describe recorded traffic; tokenizer and telemetry definitions differ across routes.",
-    "The accounting endpoint describes the realized research run and excludes the runtime of regenerating the canonical release certificate."
+    "The accounting endpoint describes the realized research run and excludes the later construction and regeneration of the canonical denominator-100 release certificate.",
+    "Raw session records remain private because they contain chats and local paths; run_attestation.json publishes sanitized aggregates, derivation rules, and hashes."
   ]
 }

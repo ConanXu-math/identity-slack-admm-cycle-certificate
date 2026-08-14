@@ -54,6 +54,10 @@ with an Identity Third Constraint Block”**。仓库为两个固定凸二次规
   其中每个初始点都按相位收敛到周期 23 序列；
 - 这是一个固定 QP 的初始点邻域，不是 QP 数据扰动结论，也不是全局吸引定理。
 
+Kimi Code K3 路线最初得到的是周期 23 的精确 dyadic 重放以及基于精确 Jury
+判据的局部吸引证书。上面的小分母有理实例和显式不变椭球属于后续发布强化；详见
+[`路线核验记录`](provenance/routes/kimi-period23/run_attestation.json)。
+
 ### 周期 66 QP 的乘子松弛
 
 精确松弛证书分别证明：
@@ -96,6 +100,7 @@ python python/verify_all.py
 python python/verify_research_process_archive.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
+python python/verify_universal_step_obstruction.py --check
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
 python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py

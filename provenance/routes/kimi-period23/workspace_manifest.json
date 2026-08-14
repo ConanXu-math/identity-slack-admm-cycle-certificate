@@ -1,19 +1,31 @@
 {
+  "schema_version": 2,
   "route": "kimi_code_k3",
   "model": "Kimi Code K3",
   "freeze_date": "2026-07-22",
-  "workspace_source": "deliverables/kimi_k3_strict_blind_v1/kimi_k3_strict_blind_workspace_v1.zip",
-  "run_directory": "kimi-admm-strict-blind-run-20260722/workspace",
-  "blinding": {
-    "period66_candidate_visible": false,
-    "other_route_outputs_visible": false,
-    "parent_dirs_readable": false,
-    "codex_matrices_visible": false,
-    "codex_projection_word_visible": false,
-    "codex_initialization_visible": false,
-    "codex_certificates_visible": false,
-    "project_specific_route_guidance_visible": false,
-    "observer_directory_visible": false
+  "provenance_class_of_this_manifest": "frozen_start_package_with_post_hoc_session_audit",
+  "workspace_source": {
+    "package_label": "kimi_k3_strict_blind_workspace_v1.zip",
+    "availability": "retained privately because the package contains teacher-provided images",
+    "bytes": 2770059,
+    "sha256": "8ec465e22b21628949cbdf383025a30ae52cbae17ca278015fc70502a788a440",
+    "baseline_workspace_root_sha256": "706eecabcf937aff3b46491eda6efc31afc6ada5c566c49211e1dbefb4e6e36e",
+    "baseline_git_commit": "959a34ab9838d95f451efb5fe9fdbdba7965d935"
+  },
+  "run_directory_label": "kimi-admm-strict-blind-run-20260722/workspace",
+  "starting_condition": {
+    "period66_candidate_in_workspace": false,
+    "other_route_outputs_in_workspace": false,
+    "codex_matrices_in_workspace": false,
+    "codex_projection_word_in_workspace": false,
+    "codex_initialization_in_workspace": false,
+    "codex_certificates_in_workspace": false,
+    "project_specific_route_guidance_in_workspace": false,
+    "observer_directory_in_workspace": false,
+    "parent_and_sibling_access_prohibited_by_rules": true,
+    "operating_system_filesystem_denial_enforced": false,
+    "experiment_specific_kimi_home_used": false,
+    "post_hoc_tool_call_path_audit": "No recorded tool call accessed the Codex project or another sibling workspace; this is not a filesystem-denial claim."
   },
   "visible_inputs": [
     "inputs/problem_statement.md",
@@ -40,12 +52,13 @@
     "Treat inputs/ as raw material, not established conclusions.",
     "Numerical screens are exploratory; exact proofs or counterexamples must be independently checkable."
   ],
-  "starting_prompt_ref": "prompts/kimi/P-K-01_start_goal.txt",
+  "starting_prompt_ref": "research-process/kimi-period23/START_GOAL.txt",
   "brief_refs": [
-    "briefs/kimi_problem_statement.md",
-    "briefs/kimi_START_GOAL.txt",
-    "briefs/kimi_AGENTS.md"
+    "provenance/routes/kimi-period23/start_brief/problem_statement.md",
+    "provenance/routes/kimi-period23/start_brief/START_GOAL.txt",
+    "provenance/routes/kimi-period23/start_brief/AGENTS.md"
   ],
-  "start_tree_ref": "workspaces/kimi_start_tree.txt",
-  "notes": "Strict-blind package: workspace/ is the only content exposed to the agent; observer/ stays outside the agent view."
+  "start_tree_ref": "provenance/routes/kimi-period23/start_tree.txt",
+  "run_attestation_ref": "provenance/routes/kimi-period23/run_attestation.json",
+  "notes": "The frozen start package omitted the Codex candidate. The realized run used the default Kimi Code session store rather than the intended isolated KIMI_CODE_HOME, so the public record does not claim operating-system-enforced strict blindness."
 }

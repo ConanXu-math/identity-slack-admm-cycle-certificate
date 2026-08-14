@@ -426,12 +426,12 @@ $PYTHON -m pytest -q \
 
 ## 14. 关键 artifacts
 
-- 最终结论：[`report/final_resolution_2026-07-14.md`](final_resolution_2026-07-14.md)
+- 最终验收入口：[`README.md`](../../../README.md) 与根目录精确证书
 - 反例数学定义：[`notes/strict_rational_66_cycle_counterexample.md`](../notes/strict_rational_66_cycle_counterexample.md)
 - 投影恒等式与符号：[`notes/z_projection_identity.md`](../notes/z_projection_identity.md)
 - fixed-mask 排除：[`notes/fixed_mask_invariant_impossible_lemma.md`](../notes/fixed_mask_invariant_impossible_lemma.md)
 - length-3 switching gate：[`notes/length3_switching_gate.md`](../notes/length3_switching_gate.md)
-- 周期 margin 失败地图：[`notes/nonconstant_periodic_margin_failure_map.md`](../notes/nonconstant_periodic_margin_failure_map.md)
+- 周期 margin 数值筛查：[Stage 27 outputs](../outputs/breakthrough_attempts/stage27_periodic_margin/)
 - Stage 44 exact certifier：[`experiments/breakthrough/certify_strict_rational_66_cycle.py`](../experiments/breakthrough/certify_strict_rational_66_cycle.py)
 - Stage 45 independent audit：[`experiments/breakthrough/audit_strict_rational_66_cycle_independent.py`](../experiments/breakthrough/audit_strict_rational_66_cycle_independent.py)
 - Stage 44 certificate：[`outputs/breakthrough_attempts/stage44_strict_rational_66_cycle/certificate.json`](../outputs/breakthrough_attempts/stage44_strict_rational_66_cycle/certificate.json)

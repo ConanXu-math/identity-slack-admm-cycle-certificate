@@ -141,6 +141,7 @@ python python/verify_all.py
 python python/verify_research_process_archive.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
+python python/verify_universal_step_obstruction.py --check
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
 python -m unittest discover -s tests -p "test_*.py"
 ```

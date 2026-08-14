@@ -27,6 +27,7 @@
       "paper_label": "Theorem (no problem-independent relative-step interval)",
       "discovery_route": "codex-period66",
       "verification_command": "python python/verify_universal_step_obstruction.py --check",
+      "verification_scope": "regenerates and checks both the small-step local-instability dependency and the universal obstruction certificate",
       "status": "synced",
       "release_artifacts": [
         "certificates/identity_slack_universal_step_obstruction.json",
@@ -39,6 +40,9 @@
     "period23_proposition": {
       "paper_label": "Proposition (exact period-23 for nearby initializations)",
       "discovery_route": "kimi-period23",
+      "route_endpoint": "exact dyadic period-23 replay and Jury stability certificate",
+      "route_attestation": "provenance/routes/kimi-period23/run_attestation.json",
+      "release_strengthening": "post-route denominator-100 representative with rational Lyapunov and support-radius certificate",
       "verification_command": "python python/verify_period23_certificate.py",
       "release_artifacts": [
         "certificates/period23_instance.json",

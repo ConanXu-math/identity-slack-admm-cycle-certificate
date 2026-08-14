@@ -3,5 +3,5 @@ time,route,stage,instruction_summary,changed_search_space,changed_evidence_requi
 2026-07 (approx),codex,candidate_screening,Required that fixed-branch spectral radius >1 alone is not a counterexample; itinerary must be realizable,true,true,false,reconstructed_from_notes
 2026-07 (approx),codex,period_search,Required strict exact rational counterexample with promotion gates G1-G7,false,true,true,reconstructed_from_notes
 2026-07 (approx),codex,relaxation_extension,Froze QP/beta/init; vary only tau; separate KKT-local vs class-uniform claims,true,true,true,P-C-02_distilled_and_notes
-2026-07-22,kimi,route_initialization,Opened strict-blind workspace with neutral brief; no Codex candidate,false,true,false,verbatim_START_GOAL
-2026-07-22+,kimi,continue_search,Continue parallel proof and counterexample search under workspace rules,false,false,false,reconstructed_from_transcript_notes
+2026-07-22,kimi,route_initialization,Opened frozen-start workspace with neutral brief; no Codex candidate,false,true,false,verbatim_START_GOAL_and_native_wire
+2026-07-22,kimi,continue_search,Six generic prompts to continue parallel proof and counterexample search under workspace rules,false,false,false,native_wire_post_hoc_audit

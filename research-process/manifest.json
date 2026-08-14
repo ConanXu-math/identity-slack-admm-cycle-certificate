@@ -21,9 +21,9 @@
       "sha256": "397ddfde9fe3fb105ff46cd0219829cb486f85da7b03a1f78a936cc94edee2d0"
     },
     {
-      "bytes": 2205,
+      "bytes": 2250,
       "path": "README.md",
-      "sha256": "6df97041d920989e9a414e51d195f1d1a29dd04d334f69bc7c51c8e13e6f1c06"
+      "sha256": "d112d08fff7d4391feb3c3e8ada22ecaa501cd65a08ea6d893ad53b51ad898a8"
     },
     {
       "bytes": 2188,
@@ -426,9 +426,9 @@
       "sha256": "1ea60156b6145fa890e055bc0f3a92c31d32d1b9d9b4b81177b5e77889aa72da"
     },
     {
-      "bytes": 16170,
+      "bytes": 16133,
       "path": "codex-period66/report/search_workflow_theory_numerics_counterexample.md",
-      "sha256": "0e411c4d812a8f12a5410bfe177f3945e7666495002d9d4dc033948ee4814af2"
+      "sha256": "e39e19da1cfe9a85673723779d8f7b6f87dc1e735d15c3a940a46b144bad78e4"
     },
     {
       "bytes": 100527,
@@ -511,9 +511,9 @@
       "sha256": "e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614"
     },
     {
-      "bytes": 1795,
+      "bytes": 2158,
       "path": "kimi-period23/README.md",
-      "sha256": "8049bf71feb695bee7a820b3a93729e4d4c0adfe797ea5589010047c063e557e"
+      "sha256": "10052fb35b846c0d62b8976eeb7e067b31e13e2f224a37892ef7b6d77088f121"
     },
     {
       "bytes": 24599,
@@ -873,7 +873,7 @@
       ".svg": 3,
       ".txt": 1
     },
-    "total_bytes": 2959363
+    "total_bytes": 2959734
   },
   "valid": true
 }

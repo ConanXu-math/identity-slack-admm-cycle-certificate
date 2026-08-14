@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "route_id": "kimi-period23",
+  "attestation_scope": "Sanitized, post-hoc derivation from the retained native Kimi Code session record. This file supports model and route attribution; it is not part of the mathematical acceptance layer.",
+  "session": {
+    "session_id": "session_441cfdaa-a00c-49d1-becf-37b5fd8deb9c",
+    "created_utc": "2026-07-22T07:55:12.469Z",
+    "provider": "kimi",
+    "model_id": "kimi-k3",
+    "model_alias": "moonshot-cn/kimi-k3",
+    "thinking_efforts_observed": [
+      "high",
+      "max"
+    ],
+    "topology": {
+      "main_sessions": 1,
+      "subagents": 3,
+      "agent_labels": [
+        "main",
+        "agent-0",
+        "agent-1",
+        "agent-2"
+      ]
+    }
+  },
+  "route_endpoint": {
+    "definition": "The successful tool result of python3 -u exp19b_exact_yt.py, the first exact replayable period-23 nonconvergence certificate in the realized route.",
+    "unix_ms": 1784743665718,
+    "utc": "2026-07-22T18:07:45.718Z",
+    "llm_requests_through_endpoint": 370,
+    "completed_step_intervals": 346,
+    "endpoint_script_bytes": 8848,
+    "endpoint_script_sha256": "964825bddd485f461cae3238f449c02a2f4b8469e473ec06418132de4fac7dcb",
+    "endpoint_stdout_bytes": 855,
+    "endpoint_stdout_sha256": "6f544229ae709400dc62efc5464f087dec4d047f60df58f41c6f1a01438eb202",
+    "checks_recorded_in_endpoint_stdout": [
+      "positive leading minors for F and G",
+      "nonsingular A and B",
+      "exact KKT-branch fixed point in its cone",
+      "exact projection-word replay",
+      "exact 23-step closure",
+      "separation from the KKT point",
+      "exact Jury stability"
+    ],
+    "checks_made_explicit_by_post_hoc_hardening": [
+      "exact symmetry of F and G",
+      "strict margin greater than 7/1000",
+      "23 distinct phase states",
+      "minimal period 23",
+      "fail-closed aggregate validity"
+    ]
+  },
+  "timing_through_endpoint": {
+    "session_created_to_endpoint_hours": 10.209235833333333,
+    "initial_prompt_to_endpoint_hours": 10.209206388888889,
+    "completed_step_interval_sum_hours": 12.4316925,
+    "merged_active_interval_count": 117,
+    "merged_active_wall_hours": 8.9653475,
+    "paper_display": "approximately 9 hours",
+    "method": "Pair step.begin and step.end events by UUID, keep completed intervals ending at or before the endpoint, sum all intervals for cumulative agent time, and merge overlaps for active wall time."
+  },
+  "usage_through_endpoint": {
+    "usage_records": 346,
+    "input_cache_creation": 0,
+    "input_cache_read": 59962225,
+    "input_other": 2824693,
+    "output": 482292,
+    "total": 63269210,
+    "total_definition": "input_cache_creation + input_cache_read + input_other + output",
+    "paper_display": {
+      "total": "approximately 63.27 million",
+      "output": "482,300"
+    },
+    "billable_usage_claim": false
+  },
+  "human_input_through_endpoint": {
+    "initial_research_prompt": 1,
+    "generic_continue_search_prompts": 6,
+    "tool_mode_commands": 4,
+    "method_level_candidate_or_proof_hint_recorded": false,
+    "observer_intervention_log_completed_during_run": false,
+    "note": "Counts were reconstructed from the native wire record. System-generated task notifications are not counted as human instructions."
+  },
+  "starting_condition": {
+    "workspace_archive_sha256": "8ec465e22b21628949cbdf383025a30ae52cbae17ca278015fc70502a788a440",
+    "workspace_archive_bytes": 2770059,
+    "baseline_workspace_root_sha256": "706eecabcf937aff3b46491eda6efc31afc6ada5c566c49211e1dbefb4e6e36e",
+    "baseline_git_commit": "959a34ab9838d95f451efb5fe9fdbdba7965d935",
+    "codex_candidate_in_starting_workspace": false,
+    "parent_and_sibling_access_prohibited_by_workspace_rules": true,
+    "operating_system_filesystem_denial_enforced": false,
+    "isolated_kimi_code_home_used": false,
+    "post_hoc_tool_call_path_audit": "No recorded tool-call argument accessed the Codex project or another sibling workspace. Session-internal task logs and the run workspace were accessed. This observation is not a claim of filesystem-level isolation."
+  },
+  "artifact_lineage": {
+    "terminal_kimi_result": "Exact dyadic 23-step non-KKT replay with exact Jury stability verification and local attraction in the canonical reduced state; post-hoc hardening made minimality and additional guards explicit.",
+    "terminal_script_sha256": "964825bddd485f461cae3238f449c02a2f4b8469e473ec06418132de4fac7dcb",
+    "curated_post_hoc_hardened_script": "research-process/kimi-period23/experiments/exp19b_exact_yt.py",
+    "curated_post_hoc_hardened_script_sha256": "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829",
+    "post_route_release_strengthening": "The denominator-100 canonical QP, rational Lyapunov matrix, support-radius bound, and explicit invariant ellipsoid were constructed after the terminal run and are not charged to the Kimi route endpoint."
+  },
+  "private_raw_evidence_hashes": {
+    "state.json": "3a65488a3b6d96a0f36fc22f375df23bf04fb60600944b201fcc981cf3d1027c",
+    "agents/main/wire.jsonl": "7808293aa92d4df00574d58afdcb32488f88d382942f0c4c9cde6536db359bb3",
+    "agents/agent-0/wire.jsonl": "4d42c9e3ca28fdf72c8e1481ca43de43d235d36ba911e2b6fd6e328ec6160855",
+    "agents/agent-1/wire.jsonl": "3acf226eca79db2e64d2590bb4c1650769ebac0bd71393151fed9cbde56e3f01",
+    "agents/agent-2/wire.jsonl": "5e731949c2e0a4fd3b519a2578835c47aeb5d1082026a355fe36d09dd039701e",
+    "logs/kimi-code.log": "71430d579810a8b18b1dcf69445071cfea106c70bcbe53e597b188e588b8001b"
+  },
+  "privacy_boundary": {
+    "raw_chat_or_wire_logs_published": false,
+    "local_absolute_paths_published": false,
+    "credentials_or_private_configuration_published": false,
+    "reason": "The raw records contain conversations and user-specific paths. The public record contains only sanitized aggregates, event definitions, and hashes."
+  },
+  "limitations": [
+    "The run was audited post hoc rather than preregistered.",
+    "The intended experiment-specific KIMI_CODE_HOME and observer checkpoint exporter were not used.",
+    "The evidence supports Kimi K3 attribution and the recorded frozen starting workspace, but not an operating-system-enforced strict-blind claim.",
+    "The Codex and Kimi routes were not matched experiments and do not support causal model ranking."
+  ]
+}

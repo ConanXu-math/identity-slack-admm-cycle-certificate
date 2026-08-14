@@ -35,10 +35,10 @@
     "Promotion requires exact rational closure, strict branch checks, raw ADMM replay, and quantifier audit (gates G1–G7).",
     "Human direction sets search priorities and evidence requirements iteratively."
   ],
-  "starting_prompt_ref": "briefs/codex_scientific_brief.md",
+  "starting_prompt_ref": "provenance/routes/codex-period66/scientific_brief.md",
   "key_prompt_refs": [
-    "prompts/codex/P-C-relax_distilled.md"
+    "provenance/prompts/codex/P-C-relax_distilled.md"
   ],
-  "start_tree_ref": "workspaces/README_codex_start.md",
+  "start_tree_ref": "provenance/routes/codex-period66/README_start_visibility.md",
   "notes": "Unlike the Kimi route, the Codex route was refined over many sessions. This manifest reconstructs the starting scientific conditions; it is not a claim that a single zip freeze existed on day one. Exact mathematical claims are carried by certificates, not by this reconstructed environment list."
 }

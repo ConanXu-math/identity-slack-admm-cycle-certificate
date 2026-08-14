@@ -7,19 +7,21 @@ exact, replayable nonconvergence certificate.
 
 The routes address the same research question, but they do **not** solve the
 same QP instance. The Codex route produced a rational two-dimensional
-period-66 example. The Kimi Code K3 route established the three-dimensional
-period-23 mechanism; the root acceptance layer uses the exact
-denominator-100 rational instance as its canonical public certificate. Both
-lie in the identity-slack problem class, the latter after invertible changes
-of variables.
+period-66 example. The Kimi Code K3 route produced an exact dyadic
+three-dimensional period-23 example and certified local attraction by an
+exact Jury test. The root acceptance layer uses a subsequently simplified and
+independently strengthened denominator-100 rational instance with an explicit
+invariant ellipsoid. Both lie in the identity-slack problem class, the latter
+after invertible changes of variables.
 
 ## What the comparison supports
 
 - Two different realized computational routes separately reached exact
   counterexamples to the same proposed convergence principle.
-- Each terminal result can be discussed at a common evidence endpoint:
-  exact replay, strict projection consistency, non-KKT status, and minimal
-  period.
+- Each terminal result reached exact replay, strict projection consistency,
+  and non-KKT periodic nonconvergence. The public verifiers subsequently
+  harmonize explicit pairwise-distinctness, minimal-period, and fail-closed
+  guards without changing either route's candidate.
 - The retained files make the mathematical certificates inspectable without
   publishing exploratory conversations or private machine paths.
 
@@ -50,6 +52,13 @@ the two systems' telemetry and tokenizers differ.
 | GPT-5.6 Sol through Codex | ~40 h | ~1.704 billion | 7.869 million | 4 top-level and 237 subagent rollouts |
 | Kimi Code K3 | ~9 h | ~63.27 million | 482,300 | 1 main session and 3 recorded subagents |
 
+For the Kimi route, the exact endpoint totals are `63,269,210` recorded tokens
+and `482,292` output tokens. The `~9 h` display is the union of overlapping
+completed-step intervals (`8.9653475 h`); their unmerged sum is
+`12.4316925` agent-hours. The endpoint, derivation rule, actual model identity,
+and private raw-record hashes are recorded in
+[`routes/kimi-period23/run_attestation.json`](routes/kimi-period23/run_attestation.json).
+
 The route-specific accounting files preserve the definitions and additional
 caveats:
 
@@ -62,8 +71,9 @@ The Kimi process archive preserves the route-original witness and its
 discovery scripts as historical evidence. The root acceptance package
 designates the exact denominator-100 rational representative as the public
 period-23 certificate and verifies its explicit invariant ellipsoid. Resource
-accounting remains tied to the recorded Kimi route endpoint; it is descriptive
-and is not a timing claim for rebuilding the release certificate.
+accounting ends at the route-original exact dyadic replay and Jury certificate.
+The later denominator-100 construction, Lyapunov matrix, support-radius bound,
+and release-certificate regeneration are not charged to that endpoint.
 
 The current Codex package also contains cross-checks added around or after the
 first certificate, including separately implemented full-state and MATLAB
@@ -80,8 +90,8 @@ The terminal certificates alone do not explain the discovery process.
 agent-generated state files, theory notes, experimental scripts, numerical
 outputs, withdrawn attempts, and review records for both routes.  The Codex
 side is a decision-path selection from a much larger workspace; the Kimi side
-preserves the complete research arc of the isolated run, excluding installed
-third-party skills and teacher-provided images.
+preserves a curated research arc from the frozen-start run, excluding raw
+session logs, installed third-party skills, and teacher-provided images.
 
 The archive is historical evidence, not a second acceptance layer.  Current
 mathematical acceptance remains governed by the exact checkers and frozen
@@ -89,9 +99,10 @@ certificates at the repository root.
 
 ## Privacy boundary
 
-No raw chats, credentials, private configuration, or user-specific absolute
-paths are included. The provenance records describe claims, accounting
-definitions, and retained repository artifacts only.
+No raw chats, wire logs, credentials, private configuration, or user-specific
+absolute paths are included. The provenance records publish sanitized session
+aggregates and hashes, claim boundaries, accounting definitions, and retained
+repository artifacts only.
 
 ## Route initialization and claim map
 
@@ -104,4 +115,3 @@ Additional machine-readable provenance for the manuscript:
 
 These files document starting conditions and attribution. They are not part of
 the mathematical acceptance layer under `certificates/` and `python/`.
-

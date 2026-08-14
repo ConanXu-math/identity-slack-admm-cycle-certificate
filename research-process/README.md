@@ -13,10 +13,11 @@ proof obligations, and independent checks evolved.
   representative positive and negative theoretical results, the decisive
   Stage 43--46 search/certification chain, multiplier-relaxation follow-up,
   tests, and review artifacts.
-- [`kimi-period23/`](kimi-period23/) preserves the complete research arc of the
-  isolated Kimi Code K3 workspace: starting contract, research log, theory
+- [`kimi-period23/`](kimi-period23/) preserves a curated research arc from the
+  frozen-start Kimi Code K3 workspace: starting contract, research log, theory
   notes (including explicitly withdrawn claims), all experiment scripts and
-  saved results, literature notes, and final report.
+  saved results, literature notes, and final report. Raw native session logs
+  remain private.
 
 ## Evidence labels
 

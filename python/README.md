@@ -39,6 +39,7 @@ python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
+python python/verify_universal_step_obstruction.py --check
 python -m pytest -q python/tests/test_relaxed_multiplier_interval_theory.py
 git diff --exit-code -- certificates/
 ```

@@ -1,8 +1,9 @@
 # Kimi Code K3 period-23 research path
 
-This directory is a sanitized snapshot of the isolated Kimi workspace. It
+This directory is a sanitized snapshot of the frozen-start Kimi workspace. It
 preserves the generated research arc rather than only the final JSON
-certificate.
+certificate. It does not claim that operating-system-level filesystem
+isolation was enforced during the run.
 
 ## Starting contract
 
@@ -23,14 +24,17 @@ rather than agent-generated research output.
   retained because the detected `|t|` implementation error materially changed
   the route.
 - `experiments/` contains the full set of experiment/test scripts and saved
-  JSON/NPZ results from the isolated workspace.
+  JSON/NPZ results from the frozen-start workspace.
 - `references/literature_notes.md` records the literature audit.
 - `report/main.md` is the terminal research report.
 
 The shortest discovery chain is
 `exp14_targeted_repellent.py` -> `exp17c_selfcontained.py` ->
 `exp19b_exact_yt.py`. It moves from a locally repelling KKT construction to
-frequency locking and then to an exact route-original replay.
+frequency locking and then to an exact route-original replay. The retained
+`exp19b` file is a post-hoc hardened descendant of the endpoint script, not a
+byte-identical session export; both hashes and the exact route endpoint appear
+in [`run_attestation.json`](../../provenance/routes/kimi-period23/run_attestation.json).
 
 ## Acceptance boundary
 

@@ -8,12 +8,10 @@
 - Exact universal relative-step obstruction scripts and tracked certificates
   under `python/` and `certificates/`, with CI check
   `verify_universal_step_obstruction.py --check`.
-
-
-All notable changes to the certificate package will be recorded here.
-
-## Unreleased
-
+- Reconcile the Kimi Code K3 session endpoint, model identity, timing, token
+  totals, private-record hashes, and post-route certificate lineage.
+- Make the universal-step verifier regenerate both its local-instability
+  dependency and the aggregate obstruction certificate.
 - Refresh the compiled manuscript to the July 30, 2026 25-page revision,
   incorporating the exact period-23 certificate, the conditional
   small-dual-step convergence theorem, the class-wide no-uniform-step

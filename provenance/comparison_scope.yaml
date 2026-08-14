@@ -19,18 +19,25 @@ research_scope:
       result: bounded non-KKT sequence of minimal period 66
     kimi-period23:
       dimension: 3
-      arithmetic: exact rational with input denominators at most 100
+      arithmetic: exact dyadic rational at the route endpoint
       result: >-
-        minimal period-23 non-KKT orbit with an explicit invariant
-        neighborhood in the canonical reduced (y,t) state
+        nonconstant period-23 non-KKT orbit, locally attracting in the reduced
+        (y,t) state by strict signs and exact Jury stability; explicit
+        pairwise-distinctness and minimal-period guards were added during
+        post-route release hardening without changing the candidate
 
 common_endpoint:
   id: first_exact_replayable_nonconvergence_certificate
   definition: >-
     The first route-local artifact set that exactly replays a valid
-    non-KKT ADMM sequence, verifies strict projection consistency and minimal
-    period, and can be rerun without relying on the exploratory transcript.
-  alignment_claim: same evidence endpoint
+    nonconstant non-KKT periodic ADMM sequence, verifies strict projection
+    consistency, and can be rerun without relying on the exploratory
+    transcript. The public release verifiers subsequently harmonize explicit
+    pairwise-distinctness, minimal-period, and fail-closed guards without
+    changing either route's candidate.
+  alignment_claim: >-
+    same post-hoc-harmonized evidence class, not byte-identical terminal
+    verifier scope
   alignment_does_not_mean:
     - same QP instance
     - same search space
@@ -74,24 +81,36 @@ human_involvement:
     frozen_starting_workspace: true
     post_hoc_audit: true
     preregistered: false
+    experiment_specific_kimi_home_used: false
+    operating_system_filesystem_denial_enforced: false
     note: >-
       The public provenance does not use an unverified claim of zero human
-      involvement as a comparison advantage.
+      involvement or operating-system-enforced isolation as a comparison
+      advantage. The retained session record supports the model attribution,
+      starting-workspace contents, and generic continue-search prompts.
 
 artifact_boundary:
-  raw_chat_logs_retained: false
-  sensitive_local_paths_retained: false
-  credentials_retained: false
+  native_session_records_retained_privately: true
+  raw_chat_or_wire_logs_published: false
+  sensitive_local_paths_published: false
+  credentials_published: false
   route_records_are_curated: true
-  kimi_route_history:
-    - archived discovery scripts, logs, and route-original witness
-  kimi_release_acceptance:
-    - canonical denominator-100 rational QP data
-    - exact period-23 raw ADMM replay
-    - exact rational Lyapunov and support-radius certificate
+  kimi_terminal_artifacts:
+    - source binary64 data interpreted as exact dyadic rationals
+    - exact period-23 replay
+    - exact Jury stability verification
+  kimi_post_route_release_strengthening:
+    terminal_run_artifact: false
+    charged_to_route_time_or_tokens: false
+    artifacts:
+      - canonical denominator-100 rational QP data
+      - exact period-23 raw ADMM replay
+      - exact rational Lyapunov and support-radius certificate
   accounting_boundary: >-
-    Recorded route timing describes the realized Kimi research run and is not
-    a timing claim for regenerating the canonical release certificate.
+    Recorded route timing ends at the first exact dyadic replay and Jury
+    certificate. It excludes subsequent construction and regeneration of the
+    denominator-100 canonical release certificate and its explicit invariant
+    ellipsoid.
 
 interpretation: >-
   The records support a descriptive comparison of two successful research

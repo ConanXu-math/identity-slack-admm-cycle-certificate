@@ -20,6 +20,8 @@ one-shot frozen zip. For audit purposes, treat the **starting visible set** as:
 
 ## What to archive for mathematics
 
-Prefer the certificate reproduction packages under `deliverables/` (e.g.
-strict rational 66-cycle packages) and the verification commands listed in
-`claims/claim_to_artifact.json`, not a dump of the entire git history.
+Prefer the frozen evidence under the root [`certificates/`](../../../certificates/)
+directory and the exact entry points under [`python/`](../../../python/).
+The verification commands and artifact mapping are listed in
+[`provenance/claim_to_artifact.json`](../../claim_to_artifact.json); the full
+development history is not an acceptance artifact.
