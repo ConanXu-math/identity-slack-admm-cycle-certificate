@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add a deterministic, privacy-preserving Kimi route provenance verifier,
+  sanitized event ledger, exact terminal artifacts, and a corrected frozen
+  start inventory.
+
 ### Added
 - Provenance overlays: workspace manifests, prompt ledger, interventions, and
   `claim_to_artifact.json` for the manuscript research-harness narrative.

@@ -58,7 +58,19 @@
     "provenance/routes/kimi-period23/start_brief/START_GOAL.txt",
     "provenance/routes/kimi-period23/start_brief/AGENTS.md"
   ],
-  "start_tree_ref": "provenance/routes/kimi-period23/start_tree.txt",
+  "start_inventory": {
+    "manifest_ref": "provenance/routes/kimi-period23/start_manifest.json",
+    "manifest_bytes": 60418,
+    "manifest_sha256": "b0df1798d67b786b15ab31f012af992e54256a161d23780f6d7414bcba2d4b0d",
+    "tree_ref": "provenance/routes/kimi-period23/start_tree.txt",
+    "tree_bytes": 579,
+    "tree_sha256": "5336b0157fdba52da1987be9ea30c5abd78aa2e31e07bd0dcbd35941f377532f",
+    "tree_definition": "Sorted relative paths at depth at most 3 with .git metadata omitted."
+  },
+  "post_run_tree_ref": "provenance/routes/kimi-period23/post_run_tree.txt",
   "run_attestation_ref": "provenance/routes/kimi-period23/run_attestation.json",
+  "session_audit_ledger_ref": "provenance/routes/kimi-period23/session_audit_events.jsonl",
+  "provenance_manifest_ref": "provenance/routes/kimi-period23/provenance_manifest.json",
+  "provenance_verifier": "python/verify_kimi_provenance.py --check",
   "notes": "The frozen start package omitted the Codex candidate. The realized run used the default Kimi Code session store rather than the intended isolated KIMI_CODE_HOME, so the public record does not claim operating-system-enforced strict blindness."
 }

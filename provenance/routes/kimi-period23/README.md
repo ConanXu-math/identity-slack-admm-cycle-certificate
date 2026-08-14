@@ -51,12 +51,47 @@ actual provider/model identifiers, exact endpoint, usage and timing derivation,
 and SHA-256 hashes of the private native session records. Raw wire logs are not
 published because they contain chats and user-specific paths.
 
+The public recomputation bundle contains:
+
+- [`session_audit_events.jsonl`](session_audit_events.jsonl), a sanitized
+  event ledger containing request metadata, usage, completed step intervals,
+  the 12 recorded human inputs, endpoint metadata, and raw-file hashes;
+- [`terminal_artifacts/`](terminal_artifacts/), the byte-identical terminal
+  script and stdout;
+- [`start_manifest.json`](start_manifest.json) and
+  [`start_tree.txt`](start_tree.txt), the actual frozen-start inventory and
+  depth-limited tree; [`post_run_tree.txt`](post_run_tree.txt) is explicitly
+  labeled as the later curated workspace tree;
+- [`run_attestation.schema.json`](run_attestation.schema.json) and
+  [`provenance_manifest.json`](provenance_manifest.json), the public schema and
+  path/byte/hash inventory.
+
+From the repository root, run:
+
+```bash
+python python/verify_kimi_provenance.py --check
+```
+
+An auditor who also holds the private native records can additionally run:
+
+```bash
+python python/verify_kimi_provenance.py --check \
+  --raw-session-root /path/to/private/session \
+  --start-archive /path/to/kimi_k3_strict_blind_workspace_v1.zip
+```
+
+The first command is the public CI gate. The second deterministically rebuilds
+the sanitized ledger and start manifest before comparing them with the public
+package. Neither command treats the telemetry as mathematical evidence for the
+period-23 theorem.
+
 The curated process archive retains the route's research log, experiments,
 saved candidates, and verifier under
 [`../../../research-process/kimi-period23/`](../../../research-process/kimi-period23/).
-The public `exp19b` script is a post-hoc hardened descendant of the endpoint
-script; both hashes are recorded in the attestation rather than presented as
-byte-identical artifacts.
+The `exp19b` script in the research-process archive is a post-hoc hardened
+descendant of the endpoint script. The exact endpoint bytes are now retained
+separately under `terminal_artifacts/`; the two files are not presented as
+byte-identical.
 
 ## Comparison boundary
 

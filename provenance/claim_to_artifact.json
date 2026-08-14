@@ -42,6 +42,14 @@
       "discovery_route": "kimi-period23",
       "route_endpoint": "exact dyadic period-23 replay and Jury stability certificate",
       "route_attestation": "provenance/routes/kimi-period23/run_attestation.json",
+      "provenance_verification_command": "python python/verify_kimi_provenance.py --check",
+      "provenance_artifacts": [
+        "provenance/routes/kimi-period23/session_audit_events.jsonl",
+        "provenance/routes/kimi-period23/provenance_manifest.json",
+        "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.endpoint.py",
+        "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.stdout.txt",
+        "python/verify_kimi_provenance.py"
+      ],
       "release_strengthening": "post-route denominator-100 representative with rational Lyapunov and support-radius certificate",
       "verification_command": "python python/verify_period23_certificate.py",
       "release_artifacts": [

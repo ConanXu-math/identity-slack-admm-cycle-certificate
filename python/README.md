@@ -26,6 +26,8 @@ stored beside executable code.
   instability family used by the universal-step obstruction.
 - `verify_universal_step_obstruction.py`: regenerate/check the tracked
   universal-step obstruction certificate.
+- `verify_kimi_provenance.py`: verify the sanitized Kimi route ledger,
+  terminal bytes, accounting, frozen-start inventory, and route file hashes.
 - `certify_relaxed_multiplier_interval_theory.py`: exact common-Lyapunov,
   finite-prefix capture, and local-Schur certificates.
 - `tests/test_relaxed_multiplier_interval_theory.py`: direct-replay and
@@ -35,6 +37,7 @@ Run from the repository root:
 
 ```bash
 python python/verify_all.py
+python python/verify_kimi_provenance.py --check
 python -m unittest discover -s tests -p "test_*.py"
 python python/verify_matlab_certificate.py
 python python/export_orbit_66.py

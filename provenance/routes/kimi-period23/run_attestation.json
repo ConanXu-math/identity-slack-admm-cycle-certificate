@@ -1,10 +1,14 @@
 {
   "schema_version": 1,
   "route_id": "kimi-period23",
+  "schema_ref": "run_attestation.schema.json",
+  "sanitized_event_ledger": "session_audit_events.jsonl",
+  "provenance_manifest": "provenance_manifest.json",
   "attestation_scope": "Sanitized, post-hoc derivation from the retained native Kimi Code session record. This file supports model and route attribution; it is not part of the mathematical acceptance layer.",
   "session": {
     "session_id": "session_441cfdaa-a00c-49d1-becf-37b5fd8deb9c",
     "created_utc": "2026-07-22T07:55:12.469Z",
+    "initial_prompt_utc": "2026-07-22T07:55:12.575Z",
     "provider": "kimi",
     "model_id": "kimi-k3",
     "model_alias": "moonshot-cn/kimi-k3",
@@ -25,6 +29,10 @@
   },
   "route_endpoint": {
     "definition": "The successful tool result of python3 -u exp19b_exact_yt.py, the first exact replayable period-23 nonconvergence certificate in the realized route.",
+    "command": "python3 -u exp19b_exact_yt.py",
+    "wire_protocol_version": "1.4",
+    "endpoint_tool_call_id": "Bash_240",
+    "endpoint_script_write_call_id": "Write_239",
     "unix_ms": 1784743665718,
     "utc": "2026-07-22T18:07:45.718Z",
     "llm_requests_through_endpoint": 370,
@@ -77,9 +85,25 @@
     "initial_research_prompt": 1,
     "generic_continue_search_prompts": 6,
     "tool_mode_commands": 4,
+    "recorded_human_inputs": 11,
     "method_level_candidate_or_proof_hint_recorded": false,
     "observer_intervention_log_completed_during_run": false,
     "note": "Counts were reconstructed from the native wire record. System-generated task notifications are not counted as human instructions."
+  },
+  "post_endpoint_record_context": {
+    "full_llm_requests": 385,
+    "full_usage_records": 351,
+    "full_recorded_tokens": {
+      "input_cache_creation": 0,
+      "input_cache_read": 62376561,
+      "input_other": 2828708,
+      "output": 485603,
+      "total": 65690872
+    },
+    "last_recorded_usage_utc": "2026-07-22T18:09:36.800Z",
+    "post_endpoint_user_prompts": 1,
+    "last_user_prompt_utc": "2026-07-23T02:13:47.524Z",
+    "excluded_from_paper_endpoint_accounting": true
   },
   "starting_condition": {
     "workspace_archive_sha256": "8ec465e22b21628949cbdf383025a30ae52cbae17ca278015fc70502a788a440",
@@ -95,6 +119,8 @@
   "artifact_lineage": {
     "terminal_kimi_result": "Exact dyadic 23-step non-KKT replay with exact Jury stability verification and local attraction in the canonical reduced state; post-hoc hardening made minimality and additional guards explicit.",
     "terminal_script_sha256": "964825bddd485f461cae3238f449c02a2f4b8469e473ec06418132de4fac7dcb",
+    "terminal_script_public_path": "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.endpoint.py",
+    "terminal_stdout_public_path": "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.stdout.txt",
     "curated_post_hoc_hardened_script": "research-process/kimi-period23/experiments/exp19b_exact_yt.py",
     "curated_post_hoc_hardened_script_sha256": "3866fa89c2747be95082e7817934b4128266e4f46178dfcde02cd52546aa3829",
     "post_route_release_strengthening": "The denominator-100 canonical QP, rational Lyapunov matrix, support-radius bound, and explicit invariant ellipsoid were constructed after the terminal run and are not charged to the Kimi route endpoint."
@@ -109,9 +135,19 @@
   },
   "privacy_boundary": {
     "raw_chat_or_wire_logs_published": false,
+    "sanitized_recomputation_ledger_published": true,
+    "exact_human_inputs_published": true,
     "local_absolute_paths_published": false,
     "credentials_or_private_configuration_published": false,
-    "reason": "The raw records contain conversations and user-specific paths. The public record contains only sanitized aggregates, event definitions, and hashes."
+    "reason": "The raw records contain assistant and tool conversations plus user-specific paths. The public ledger retains the 12 exact human-authored inputs and sanitized request, usage, interval, endpoint, and hash records; assistant responses, raw tool exchanges, and local paths remain private."
+  },
+  "observer_manifest_reconciliation": {
+    "original_observer_status": "not_started",
+    "observer_launcher_used": false,
+    "realized_run_outside_observer": true,
+    "public_recomputation_ledger": "session_audit_events.jsonl",
+    "deterministic_verifier": "python/verify_kimi_provenance.py",
+    "verifier_version": "1.1.0"
   },
   "limitations": [
     "The run was audited post hoc rather than preregistered.",

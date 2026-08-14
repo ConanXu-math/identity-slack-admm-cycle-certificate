@@ -1,0 +1,1464 @@
+{
+  "schema_version": 1,
+  "archive_label": "kimi_k3_strict_blind_workspace_v1.zip",
+  "archive_bytes": 2770059,
+  "archive_sha256": "8ec465e22b21628949cbdf383025a30ae52cbae17ca278015fc70502a788a440",
+  "path_prefix_removed": "workspace/",
+  "file_entry_count": 242,
+  "zip_member_count": 356,
+  "privacy_note": "Teacher-provided slide bytes remain private; their path, size, and SHA-256 are retained for audit. Other entries are listed for frozen-start reconstruction but are not duplicated in this route directory.",
+  "files": [
+    {
+      "path": ".agents/skills/discover-math-problems/README.zh-CN.md",
+      "bytes": 3443,
+      "sha256": "9f74688f8ead86a3bfa73661a8d32e6512fef2f7478bcc5d6d1906e423d9433d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/discover-math-problems/SKILL.md",
+      "bytes": 4281,
+      "sha256": "d37574f3351b6726903fbe04c202fa02ffce766efb407efb19a4b23e5ed3eba2",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/discover-math-problems/agents/openai.yaml",
+      "bytes": 293,
+      "sha256": "ba8bca4b57ec959cfdeee3d962eee188a585bb20d075d8266952f9d6cd0b0a0e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/discover-math-problems/references/artifact-contract.md",
+      "bytes": 1785,
+      "sha256": "6413c18b64f4667b074bd9246cf27384f04c26771226129f497c21767948e1b1",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/discover-math-problems/references/autonomous-research-protocol.md",
+      "bytes": 2477,
+      "sha256": "3682cd8b63406b63a10e1ad8d3514e76badc9be0ec3966fc0dacd7e2e1149b84",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/discover-math-problems/references/conjecture-generation-protocol.md",
+      "bytes": 1766,
+      "sha256": "6d8e7dbea60b4d25b7841bb992a318e4f201c18b83b0a6e88aa4d325b9718bf4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/SKILL.md",
+      "bytes": 1354,
+      "sha256": "e09eed6d54bb3dca94d2f191b96473000b556255c004964cdd1badfc87fe3edc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/agent_router.md",
+      "bytes": 2404,
+      "sha256": "6d45b268450ecf085d4c16f45fa8fd8e0bc225b300fe8d63b9413d58cc1b76ca",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/skill_base.md",
+      "bytes": 28285,
+      "sha256": "65938b824558812f9f2be797ea3f541c65c942b3e95a0c1d6aa85bafb411d10f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/skill_literature_search.md",
+      "bytes": 32850,
+      "sha256": "d9196bce8f6353bfda5a00903204e36456e3b68ac769e0a1a6bd6c07f2c5a03d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/skill_paper_deep_read.md",
+      "bytes": 40414,
+      "sha256": "4aab9031258c6eb82ad2d179cd093b7c07bbaa4d8479e9d33f05d7d384ff490f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/skill_pathway_proof.md",
+      "bytes": 31295,
+      "sha256": "a07a69194a28247c95dfab6aa81b72c2ce9c4bce0e8013c810e43339fda92a28",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/math-paper-reading/skill_reference_manager.md",
+      "bytes": 25140,
+      "sha256": "23be1329259056b345e9e792e4e85d52155a9e47feb044495432ada89a829283",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/LICENSE",
+      "bytes": 1097,
+      "sha256": "e59503c284c087636498220ceec70e2656e76a2c34aac248db083753f6364a95",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/SKILL.md",
+      "bytes": 1616,
+      "sha256": "f6bc6ca201e1e340f561db61153abbbd270b9c0fd3c4b054974940f0ebbc06a7",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/SKILL.md",
+      "bytes": 3147,
+      "sha256": "f9923de271173c5117f8b49810c53aa38a4a3f54f0bfbf14f8ebe6a7e3a6847e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/agents/openai.yaml",
+      "bytes": 301,
+      "sha256": "71adfb6c3815322bd15e3bc50017136d5f69cdc349106249d303a07657ac86e1",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/assets/domain_method_map.template.yaml",
+      "bytes": 92,
+      "sha256": "0b36245830e19c0fa2e6a8cc86b8ebc00f688dcc7dbcd94b4f72761ec8398db1",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/assets/merged_skill_card.template.yaml",
+      "bytes": 372,
+      "sha256": "a9aeffa1dcf4fbf140fbe083157c4cfa242c75df239b62992879d7e5cdba9424",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/manifest.yaml",
+      "bytes": 722,
+      "sha256": "042517b1711e3bcc77280b664fcfa9bd7dc4ae3c0ccdcd21f0b45a05aca53f10",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/references/schemas.md",
+      "bytes": 1115,
+      "sha256": "20f936a9553b0607fce495a3d1764409e7992d1a23e0fd311119dd4e803fcc2c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/cross-paper-skill-synthesizer/references/synthesis_rules.md",
+      "bytes": 1268,
+      "sha256": "0a277ddf2d7076b4bab358a93f5f378284d30e1a6c695d38da0a130e47479b06",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/SKILL.md",
+      "bytes": 3043,
+      "sha256": "b39235651786f10618650f2b61d90d61328ade020d1b8fcc6d35ec87f8d0ba9f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/agents/openai.yaml",
+      "bytes": 323,
+      "sha256": "4f2e4c7244501bd17fb53e1cc4c2fdd21749d3fc0ce66571714f3b854a9dc281",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/assets/innovation_candidates.template.json",
+      "bytes": 213,
+      "sha256": "edea8b328318d1c0c7f191cde258171cd23287473f31a4704cbb76e8951137d6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/manifest.yaml",
+      "bytes": 645,
+      "sha256": "de577f37df88df2aa06b980c96619f56894a96032fb16df79d75c652f2031a07",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/references/innovation_signals.md",
+      "bytes": 1215,
+      "sha256": "2abd8a1050dd947a8342ce6b1f71123a5bf6c03627e396c39259c052cee58c47",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/innovation-paper-finder/references/schemas.md",
+      "bytes": 1266,
+      "sha256": "c0f3b6580bd76871a5c5fe2df07e66d7210a0ca5dae9f03b09922981f5aed7f4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/SKILL.md",
+      "bytes": 4004,
+      "sha256": "b9885db8a617940536e58fc10b28d2aac883bff637603d020ac7fb01c07534c6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/agents/openai.yaml",
+      "bytes": 329,
+      "sha256": "cbdeff40664e281040c2276ea12ae0d575b7345198bd5a4a2d6ac4e36e2b1b68",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/assets/metadata.template.json",
+      "bytes": 256,
+      "sha256": "cd2182c9f2ff3fe7891d50e4fc2158aed6e50222faa25a00b370e89e1dafca4e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/manifest.yaml",
+      "bytes": 687,
+      "sha256": "c8db8177c13eca2c8e6841e6faf8a93018108cd848d793e5eccebba82abc9e58",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/references/download_policy.md",
+      "bytes": 746,
+      "sha256": "612f57808a9aee3c35b6fd7a75504eadd5d5f4bf2e37dd3064109ec802c92cfc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/references/schemas.md",
+      "bytes": 797,
+      "sha256": "ca18a2fc8065b883ff15db6f56dce89a9c4e83eeef150fd5849d0f85fed1f734",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-pdf-downloader/scripts/download_papers.py",
+      "bytes": 9417,
+      "sha256": "05fece19df31fa732648c02d156f7cb79de337d6049cf0e6a411ee86aee54a66",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/SKILL.md",
+      "bytes": 4678,
+      "sha256": "f072acf24bbfdfacf0c6927097a5c97fcb4c909bc5260208bed010bc3c8c8ffc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/agents/openai.yaml",
+      "bytes": 307,
+      "sha256": "a228d7f26fbb913f3ddbd95adb82e80a881ea8d3a4ca24537d2871f1a970db49",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/assets/report_template.md",
+      "bytes": 320,
+      "sha256": "eb43cab2119d34f5cc477395387289838785942787f24d545aefa42621d91d49",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/assets/skill_candidate_template.yaml",
+      "bytes": 512,
+      "sha256": "8c2298b18c4f769fed24dc41c0035f5062fd992a004ed55cd289181a16fe6ca6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/assets/skill_card_template.yaml",
+      "bytes": 416,
+      "sha256": "a3c9bbc909f1e6f331530d1b6bc0864ea23311d33e51320c42e6207052872ba5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/manifest.yaml",
+      "bytes": 639,
+      "sha256": "a2d1fc042ce40a74e482cb02b11c217866f53a3ab031ca657145e059ce4d7d32",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/references/extraction_protocol.md",
+      "bytes": 2306,
+      "sha256": "b418650a02477b4aede9a02c1e0cd19d7a506ffadb9d24522c0c0af23bfbe982",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/references/proof_pattern_taxonomy.md",
+      "bytes": 4778,
+      "sha256": "d718244fe508ed2428efb485ceabecf41f4e02b9841142a019a4c6afd3987f28",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/references/quality_rubric.md",
+      "bytes": 1027,
+      "sha256": "04bb8f4ae82c72a1bfcb5d0ecfec55bea55de717cf7fa0831d6cd320d467a728",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-extractor/references/schemas.md",
+      "bytes": 1268,
+      "sha256": "94fcd5d0d6949d86793d3389e64c3070cbfac1efd4976d5dd535142b189fbe84",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-workflow/SKILL.md",
+      "bytes": 2900,
+      "sha256": "e07166a6a1c78e9a332c6631ec0667bbf78e8d2ac013f840a9590d226c7bf741",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-workflow/agents/openai.yaml",
+      "bytes": 373,
+      "sha256": "c93a430c54e83d4c86b2f43e370faf8f117405faf6375b3f56eed63201fb14cd",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-to-skill-workflow/manifest.yaml",
+      "bytes": 920,
+      "sha256": "d6544b3475dc0c282dbb15ffa8661c6d926054ff92bcdf0c7e7e715c92c683f5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/SKILL.md",
+      "bytes": 3150,
+      "sha256": "6afe2039978a9cf9f5fbfea7c18feb676b3c9f9a1606d7bfb59fea4ccb869f2d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/agents/openai.yaml",
+      "bytes": 292,
+      "sha256": "7f0d9308409353a9146fb8e6acbe9e8b3e4f452218f93cef5b855573614217a9",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/assets/reading_plan.template.json",
+      "bytes": 220,
+      "sha256": "4f812c353765b66fe68d59cf546ab56901dfbf0da236671fdbad9d2ac22d69cb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/manifest.yaml",
+      "bytes": 686,
+      "sha256": "15613122bb07eaf33a8b92555216518ece24eb1dfe2d3785c0f5edd597896fbf",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/references/ranking_rubric.md",
+      "bytes": 992,
+      "sha256": "d2491208ef887e28079afd8abe1453bd20427beaf568626d2256758191bc1a70",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/paper-triage-ranker/references/schemas.md",
+      "bytes": 1087,
+      "sha256": "a514470190006ea1fc72722d1052cd5cea8d8fccb9f9bb93a9e8e1fdd246d3a9",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/SKILL.md",
+      "bytes": 3914,
+      "sha256": "e2034aec423d959846c704855d05e3677b415e1568bffc7a8317f923596d00b9",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/agents/openai.yaml",
+      "bytes": 279,
+      "sha256": "8872cec5cd02e8cb4e91ce9b9791332d1232412af93f7251ff0c0e3c0b5ef9aa",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/manifest.yaml",
+      "bytes": 662,
+      "sha256": "d52ea236fa020cfea777b20b4b59f7d4e83a6260bed20f9eb2a5d8254fda56ac",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/references/usage.md",
+      "bytes": 2659,
+      "sha256": "8adeb60dec39b60035f3b4e829d46409d4af5bcc59deed378ce3ab3326f42820",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/scripts/bootstrap_pdf_to_markdown.py",
+      "bytes": 9511,
+      "sha256": "7803404c0acea3ee9e64285f191b97bda03af8c8b2d807bcef0912da2aff6fd4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/scripts/pdf_to_markdown.py",
+      "bytes": 18049,
+      "sha256": "640bd899ba7c3f5274276d9f08787f66e42876ce8e34679e7b9ec9c252036bd5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/pdf-to-markdown-converter/scripts/requirements.txt",
+      "bytes": 30,
+      "sha256": "b5566ff15016f60513370f3d1800ad0d7438480754c848fa37c721d3c9b7f939",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/registry.yaml",
+      "bytes": 6467,
+      "sha256": "7b548bb94df513cb82644c2ba7bb759e064bce56ebca7d86ef3c28781e500786",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/SKILL.md",
+      "bytes": 3233,
+      "sha256": "7146e0d07847c2966b03e6b8f8fa7e79d2f6854b96a06c5fc1b4f1778de8e0c7",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/agents/openai.yaml",
+      "bytes": 320,
+      "sha256": "99b79af12bd32440f48bc4013c1ea8e78399d28f863c6137558d9be1e0614ff3",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/assets/candidate_papers.template.json",
+      "bytes": 187,
+      "sha256": "507545fce81979f8155ca71e5078a853ea68328b914556d5e1ba74c3aee79aa0",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/manifest.yaml",
+      "bytes": 627,
+      "sha256": "0374ca7f07e7977e19a2e501bd7fed9c5ca4cf5b535768de041c9099d9590c0c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/references/schemas.md",
+      "bytes": 1114,
+      "sha256": "8b5bdcff5df19e1f38ed210a3bb2516221abdb64c7bf3bde39bd1c7ad21d6bd9",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/related-paper-retriever/references/search_strategy.md",
+      "bytes": 1417,
+      "sha256": "34377b0e856dc883593cec79ba7f94900cea60f9d46781cd35059f8ab9772ccb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/seed-paper-profiler/SKILL.md",
+      "bytes": 4330,
+      "sha256": "cd2af0c3f8c8afe1d96b1cfbae856dddf7d7ff0ae66364535e6c805db2693f18",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/seed-paper-profiler/agents/openai.yaml",
+      "bytes": 363,
+      "sha256": "9a1977de98dc8e06aa6faf6ecd25b959c3289f31bff1ced8dacf87db9a319fbe",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/seed-paper-profiler/assets/research_profile.template.json",
+      "bytes": 548,
+      "sha256": "d1eeaf47fca648c5b5241f51afa15cef152606504a04329596848700620fa728",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/seed-paper-profiler/manifest.yaml",
+      "bytes": 603,
+      "sha256": "a95152529fdacb3f5809f329950a7a32ba262b9d74c86bd7ad40a2d05b02d7b6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-to-skill/skills/seed-paper-profiler/references/schemas.md",
+      "bytes": 1839,
+      "sha256": "b1f46cde34cfb92d5359126b05739a2c40b8c38d39c1c0c43504d2d4485f7810",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/.gitignore",
+      "bytes": 38,
+      "sha256": "64b9b113e47936a19f27237e6af3cc1e44f277b4c717a32d6e0fba4e56976625",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/CONTRIBUTORS.md",
+      "bytes": 1770,
+      "sha256": "7f427b5464c26d4ba8128586c199c52ae6f1a42f3040ab575e9bea54b80df29a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/LICENSE",
+      "bytes": 1065,
+      "sha256": "8bebb2dd7ff5187d19257abd97847205493225ac9c86b53be625813a16655d3e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/README.zh-CN.md",
+      "bytes": 3205,
+      "sha256": "527680eb1cd19fc46ddfe5dba95d9a31cf7bfa61e4ae5e6e3cb5489ca253ff48",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/SKILL.md",
+      "bytes": 579,
+      "sha256": "7bb4f266324babd983f43c387781182896faf9016e7332fe7f53f222fde7044a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/README.zh-CN.md",
+      "bytes": 3599,
+      "sha256": "b980c77b6e6230a455d1aafa787fd77aa8418ac24b6aa97f7a5746cc6b283dec",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/SKILL.md",
+      "bytes": 5009,
+      "sha256": "08a4b0d688e108ee8dd5c6d32fb87742b72002a2c10b44f6ede744fe3c755df6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/claim-evidence-ledger/SKILL.md",
+      "bytes": 2261,
+      "sha256": "a60a39c8a59d6fdbb4bf72b6f63259ebb0deafe49f08180399397696050bfed0",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/formula-environment-and-readability/SKILL.md",
+      "bytes": 1621,
+      "sha256": "a72ce0f3e185aa971c45630c8935104668eb00cff6f9982cc5692dc505751e0a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/latex-build-and-layout-audit/SKILL.md",
+      "bytes": 3586,
+      "sha256": "4991d4f0e3675cdba19bff81c018a900e9de8aa3c260aa81bdeec4160871f252",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/notation-and-variable-consistency/SKILL.md",
+      "bytes": 1601,
+      "sha256": "8b46535aed71c15a7486bad7383384442825622fcf54b6a1aa1fa6d85be42a91",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/paper-skeleton-and-logical-architecture/SKILL.md",
+      "bytes": 2437,
+      "sha256": "7f83d80b987728a778ecb72109af2e699749a4e41d11b71a57c75521c657e071",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/proof-obligation-and-assumption-audit/SKILL.md",
+      "bytes": 2549,
+      "sha256": "805b867a1a424c1dcf4e651855b79032181b08796f8a92614a45ab68a0db9a76",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/skills/registry.yaml",
+      "bytes": 1233,
+      "sha256": "9868cf4b8064691aa8287666dbb89a54e382fc22a34eb5e174e5a1ce3d7a9f9d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/templates/claim-evidence-ledger.md",
+      "bytes": 889,
+      "sha256": "45fba3324e44c5bd082dfb8bf4ce0fba8ec4fa005df24234c62e6805d2647df2",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/templates/proof-obligation-ledger.md",
+      "bytes": 993,
+      "sha256": "a312028ab61eae626248cdebb6a553eb83ddbcda4b1c5f8562605156273b7c14",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/templates/rapid-prototype-paper-skeleton.md",
+      "bytes": 1330,
+      "sha256": "c329c1607ae673379aa47be389eb362ac918ded193f270eed8f0b151570359dc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/templates/source-packet.md",
+      "bytes": 1078,
+      "sha256": "c768fa3256e275a4c16ec371afff61111818d462d9e7da9066f1d6d43fc5b81d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/paper-writing/skills/paper-writing/templates/submission-readiness.md",
+      "bytes": 1259,
+      "sha256": "55df6b7f2ef1cf539c458e08884b8ac42c912d3324e801e6d2c11b4f44151440",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/README.zh-CN.md",
+      "bytes": 4471,
+      "sha256": "3ae1815d176de36070d4e5b3a18f3493d046fa8479193a50fde312dd2995b976",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/SKILL.md",
+      "bytes": 4803,
+      "sha256": "ed95f7e9871f28d85a17d80aa170324900ae8bc6764c6b8c4358ed6637c91798",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/agents/openai.yaml",
+      "bytes": 285,
+      "sha256": "62075a1d7272a11b8cb951809347a4e8312d95cb76b5206efdeebd51cc17ae47",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/references/agent-mediated-proof-protocol.md",
+      "bytes": 1601,
+      "sha256": "2a2614e0d3fdd36b459c6b21ddf098a1148616559cd944ecc55c73b0b7f9de72",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/references/generation-agent.md",
+      "bytes": 968,
+      "sha256": "82a80413ef193fdfb222eda93f3808d63f331e11c3f2ffeeb709d4c8bf0b70f3",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/references/proof-acceptance-contract.md",
+      "bytes": 1048,
+      "sha256": "a7950fe09808f9aa4b32e447b1a16f4e810b2b12f523eb00fa076d34c5f87e89",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/references/source-attribution.md",
+      "bytes": 1448,
+      "sha256": "f4ff65957894329e60e3a48db6772959194daf84fb7853925f1f85bdc5ab786d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/proof-blueprint-review/references/verification-agent.md",
+      "bytes": 1070,
+      "sha256": "9c2e987234e876312ce876fbf3321b6b34c00eee59a3680e79483b5526c8394a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.agent.md",
+      "bytes": 1611,
+      "sha256": "7724c7559ae26bcdf41750475f61c75efb2f35154e917d34e7d6a06e8ae9394f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.claude-plugin/plugin.json",
+      "bytes": 537,
+      "sha256": "358c8420569776f39fff51b5a25ded02468a8f1535d5fc29905f0b4ae3020049",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.codex-plugin/plugin.json",
+      "bytes": 1246,
+      "sha256": "0ebc0f885ad9f22fbf0564eb341a999101b6a4ef014f78248f209aa70c94f992",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.codex/INSTALL.md",
+      "bytes": 1785,
+      "sha256": "48e33374e62cd0d93cc113bcdd8268d93d7c546445075a17a0baa2d4bdfbfa10",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.cursor-plugin/plugin.json",
+      "bytes": 544,
+      "sha256": "d2659e5a7486115bd6cd6d88d9100934d8b8a0d31877d4d0f0af5a415f65ffda",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.gitignore",
+      "bytes": 191,
+      "sha256": "e628529622c1af50bcc38929b8d8b102b0bc89e4d5b7af3258a847f21510199f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/.opencode/INSTALL.md",
+      "bytes": 1902,
+      "sha256": "b9e2a550291daa125d2d2ea3fbbcbf29321e294c04aecde5f1e4037e6f7ef564",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/CLAUDE.md",
+      "bytes": 2510,
+      "sha256": "3545e792900c4efdd60ec128001619955c1ff02afaaae46c9628fd99b329469f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/GEMINI.md",
+      "bytes": 1466,
+      "sha256": "5b0dade5c56320f8bf878177de0b56f23dcec6fe510a147f123e0d10f0cda68c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/LICENSE",
+      "bytes": 1065,
+      "sha256": "570e416f1de57f65033afdd3c75835df105b2517993e68edf166b176fe029363",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/README.zh-CN.md",
+      "bytes": 6807,
+      "sha256": "d2cb09f03b6f660bb2d5ecd9e00c0c363d41db60b507b46e49122cd20ccd5ae8",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/SKILL.md",
+      "bytes": 1651,
+      "sha256": "596f315a4b24b56283ac1650f271b7529d4913d7eea821762f79dc4953e75500",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/docs/environment.md",
+      "bytes": 1263,
+      "sha256": "11145ac28fc21d7e6ed3fbfae1b90b28522a7f3af6ce3ef2098b5272b92728aa",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/docs/interaction_protocol.md",
+      "bytes": 2257,
+      "sha256": "e596f341d294147e1d959bb79f2904513e34e339d32e660d24e3882135b0c154",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/docs/testing.md",
+      "bytes": 709,
+      "sha256": "11261b81a28db5b6db04dc32105a84bbb3deb0d92dd49d5f11a48eea3f036afd",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/hooks/hooks-cursor.json",
+      "bytes": 124,
+      "sha256": "7ea8854c2b2b1ab21ede07575c4d8a624e877f4880cdeab13b66bcf8ac5653d9",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/hooks/hooks.json",
+      "bytes": 292,
+      "sha256": "4e3dfccf53e4e503846f8c6a879d6fe21667881c1970828c5b9b0890a63c4164",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/hooks/session-start",
+      "bytes": 955,
+      "sha256": "2b05fa83513b290f94ea7355cafbb2e3052e560d29c0b008f656d141ef335533",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/pyproject.toml",
+      "bytes": 603,
+      "sha256": "818c9c1d46e8fc4224070978e32993bfadc7231f604d0bc9557342b1f0871a46",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/__init__.py",
+      "bytes": 70,
+      "sha256": "6cf5237996140e3ae353dac8308b78906a19d5dbc39444b532570a18b51f81f3",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/SKILL.md",
+      "bytes": 1726,
+      "sha256": "c006d575f1586d62744241e1083ea06ac8531a0553e5169abd814d6245e512de",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/__init__.py",
+      "bytes": 42,
+      "sha256": "8a5d770e56120f1e057763f227e2811ae28c543a9800f77d97fd31af5131d52d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/manifest.yaml",
+      "bytes": 524,
+      "sha256": "8873576cf8a467f8feb4eeb72bbcaaef0087d6007b83434c1c1c6269fca2950e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/references/external_search_protocol.md",
+      "bytes": 419,
+      "sha256": "36f035338d27cd99bd758ff7d50560a32fe14c24d7aa4882da3f0797818b2b39",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/scripts/__init__.py",
+      "bytes": 48,
+      "sha256": "bdd571d1ac5e39e14cee480fd3f41b85adeeb40eba5ae44556cdec066578439d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/scripts/algorithm_ranker.py",
+      "bytes": 1633,
+      "sha256": "cbe9565f995a721fa8911de5e65ecc8dbf7a5c017668cf9afae1435ce92f8ca8",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/scripts/discovery_reporter.py",
+      "bytes": 2445,
+      "sha256": "8f3d90e47fd0c0907fdd9cc0c5cd3fb9867e23d98468d780c7cc84eb48070aa4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/algorithm_discovery_skill/scripts/external_search.py",
+      "bytes": 6850,
+      "sha256": "eaef47b1dfc44bbfd815d98c8700bc855b6c75dec519eadf938e5c6c3f49889a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/SKILL.md",
+      "bytes": 2863,
+      "sha256": "45796e14f5767c57c2aa1c9325ef7ea3a059dcd85c1d72b97c1954ec46993038",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/__init__.py",
+      "bytes": 25,
+      "sha256": "dfff91028368075f730558e8be6779882b33ad795703dd5cd3abf8185437866d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/manifest.yaml",
+      "bytes": 676,
+      "sha256": "7b5f9c8aee8471bce06e5dc51009d2385f19a5f57cb141229898d1790c95cbf4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/references/auto_tuning_protocol.md",
+      "bytes": 220,
+      "sha256": "ef8e36bd9505120e53d7c4f7f52631c5c2a8c459b719fa5438133d7ab89ea430",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/__init__.py",
+      "bytes": 42,
+      "sha256": "77608254a34f45729c16edc8cec5e1bd81eb716a9dc23d39becb57575b8a888f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/experiment_runner.py",
+      "bytes": 5216,
+      "sha256": "e347018724424a7932cc759e0645190ee02beaa21a4e2de07065092734077c83",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/grid_search.py",
+      "bytes": 1317,
+      "sha256": "d33bdd029ad3e9edb1fc4293ea4df53c8973b9897ad9b399bb22c80f2e86d0ac",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/parameter_space.py",
+      "bytes": 1240,
+      "sha256": "3825d6258171ee3a27672b3ef11f97a3c1bf15530e7476619b25b7d7af86bb66",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/random_search.py",
+      "bytes": 1395,
+      "sha256": "6168b84ba5e0e8dbce6f3b01c0ac97cb56dd7b480caa7f6ada43167aa291f052",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/result_analyzer.py",
+      "bytes": 1607,
+      "sha256": "33effff5410e61a67d4bd4a815a77ecd61d7f1d3f1e9f5612564a847c8053675",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/auto_tuning_skill/scripts/tuner_router.py",
+      "bytes": 445,
+      "sha256": "5b7901e374b7b4c88bf2db947a718f522e03256b6a728a8020e9cd5e713e0b70",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/SKILL.md",
+      "bytes": 2583,
+      "sha256": "0143140cfde6a8783513b3da5b2f84d7412ca92a0738646648b1602f0a25565a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/__init__.py",
+      "bytes": 56,
+      "sha256": "1abcc0832f2f7d27bbac0ef4c3fc1e9725dfb54e96bf5af395447f1fbba2df86",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/manifest.yaml",
+      "bytes": 586,
+      "sha256": "521dc70e83fab147c87339a60cc29173644d737e7481b9b5e090717c683d6662",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/INDEX.md",
+      "bytes": 2817,
+      "sha256": "e478d4c6b932136cbe41f09b7cec416c2bf400b6da81993cc5d012d6e1827a0d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/continuous-optimization.md",
+      "bytes": 924,
+      "sha256": "4f78a15c0b119f06f552ad3d1329da038d590a699865f7c41549d33ebd7516f2",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/differential-equations.md",
+      "bytes": 803,
+      "sha256": "56df16358938ec50cb89fa93c2e9c477ba5f6d711d87055063b84965f798e34b",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/inverse-problems.md",
+      "bytes": 844,
+      "sha256": "7ca7ee49fb9f7b004964eb9ccb94e8767888149c08d1789bd451344e55147ffc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/numerical-linear-algebra.md",
+      "bytes": 843,
+      "sha256": "14f7feb7e72d585f2526edadbdf31ab4f71d9f62259d8a25d6e9fc28138f3377",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/pde-fem.md",
+      "bytes": 783,
+      "sha256": "ea5e4c87a5c54abc980d0d19a52647b99c7c52d8cc16c6e88ea660ac5e058032",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_domain_skill/references/domains/stochastic-simulation.md",
+      "bytes": 776,
+      "sha256": "4c4c29aa22b9c14e8857db67139e864afc1246f886c1f4a810aa7f871e69ffdb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/SKILL.md",
+      "bytes": 7257,
+      "sha256": "623eee2e86fc2724f4e50629c751a822c55f17476244119892b10db68addce79",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/__init__.py",
+      "bytes": 44,
+      "sha256": "f5ec27060cff95d71198b6cb2c57c942e6cf00a1d21414fc98413d3454a95eb1",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/manifest.yaml",
+      "bytes": 1083,
+      "sha256": "e434922c7e86307825e782db5d4e986dee059b895873d30f95e1c42a29c26ca3",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/references/checkpoint_contract.md",
+      "bytes": 1592,
+      "sha256": "fb8a702343ca4ecc78d04ebb01222c63cde1d43b3fc0d04c510ad4e0de554081",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/references/skill_routing.md",
+      "bytes": 5887,
+      "sha256": "58f82504638496bdf62bab9c14636f652ae150e7aa2f2c4acaa7d793d7d996f6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/scripts/__init__.py",
+      "bytes": 86,
+      "sha256": "e900fbb2f0f76ee69fb5760500f70804e5edca03fbc6f12a529bb69a558a8741",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/computational_math_reproduction_workflow_skill/scripts/workflow_state.py",
+      "bytes": 8071,
+      "sha256": "5bc29b3999bdb89fd3d640e48ee8788a38fe8ddd76e03611224880f1e5ef6793",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/SKILL.md",
+      "bytes": 1231,
+      "sha256": "40c156632a165c52540802759f138e12b0968a4b24ed9b6bac23956ab022c4d0",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/__init__.py",
+      "bytes": 37,
+      "sha256": "74a9d8161aaa2762fdc2ff51ee08642cd6150bc63d0cddf45badf836114c4a17",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/configs/admm_default_space.yaml",
+      "bytes": 273,
+      "sha256": "3ab4ce5dbc74d3aa396aa7a8464f50ece715ce00cd3959579c78c2ed3bf20d56",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/configs/ppa_default_space.yaml",
+      "bytes": 301,
+      "sha256": "6c9f52e0181523362d03af241d0eb08219ec6b66d52c2aa7746bcf8aa1b57fe7",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/configs/primal_dual_default_space.yaml",
+      "bytes": 367,
+      "sha256": "9262f47a0780e8611f4d01bf9a0910185f5dbb859b0a3cd7b824b4f12bf991b0",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/configs/proximal_gradient_default_space.yaml",
+      "bytes": 271,
+      "sha256": "9ee750715d8d634b09a4298856dde469306e96e8d48d8bd980f66bfac0d0b6fb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/manifest.yaml",
+      "bytes": 577,
+      "sha256": "495e39f0947052d2aac1a7cbcdeec8046769e850718575fa313c9cfc6185a2bc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/references/INDEX.md",
+      "bytes": 2732,
+      "sha256": "74bfea3d18955628f6727847a21d24fe1c79f3a60915c803e896143495df0ce7",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/references/admm.md",
+      "bytes": 489,
+      "sha256": "e8932c9babc7b0a6327462b67f330e023c4ad46325e3abc1e24ddcf84007f004",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/references/ppa.md",
+      "bytes": 495,
+      "sha256": "d3ee5c046e986fa80caf36f656e15a0b4777b4c2b15f38dda821ce1e9a554be6",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/references/primal_dual_method.md",
+      "bytes": 536,
+      "sha256": "51d8fc93442e5a38039e364e997982158cd56d34a7c6a7b4251e10bd9773607e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/references/proximal_gradient.md",
+      "bytes": 472,
+      "sha256": "d486c2b05806b6ff356a2652004d023ad51dfc7664db7758c8038563463c3f77",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/scripts/__init__.py",
+      "bytes": 50,
+      "sha256": "d2b45b58f81cabab6e8d95d384b1d57a4ab75df6be71a68e7646966c82df728f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/continuous_optimization_skill/scripts/algorithm_detector.py",
+      "bytes": 2311,
+      "sha256": "e7d4c82e985d4ec52ab86647eb625d1f76010831b5a06745605b19adcdea20c5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/environment_deployment_skill/SKILL.md",
+      "bytes": 1164,
+      "sha256": "645b44eb9283dfaf7df64d50ffd1f878f82740a8abc632089bab043b2e3a3dd8",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/environment_deployment_skill/__init__.py",
+      "bytes": 36,
+      "sha256": "1568df93cf42158afc801606c31ebe0128f5bdf8e3c328da290e7e5401de5c9f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/environment_deployment_skill/manifest.yaml",
+      "bytes": 619,
+      "sha256": "cfc257b5c77d3c436b678dbabf78c4d728062ef9d59cb3c23c72b6684fb844cb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/environment_deployment_skill/scripts/__init__.py",
+      "bytes": 38,
+      "sha256": "46ca099fd8a38f5931639949bb23880341d064ffd441da50abd708525876ca16",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/environment_deployment_skill/scripts/environment_reporter.py",
+      "bytes": 2661,
+      "sha256": "57f800c237b0b0e34cd00a52f2637bd8407dfbda2a7fada0ba5a6bf1e802b12c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/SKILL.md",
+      "bytes": 1945,
+      "sha256": "5c09cc8f0f66d39dccc8167d172c667ac6fb51f3d9fe615c428d2fbb018bd903",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/__init__.py",
+      "bytes": 31,
+      "sha256": "3f98f9df7b86d25a853709341f595b603367addabb0d5b3683a85a1e8956a188",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/manifest.yaml",
+      "bytes": 593,
+      "sha256": "4d755e351cef4b3bf969d0b6b24d483ea69a7e4afa55626aad0de3a0a95fe46f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/references/INDEX.md",
+      "bytes": 2733,
+      "sha256": "8fae25b4b560f2f728fcb8142dba520475866d28332a6ad6937ab6ec0ccc9846",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/scripts/__init__.py",
+      "bytes": 48,
+      "sha256": "23dd8342f28c08b6288cbeb8ac9c4d4970f1659b796feae52417a0a61fcd3064",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/failure_diagnosis_skill/scripts/failure_classifier.py",
+      "bytes": 2880,
+      "sha256": "6adaeafda1f467016ab7a786580559248e45d51813ed5297db0594fa8a1fa5bc",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/SKILL.md",
+      "bytes": 2620,
+      "sha256": "6cbc248c6a8c3002e1aa1205fdf394ebeed0d1cd91ed670e5cc4882fe284203c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/__init__.py",
+      "bytes": 37,
+      "sha256": "74c0d3070d25035eb275c6cb19a3f0a371f1318a902f91b56a1b269d598eae8b",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/manifest.yaml",
+      "bytes": 549,
+      "sha256": "d9814adfa3860d801aae70d993a974bb34b223e7819c0b128f26074579aecd56",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/scripts/__init__.py",
+      "bytes": 55,
+      "sha256": "2c2ba0a94c7ca14e4b5adb99d1b138341346c9d0c23233965bf1cfbe495ca779",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/scripts/approval_gate.py",
+      "bytes": 2735,
+      "sha256": "c3ad27f259be20bb47856dff57069c4997093378a6109bdcbb42d120f4d854fa",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/scripts/approval_logger.py",
+      "bytes": 1319,
+      "sha256": "b57930b6cd549d6b246456fa24cfbf37196dcf2a0b39d56a0a4fd33d104c626b",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/human_review_skill/scripts/checkpoint_writer.py",
+      "bytes": 5409,
+      "sha256": "027831cc9ebe7779fa4ffd3e9163b56d1f5b6c1457293291f3d9ecf118a2b3db",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/SKILL.md",
+      "bytes": 4146,
+      "sha256": "fcfeafcc5c778d64a77692fe7c2a63e6f4f1d446d778868839a80dad76fc4c5e",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/__init__.py",
+      "bytes": 46,
+      "sha256": "25d60c752faf81236ab672b641ff65097084d4b1d3bead2e2b543764b0f54caf",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/manifest.yaml",
+      "bytes": 867,
+      "sha256": "a620893f3f057711e6e314786936a7421436802b1bea219e518a6c6feaffb294",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/references/INDEX.md",
+      "bytes": 2196,
+      "sha256": "9acec5f3e9b3bdc82b771e4bdc2d1235bf68a4bdc378fd1d0bd67bf9e6f90c99",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/scripts/__init__.py",
+      "bytes": 54,
+      "sha256": "c0941bd99454676ff863286a9a0037ce2a2cec24af35c599fbb2556975dd5c24",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_environment_setup_skill/scripts/detect_matlab_environment.py",
+      "bytes": 1535,
+      "sha256": "7d4935ca64f5ce0d8cc3b1b14fb2b805533eaa99607c7914bd6357dea16b5a07",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/SKILL.md",
+      "bytes": 4181,
+      "sha256": "dca05b1cbed4b93a5de9b92b87d762234324b825d3abdf474c629262e53e4c78",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/__init__.py",
+      "bytes": 37,
+      "sha256": "e9bccbd4f5fc365070851be306c515af7677ac6c02dc00f1c447d7f6893fce0d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/manifest.yaml",
+      "bytes": 900,
+      "sha256": "f85a3ab62b31b6540ef5c33612813accac6f625cc1cd2626e34742c73540aaa4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/references/INDEX.md",
+      "bytes": 2411,
+      "sha256": "039eca7914db1e1806b9ad2861d7c980deb9828acb860c8214d694503a436820",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/scripts/__init__.py",
+      "bytes": 58,
+      "sha256": "789bf5b7c90b8af263ae61062b27d554f9fc6489042a62fcb4743561f367b804",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/matlab_runtime_skill/scripts/matlab_runtime.py",
+      "bytes": 10269,
+      "sha256": "bb88dc20af336777635cee4d05471f923612b067523e691b4d6c2f308fd44265",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/registry.yaml",
+      "bytes": 5086,
+      "sha256": "cc153b60ea78c2d9d0cae4da8ff5c85ef5fc0e33614fbf7cb996e4f977d1686c",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/SKILL.md",
+      "bytes": 2658,
+      "sha256": "8471f24e086c109f73b06f895378a44ce0f3f4ec2760edf8def0e32fef9b809d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/__init__.py",
+      "bytes": 37,
+      "sha256": "9273c4d5ee24b09c90962c309e91f55aee05b9bbd370b95572898d1e3d3b49e4",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/manifest.yaml",
+      "bytes": 714,
+      "sha256": "a69ef95d02afef4329976519db8745ba4b53dbf0436e9f7e303179ddc755b0bd",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/references/reproduction_protocol.md",
+      "bytes": 273,
+      "sha256": "0acd0a730ce789a6ee5310107eb82eb52a78a047744a7ff9d477b9d361dc4959",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/__init__.py",
+      "bytes": 54,
+      "sha256": "094f2fad339660f0f0dfdae8e45272033bb5e7bc372feab58179fa8f02cb9d91",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/env_builder.py",
+      "bytes": 2072,
+      "sha256": "c8f52c49f2fad613f4ce430ab1c62783dd1526a35b8794f92466857fdda294e0",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/executor.py",
+      "bytes": 5262,
+      "sha256": "40a84ae224099570611c32276c7a06f48ff3df739c95bb75aabbaa097de62b1a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/repo_analyzer.py",
+      "bytes": 5076,
+      "sha256": "315e420dda7618206de9567d493a9b688e159bbc340ea6438ca5e2ff34cab21f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/repo_fetcher.py",
+      "bytes": 2949,
+      "sha256": "92c8a47019949e26dbcc4ec7b55163e9b93cecf412924f2bc81c2552fd3dee46",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/result_collector.py",
+      "bytes": 1504,
+      "sha256": "8fc5156f98d97e4365bbe3ba12e84b0ef4571c1e75d4205e57c7bf0bb0bc68f5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/repo_reproduction_skill/scripts/run_planner.py",
+      "bytes": 2990,
+      "sha256": "c57f111963d416a5acbf981867ca7c44180906285ca270674fa96b911457e0ea",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/report_generation_skill/SKILL.md",
+      "bytes": 1958,
+      "sha256": "5a624eac639d677c91131282fc47b07865e761dca6365ad79a014e22f360ff35",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/report_generation_skill/__init__.py",
+      "bytes": 31,
+      "sha256": "36837a93e435d31a0a1938728036361d8671dfeaf6a23c82f04cd214c76a72eb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/report_generation_skill/manifest.yaml",
+      "bytes": 520,
+      "sha256": "7f428197f22a73c5cbbb1d01019598342bd0d51801291b5d43fb7872b717f126",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/report_generation_skill/scripts/__init__.py",
+      "bytes": 38,
+      "sha256": "42b751432516f319304d8a373124859e58449672782baaf035449034a3109e1a",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/report_generation_skill/scripts/report_writer.py",
+      "bytes": 5580,
+      "sha256": "4d3d9ab6df0734843eb9f9237de316d2e90c3bb7f7d1463f07eda0d033a8769d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/SKILL.md",
+      "bytes": 1212,
+      "sha256": "d7e048f6a5b98a025b2560c4564523002bfa52e7c4e0051e76c62d3ea538fadf",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/__init__.py",
+      "bytes": 27,
+      "sha256": "b0ba6d477b9489b183609c8b27f8bd844875c5f7acc3192b980a91c5b6142fdb",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/manifest.yaml",
+      "bytes": 511,
+      "sha256": "ed679760b444679c786bd2c208a78e125422cbaa9f11e8b2650f5ac76e47dd77",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/scripts/__init__.py",
+      "bytes": 29,
+      "sha256": "8be7c582dd6485c6b393b190933e7a19815acb0d7a8110ca2d150b2cab130e0f",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/scripts/convergence_plotter.py",
+      "bytes": 2098,
+      "sha256": "51427e8db5be78411986eeef57396e62e0be7a6d45a83c0587da7744a1f2457d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/scripts/report_assets.py",
+      "bytes": 1035,
+      "sha256": "4ae716df185e53f1c3e495ce43021448282307bd59b092204e28bc46c7d635c5",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/scripts/svg_utils.py",
+      "bytes": 2995,
+      "sha256": "d4c1adb17a1319473d91f45379071f3ce2b985f4f8ba9eb13da4964225c0ce8d",
+      "content_public": true
+    },
+    {
+      "path": ".agents/skills/scientific-computing-reproduction/skills/visualization_skill/scripts/tuning_plotter.py",
+      "bytes": 1666,
+      "sha256": "2005e6bb1675f1c3db793a765254bbaf2aa0d6ec16997b367e95a928f703f22e",
+      "content_public": true
+    },
+    {
+      "path": ".git/HEAD",
+      "bytes": 21,
+      "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "content_public": true
+    },
+    {
+      "path": ".git/config",
+      "bytes": 228,
+      "sha256": "2009e2fbe394e75ece3a4aa950fbb9d720b847d7a7e7e97f33d91d91def08a96",
+      "content_public": true
+    },
+    {
+      "path": ".git/index",
+      "bytes": 39340,
+      "sha256": "bccb4ef8272fa97590408d77b367e30a4fc9f1f51f20f5bec2ebf478b73d38b0",
+      "content_public": true
+    },
+    {
+      "path": ".git/info/refs",
+      "bytes": 57,
+      "sha256": "32d2ca3c59bbff0aa9ee551903ef224368f17411b33fccddf12403165293f364",
+      "content_public": true
+    },
+    {
+      "path": ".git/objects/info/commit-graph",
+      "bytes": 1172,
+      "sha256": "dbc334c9874be460f7a59a5953d5ebc1b17116adedcea43114dc2240bb827551",
+      "content_public": true
+    },
+    {
+      "path": ".git/objects/info/packs",
+      "bytes": 54,
+      "sha256": "3784efda48563d88336fe68e0a6308da6ef35c9a145341f02b81323a0ae9198b",
+      "content_public": true
+    },
+    {
+      "path": ".git/objects/pack/pack-af17d9e3d5b735224123b94c95bd689d54480295.idx",
+      "bytes": 10536,
+      "sha256": "2307e04e69d3042742687cd33e51aa2879dbd0c8ab7ee51e2a7d8d905d680747",
+      "content_public": true
+    },
+    {
+      "path": ".git/objects/pack/pack-af17d9e3d5b735224123b94c95bd689d54480295.pack",
+      "bytes": 1336457,
+      "sha256": "26d9daa15270ba8bbf564e05a6ee50a8906f7b8854e3d2103c22908061a5701c",
+      "content_public": true
+    },
+    {
+      "path": ".git/objects/pack/pack-af17d9e3d5b735224123b94c95bd689d54480295.rev",
+      "bytes": 1404,
+      "sha256": "e4447b37c32bd2b3173a955e673a850cb77878acaacff0546667c38130f32b52",
+      "content_public": true
+    },
+    {
+      "path": ".git/packed-refs",
+      "bytes": 103,
+      "sha256": "31ca63143b260d141e16c643f4bc7c0820023f83ed548eda8db2868aec848e60",
+      "content_public": true
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 80,
+      "sha256": "ab03269361a02b533cb082376542d407be89d7c003dc6a92bbadf40c3e457e96",
+      "content_public": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 619,
+      "sha256": "e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614",
+      "content_public": true
+    },
+    {
+      "path": "START_GOAL.txt",
+      "bytes": 573,
+      "sha256": "52229654b82d90a2eb7741bfa57f6e09759ece728b4b42301997b89cb9efd4a0",
+      "content_public": true
+    },
+    {
+      "path": "inputs/problem_statement.md",
+      "bytes": 1753,
+      "sha256": "cf08832b5e15b5545b56e408fc0a1aef0e03f4ecbfc107f18f40499f97d5311a",
+      "content_public": true
+    },
+    {
+      "path": "inputs/teacher_slides/image-1.png",
+      "bytes": 276533,
+      "sha256": "cc50a7efe5eae9189a12f75c594ee1f6f0301aa258f6ce295f1081d2e4d15ecd",
+      "content_public": false
+    },
+    {
+      "path": "inputs/teacher_slides/image-2.png",
+      "bytes": 405001,
+      "sha256": "72071129452491301668b67d94a9c3e3e1269641e7b3fa73a12816f2dd056ce0",
+      "content_public": false
+    },
+    {
+      "path": "inputs/teacher_slides/image-3.png",
+      "bytes": 445624,
+      "sha256": "91a964519825fd3b8c94f3231d5ed79bf47c2e6ec94c6703b8ad6e5901ecd42a",
+      "content_public": false
+    }
+  ]
+}

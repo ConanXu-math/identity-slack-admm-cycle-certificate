@@ -1,15 +1,3 @@
-# id: P-K-01
-# route: kimi_code_k3
-# stage: route_initialization
-# class: verbatim_historical
-# assert_verbatim: true
-# source: kimi-admm-strict-blind-run-20260722/workspace/START_GOAL.txt
-#
-# id: P-K-01
-# route: kimi_code_k3
-# class: verbatim_historical
-# assert_verbatim: true
-
 请独立研究 `inputs/problem_statement.md` 中的数学问题，并把 `inputs/teacher_slides/` 中的三张材料作为原始输入。
 
 你可以自行选择本工作区提供的 Skills、研究顺序、理论方法、文献路线和计算实验。请从公开的第一手资料出发，不要预设结论，并明确区分文献事实、猜想、数值证据和严格结论。

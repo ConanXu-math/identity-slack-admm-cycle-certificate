@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "route_id": "kimi-period23",
+  "manifest_excludes": [
+    "provenance_manifest.json"
+  ],
+  "verifier": {
+    "version": "1.1.0",
+    "path": "python/verify_kimi_provenance.py",
+    "bytes": 56156,
+    "sha256": "f674bb5a3c036499251c0e355ce34cd9ad93343b867e975cda15d4c7c615f055"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5343,
+      "sha256": "e00b7284bc4eef16bf981ad5de557b391379aae653003b1e04a0c5fc454de1d4"
+    },
+    {
+      "path": "accounting.json",
+      "bytes": 3874,
+      "sha256": "cd475998f04db70e1f1a64def8019ba6b756eac56ea68a04a993e2c90a5da510"
+    },
+    {
+      "path": "post_run_tree.txt",
+      "bytes": 3529,
+      "sha256": "2b31502a7384df1f0849779051a171306cba08159a79f7d56af9c5a00e016143"
+    },
+    {
+      "path": "retained_artifacts.json",
+      "bytes": 5211,
+      "sha256": "6b1ee051074b88c466e7efded79909fbddc0e2c91e02751e59282b5fea88753d"
+    },
+    {
+      "path": "run_attestation.json",
+      "bytes": 8035,
+      "sha256": "b94e8fda6a358dccfc00d9520c65b4e5566935628a6d6adb1168bf400a6b0302"
+    },
+    {
+      "path": "run_attestation.schema.json",
+      "bytes": 4510,
+      "sha256": "2df6fffe34d0cc8745961d0d387a03be0d32d6765b5d7999640522ac25c839e8"
+    },
+    {
+      "path": "session_audit_events.jsonl",
+      "bytes": 199715,
+      "sha256": "fea4f75ce42b0b5c312dd70fe6af14f72c9f954c70d0cc00cf77e1555e0285f5"
+    },
+    {
+      "path": "start_brief/AGENTS.md",
+      "bytes": 619,
+      "sha256": "e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614"
+    },
+    {
+      "path": "start_brief/START_GOAL.txt",
+      "bytes": 573,
+      "sha256": "52229654b82d90a2eb7741bfa57f6e09759ece728b4b42301997b89cb9efd4a0"
+    },
+    {
+      "path": "start_brief/problem_statement.md",
+      "bytes": 1753,
+      "sha256": "cf08832b5e15b5545b56e408fc0a1aef0e03f4ecbfc107f18f40499f97d5311a"
+    },
+    {
+      "path": "start_manifest.json",
+      "bytes": 60418,
+      "sha256": "b0df1798d67b786b15ab31f012af992e54256a161d23780f6d7414bcba2d4b0d"
+    },
+    {
+      "path": "start_tree.txt",
+      "bytes": 579,
+      "sha256": "5336b0157fdba52da1987be9ea30c5abd78aa2e31e07bd0dcbd35941f377532f"
+    },
+    {
+      "path": "terminal_artifacts/exp19b_exact_yt.endpoint.py",
+      "bytes": 8848,
+      "sha256": "964825bddd485f461cae3238f449c02a2f4b8469e473ec06418132de4fac7dcb"
+    },
+    {
+      "path": "terminal_artifacts/exp19b_exact_yt.stdout.txt",
+      "bytes": 855,
+      "sha256": "6f544229ae709400dc62efc5464f087dec4d047f60df58f41c6f1a01438eb202"
+    },
+    {
+      "path": "workspace_manifest.json",
+      "bytes": 3657,
+      "sha256": "02af852109dd0c7a282c33d0878ce0a2fa57915cd9ff6fa28ac682af16990bd4"
+    }
+  ]
+}

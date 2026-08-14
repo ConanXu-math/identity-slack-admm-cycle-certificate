@@ -16,9 +16,9 @@
   ],
   "files": [
     {
-      "bytes": 6230,
+      "bytes": 6622,
       "path": "INDEX.md",
-      "sha256": "397ddfde9fe3fb105ff46cd0219829cb486f85da7b03a1f78a936cc94edee2d0"
+      "sha256": "59bc5372f4bb23771969266b692492dfd9fd01ebc00b2453006caa5f3f8a4073"
     },
     {
       "bytes": 2250,
@@ -873,7 +873,7 @@
       ".svg": 3,
       ".txt": 1
     },
-    "total_bytes": 2959734
+    "total_bytes": 2960126
   },
   "valid": true
 }

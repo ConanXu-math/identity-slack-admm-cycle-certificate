@@ -139,6 +139,7 @@ Run both public Python certificate paths with:
 ```bash
 python python/verify_all.py
 python python/verify_research_process_archive.py
+python python/verify_kimi_provenance.py --check
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python python/verify_universal_step_obstruction.py --check

@@ -1,0 +1,26 @@
+(1) instance validity (exact):
+  F leading minors > 0: True
+  G leading minors > 0: True
+  det A != 0: True;  det B != 0: True
+(2) exact fixed point w*: dist(w*, v*) = 5.41e-17 (<1e-12: True), in KKT cone: True
+(3) product map built exactly (6x6, period 23)
+  sign patterns along cycle match exactly: True
+  Phi^23(vhat) == vhat exactly: True
+(4) cycle != KKT (exact): True
+(5) local attraction (exact char poly via Faddeev-LeVerrier + Jury):
+  Jury necessary conditions: True; full criterion: True
+
+CERTIFICATE: {
+  "F_posdef": true,
+  "G_posdef": true,
+  "detA_nonzero": true,
+  "detB_nonzero": true,
+  "exact_fixed_point_dist": 5.411070263505229e-17,
+  "exact_fixed_point_in_cone": true,
+  "cycle_patterns_exact": true,
+  "cycle_closed_exact": true,
+  "cycle_neq_kkt": true,
+  "jury_stable": true,
+  "period": 23,
+  "elapsed_sec": 1.6335499286651611
+}

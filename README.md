@@ -64,7 +64,9 @@ how the results were found; it is not a second acceptance layer.
 The Kimi Code K3 route originally reached an exact dyadic period-23 replay and
 an exact Jury local-attraction certificate. The denominator-100 instance and
 explicit invariant ellipsoid above are later release strengthening; see the
-[`route attestation`](provenance/routes/kimi-period23/run_attestation.json).
+[`route attestation`](provenance/routes/kimi-period23/run_attestation.json)
+and recompute its public ledger with
+`python python/verify_kimi_provenance.py --check`.
 
 ### Multiplier relaxation for the period-66 QP
 
@@ -108,6 +110,7 @@ For the full release check used by GitHub Actions:
 ```bash
 python python/verify_all.py
 python python/verify_research_process_archive.py
+python python/verify_kimi_provenance.py --check
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python python/verify_universal_step_obstruction.py --check

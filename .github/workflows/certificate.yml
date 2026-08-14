@@ -33,6 +33,9 @@ jobs:
       - name: Verify the curated research-process archive
         run: python python/verify_research_process_archive.py
 
+      - name: Verify the sanitized Kimi route provenance
+        run: python python/verify_kimi_provenance.py --check
+
       - name: Export all 66 exact cyclic states
         run: python python/export_orbit_66.py
 

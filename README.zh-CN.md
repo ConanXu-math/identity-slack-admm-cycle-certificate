@@ -56,7 +56,8 @@ with an Identity Third Constraint Block”**。仓库为两个固定凸二次规
 
 Kimi Code K3 路线最初得到的是周期 23 的精确 dyadic 重放以及基于精确 Jury
 判据的局部吸引证书。上面的小分母有理实例和显式不变椭球属于后续发布强化；详见
-[`路线核验记录`](provenance/routes/kimi-period23/run_attestation.json)。
+[`路线核验记录`](provenance/routes/kimi-period23/run_attestation.json)，并可运行
+`python python/verify_kimi_provenance.py --check` 重算公开脱敏账本。
 
 ### 周期 66 QP 的乘子松弛
 
@@ -98,6 +99,7 @@ python python/verify_research_process_archive.py
 ```bash
 python python/verify_all.py
 python python/verify_research_process_archive.py
+python python/verify_kimi_provenance.py --check
 python python/export_orbit_66.py
 python python/certify_relaxed_multiplier_interval_theory.py
 python python/verify_universal_step_obstruction.py --check

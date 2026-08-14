@@ -67,7 +67,11 @@
     "codex_candidate_supplied": false,
     "post_hoc_audit": true,
     "preregistered": false,
-    "zero_human_involvement_claimed": false
+    "zero_human_involvement_claimed": false,
+    "operating_system_filesystem_denial_enforced": false,
+    "isolated_kimi_code_home_used": false,
+    "observer_checkpoint_exported_during_run": false,
+    "observer_intervention_log_completed_during_run": false
   },
   "comparability_limits": {
     "controlled_benchmark": false,
@@ -82,6 +86,6 @@
     "Cumulative agent time double-counts parallel overlap by design.",
     "Token totals describe recorded traffic; tokenizer and telemetry definitions differ across routes.",
     "The accounting endpoint describes the realized research run and excludes the later construction and regeneration of the canonical denominator-100 release certificate.",
-    "Raw session records remain private because they contain chats and local paths; run_attestation.json publishes sanitized aggregates, derivation rules, and hashes."
+    "Raw session records remain private because they contain assistant/tool chats and local paths; the public ledger retains the 12 exact human-authored inputs plus sanitized request, usage, interval, endpoint, and hash records."
   ]
 }

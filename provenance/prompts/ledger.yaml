@@ -17,6 +17,7 @@ entries:
     class: verbatim_historical
     path: provenance/routes/kimi-period23/start_brief/problem_statement.md
     assert_verbatim: true
+    sha256: cf08832b5e15b5545b56e408fc0a1aef0e03f4ecbfc107f18f40499f97d5311a
     note: "Neutral mathematical problem statement visible to the agent."
 
   - id: P-K-03
@@ -25,6 +26,7 @@ entries:
     class: verbatim_historical
     path: provenance/routes/kimi-period23/start_brief/AGENTS.md
     assert_verbatim: true
+    sha256: e62ce0aba7db554f74d13cf17f730bf214054c7e74144835fbae96f81c4b6614
     note: "Includes prohibition on inspecting parent/sibling directories."
 
   - id: P-C-01

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/provenance/routes/kimi-period23/run_attestation.schema.json",
+  "title": "Kimi Code K3 period-23 run attestation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "route_id",
+    "schema_ref",
+    "sanitized_event_ledger",
+    "provenance_manifest",
+    "attestation_scope",
+    "session",
+    "route_endpoint",
+    "timing_through_endpoint",
+    "usage_through_endpoint",
+    "human_input_through_endpoint",
+    "post_endpoint_record_context",
+    "starting_condition",
+    "artifact_lineage",
+    "private_raw_evidence_hashes",
+    "privacy_boundary",
+    "observer_manifest_reconciliation",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "route_id": {"const": "kimi-period23"},
+    "schema_ref": {"const": "run_attestation.schema.json"},
+    "sanitized_event_ledger": {"const": "session_audit_events.jsonl"},
+    "provenance_manifest": {"const": "provenance_manifest.json"},
+    "attestation_scope": {"type": "string"},
+    "session": {
+      "type": "object",
+      "required": [
+        "session_id",
+        "created_utc",
+        "initial_prompt_utc",
+        "provider",
+        "model_id",
+        "model_alias",
+        "topology"
+      ],
+      "properties": {
+        "topology": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["main_sessions", "subagents", "agent_labels"],
+          "properties": {
+            "main_sessions": {"const": 1},
+            "subagents": {"const": 3},
+            "agent_labels": {
+              "const": ["main", "agent-0", "agent-1", "agent-2"]
+            }
+          }
+        }
+      }
+    },
+    "route_endpoint": {
+      "type": "object",
+      "required": [
+        "wire_protocol_version",
+        "command",
+        "endpoint_tool_call_id",
+        "endpoint_script_write_call_id",
+        "unix_ms",
+        "utc",
+        "llm_requests_through_endpoint",
+        "completed_step_intervals",
+        "endpoint_script_bytes",
+        "endpoint_script_sha256",
+        "endpoint_stdout_bytes",
+        "endpoint_stdout_sha256"
+      ],
+      "properties": {
+        "command": {"const": "python3 -u exp19b_exact_yt.py"}
+      }
+    },
+    "timing_through_endpoint": {
+      "type": "object",
+      "required": [
+        "session_created_to_endpoint_hours",
+        "initial_prompt_to_endpoint_hours",
+        "completed_step_interval_sum_hours",
+        "merged_active_interval_count",
+        "merged_active_wall_hours"
+      ]
+    },
+    "usage_through_endpoint": {
+      "type": "object",
+      "required": [
+        "usage_records",
+        "input_cache_creation",
+        "input_cache_read",
+        "input_other",
+        "output",
+        "total"
+      ]
+    },
+    "post_endpoint_record_context": {
+      "type": "object",
+      "required": [
+        "full_llm_requests",
+        "full_usage_records",
+        "full_recorded_tokens",
+        "last_recorded_usage_utc",
+        "post_endpoint_user_prompts",
+        "last_user_prompt_utc",
+        "excluded_from_paper_endpoint_accounting"
+      ]
+    },
+    "human_input_through_endpoint": {"type": "object"},
+    "starting_condition": {"type": "object"},
+    "artifact_lineage": {"type": "object"},
+    "private_raw_evidence_hashes": {
+      "type": "object",
+      "minProperties": 6,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "privacy_boundary": {"type": "object"},
+    "observer_manifest_reconciliation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_observer_status",
+        "observer_launcher_used",
+        "realized_run_outside_observer",
+        "public_recomputation_ledger",
+        "deterministic_verifier",
+        "verifier_version"
+      ],
+      "properties": {
+        "original_observer_status": {"const": "not_started"},
+        "observer_launcher_used": {"const": false},
+        "realized_run_outside_observer": {"const": true},
+        "public_recomputation_ledger": {
+          "const": "session_audit_events.jsonl"
+        },
+        "deterministic_verifier": {
+          "const": "python/verify_kimi_provenance.py"
+        },
+        "verifier_version": {"const": "1.1.0"}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

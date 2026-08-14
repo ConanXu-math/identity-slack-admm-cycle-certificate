@@ -58,6 +58,10 @@ completed-step intervals (`8.9653475 h`); their unmerged sum is
 `12.4316925` agent-hours. The endpoint, derivation rule, actual model identity,
 and private raw-record hashes are recorded in
 [`routes/kimi-period23/run_attestation.json`](routes/kimi-period23/run_attestation.json).
+The sanitized event ledger and deterministic verifier allow the published
+endpoint counts, usage totals, timing intervals, human-input record, and
+terminal artifact hashes to be recomputed without publishing assistant/tool
+raw chats or user-specific paths.
 
 The route-specific accounting files preserve the definitions and additional
 caveats:
@@ -99,10 +103,11 @@ certificates at the repository root.
 
 ## Privacy boundary
 
-No raw chats, wire logs, credentials, private configuration, or user-specific
-absolute paths are included. The provenance records publish sanitized session
-aggregates and hashes, claim boundaries, accounting definitions, and retained
-repository artifacts only.
+No assistant responses, raw tool exchanges, wire logs, credentials, private
+configuration, or user-specific absolute paths are included. The provenance
+records do publish the 12 exact human-authored inputs together with sanitized
+request/usage/interval metadata, hashes, claim boundaries, accounting
+definitions, and retained repository artifacts.
 
 ## Route initialization and claim map
 
@@ -111,7 +116,9 @@ Additional machine-readable provenance for the manuscript:
 - [`claim_to_artifact.json`](claim_to_artifact.json): claim → verifier → artifact map
 - [`prompts/ledger.yaml`](prompts/ledger.yaml): prompt provenance classes
 - [`interventions/human_interventions.csv`](interventions/human_interventions.csv): key human gates
-- [`routes/*/workspace_manifest.json`](routes/codex-period66/workspace_manifest.json): what each route could see at start
+- [`routes/codex-period66/workspace_manifest.json`](routes/codex-period66/workspace_manifest.json): what the Codex route could see at start
+- [`routes/kimi-period23/workspace_manifest.json`](routes/kimi-period23/workspace_manifest.json): frozen Kimi start package and protocol limits
+- [`routes/kimi-period23/provenance_manifest.json`](routes/kimi-period23/provenance_manifest.json): Kimi public route file hashes
 
 These files document starting conditions and attribution. They are not part of
 the mathematical acceptance layer under `certificates/` and `python/`.

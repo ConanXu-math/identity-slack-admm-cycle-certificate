@@ -43,6 +43,28 @@
       "role": "stable machine-readable exact certificate"
     }
   ],
+  "public_route_provenance_artifacts": [
+    {
+      "path": "provenance/routes/kimi-period23/session_audit_events.jsonl",
+      "role": "sanitized request, usage, completed-step, human-input, endpoint, and raw-hash ledger"
+    },
+    {
+      "path": "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.endpoint.py",
+      "role": "byte-identical terminal Kimi endpoint script"
+    },
+    {
+      "path": "provenance/routes/kimi-period23/terminal_artifacts/exp19b_exact_yt.stdout.txt",
+      "role": "byte-identical terminal tool stdout"
+    },
+    {
+      "path": "provenance/routes/kimi-period23/start_manifest.json",
+      "role": "path, byte-size, and SHA-256 inventory of the private frozen start archive"
+    },
+    {
+      "path": "python/verify_kimi_provenance.py",
+      "role": "deterministic public verifier with optional private raw-session and start-archive cross-checks"
+    }
+  ],
   "route_archive_artifacts": [
     {
       "path": "research-process/kimi-period23/experiments/results/exp17c_cycle_i0_e0.0038.npz",
