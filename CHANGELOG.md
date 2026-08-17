@@ -7,6 +7,8 @@
   start inventory.
 
 ### Added
+- Link the published arXiv record `2608.14396` from both repository guides
+  and expose it as the repository homepage.
 - Add an MIT License for software source code and machine-readable certificate
   data, while explicitly excluding the manuscript PDF and prose research
   materials from that license grant.

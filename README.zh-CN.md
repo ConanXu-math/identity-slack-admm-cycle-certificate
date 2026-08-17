@@ -3,10 +3,11 @@
 [English](README.md) | **简体中文**
 
 [![精确证书](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
+[![arXiv](https://img.shields.io/badge/arXiv-2608.14396-b31b1b.svg)](https://arxiv.org/abs/2608.14396)
 
-本仓库对应论文 **“AI-Assisted Discovery and Construction of a Counterexample
+本仓库对应论文 **“[AI-Assisted Discovery and Construction of a Counterexample
 to the Convergence of Three-Block ADMM with the Identity Matrix as Its Third
-Constraint Block”**。仓库为两个固定凸二次规划实例提供
+Constraint Block](https://arxiv.org/abs/2608.14396)”**。仓库为两个固定凸二次规划实例提供
 可精确重放的证据：虽然问题具有唯一 KKT 点，未经修正的直接三块 ADMM
 仍可产生有界、非 KKT 的周期序列。
 
@@ -14,7 +15,7 @@ Constraint Block”**。仓库为两个固定凸二次规划实例提供
 
 | 你的目的 | 建议入口 |
 | --- | --- |
-| 阅读数学论证 | [编译后的论文](paper/slack_admm_arxiv.pdf) |
+| 阅读数学论证 | [arXiv:2608.14396](https://arxiv.org/abs/2608.14396) · [仓库 PDF](paper/slack_admm_arxiv.pdf) |
 | 复现两个反例 | [五分钟验证](#五分钟验证) |
 | 查看精确机器证书 | [`certificates/`](certificates/) |
 | 了解每个检查器究竟证明什么 | [复现与证书契约](docs/REPRODUCIBILITY.md) |

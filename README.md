@@ -3,11 +3,12 @@
 **English** | [简体中文](README.zh-CN.md)
 
 [![Exact certificate](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml/badge.svg)](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/workflows/certificate.yml)
+[![arXiv](https://img.shields.io/badge/arXiv-2608.14396-b31b1b.svg)](https://arxiv.org/abs/2608.14396)
 
 This repository accompanies the manuscript
-**“AI-Assisted Discovery and Construction of a Counterexample to the
+**“[AI-Assisted Discovery and Construction of a Counterexample to the
 Convergence of Three-Block ADMM with the Identity Matrix as Its Third
-Constraint Block.”** It provides exact, replayable evidence for two
+Constraint Block](https://arxiv.org/abs/2608.14396).”** It provides exact, replayable evidence for two
 fixed convex quadratic programs on which the unmodified direct three-block
 ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 
@@ -15,7 +16,7 @@ ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 
 | If you want to... | Start with |
 | --- | --- |
-| Read the mathematical argument | [Compiled manuscript](paper/slack_admm_arxiv.pdf) |
+| Read the mathematical argument | [arXiv:2608.14396](https://arxiv.org/abs/2608.14396) · [Repository PDF](paper/slack_admm_arxiv.pdf) |
 | Verify both counterexamples | [Five-minute verification](#five-minute-verification) |
 | Inspect the exact machine certificates | [`certificates/`](certificates/) |
 | Understand what each checker proves | [Reproducibility contract](docs/REPRODUCIBILITY.md) |
