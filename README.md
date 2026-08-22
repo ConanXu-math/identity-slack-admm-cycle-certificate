@@ -17,6 +17,7 @@ ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 | If you want to... | Start with |
 | --- | --- |
 | Read the mathematical argument | [arXiv:2608.14396](https://arxiv.org/abs/2608.14396) · [Repository PDF](paper/slack_admm_arxiv.pdf) |
+| View the Chinese teacher briefing | [Download the 8-page PDF](slides/slack_admm_teacher_briefing_zh.pdf) |
 | Verify both counterexamples | [Five-minute verification](#five-minute-verification) |
 | Inspect the exact machine certificates | [`certificates/`](certificates/) |
 | Understand what each checker proves | [Reproducibility contract](docs/REPRODUCIBILITY.md) |
@@ -200,6 +201,7 @@ GitHub Actions instructions.
 ├── provenance/         comparison scope, accounting, and evidence boundaries
 ├── docs/               detailed reproducibility contract
 ├── paper/              compiled manuscript PDF
+├── slides/             presentation PDF
 └── .github/            CI workflows and ownership rules
 ```
 
@@ -219,8 +221,9 @@ support a causal ranking of model speed, cost, or capability.
 
 The software source code and machine-readable certificate data in this
 repository are licensed under the [MIT License](LICENSE). The manuscript PDF
-under `paper/` and prose research materials are excluded from the MIT License
-and remain all rights reserved unless a file states otherwise.
+under `paper/`, the presentation PDF under `slides/`, and prose research
+materials are excluded from the MIT License and remain all rights reserved
+unless a file states otherwise.
 
 ## Release and citation status
 

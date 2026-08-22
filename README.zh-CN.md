@@ -16,6 +16,7 @@ Constraint Block](https://arxiv.org/abs/2608.14396)”**。仓库为两个固定
 | 你的目的 | 建议入口 |
 | --- | --- |
 | 阅读数学论证 | [arXiv:2608.14396](https://arxiv.org/abs/2608.14396) · [仓库 PDF](paper/slack_admm_arxiv.pdf) |
+| 查看中文教师汇报 | [下载 8 页 PDF](slides/slack_admm_teacher_briefing_zh.pdf) |
 | 复现两个反例 | [五分钟验证](#五分钟验证) |
 | 查看精确机器证书 | [`certificates/`](certificates/) |
 | 了解每个检查器究竟证明什么 | [复现与证书契约](docs/REPRODUCIBILITY.md) |
@@ -183,6 +184,7 @@ python python/verify_matlab_certificate.py
 ├── provenance/         比较范围、统计定义与证据边界
 ├── docs/               详细复现与证书契约
 ├── paper/              编译后的论文 PDF
+├── slides/             汇报 PDF
 └── .github/            CI 与仓库规则
 ```
 
@@ -198,8 +200,8 @@ python python/verify_matlab_certificate.py
 ## 许可证
 
 本仓库的软件源代码和机器可读证书数据采用 [MIT License](LICENSE)。`paper/`
-目录中的论文 PDF 与研究正文不属于 MIT License 的授权范围；除非文件另有声明，
-其权利均予保留。
+目录中的论文 PDF、`slides/` 目录中的汇报 PDF 与研究正文不属于 MIT License
+的授权范围；除非文件另有声明，其权利均予保留。
 
 ## 发布与引用状态
 
