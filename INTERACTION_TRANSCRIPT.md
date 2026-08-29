@@ -1,8 +1,9 @@
 # Privacy-redacted ADMM interaction transcript
 
-> This is one privacy-redacted transcript of the user-visible interaction
-> behind the identity-slack three-block ADMM research route. Complete turns
-> are ordered by user-message time while preserving their original task context.
+> This is one privacy-redacted transcript of the user-visible Codex and
+> Kimi Code K3 interactions behind the identity-slack three-block ADMM
+> research routes. Complete turns are ordered by user-message time while
+> preserving their original task context.
 > Unrelated deployment work, including every turn involving the excluded
 > project, has been removed in full.
 
@@ -12,28 +13,32 @@ documents in the repository remain authoritative.
 Statements about intermediate results, repository status, software, prices, or
 external services are historical as of their timestamps and may be superseded
 by later turns or the current repository.
-Several source tasks ran concurrently, so an assistant update inside one turn
+Several Codex source tasks ran concurrently, so an assistant update inside one turn
 may have a later timestamp than the next turn's user message. Anonymous task
 numbers preserve that distinction without publishing native task identifiers.
+Kimi's native stream does not mark visible text as working update versus final
+answer, so all retained Kimi text is neutrally labeled as an assistant message.
 
 ## Public boundary
 
 Included:
 
 - user messages relevant to this ADMM project;
-- assistant working updates visible in the task;
-- assistant final answers;
-- timestamps and anonymous source-task numbers.
+- Codex working updates and final answers visible in the task;
+- Kimi assistant text visible in the main task;
+- timestamps and anonymous Codex source-task numbers.
 
 Excluded:
 
 - raw native session files and opaque session identifiers;
-- system/developer prompts, hidden reasoning, and private configuration;
+- system/developer prompts, Codex hidden reasoning, Kimi `think` parts, and private configuration;
 - tool calls and raw tool output, subagent-internal replay, and environment snapshots;
 - credentials, personal contact details, local absolute paths, and attachments;
 - interface-only commands, duplicate replay, and unrelated project turns.
 
 ## Coverage
+
+### Codex
 
 - Source tasks consolidated: 10
 - Included user turns: 268
@@ -45,7 +50,22 @@ Excluded:
 - Interface-only turns omitted: 57
 - Attachments omitted: 10
 
-## Transcript
+### Kimi Code K3
+
+- Source main sessions consolidated: 1
+- Human-origin messages observed: 12
+- Included user turns: 8
+- Mode-only commands omitted: 4
+- Included visible assistant messages: 37
+- Hidden `think` parts omitted: 178
+- Tool call/result events omitted: 492
+- Background-task notifications omitted: 22
+- System-injected context messages omitted: 19
+- Internal/control records omitted: 1044
+- Unrelated-project turns omitted in full: 0
+- Credential-bearing turns omitted in full: 0
+
+## Codex interaction
 
 ## 2026-06-30
 
@@ -106,7 +126,7 @@ Commit & Pull Request Guidelines
 
 #### Assistant final answer — 2026-06-30T16:40:06.086Z
 
-Added [AGENTS.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/AGENTS.md) with a 314-word contributor guide covering structure, commands, style, testing, PR expectations, and ADMM-specific agent guidance.
+Added [AGENTS.md] with a 314-word contributor guide covering structure, commands, style, testing, PR expectations, and ADMM-specific agent guidance.
 
 I verified the document by reading it back and checking the word count. It is currently uncommitted.
 
@@ -146,7 +166,7 @@ I verified the document by reading it back and checking the word count. It is cu
 # AI4Math Skill 编排指南设计
 
 ## Summary
-在当前 ADMM 研究仓库内新增一套“如何借助 AI4Math-Skill-Library 推进本问题”的编排指南；不修改 `<LOCAL_HOME>/AI4Math-Skill-Library/`，不迁移当前仓库，也不新增正式 Skill Library package。当前仓库继续作为 slack-variable 三块 ADMM 的 case workspace，`skills/admm-proof-workflow/SKILL.md` 作为本问题主控入口，AI4Math Skill Library 只作为外部能力库被调用。
+在当前 ADMM 研究仓库内新增一套“如何借助 AI4Math-Skill-Library 推进本问题”的编排指南；不修改 `<LOCAL_SKILL_LIBRARY>/`，不迁移当前仓库，也不新增正式 Skill Library package。当前仓库继续作为 slack-variable 三块 ADMM 的 case workspace，`skills/admm-proof-workflow/SKILL.md` 作为本问题主控入口，AI4Math Skill Library 只作为外部能力库被调用。
 
 ## Key Changes
 - 新增 `docs/ai4math-skill-orchestration.zh-CN.md`，作为中文主操作手册，包含：
@@ -395,7 +415,7 @@ admm-proof-workflow
 一句话概括：
 你要把“老师给的三块 ADMM 猜想”变成一个由 VeryMath skills 驱动的自动研究流水线，既能系统读文献和抽证明套路，也能构造证明蓝图、跑反例搜索、沉淀最终论文材料。
 
-所以我下一步如果继续做，应该不是再写泛泛设计，而是帮你把这份 [计划_基于VeryMath工具链.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/计划_基于VeryMath工具链.md) 修成一个真正可执行的实施方案：明确当前这个仓库、`co-mathematician`、`AI4Math-Skill-Library` 三者之间怎么分工，以及第一步到底先落在哪个目录里。
+所以我下一步如果继续做，应该不是再写泛泛设计，而是帮你把这份 [计划_基于VeryMath工具链.md] 修成一个真正可执行的实施方案：明确当前这个仓库、`co-mathematician`、`AI4Math-Skill-Library` 三者之间怎么分工，以及第一步到底先落在哪个目录里。
 
 ### Turn 5 — User — Task 1 — 2026-07-04T04:41:35.193Z
 
@@ -419,7 +439,7 @@ admm-proof-workflow
 
 #### Assistant final answer — 2026-07-04T04:43:15.336Z
 
-对，我已经把 [计划_基于VeryMath工具链.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/计划_基于VeryMath工具链.md) 改成更准确的执行版了。
+对，我已经把 [计划_基于VeryMath工具链.md] 改成更准确的执行版了。
 
 核心修正是：不再一上来迁移到 `co-mathematician`，而是先把当前仓库作为已有研究原型固化成 `research_state.md / work_orders.md / docs/verymath_toolchain_workflow.md` 这一阶段包；`AI4Math-Skill-Library` 只作为 skill 来源；`co-mathematician` 等当前仓库稳定后再作为正式总控仓库承接。
 
@@ -605,7 +625,7 @@ git diff --check
 
 > **Assistant working update — 2026-07-04T06:16:31.367Z**
 >
-> 系统的 `/usr/bin/python3` 没有 pytest，但之前测试用的是 Anaconda Python。我会用 `<PYTHON>` 验证，并把文档命令改成“优先使用项目可用 Python，例如 `<PYTHON>` 或 `python3`”，避免过程文档误导。
+> 系统的 `<SYSTEM_PYTHON>` 没有 pytest，但之前测试用的是 Anaconda Python。我会用 `<PYTHON>` 验证，并把文档命令改成“优先使用项目可用 Python，例如 `<PYTHON>` 或 `python3`”，避免过程文档误导。
 
 > **Assistant working update — 2026-07-04T06:16:40.485Z**
 >
@@ -657,7 +677,7 @@ git diff --check
 
 #### Assistant final answer — 2026-07-04T06:19:00.180Z
 
-对，应该按 [计划_基于VeryMath工具链.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/计划_基于VeryMath工具链.md) 来。
+对，应该按 [计划_基于VeryMath工具链.md] 来。
 
 我已经把刚才新增的过程性文档对齐到这份计划的 **Phase 0 / 第 13 节第一条 Codex 执行任务**：
 
@@ -777,10 +797,10 @@ git diff --check
 
 本轮新增/更新了两层产物：
 
-- WO-1 文献层：[papers/reading_queue.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/reading_queue.md)、[outputs/literature_report.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/literature_report.md)、[knowledge_base/literature_map.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/knowledge_base/literature_map.md)
-- WO-2 问题结构层：[docs/problem_menu.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/problem_menu.md)、[docs/conjecture_lattice.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/conjecture_lattice.md)、[docs/proof_obligations.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/proof_obligations.md)、[docs/counterexample_pressure.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/counterexample_pressure.md)
+- WO-1 文献层：[papers/reading_queue.md]、[outputs/literature_report.md]、[knowledge_base/literature_map.md]
+- WO-2 问题结构层：[docs/problem_menu.md]、[docs/conjecture_lattice.md]、[docs/proof_obligations.md]、[docs/counterexample_pressure.md]
 
-同时补了 JSON 状态包，例如 [docs/research_state_packet.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/research_state_packet.json)，并更新了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md) 和 [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)。
+同时补了 JSON 状态包，例如 [docs/research_state_packet.json]，并更新了 [research_state.md] 和 [work_orders.md]。
 
 当前状态是 `proof_obligations_ready`，不是 `verification_ready`。核心结论仍然克制：没有声称 direct slack-variable 三块 ADMM 已收敛，也没有声称已有严格反例。主要文献来源包括 [Chen-He-Ye-Yuan DOI](https://doi.org/10.1007/s10107-014-0826-5)、[Cai-Han-Yuan DOI](https://doi.org/10.1007/s10589-016-9860-y)、[He-Xu-Yuan arXiv](https://arxiv.org/abs/2107.01897)、[Lin-Ma-Zhang arXiv](https://arxiv.org/abs/1408.4266)。
 
@@ -887,12 +907,12 @@ PYTHON=<PYTHON>; $PYTHON -m pytest -q
 
 已完成 WO-1 的 P0 首轮 `paper-to-skill` 抽取：
 
-- [papers/source_manifest.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/source_manifest.md>)
-- [papers/reading_queue.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/reading_queue.md>)
+- [papers/source_manifest.md]
+- [papers/reading_queue.md]
 - `papers/markdown/<paper_id>/paper.md`
 - `papers/skills/<paper_id>/skill_candidates.json`
 - `papers/skills/<paper_id>/skill_cards/*.yaml`
-- [outputs/literature_report.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/literature_report.md>)
+- [outputs/literature_report.md]
 
 三张首轮 SkillCard 已生成：
 
@@ -983,7 +1003,7 @@ P0 三篇已经够用了：我已经拿到 PDF，转成了 `paper.md`，并生�
 
 ### Turn 21 — User — Task 1 — 2026-07-04T07:36:13.998Z
 
-[$paper-to-skill](<LOCAL_HOME>/.agents/skills/paper-to-skill/SKILL.md) 这样，你先告诉我要哪些论文，然后用mineru转成md吧，你现在转的效果不好
+[$paper-to-skill] 这样，你先告诉我要哪些论文，然后用mineru转成md吧，你现在转的效果不好
 
 > **Assistant working update — 2026-07-04T07:36:52.819Z**
 >
@@ -991,7 +1011,7 @@ P0 三篇已经够用了：我已经拿到 PDF，转成了 `paper.md`，并生�
 
 > **Assistant working update — 2026-07-04T07:37:22.963Z**
 >
-> 我会按你指定的 `<LOCAL_HOME>/.agents/skills/paper-to-skill` 来走；先不继续抽取，也不把刚才 `pypdf` 转出来的 P1/P2 当作有效 `paper.md`。我先读取它的 workflow 入口，然后给你一个明确的论文清单。
+> 我会按你指定的 `<LOCAL_SKILL>` 来走；先不继续抽取，也不把刚才 `pypdf` 转出来的 P1/P2 当作有效 `paper.md`。我先读取它的 workflow 入口，然后给你一个明确的论文清单。
 
 #### Assistant final answer — 2026-07-04T07:38:35.359Z
 
@@ -1130,9 +1150,9 @@ papers/markdown/<paper_id>/conversion_report.json
 
 对，skill 里确实有 MinerU 流程。我已经按这个补上了中文过程文档：
 
-[papers/mineru_conversion_plan.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/mineru_conversion_plan.md>)
+[papers/mineru_conversion_plan.md]
 
-里面列了 P0/P1/P2 论文、每篇的研究用途、建议来源，以及 MinerU 执行模板。也把 [papers/reading_queue.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/reading_queue.md>) 和 [papers/source_manifest.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/source_manifest.md>) 标注成：现有 `paper.md` 是临时转换，正式抽取要用 MinerU 复转。
+里面列了 P0/P1/P2 论文、每篇的研究用途、建议来源，以及 MinerU 执行模板。也把 [papers/reading_queue.md] 和 [papers/source_manifest.md] 标注成：现有 `paper.md` 是临时转换，正式抽取要用 MinerU 复转。
 
 另外我已经把 P0 三篇 PDF 下载到：
 
@@ -1259,7 +1279,7 @@ papers/markdown/<paper_id>/conversion_report.json
 没有删 `paper.md`、metadata、conversion report、测试、研究状态文档和工作单。`.env` 和 PDF 继续被 `.gitignore` 保护。
 
 **Smallest Implementation Plan**
-我已经把规则写进 [papers/README.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/README.md>)、[papers/markdown/README.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/markdown/README.md>)、[papers/skills/README.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/skills/README.md>) 和 [papers/mineru_conversion_plan.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/mineru_conversion_plan.md>)。
+我已经把规则写进 [papers/README.md]、[papers/markdown/README.md]、[papers/skills/README.md] 和 [papers/mineru_conversion_plan.md]。
 
 验证通过：JSON 全部可解析，`git diff --check` 干净，`pytest` 为 `9 passed`。下一步可以直接基于当前 9 篇 `paper.md` 重抽带行号的 SkillCard。
 
@@ -1387,7 +1407,7 @@ papers/markdown/<paper_id>/conversion_report.json
 
 我已经把可直接下载的部分推进完了：新增下载并用 MinerU 转了 9 篇，现在一共 18 篇论文 Markdown 在：
 
-[papers/markdown](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/markdown)
+[papers/markdown]
 
 目前卡住的只有 3 篇：
 
@@ -1450,9 +1470,9 @@ papers/markdown/<paper_id>/conversion_report.json
 
 已抽取的是这 3 个：
 
-- [chen_he_ye_yuan_2016](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/skills/chen_he_ye_yuan_2016/report.md>)
-- [cai_han_yuan_2017](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/skills/cai_han_yuan_2017/report.md>)
-- [he_xu_yuan_2021](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/skills/he_xu_yuan_2021/report.md>)
+- [chen_he_ye_yuan_2016]
+- [cai_han_yuan_2017]
+- [he_xu_yuan_2021]
 
 所以现在严格说在：
 
@@ -1603,15 +1623,15 @@ papers/markdown/<paper_id>/conversion_report.json
 
 已经按“全部抽”推进完了。
 
-本轮完成了 21 篇文献的 `paper-to-skill` 抽取：现在每篇都有 `skill_candidates.json` 和 `skill_cards/*.yaml`，总计 21 张卡，其中 `accepted_candidate` 13 张、`needs_review` 8 张。总索引在 [papers/skills/README.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/skills/README.md>)。
+本轮完成了 21 篇文献的 `paper-to-skill` 抽取：现在每篇都有 `skill_candidates.json` 和 `skill_cards/*.yaml`，总计 21 张卡，其中 `accepted_candidate` 13 张、`needs_review` 8 张。总索引在 [papers/skills/README.md]。
 
 同步更新了这些状态文档：
 
-- [papers/reading_queue.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/papers/reading_queue.md>)
-- [outputs/literature_report.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/literature_report.md>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
-- [docs/proof_obligations.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/proof_obligations.md>)
+- [papers/reading_queue.md]
+- [outputs/literature_report.md]
+- [research_state.md]
+- [work_orders.md]
+- [docs/proof_obligations.md]
 
 `PO8` 也已经从“还缺 P1 抽取”改成了 `evidence_ready`：现在缺的不是文献抽取，而是 proof review 逐项判断这些强凸、error bound、active-set、correction 假设是否真能覆盖 slack-variable `[A,B,I]` 模型。
 
@@ -1698,13 +1718,13 @@ papers/markdown/<paper_id>/conversion_report.json
 
 已写入主要产物：
 
-- [proof_blueprint.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/proof_blueprint.md>)
-- [verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/verification_report.json>)
-- [repair_hints.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/repair_hints.md>)
-- [acceptance_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/acceptance_gate.md>)
-- [human_checkpoint.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/human_checkpoint.md>)
+- [proof_blueprint.md]
+- [verification_report.json]
+- [repair_hints.md]
+- [acceptance_gate.md]
+- [human_checkpoint.md]
 
-也同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)、[docs/proof_obligations.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/proof_obligations.md>) 等索引层状态。
+也同步更新了 [research_state.md]、[work_orders.md]、[docs/proof_obligations.md] 等索引层状态。
 
 验证结果：
 
@@ -1816,10 +1836,10 @@ pytest: 9 passed
 
 这轮默认进入 `base_algorithm_counterexample` 分支，完成了 WO-5 第一版 fixed-active-set recurrence scaffold：
 
-- 新增 [slack_projection.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/src/admm_identity/slack_projection.py>)：构造固定 active mask 下的 \(s^{k+1}=Ts^k+c\)、谱半径和有限步 stay-in-region 检查。
-- 新增 [search_slack_active_set_counterexample.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/search_slack_active_set_counterexample.py>)。
-- 新增 [test_slack_projection.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/tests/test_slack_projection.py>)。
-- 写入 [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md>) 和 [slack_counterexample_report.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/slack_counterexample_report.md>)。
+- 新增 [slack_projection.py]：构造固定 active mask 下的 \(s^{k+1}=Ts^k+c\)、谱半径和有限步 stay-in-region 检查。
+- 新增 [search_slack_active_set_counterexample.py]。
+- 新增 [test_slack_projection.py]。
+- 写入 [RUN_SUMMARY.md] 和 [slack_counterexample_report.md]。
 
 200 个随机低维 screen 里没有找到 \(\rho(T)>1\) 候选；最大是 seed `115`，\(\rho(T)=0.9971169809474869\)。这只是 `numerical_screen`，不能当收敛证明。
 
@@ -1919,7 +1939,7 @@ git diff --check: clean
 
 这轮做了两件实质工作：
 
-1. 扩展 [search_slack_active_set_counterexample.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/search_slack_active_set_counterexample.py>)：
+1. 扩展 [search_slack_active_set_counterexample.py]：
    - 支持 `--families random,low_rank,ill_conditioned,boundary_slack,all`
    - 支持 `--beta-grid`
    - 支持 `--mask-mode observed|all`
@@ -1932,10 +1952,10 @@ git diff --check: clean
 
 结果已写入：
 
-- [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md>)
-- [slack_counterexample_report.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/slack_counterexample_report.md>)
-- [slack_counterexample_candidates.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/slack_counterexample_candidates.json>)
-- [slack_counterexample_candidates_dim3.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/slack_counterexample_candidates_dim3.json>)
+- [RUN_SUMMARY.md]
+- [slack_counterexample_report.md]
+- [slack_counterexample_candidates.json]
+- [slack_counterexample_candidates_dim3.json]
 
 校验通过：
 
@@ -1962,7 +1982,7 @@ git diff --check: clean
 - **WO-5 已推进到 fixed-active-set recurrence**：
   - 已实现固定 active set 下的仿射递推 \(s^{k+1}=Ts^k+c\)
   - 又进一步压缩到 effective state \(v=(y,z,\lambda)\)，得到 \(v^{k+1}=T_Dv^k+c_D\)
-  - 过程文档在 [notes/active_set_effective_recurrence.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/active_set_effective_recurrence.md>)
+  - 过程文档在 [notes/active_set_effective_recurrence.md]
 
 目前证据等级是：
 
@@ -2011,7 +2031,7 @@ fixed-active recurrence 的理论化 / reduced-state 分析阶段
 
 我刚补了理论分析文件：
 
-[notes/active_set_reduced_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/active_set_reduced_theory.md>)
+[notes/active_set_reduced_theory.md]
 
 里面已经写清楚：
 
@@ -2486,15 +2506,15 @@ git diff --check: clean
 1. fixed-mask 子问题这一轮已经闭合
    `positive outward ray impossible` 已升级成更强的 `positive real expansion impossible`：在凸二次 fixed-mask local model 下，已证明 \(R_D\) 不存在正实扩张特征值 \(\eta>1\)。
    主要文件：
-   [fixed_mask_invariant_impossible_lemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/fixed_mask_invariant_impossible_lemma.md)
-   [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/fixed_mask_impossible/verification_report.json)
+   [fixed_mask_invariant_impossible_lemma.md]
+   [verification_report.json]
 
 2. 已在此基础上继续迭代到 switching 分支
    新增 affine switching cone screen，跳过纯 fixed-mask 重复 cycle，对当前 QP candidate 的非恒定 itinerary 长度 `2..10` 覆盖 `349515` 个 cycles，结果：
    `candidate_count=0`，`records_with_expansion=0`，最大谱半径 `0.9947365596899999`。
    主要文件：
-   [switching_cone_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/switching_cone_certificate.md)
-   [switching_cone_certificate_len10.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/switching_cone_certificate_len10.md)
+   [switching_cone_certificate.md]
+   [switching_cone_certificate_len10.md]
 
 3. 当前下一步
    不建议继续盲枚举当前 candidate 的更长周期。下一轮如果继续反例分支，应直接优化 switching cone certificate；否则回到 `human_checkpoint`，切到加强假设 / correction / error-bound 路线。
@@ -2599,8 +2619,8 @@ git diff --check: clean
 
 本轮新增/更新重点：
 
-- 新增 [optimize_switching_cone_certificate.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/optimize_switching_cone_certificate.py)：直接在二维 PSD contraction 空间优化短周期 switching cone certificate，不依赖当前 QP candidate。
-- 新增 [short_cycle_switching_nonexpansion_conjecture.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/short_cycle_switching_nonexpansion_conjecture.md)：把二维短周期 switching nonexpansion 固化成 `conjecture`，并列出 `SC-1` 到 `SC-4`。
+- 新增 [optimize_switching_cone_certificate.py]：直接在二维 PSD contraction 空间优化短周期 switching cone certificate，不依赖当前 QP candidate。
+- 新增 [short_cycle_switching_nonexpansion_conjecture.md]：把二维短周期 switching nonexpansion 固化成 `conjecture`，并列出 `SC-1` 到 `SC-4`。
 - 新输出：
   - `outputs/wo5_active_set_2026-07-05/abstract_switching_cone_optimization.md`
   - `..._real_radius.md`
@@ -2717,9 +2737,9 @@ git diff --check clean
 
 本轮新增：
 
-- [analyze_length2_switching_products.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_length2_switching_products.py)
+- [analyze_length2_switching_products.py]
   专门分析二维 length-2 nonconstant mask pairs 的 product map。
-- 更新 [short_cycle_switching_nonexpansion_conjecture.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/short_cycle_switching_nonexpansion_conjecture.md)
+- 更新 [short_cycle_switching_nonexpansion_conjecture.md]
   增加 `SC-1` 第一轮进展。
 
 关键结果：
@@ -2914,15 +2934,15 @@ git diff --check clean
 - fixed-mask 分支已经闭合到本地 proof review：不是全局收敛证明，但 fixed-mask 正实扩张路线已压住。
 - switching 分支进入 `SC-1`：length-2 products 的 `det(P)=0` 已从 prose 变成可复现 artifact。
 - 新增边界族 stress：rank-one / near-projector 边界族没有找到可放大的 `rho > 1`，只贴到单位圆等号。
-- 理论推进已写入 [notes/short_cycle_switching_nonexpansion_conjecture.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/short_cycle_switching_nonexpansion_conjecture.md:188)：下一步最小 lemma 是证明 `single_full` canonical pair 的 `J+ >= 0` 与 `Jmid >= 0`。
+- 理论推进已写入 [notes/short_cycle_switching_nonexpansion_conjecture.md]：下一步最小 lemma 是证明 `single_full` canonical pair 的 `J+ >= 0` 与 `Jmid >= 0`。
 
 新增/更新的关键文件：
 
-- [experiments/symbolic_length2_switching_products.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/symbolic_length2_switching_products.py)
-- [experiments/stress_length2_boundary_families.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/stress_length2_boundary_families.py)
-- [outputs/wo5_active_set_2026-07-05/length2_switching_symbolic_check.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length2_switching_symbolic_check.md)
-- [outputs/wo5_active_set_2026-07-05/length2_boundary_family_stress.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length2_boundary_family_stress.md)
-- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md:289)
+- [experiments/symbolic_length2_switching_products.py]
+- [experiments/stress_length2_boundary_families.py]
+- [outputs/wo5_active_set_2026-07-05/length2_switching_symbolic_check.md]
+- [outputs/wo5_active_set_2026-07-05/length2_boundary_family_stress.md]
+- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md]
 
 验证结果：
 
@@ -3063,7 +3083,7 @@ git diff --check -> clean
 本轮做了两件实质推进：
 
 1. 固化 `single_full` rank-one projector 边界的 exact formula
-新增 [experiments/analyze_single_full_boundary_symbolics.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_single_full_boundary_symbolics.py)，输出在 [single_full_boundary_symbolic_analysis.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_boundary_symbolic_analysis.md)。
+新增 [experiments/analyze_single_full_boundary_symbolics.py]，输出在 [single_full_boundary_symbolic_analysis.md]。
 
 结论是：rank-one projector 边界上 `J+ = 0` 是精确等号，不是数值误差；`Jmid` 分子有 SOS：
 ```text
@@ -3071,11 +3091,11 @@ x^2 y^2 + (x - y/2)^2 + 3 y^2/4 >= 0
 ```
 
 2. 针对 full-rank PSD contraction 做 `J+ / Jmid` 优化
-新增 [experiments/optimize_single_full_jury_margins.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/optimize_single_full_jury_margins.py)，输出在 [single_full_jury_margin_optimization.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_jury_margin_optimization.md)。
+新增 [experiments/optimize_single_full_jury_margins.py]，输出在 [single_full_jury_margin_optimization.md]。
 
 结果：没有发现 full-rank interior 负 margin；最小值被推到 `M,N ≈ I` 的 identity boundary。
 
-当前下一步已经写入 [short_cycle_switching_nonexpansion_conjecture.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/short_cycle_switching_nonexpansion_conjecture.md:374)：证明 `single_full` 的 `J+` 与 `Jmid` 最小值只可能出现在 eigenvalue `0/1` 边界，然后用 rank-one projector 与 identity boundary 公式闭合。
+当前下一步已经写入 [short_cycle_switching_nonexpansion_conjecture.md]：证明 `single_full` 的 `J+` 与 `Jmid` 最小值只可能出现在 eigenvalue `0/1` 边界，然后用 rank-one projector 与 identity boundary 公式闭合。
 
 验证：
 
@@ -3299,11 +3319,11 @@ git diff --check -> clean
 这轮做了两次实质迭代：
 
 1. 闭合 isotropic 子族
-   新增 [experiments/analyze_single_full_isotropic_symbolics.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_single_full_isotropic_symbolics.py)，生成 [single_full_isotropic_symbolic_sublemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_isotropic_symbolic_sublemma.md)。
+   新增 [experiments/analyze_single_full_isotropic_symbolics.py]，生成 [single_full_isotropic_symbolic_sublemma.md]。
    证明了 `M=mI,N=nI` 时特征值为 `0,m^2,n^2,r`，且 `0<=r<=1`，`J+` / `Jmid` 非负。
 
 2. 闭合一个 noncommuting angle 切片
-   新增 [experiments/analyze_single_full_mask_aligned_angle_symbolics.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_single_full_mask_aligned_angle_symbolics.py)，生成 [single_full_mask_aligned_angle_symbolic_sublemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_mask_aligned_angle_symbolic_sublemma.md)。
+   新增 [experiments/analyze_single_full_mask_aligned_angle_symbolics.py]，生成 [single_full_mask_aligned_angle_symbolic_sublemma.md]。
    覆盖 `M=diag(m1,m2)`、`N=Q(theta)diag(n1,n2)Q(theta)^T`，也就是 `M,N` 可不交换，但 `M` 仍与 active mask 对齐。
 
 当前还不能进 theorem-level proof review，因为 full 2D 情形还没覆盖：`M` 自身也可以相对 active mask 旋转。下一步是 `SC-1b-two-angle-analysis`，处理 `M=Q(alpha)diag(...)Q(alpha)^T` 的完整 orientation，或转入 mixed boundary faces 分层。
@@ -3470,7 +3490,7 @@ git diff --check -> clean
 
 继续推进了，而且按你的反馈把重心转回证明分析。
 
-本轮新增的核心 proof 文档是 [notes/single_full_proof_attempt.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/single_full_proof_attempt.md)，把 `single_full` length-2 product 拆成 lemmas，而不是只堆数值/脚本结果。
+本轮新增的核心 proof 文档是 [notes/single_full_proof_attempt.md]，把 `single_full` length-2 product 拆成 lemmas，而不是只堆数值/脚本结果。
 
 已推进的证明块：
 
@@ -3482,8 +3502,8 @@ git diff --check -> clean
 
 新增/更新的核验 artifact 包括：
 
-- [single_full_zero_identity_boundary_symbolic_sublemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_zero_identity_boundary_symbolic_sublemma.md)
-- [single_full_mixed_rank_one_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_mixed_rank_one_reduction.md)
+- [single_full_zero_identity_boundary_symbolic_sublemma.md]
+- [single_full_mixed_rank_one_reduction.md]
 
 验证通过：`40 passed`，所有相关 JSON 通过 `json.tool`，`git diff --check` 干净。当前仍不能升格为 theorem；下一步是 mixed rank-one 的两个多项式非负证书。
 
@@ -3569,9 +3589,9 @@ git diff --check -> clean
 
 我把 mixed rank-one face 的剩余缺口闭合了：
 
-- 新增 [experiments/certify_single_full_mixed_rank_one_bernstein.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_single_full_mixed_rank_one_bernstein.py)
-- 生成 [single_full_mixed_rank_one_bernstein_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_mixed_rank_one_bernstein_certificate.md)
-- 更新 [notes/single_full_proof_attempt.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/single_full_proof_attempt.md)
+- 新增 [experiments/certify_single_full_mixed_rank_one_bernstein.py]
+- 生成 [single_full_mixed_rank_one_bernstein_certificate.md]
+- 更新 [notes/single_full_proof_attempt.md]
 
 证明结构是：
 
@@ -3698,12 +3718,12 @@ A\ge0,\qquad A^2-uvB^2\ge0.
 
 对，已经把主线拉回证明分析了。
 
-我新增并运行了 [analyze_single_full_two_angle_reduction.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_single_full_two_angle_reduction.py:1>)，处理 full two-angle/global-orientation 的 `single_full` 情形。结果是：`J+` 已经用 exact Bernstein certificate 闭合，不是数值实验；`A` 的 `324` 个 Bernstein 系数和 `D=A^2-uvB^2` 的 `5625` 个 Bernstein 系数负系数都是 `0`。输出在 [single_full_two_angle_reduction.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_full_two_angle_reduction.md:1>)。
+我新增并运行了 [analyze_single_full_two_angle_reduction.py]，处理 full two-angle/global-orientation 的 `single_full` 情形。结果是：`J+` 已经用 exact Bernstein certificate 闭合，不是数值实验；`A` 的 `324` 个 Bernstein 系数和 `D=A^2-uvB^2` 的 `5625` 个 Bernstein 系数负系数都是 `0`。输出在 [single_full_two_angle_reduction.md]。
 
 同时我把 `Jmid` 明确约简成下一步证明义务：它同样有 `A(u,v)+xyB(u,v)` 结构且无 unexpected parity terms，但规模更大，`A` 有 `1059` 项、`B` 有 `912` 项。也就是说现在不是“泛泛做 full orientation”，而是精确进入 full two-angle `Jmid` 的 boundary decomposition / Bernstein subdivision / interval / SOS 证明。
 
 已同步更新：
-[notes/single_full_proof_attempt.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_full_proof_attempt.md:1>)、[notes/short_cycle_switching_nonexpansion_conjecture.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/short_cycle_switching_nonexpansion_conjecture.md:1>)、`research_state.md`、`work_orders.md` 和相关 `docs/*.json`。
+[notes/single_full_proof_attempt.md]、[notes/short_cycle_switching_nonexpansion_conjecture.md]、`research_state.md`、`work_orders.md` 和相关 `docs/*.json`。
 
 验证也过了：`42 passed`，`docs/*.json`/结果 JSON 通过 `json.tool`，`git diff --check` 干净。当前不能称为全局收敛定理，但 proof side 已经实质推进了一步：full two-angle `J+` closed，下一步只盯 `Jmid`。
 
@@ -4042,7 +4062,7 @@ A\ge0,\qquad A^2-uvB^2\ge0.
 - `WO-5 fixed-mask`：fixed active-set 的正实扩张已被局部 proof review 接受排除。
 - `WO-5 switching`：length-2 非恒定 mask pairs 已做 exact determinant-zero check。
 - 最难的 `single_full` pair 已完成 exact Bernstein certificates，并通过本地 proof review：
-  [acceptance_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/single_full_cubic_margins/acceptance_gate.md)
+  [acceptance_gate.md]
 
 现在不能声明：
 
@@ -4145,7 +4165,7 @@ A\ge0,\qquad A^2-uvB^2\ge0.
 >
 > 我刚刚已经把 `PC-0` 的中文 lemma 写到：
 >
-> [notes/length2_pair_symmetry_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_symmetry_reduction.md)
+> [notes/length2_pair_symmetry_reduction.md]
 >
 > 下一步我会继续把它同步进状态文件，然后开始 `PC-1 zero_full`，看能不能先用 exact charpoly 或 quotient contraction 闭合最简单的一类。
 
@@ -4283,9 +4303,9 @@ A\ge0,\qquad A^2-uvB^2\ge0.
 
 更有进展的是 **active-set / reduced-map 证明线**：
 
-- 新增 [notes/length2_pair_class_consolidation.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_class_consolidation.md)：把 `SC-1` 的 12 个 length-2 ordered pairs 分成四类，并明确哪些是 proof-grade、哪些只是 numerical screen。
-- 新增 [notes/length2_pair_symmetry_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_symmetry_reduction.md)：完成 `PC-0`，用坐标置换和 `AB/BA` 谱不变性，把 12 个 ordered pairs 规约到 4 个 canonical representatives。
-- 新增 [notes/zero_full_pc1_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_full_pc1_reduction.md)：推进 `PC-1 zero_full`，证明方向已经降到二维 quadratic factor；当前主要缺口是 `Qplus >= 0` 的 exact 证明。
+- 新增 [notes/length2_pair_class_consolidation.md]：把 `SC-1` 的 12 个 length-2 ordered pairs 分成四类，并明确哪些是 proof-grade、哪些只是 numerical screen。
+- 新增 [notes/length2_pair_symmetry_reduction.md]：完成 `PC-0`，用坐标置换和 `AB/BA` 谱不变性，把 12 个 ordered pairs 规约到 4 个 canonical representatives。
+- 新增 [notes/zero_full_pc1_reduction.md]：推进 `PC-1 zero_full`，证明方向已经降到二维 quadratic factor；当前主要缺口是 `Qplus >= 0` 的 exact 证明。
 
 状态文件也已同步到 `research_state.md`、`work_orders.md`、`docs/proof_obligations.*`、`docs/research_state_packet.json`、`docs/work_orders.json` 和 run summary。
 
@@ -4455,9 +4475,9 @@ A\ge0,\qquad A^2-uvB^2\ge0.
 
 `zero_full` canonical representative `[[0,0],[1,1]]` 已经从四维 product 降到二维 quadratic factor，并生成了 exact Bernstein certificate：
 
-- 新脚本：[certify_zero_full_quadratic_margins.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_zero_full_quadratic_margins.py)
-- 过程文档：[zero_full_pc1_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_full_pc1_reduction.md)
-- 证据输出：[zero_full_quadratic_margins_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_full_quadratic_margins_certificate.md)
+- 新脚本：[certify_zero_full_quadratic_margins.py]
+- 过程文档：[zero_full_pc1_reduction.md]
+- 证据输出：[zero_full_quadratic_margins_certificate.md]
 
 四个 quadratic Schur margins：`Qplus`、`Qminus`、`Qconst_minus`、`Qconst_plus` 的 Bernstein negative count 全部为 `0`。这闭合了 `zero_full` 的 exact certificate，但还没进入 verifier-style review，所以仍标为 `proof_attempt`，不是完整 `SC-1 theorem`。
 
@@ -4575,9 +4595,9 @@ zero_full_pc1_certificate_pc2_next
 
 当前进展：
 
-- `PC-0` 已写出对称性/反序谱归约：[notes/length2_pair_symmetry_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_symmetry_reduction.md)
-- `PC-1 zero_full` 已有 exact quadratic Bernstein certificate，状态还是 `proof_attempt`，待 review：[notes/zero_full_pc1_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_full_pc1_reduction.md)
-- `PC-2 zero_single` 已开始：确认 rank 降到 quadratic factor，但直接照搬 `single_full` 的单盒 Bernstein 模板没有闭合。这不是反例，只是证书模板不够强：[notes/zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)
+- `PC-0` 已写出对称性/反序谱归约：[notes/length2_pair_symmetry_reduction.md]
+- `PC-1 zero_full` 已有 exact quadratic Bernstein certificate，状态还是 `proof_attempt`，待 review：[notes/zero_full_pc1_reduction.md]
+- `PC-2 zero_single` 已开始：确认 rank 降到 quadratic factor，但直接照搬 `single_full` 的单盒 Bernstein 模板没有闭合。这不是反例，只是证书模板不够强：[notes/zero_single_pc2_reduction.md]
 
 **关于下降函数**
 
@@ -4591,10 +4611,10 @@ zero_full_pc1_certificate_pc2_next
 
 **你现在可以优先看**
 
-- 总状态：[research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- 工作单：[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- length-2 汇总：[notes/length2_pair_class_consolidation.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_class_consolidation.md)
-- 最新运行摘要：[outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md)
+- 总状态：[research_state.md]
+- 工作单：[work_orders.md]
+- length-2 汇总：[notes/length2_pair_class_consolidation.md]
+- 最新运行摘要：[outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md]
 
 刚才我也确认了：`git diff --check` 干净，当前 `docs/`、`outputs/.../results/`、`proof_reviews/` 下的 JSON 都能过 `json.tool`。
 
@@ -4681,7 +4701,7 @@ zero_full_pc1_certificate_pc2_next
 
 更有进展的是 active-set / reduced-map 证明线：
 
-- `PC-0` 已写成 [length2_pair_symmetry_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length2_pair_symmetry_reduction.md)，把 12 个 ordered pairs 归约到 4 个 canonical representatives。
+- `PC-0` 已写成 [length2_pair_symmetry_reduction.md]，把 12 个 ordered pairs 归约到 4 个 canonical representatives。
 - `PC-1 zero_full` 已生成 exact quadratic margin certificate：四个 Schur margins 的 Bernstein negative count 都是 `0`，focused test `1 passed`。
 - `PC-2 zero_single` 已降成 quadratic factor，但 full two-angle 单盒 Bernstein 还没闭合主要 margins，下一步要找更强 exact certificate。
 
@@ -5065,10 +5085,10 @@ zero_full_pc1_certificate_pc2_next
 
 本轮新增并固化了两类 artifact：
 
-- [analyze_zero_single_quadratic_margins.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_quadratic_margins.py)
-  生成 [zero_single_quadratic_margin_decomposition.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_quadratic_margin_decomposition.md)
-- [analyze_zero_single_angle_boundary_symbolics.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_angle_boundary_symbolics.py)
-  生成 [zero_single_angle_boundary_symbolic_sublemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_angle_boundary_symbolic_sublemma.md)
+- [analyze_zero_single_quadratic_margins.py]
+  生成 [zero_single_quadratic_margin_decomposition.md]
+- [analyze_zero_single_angle_boundary_symbolics.py]
+  生成 [zero_single_angle_boundary_symbolic_sublemma.md]
 
 当前证明状态变为：
 
@@ -5077,7 +5097,7 @@ zero_full_pc1_certificate_pc2_next
 - 四个 angle boundary faces 已由 scalar sublemma 闭合。
 - `Qplus` 与 `Qconst_minus` 的 full two-angle interior 仍未闭合。
 
-我也同步更新了 [notes/zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)、`docs/*.json` 和 run summary。
+我也同步更新了 [notes/zero_single_pc2_reduction.md]、[research_state.md]、[work_orders.md]、`docs/*.json` 和 run summary。
 
 验证已过：
 
@@ -5211,7 +5231,7 @@ zero_full_pc1_certificate_pc2_next
 
 现在推进到了 `PC-2 zero_single` 的理论证明分支，不是数值筛查。
 
-我新增了 [notes/zero_single_relative_angle_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_relative_angle_route.md)，把剩余缺口收窄为：
+我新增了 [notes/zero_single_relative_angle_route.md]，把剩余缺口收窄为：
 
 - `Qplus D`：在 rank-one projector 边界出现 `(u-v)^2` / `(uv-1)^2` 相对角因子，下一步应换 relative-angle 变量做证书。
 - `Qconst_minus D`：四个角落只剩可由 AM-GM 控制的负单项式，需要边界邻域 certificate。
@@ -5558,8 +5578,8 @@ git diff --check: clean
 
 这轮新增并固化了一个精确符号 artifact：
 
-- [experiments/analyze_zero_single_relative_angle_symbolics.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_relative_angle_symbolics.py)
-- [zero_single_relative_angle_symbolic_sublemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_relative_angle_symbolic_sublemma.md)
+- [experiments/analyze_zero_single_relative_angle_symbolics.py]
+- [zero_single_relative_angle_symbolic_sublemma.md]
 
 它把之前的手写观察变成可重跑证据：
 
@@ -5666,7 +5686,7 @@ git diff --check: clean
 +d\beta\|B\Delta y^k\|^2
 \]
 
-已经在 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/identity_block_lyapunov/verification_report.json) 里被判为 `incomplete`。核心卡点还是：
+已经在 [verification_report.json] 里被判为 `incomplete`。核心卡点还是：
 
 \[
 \beta\langle B(y^{k+1}-y^k), z^{k+1}-z^k\rangle
@@ -5932,9 +5952,9 @@ git diff --check: clean
 
 做了三件事：
 
-- 新增 `Qplus` PSD-minor 诊断：[zero_single_qplus_psd_minor_diagnostics.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_psd_minor_diagnostics.md:1>)。结论是 `S11/S22` 的 `A` 可闭合，但 `D` 仍卡在四个角点坏盒，`det(S)` 直接展开太重。
-- 用 multi-agent 审查了两条路，并落盘到 [zero_single_pc2_multi_agent_route_decision.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_pc2_multi_agent_route_decision.md:1>)。裁决是：先攻 `Qconst_minus` 角点，再回到 `Qplus`。
-- 实际尝试了第一个 `Qconst_minus` corner chart，记录在 [zero_single_qconst_corner_certificate_attempt.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qconst_corner_certificate_attempt.md:1>)。局部化后只剩一个 bad Bernstein coefficient `-1/784`，但简单 power-basis AM-GM control 不闭合，下一步要做 Bernstein-basis weighted control。
+- 新增 `Qplus` PSD-minor 诊断：[zero_single_qplus_psd_minor_diagnostics.md]。结论是 `S11/S22` 的 `A` 可闭合，但 `D` 仍卡在四个角点坏盒，`det(S)` 直接展开太重。
+- 用 multi-agent 审查了两条路，并落盘到 [zero_single_pc2_multi_agent_route_decision.md]。裁决是：先攻 `Qconst_minus` 角点，再回到 `Qplus`。
+- 实际尝试了第一个 `Qconst_minus` corner chart，记录在 [zero_single_qconst_corner_certificate_attempt.md]。局部化后只剩一个 bad Bernstein coefficient `-1/784`，但简单 power-basis AM-GM control 不闭合，下一步要做 Bernstein-basis weighted control。
 
 验证已跑：
 
@@ -6181,10 +6201,10 @@ git diff --check
 
 **你主要看这些文件**
 
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)
-- [notes/zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)
-- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md)
+- [research_state.md]
+- [work_orders.md]
+- [notes/zero_single_pc2_reduction.md]
+- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md]
 
 **验证**
 
@@ -6246,8 +6266,8 @@ git diff --check
 
 主要进展：`zero_single` 的 `Qconst_minus` 不再只是“角点附近待证”。我新增并跑通了两个 exact artifact：
 
-- [analyze_zero_single_qconst_corner_eigen_localization.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qconst_corner_eigen_localization.py)
-- [certify_zero_single_qconst_minus_weighted_bernstein.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_zero_single_qconst_minus_weighted_bernstein.py)
+- [analyze_zero_single_qconst_corner_eigen_localization.py]
+- [certify_zero_single_qconst_minus_weighted_bernstein.py]
 
 结论是：四个 angle-corner 坏盒进一步缩到四个 rank-one projector eigenvalue 子盒；最后这四个子盒由 weighted AM-GM/Bernstein 分解闭合。关键证据是每个 case 都满足：
 
@@ -6259,8 +6279,8 @@ remainder_negative_count = 0
 
 输出在：
 
-- [zero_single_qconst_corner_eigen_localization.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qconst_corner_eigen_localization.md)
-- [zero_single_qconst_minus_weighted_bernstein_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qconst_minus_weighted_bernstein_certificate.md)
+- [zero_single_qconst_corner_eigen_localization.md]
+- [zero_single_qconst_minus_weighted_bernstein_certificate.md]
 
 我也更新了中文过程文档和 JSON 状态。当前证明状态变成：
 
@@ -6466,7 +6486,7 @@ git diff --check
 
 本轮继续推进了 `Qplus`，但没有把它误标成已证明。
 
-新增了 [analyze_zero_single_qplus_relative_angle_localization.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_relative_angle_localization.py)，并生成了 [zero_single_qplus_relative_angle_localization.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_relative_angle_localization.md)。结果是：`Qplus D=A^2-uvB^2` 的 dyadic Bernstein 失败区域在 depth `1..3` 精确匹配两条 relative-angle strips：`s=t` 和 `s+t=1`。depth `3` 时 `64` 个 boxes 中闭合 `48` 个，剩余 `16` 个正好落在这两条带上。
+新增了 [analyze_zero_single_qplus_relative_angle_localization.py]，并生成了 [zero_single_qplus_relative_angle_localization.md]。结果是：`Qplus D=A^2-uvB^2` 的 dyadic Bernstein 失败区域在 depth `1..3` 精确匹配两条 relative-angle strips：`s=t` 和 `s+t=1`。depth `3` 时 `64` 个 boxes 中闭合 `48` 个，剩余 `16` 个正好落在这两条带上。
 
 这说明 `Qplus` 不是 `Qconst_minus` 那种 isolated corner problem，不能简单照搬 corner-only weighted Bernstein；下一步应围绕 `s=t` / `s+t=1` 做局部坐标 blow-up、weighted Bernstein 或 determinant-plus-square 证书。`Qplus` 仍是 open，`zero_single` 仍不能升为 theorem。
 
@@ -6592,8 +6612,8 @@ git diff --check clean
 
 这轮推进做了一个更干净的判断门：
 
-- 新增 [search_zero_single_qplus_exact_obstruction.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/search_zero_single_qplus_exact_obstruction.py)
-- 生成 [zero_single_qplus_exact_obstruction_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_exact_obstruction_gate.md)
+- 新增 [search_zero_single_qplus_exact_obstruction.py]
+- 生成 [zero_single_qplus_exact_obstruction_gate.md]
 - exact rational grid 共 `30625` 个点，没有发现 `S11/S22/detS/Qplus` 负值 witness
 - 当前分类是 `certificate_failure_only`
 
@@ -6787,11 +6807,11 @@ git diff --check
 
 #### Assistant final answer — 2026-07-05T12:57:54.437Z
 
-本轮把 `Qplus` 从“只定位到两条 strips”推进了一步：新增了 [certify_zero_single_qplus_strip_boundaries.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_zero_single_qplus_strip_boundaries.py)，并生成 [zero_single_qplus_strip_boundary_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_strip_boundary_certificate.md)。
+本轮把 `Qplus` 从“只定位到两条 strips”推进了一步：新增了 [certify_zero_single_qplus_strip_boundaries.py]，并生成 [zero_single_qplus_strip_boundary_certificate.md]。
 
 结论边界很清楚：`Qplus` 仍没有闭合，但两条 relative-angle strips 本身已经有 exact Bernstein certificate。具体是把 `A` 和 `D=A^2-uvB^2` 限制到 `s=t` 与 `s+t=1` 后，单盒 Bernstein 仍有负系数；但只对 strip parameter `s` 二分一次，四个 restricted components 全部 Bernstein coefficients 非负。
 
-同时刷新了 [zero_single_qplus_exact_obstruction_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_exact_obstruction_gate.md)：`30625` 个 exact rational-grid points 未发现 `S11/S22/detS/Qplus` 负 witness。这个只是 obstruction gate，不是证明。
+同时刷新了 [zero_single_qplus_exact_obstruction_gate.md]：`30625` 个 exact rational-grid points 未发现 `S11/S22/detS/Qplus` 负 witness。这个只是 obstruction gate，不是证明。
 
 已同步：
 `research_state.md`、`work_orders.md`、`notes/zero_single_pc2_reduction.md`、`docs/proof_obligations.*`、`docs/research_state_packet.json`、`docs/work_orders.json`、`RUN_SUMMARY.md`。
@@ -6840,11 +6860,11 @@ git diff --check clean
 
 当前可检查的主线文件：
 
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:1>)：总状态与下一阶段。
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:160>)：WO-5 当前位置。
-- [zero_single_pc2_reduction.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md:1>)：`zero_single / PC-2` 的证明归约。
-- [zero_single_qplus_strip_boundary_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_strip_boundary_certificate.md:1>)：当前最新证书。
-- [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md:1>)：本轮运行汇总。
+- [research_state.md]：总状态与下一阶段。
+- [work_orders.md]：WO-5 当前位置。
+- [zero_single_pc2_reduction.md]：`zero_single / PC-2` 的证明归约。
+- [zero_single_qplus_strip_boundary_certificate.md]：当前最新证书。
+- [RUN_SUMMARY.md]：本轮运行汇总。
 
 证明状态一句话：还没有全局下降函数 / Lyapunov 函数；当前更有希望的是把 length-2 active-set switching 的 Schur/Jury margins 全部用 exact Bernstein / weighted Bernstein 证书闭合。`single_full` 已通过本地 review，`zero_full` 和 `Qconst_minus` 基本有证书待 review，最大缺口是 `zero_single` 的 `Qplus` strip-neighborhood。
 
@@ -7039,7 +7059,7 @@ git diff --check clean
 现在还没有合适的全局下降函数。`projection-only Lyapunov` 仍卡在
 \(\langle B(y^{k+1}-y^k), z^{k+1}-z^k\rangle\) 这个交叉项，不能宣称三块 slack ADMM 已收敛。
 
-这轮推进的是反例/局部谱半径分支里的理论分析，不是数值筛查：我把 `Qplus` 的剩余缺口继续收窄了。新增了 [analyze_zero_single_qplus_strip_neighborhood_charts.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_strip_neighborhood_charts.py)，输出在 [zero_single_qplus_strip_neighborhood_charts.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_strip_neighborhood_charts.md)。
+这轮推进的是反例/局部谱半径分支里的理论分析，不是数值筛查：我把 `Qplus` 的剩余缺口继续收窄了。新增了 [analyze_zero_single_qplus_strip_neighborhood_charts.py]，输出在 [zero_single_qplus_strip_neighborhood_charts.md]。
 
 当前结论：
 
@@ -7048,7 +7068,7 @@ git diff --check clean
 - `D=A^2-uvB^2` 分量还没闭合；depth `2` 时每个 chart 还剩 `5` 个 bad boxes。
 - 所以下一步不是找新下降函数，也不是继续随机实验，而是在这些 `D` bad boxes 上构造 `endpoint-weighted control`；失败时再局部用 `det(sym(I-L))+skew^2` 证书。
 
-我也同步更新了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)、[zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md) 和 RUN_SUMMARY。
+我也同步更新了 [research_state.md]、[work_orders.md]、[zero_single_pc2_reduction.md] 和 RUN_SUMMARY。
 
 验证已过：
 
@@ -7138,11 +7158,11 @@ git diff --check
 
 这轮已经推进到一个新的可复核 checkpoint，但还没有得到完整证明或严格反例。
 
-我新增了 `Qplus` strip-neighborhood 的 normal-coordinate 诊断脚本：[analyze_zero_single_qplus_strip_neighborhood_charts.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_strip_neighborhood_charts.py:29>)。它把 `s=t` 和 `s+t=1` 两条 strip 的两侧拆成四个三角 chart：`diag_lower`、`diag_upper`、`anti_lower`、`anti_upper`。
+我新增了 `Qplus` strip-neighborhood 的 normal-coordinate 诊断脚本：[analyze_zero_single_qplus_strip_neighborhood_charts.py]。它把 `s=t` 和 `s+t=1` 两条 strip 的两侧拆成四个三角 chart：`diag_lower`、`diag_upper`、`anti_lower`、`anti_upper`。
 
-正式输出在：[zero_single_qplus_strip_neighborhood_charts.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_strip_neighborhood_charts.md:1>)。结论是：`A` 分量在四个 chart 上闭合；`D=A^2-u*v*B^2` 分量没有闭合，depth `2` 时每个 chart 仍剩 `5` 个 bad boxes。这不是 closed certificate，但把 `Qplus` 的开放义务从 full two-angle interior 进一步缩到了明确的 chart bad boxes。
+正式输出在：[zero_single_qplus_strip_neighborhood_charts.md]。结论是：`A` 分量在四个 chart 上闭合；`D=A^2-u*v*B^2` 分量没有闭合，depth `2` 时每个 chart 仍剩 `5` 个 bad boxes。这不是 closed certificate，但把 `Qplus` 的开放义务从 full two-angle interior 进一步缩到了明确的 chart bad boxes。
 
-我也同步了中文过程文档：[zero_single_pc2_reduction.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md:305>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:105>)、[proof_obligations.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/proof_obligations.md:33>) 和 [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md:491>)。
+我也同步了中文过程文档：[zero_single_pc2_reduction.md]、[research_state.md]、[proof_obligations.md] 和 [RUN_SUMMARY.md]。
 
 验证结果：
 
@@ -7450,11 +7470,11 @@ git diff --check
 
 这轮新增了一个可复跑 artifact：
 
-[search_zero_single_qplus_endpoint_controls.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/search_zero_single_qplus_endpoint_controls.py)
+[search_zero_single_qplus_endpoint_controls.py]
 
 输出：
 
-[zero_single_qplus_endpoint_control_search.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_endpoint_control_search.md)
+[zero_single_qplus_endpoint_control_search.md]
 
 结论是：
 
@@ -7470,10 +7490,10 @@ git diff --check
 
 已同步更新：
 
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- [zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)
-- [zero_single_relative_angle_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_relative_angle_route.md)
+- [research_state.md]
+- [work_orders.md]
+- [zero_single_pc2_reduction.md]
+- [zero_single_relative_angle_route.md]
 
 校验通过：
 
@@ -7512,7 +7532,7 @@ git diff --check
 
 结论：现在还没有找到可用于原始 direct 三块 ADMM 的全局下降函数。
 
-当前候选在 [notes/candidate_lyapunov.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/candidate_lyapunov.md)：
+当前候选在 [notes/candidate_lyapunov.md]：
 
 \[
 \Phi_k =
@@ -7612,13 +7632,13 @@ git diff --check
 
 新增/纳入的关键 artifact：
 
-- [zero_single_qplus_badbox_endpoint_support.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_badbox_endpoint_support.md:1>)
+- [zero_single_qplus_badbox_endpoint_support.md]
   结论：四个 chart 中每个都有 `707` 个负 Bernstein coefficients，其中 `704` 个落在两个 rank-one endpoint slabs 上，只有 `3` 个是相邻 endpoint index。这支持下一步做 multi-control endpoint-weighted `F=H+R`，不是继续普通 subdivision。
 
-- [search_zero_single_qplus_endpoint_controls.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/search_zero_single_qplus_endpoint_controls.py:132>)
-  已纳入回归链条。它测试简单 endpoint-weighted AM-GM 单控制族，正式输出 [zero_single_qplus_endpoint_control_search.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_endpoint_control_search.md:1>) 显示 `4` 个代表 bad boxes 中没有 feasible scale。这个负结果只说明简单单控制族不足，不是否定 `Qplus`。
+- [search_zero_single_qplus_endpoint_controls.py]
+  已纳入回归链条。它测试简单 endpoint-weighted AM-GM 单控制族，正式输出 [zero_single_qplus_endpoint_control_search.md] 显示 `4` 个代表 bad boxes 中没有 feasible scale。这个负结果只说明简单单控制族不足，不是否定 `Qplus`。
 
-同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:107>)、[zero_single_pc2_reduction.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md:322>)、[proof_obligations.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/proof_obligations.md:32>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:193>) 和 RUN_SUMMARY。
+同步更新了 [research_state.md]、[zero_single_pc2_reduction.md]、[proof_obligations.md]、[work_orders.md] 和 RUN_SUMMARY。
 
 验证：
 
@@ -7666,10 +7686,10 @@ git diff --check
 
 建议你先看这几个文件：
 
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- [notes/zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)
-- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md)
+- [research_state.md]
+- [work_orders.md]
+- [notes/zero_single_pc2_reduction.md]
+- [outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md]
 
 我现在先停，不继续生成新实验或新文档。你看的时候重点判断两个方向：继续补 `Qplus` 的局部证书，还是先把 `single_full / zero_full / Qconst_minus` 做正式 review 和主文档整理。
 
@@ -8005,7 +8025,7 @@ git diff --check
 
 本轮继续推进了证明闭环，但还没有得到完整证明或严格反例。
 
-我新增了 `Qplus D` 的 multi-control 检查脚本：[search_zero_single_qplus_multicontrol_feasibility.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/search_zero_single_qplus_multicontrol_feasibility.py>)。它把代表 bad boxes 写成：
+我新增了 `Qplus D` 的 multi-control 检查脚本：[search_zero_single_qplus_multicontrol_feasibility.py]。它把代表 bad boxes 写成：
 
 \[
 F=\sum_j \gamma_j H_j + R,\quad \gamma_j\ge 0
@@ -8015,12 +8035,12 @@ F=\sum_j \gamma_j H_j + R,\quad \gamma_j\ge 0
 
 运行结果写入：
 
-- [zero_single_qplus_multicontrol_feasibility.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_multicontrol_feasibility.md>)
-- [zero_single_qplus_multicontrol_feasibility.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/zero_single_qplus_multicontrol_feasibility.json>)
+- [zero_single_qplus_multicontrol_feasibility.md]
+- [zero_single_qplus_multicontrol_feasibility.json]
 
 结果：四个代表 bad boxes 使用全部 `78` 个 low-degree angle controls 后，仍是 `0/4` LP feasible boxes、`0/4` exact certificate boxes。这不是反例，只说明当前有限 endpoint-weighted AM-GM multi-control 族不够强。
 
-我也同步更新了中文过程文档和状态索引，包括 [notes/zero_single_relative_angle_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_relative_angle_route.md>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>) 和 `docs/*.json`。
+我也同步更新了中文过程文档和状态索引，包括 [notes/zero_single_relative_angle_route.md]、[research_state.md]、[work_orders.md] 和 `docs/*.json`。
 
 校验已过：
 
@@ -8047,9 +8067,9 @@ git diff --check
 
 新增/更新的核心 artifact：
 
-- [experiments/search_zero_single_qplus_multicontrol_feasibility.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/search_zero_single_qplus_multicontrol_feasibility.py>)
-- [zero_single_qplus_multicontrol_feasibility.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_multicontrol_feasibility.md>)
-- [zero_single_qplus_multicontrol_feasibility.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/zero_single_qplus_multicontrol_feasibility.json>)
+- [experiments/search_zero_single_qplus_multicontrol_feasibility.py]
+- [zero_single_qplus_multicontrol_feasibility.md]
+- [zero_single_qplus_multicontrol_feasibility.json]
 
 结果边界很明确：加入 chart-specific rank-one slab weights 和 top negative endpoint signature weights，并使用全部 `78` 个 low-degree AM-GM angle controls 后，四个代表 bad boxes 仍是 `0/4` LP feasible、`0/4` exact certificate。这个只说明当前有限 `F=sum gamma_j H_j + R` 候选族不足，不是 `Qplus` 反例，也不是收敛证明。
 
@@ -8448,7 +8468,7 @@ git diff --check
 - 扩展了 `zero_single Qplus` 的 local certificate 搜索，加入 `slab_residual_degree` 控制项。
 - 结果：代表性 chart bad boxes 上 LP 仍不可行，说明当前这类 endpoint/slab 控制还不够闭合下降函数。
 - 新增了 determinant-plus-square diagnostic：
-  [experiments/analyze_zero_single_qplus_det_square_badboxes.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_det_square_badboxes.py)
+  [experiments/analyze_zero_single_qplus_det_square_badboxes.py]
 - 结果：在精确有理网格采样里没有看到 `detS < 0`，也没有看到 `Qplus < 0`。这更像是当前 Bernstein/local certificate 太弱，而不是已经发现负例。
 - 中文过程文档和 JSON 状态已同步到 `research_state.md`、`work_orders.md`、`notes/zero_single_pc2_reduction.md`、`docs/*.json` 和本轮 `outputs/wo5_active_set_2026-07-05/`。
 
@@ -8460,10 +8480,10 @@ git diff --check
 - `git diff --check` 干净
 
 **我建议你重点看**
-1. [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-2. [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-3. [zero_single_pc2_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_reduction.md)
-4. [RUN_SUMMARY.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md)
+1. [research_state.md]
+2. [work_orders.md]
+3. [zero_single_pc2_reduction.md]
+4. [RUN_SUMMARY.md]
 
 下一步最自然的是从 “找更复杂 control” 暂时切到 “局部 exact `det(S)` certificate”：先证明 bad boxes 上 `detS >= 0`，若失败再用 `skew_sq` reserve 补偿。这样会比继续普通随机筛查更接近理论证明。
 
@@ -8553,9 +8573,9 @@ git diff --check
 
 本轮新增/更新的核心是：
 
-- 新增 [analyze_zero_single_qplus_local_det_square.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_local_det_square.py>)
-- 生成 [zero_single_qplus_local_det_square.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_local_det_square.md>)
-- 结果 JSON 在 [zero_single_qplus_local_det_square.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/zero_single_qplus_local_det_square.json>)
+- 新增 [analyze_zero_single_qplus_local_det_square.py]
+- 生成 [zero_single_qplus_local_det_square.md]
+- 结果 JSON 在 [zero_single_qplus_local_det_square.json]
 
 结论很明确：
 
@@ -8566,13 +8586,13 @@ git diff --check
 
 我也同步更新了中文过程文档和状态索引：
 
-- [notes/zero_single_relative_angle_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_relative_angle_route.md>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
+- [notes/zero_single_relative_angle_route.md]
+- [research_state.md]
+- [work_orders.md]
 - `docs/research_state_packet.json`
 - `docs/work_orders.json`
 - `docs/proof_obligations.json`
-- [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md>)
+- [RUN_SUMMARY.md]
 
 校验已过：
 
@@ -8973,7 +8993,7 @@ git diff --check
 
 本轮继续推进了 proof 线，不是数值筛查。
 
-新增了 `detS_D` 负 Bernstein support 诊断脚本：[analyze_zero_single_qplus_detS_support.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_detS_support.py:1>)，并生成结果：[zero_single_qplus_detS_support.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_detS_support.md:1>)。
+新增了 `detS_D` 负 Bernstein support 诊断脚本：[analyze_zero_single_qplus_detS_support.py]，并生成结果：[zero_single_qplus_detS_support.md]。
 
 关键结论：四个代表 bad boxes 里，`detS_D` 共 `8017` 个负 Bernstein 系数，其中 `8006` 个精确落在 rank-one endpoint slabs 上，`8007` 个落在 near-slab 上。也就是说，`det(S)` parity gate 还没闭合，但缺口高度集中，不像随机散开的失败。`anti_lower` 是唯一有少量外侧样本的 chart。
 
@@ -8994,8 +9014,8 @@ git diff --check
 
 关键产物：
 
-- [zero_single_qplus_local_det_square.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_local_det_square.md)
-- [zero_single_qplus_detS_support.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_detS_support.md)
+- [zero_single_qplus_local_det_square.md]
+- [zero_single_qplus_detS_support.md]
 - 已同步 `research_state.md`、`work_orders.md`、`RUN_SUMMARY.md`、`notes/zero_single_pc2_reduction.md`、`notes/zero_single_relative_angle_route.md` 和 `docs/*.json`。
 
 验证已过：
@@ -9174,7 +9194,7 @@ git diff --check 干净
 
 你说得对，所以我已经把主线从“继续实验筛查”切回理论证明。
 
-我新增了理论过程文档：[notes/zero_single_qplus_endpoint_slab_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_endpoint_slab_theory.md>)。里面把当前 `Qplus` 缺口整理成引理链，而不是实验列表：
+我新增了理论过程文档：[notes/zero_single_qplus_endpoint_slab_theory.md]。里面把当前 `Qplus` 缺口整理成引理链，而不是实验列表：
 
 - `Qplus = det(sym(I-L)) + skew^2` 的二维恒等式路线
 - relative-angle 零面 `s=t`、`s+t=1`
@@ -9183,7 +9203,7 @@ git diff --check 干净
 - `anti_lower` 单独的 zero-endpoint quarantine 义务
 - 明确规定脚本只做恒等式、分解和 remainder 非负校验
 
-我也同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>) 和 [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md>)，把下一步改成 proof-first：先尝试 square-reserve 直接证明，再做 endpoint-slab 引理，不再回到普通 numerical screen。
+我也同步更新了 [research_state.md]、[work_orders.md] 和 [RUN_SUMMARY.md]，把下一步改成 proof-first：先尝试 square-reserve 直接证明，再做 endpoint-slab 引理，不再回到普通 numerical screen。
 
 当前结论仍是：还没有完整下降函数或完整收敛证明；但现在证明义务已经更清楚，下一轮应该直接推 `Qplus` 的理论分解。验证已跑：`py_compile` 通过，`git diff --check` 干净。
 
@@ -9327,7 +9347,7 @@ git diff --check 干净
 
 现在的状态是：**还没有 proof-grade 的全局下降函数**。
 
-已有候选在 [notes/candidate_lyapunov.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/candidate_lyapunov.md)：
+已有候选在 [notes/candidate_lyapunov.md]：
 
 \[
 \Phi_k=
@@ -9364,7 +9384,7 @@ Qplus=\det(I-L)=\det(\operatorname{sym}(I-L))+K^2 .
 
 这轮已经把主线进一步从“实验/控制族筛查”切到理论证明义务。
 
-新增了 [notes/zero_single_qplus_square_reserve_local_lemma.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_square_reserve_local_lemma.md>)，核心结论是：不要把 `det(S)>=0` 或 `S\succeq0` 当主目标，因为这会丢掉 `Qplus=det(S)+K^2` 里的 `K^2` reserve。下一步应直接尝试四个代表 bad boxes 上的显式有理非负分解：
+新增了 [notes/zero_single_qplus_square_reserve_local_lemma.md]，核心结论是：不要把 `det(S)>=0` 或 `S\succeq0` 当主目标，因为这会丢掉 `Qplus=det(S)+K^2` 里的 `K^2` reserve。下一步应直接尝试四个代表 bad boxes 上的显式有理非负分解：
 
 ```text
 F_B = K_B^2 + sum_j gamma_j W_j C_j + R_B
@@ -9372,7 +9392,7 @@ F_B = K_B^2 + sum_j gamma_j W_j C_j + R_B
 
 并用 exact Bernstein coefficients 证明 `R_B>=0`。
 
-我也同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>) 和 [RUN_SUMMARY.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/RUN_SUMMARY.md>)，让后续循环优先从这个 `square-reserve local lemma` 继续，而不是退回普通 numerical screen 或 single-control 枚举。
+我也同步更新了 [research_state.md]、[work_orders.md] 和 [RUN_SUMMARY.md]，让后续循环优先从这个 `square-reserve local lemma` 继续，而不是退回普通 numerical screen 或 single-control 枚举。
 
 当前状态：还没有完整下降函数，也没有完整 `Qplus` 证明；但证明目标已经收窄到一个可检验的局部引理。验证：`git diff --check` 干净；sidecar 已关闭。
 
@@ -9646,10 +9666,10 @@ F_B = K_B^2 + sum_j gamma_j W_j C_j + R_B
 
 新增/更新了：
 
-- [notes/theory_first_proof_pivot.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/theory_first_proof_pivot.md>)：明确推导出投影可给的真实下降项
+- [notes/theory_first_proof_pivot.md]：明确推导出投影可给的真实下降项
   \(\langle \Delta z^{k+1}, r^{k+1}\rangle \le 0\)，并指出它仍不能直接控制核心交叉项 \(\langle B\Delta y,\Delta z\rangle\)。
-- [knowledge_base/descent_functions/slack_projection_candidate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/knowledge_base/descent_functions/slack_projection_candidate.md>)：把这个 projection gap lemma 和 shifted y-optimality 写进下降函数卡。
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)：记录后续应转向 `zero_single / Qplus` 的 square-reserve 局部分解证明。
+- [knowledge_base/descent_functions/slack_projection_candidate.md]：把这个 projection gap lemma 和 shifted y-optimality 写进下降函数卡。
+- [research_state.md]：记录后续应转向 `zero_single / Qplus` 的 square-reserve 局部分解证明。
 
 结论很明确：全局 projection-only Lyapunov 目前不够；如果不加假设，理论主线应该先证明 active-set reduced products 的 Schur/Jury margins，尤其是 `Qplus` 的显式非负分解。`git diff --check` 已通过。
 
@@ -9705,13 +9725,13 @@ F_B = K_B^2 + sum_j gamma_j W_j C_j + R_B
 
 1. 用 multi-agent sidecar 审查了 `Qplus` 路线，结论是：不要继续把 `detS_D` multi-control 当主线，应先攻 `diag_lower` 代表盒 `(2,1)`，并保留 \(K^2\) square reserve。
 
-2. 新增脚本 [certify_zero_single_qplus_square_reserve_local.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_zero_single_qplus_square_reserve_local.py)，直接测试 `Qplus D` 的局部证书族：
+2. 新增脚本 [certify_zero_single_qplus_square_reserve_local.py]，直接测试 `Qplus D` 的局部证书族：
    - 基础版：`diag_lower` depth-2 盒 `(2,1)`，`112` 个 endpoint / strip-normal controls，LP infeasible。
    - 加强版：normal residual degree `1`、control_limit `16`，`634` 个 controls，仍 LP infeasible。
    - 输出在：
-     [zero_single_qplus_square_reserve_local_attempt.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_square_reserve_local_attempt.md)
+     [zero_single_qplus_square_reserve_local_attempt.md]
      和
-     [zero_single_qplus_square_reserve_local_attempt_stronger.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_square_reserve_local_attempt_stronger.md)。
+     [zero_single_qplus_square_reserve_local_attempt_stronger.md]。
 
 3. 更新了中文过程文档和 JSON 状态，把下一步收窄为：实现显式 \(K_B^2\) / sign-aware square split，而不是继续堆同类 LP controls。
 
@@ -9895,16 +9915,16 @@ git diff --check
 
 这轮我把路线从“继续加 LP controls”推进到了一个理论优先 artifact。
 
-新增了 [analyze_zero_single_qplus_explicit_square_split.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_explicit_square_split.py>)，把 `Qplus=det(sym(I-L))+K^2` 放到共同分母下并 exact 校验：
+新增了 [analyze_zero_single_qplus_explicit_square_split.py]，把 `Qplus=det(sym(I-L))+K^2` 放到共同分母下并 exact 校验：
 
 - `4*C*Qplus_num = detS_num + K_num^2`
 - `4*C*Q_A = S_A + K_A`
 - `4*C*Q_B = S_B + K_B`
 - `K_num = xP(u,v) + yR(u,v)`
 
-输出在 [zero_single_qplus_explicit_square_split.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_explicit_square_split.md>) 和对应 JSON。四个代表盒都导出了 split component summaries。这个不是证明 `Qplus>=0`，但它把下一步从黑盒 `Qplus D` LP 推进到固定 `K_num^2` square source 的 sign-aware remainder 证明。
+输出在 [zero_single_qplus_explicit_square_split.md] 和对应 JSON。四个代表盒都导出了 split component summaries。这个不是证明 `Qplus>=0`，但它把下一步从黑盒 `Qplus D` LP 推进到固定 `K_num^2` square source 的 sign-aware remainder 证明。
 
-同时更新了 [zero_single_qplus_square_reserve_local_lemma.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_square_reserve_local_lemma.md>)，明确下一步 certificate 脚本必须消费 split components，且 `K_B^2` 系数固定为 `1`，不能交给 LP 选择。
+同时更新了 [zero_single_qplus_square_reserve_local_lemma.md]，明确下一步 certificate 脚本必须消费 split components，且 `K_B^2` 系数固定为 `1`，不能交给 LP 选择。
 
 校验已跑：
 
@@ -10154,7 +10174,7 @@ F_{B,\sigma}=K_{B,\sigma}^2+\sum_j\gamma_j W_jC_j+R_{B,\sigma},
 
 继续推进了一步理论线，不是实验筛查。
 
-这轮新增了 [certify_zero_single_qplus_partial_square_remainder.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_zero_single_qplus_partial_square_remainder.py>)，把上一轮的 explicit split 接进第一个 sign-aware local gate：
+这轮新增了 [certify_zero_single_qplus_partial_square_remainder.py]，把上一轮的 explicit split 接进第一个 sign-aware local gate：
 
 \[
 Qplus_{\rm common}=\alpha K_{\rm num}^2+R_\alpha,\quad
@@ -10167,7 +10187,7 @@ R_\alpha=\det(S)_{\rm common}+(1-\alpha)K_{\rm num}^2.
 - `D_alpha=A_alpha^2-uvB_alpha^2` 的 exact Bernstein 负系数：`1738`
 - 结论：没有得到局部证书；这只排除 `alpha=1/2` 的无-control partial-square split，不是反例。
 
-输出在 [zero_single_qplus_partial_square_remainder_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_partial_square_remainder_gate.md>)。我也更新了 `research_state.md`、`work_orders.md`、`RUN_SUMMARY.md` 和 `notes/zero_single_qplus_square_reserve_local_lemma.md`。
+输出在 [zero_single_qplus_partial_square_remainder_gate.md]。我也更新了 `research_state.md`、`work_orders.md`、`RUN_SUMMARY.md` 和 `notes/zero_single_qplus_square_reserve_local_lemma.md`。
 
 校验已过：
 
@@ -10341,9 +10361,9 @@ git diff --check
 
 本轮把 `Qplus` 的下一步从 partial-square 版本推进到更干净的 sign-aware fixed-source gate：
 
-- 新脚本：[certify_zero_single_qplus_sign_aware_square_gate.py](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_zero_single_qplus_sign_aware_square_gate.py)
-- 新报告：[zero_single_qplus_sign_aware_square_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_sign_aware_square_gate.md)
-- 新 JSON：[zero_single_qplus_sign_aware_square_gate.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/zero_single_qplus_sign_aware_square_gate.json)
+- 新脚本：[certify_zero_single_qplus_sign_aware_square_gate.py]
+- 新报告：[zero_single_qplus_sign_aware_square_gate.md]
+- 新 JSON：[zero_single_qplus_sign_aware_square_gate.json]
 
 数学上现在的 gate 是：
 
@@ -10492,12 +10512,12 @@ git diff --check
 
 我做了这些：
 
-- 新增 [proof_reviews/qplus_theory_rebalance](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/qplus_theory_rebalance>)，包含 `proof_blueprint.md`、`verification_report.json`、`repair_hints.md`、`acceptance_gate.md`。
+- 新增 [proof_reviews/qplus_theory_rebalance]，包含 `proof_blueprint.md`、`verification_report.json`、`repair_hints.md`、`acceptance_gate.md`。
 - 明确当前全局 Lyapunov 线仍卡在 \(\langle B\Delta y,\Delta z\rangle\)，不能声称完整下降函数已经找到。
 - 把当前主对象对齐到最新的 fixed-source gate：证明 \(G=D_F-D_K\) 的 endpoint / strip-normal 分解，而不是继续围绕旧的 \(D_\alpha\) 打转。
-- 写入 [current_gate_alignment.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/qplus_theory_rebalance/current_gate_alignment.md>)，区分 predecessor \(D_\alpha\) 和当前 \(G=D_F-D_K\)。
-- 写入 [endpoint_slab_attempt.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/qplus_theory_rebalance/endpoint_slab_attempt.md>)：端面 direct Bernstein 和一次 bisection 都不闭合，所以下一步不能机械 subdivision，要找 restricted-face quotient / boundary-zero factor。
-- 同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)、[zero_single_qplus_square_reserve_local_lemma.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_square_reserve_local_lemma.md>) 和 run summary。
+- 写入 [current_gate_alignment.md]，区分 predecessor \(D_\alpha\) 和当前 \(G=D_F-D_K\)。
+- 写入 [endpoint_slab_attempt.md]：端面 direct Bernstein 和一次 bisection 都不闭合，所以下一步不能机械 subdivision，要找 restricted-face quotient / boundary-zero factor。
+- 同步更新了 [research_state.md]、[work_orders.md]、[zero_single_qplus_square_reserve_local_lemma.md] 和 run summary。
 
 当前证明状态：还没有完整证明，也没有严格反例。最合理下一步是对 \(G=D_F-D_K\) 本身做 restricted-face quotient 推导。
 
@@ -10699,10 +10719,10 @@ git diff --check
 
 继续推进了理论线，不是继续堆实验。
 
-这轮新增并跑通了 [experiments/analyze_zero_single_qplus_fixed_remainder_faces.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_fixed_remainder_faces.py>)，专门检查当前主对象 \(G=D_F-D_K\) 的 endpoint restricted faces。输出在：
+这轮新增并跑通了 [experiments/analyze_zero_single_qplus_fixed_remainder_faces.py]，专门检查当前主对象 \(G=D_F-D_K\) 的 endpoint restricted faces。输出在：
 
-- [zero_single_qplus_fixed_remainder_faces.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_fixed_remainder_faces.md>)
-- [zero_single_qplus_fixed_remainder_faces.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/zero_single_qplus_fixed_remainder_faces.json>)
+- [zero_single_qplus_fixed_remainder_faces.md]
+- [zero_single_qplus_fixed_remainder_faces.json]
 
 关键进展：
 
@@ -10759,7 +10779,7 @@ git diff --check
 
 这轮继续推进了证明线，主要结论是：`Qplus` 还没闭合，但我们排除了一条自然但错误的提升路线。
 
-新增了 [joint_edge_quotient_obstruction.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/qplus_theory_rebalance/joint_edge_quotient_obstruction.md>)，记录：
+新增了 [joint_edge_quotient_obstruction.md]，记录：
 
 - 当前对象仍是 \(G=D_F-D_K\)。
 - 两条 joint lower strip edges 上，\(G(a,1)\) 都含有 \((3a-2)^2\)。
@@ -10974,8 +10994,8 @@ G_{\rm edge}(a,r)=-\frac{(ar+5a+2r-6)^2}{2^{28}}P(a,r)
 
 已写入：
 
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_joint_edge_factor_lemma.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_qplus_joint_edge_factor_lemma.md)
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_fixed_remainder_faces.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_fixed_remainder_faces.md)
+- [<PROJECT_WORKSPACE>/notes/zero_single_qplus_joint_edge_factor_lemma.md]
+- [<PROJECT_WORKSPACE>/outputs/wo5_active_set_2026-07-05/zero_single_qplus_fixed_remainder_faces.md]
 
 同步更新了 `research_state.md`、`work_orders.md` 和 `proof_reviews/qplus_theory_rebalance/`。当前下一步不是再做普通 screen，而是把这个平方因子 \(ar+5a+2r-6\) 从 joint edge 向 single-zero edge / endpoint face 做 lift。
 
@@ -11225,11 +11245,11 @@ G_{\rm edge}(a,r)=-\frac{(ar+5a+2r-6)^2}{2^{28}}P(a,r)
    \[
    G_{\rm face}=-(ar+5a+2r-6)^2P/2^{28},\quad -P\ge0
    \]
-   已写入 [zero_single_qplus_endpoint_face_factor_lemma.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_endpoint_face_factor_lemma.md>)。
+   已写入 [zero_single_qplus_endpoint_face_factor_lemma.md]。
 
-2. 证明这个 face 因子不能机械推广到完整 6D local box：`1886` 个 tail groups 中 `1812` 个不能被 \((ar+5a+2r-6)^2\) 整除。报告在 [zero_single_qplus_fixed_remainder_faces.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_fixed_remainder_faces.md>)。
+2. 证明这个 face 因子不能机械推广到完整 6D local box：`1886` 个 tail groups 中 `1812` 个不能被 \((ar+5a+2r-6)^2\) 整除。报告在 [zero_single_qplus_fixed_remainder_faces.md]。
 
-3. 做了 face-to-interior 的第一道 Hermite gate：`m2=1,n1=1` face 的两个一阶 normal quotients 有 exact 负值 witness，所以简单 \(A,B,H\ge0\) 的 Hermite lift 不能作为主线。已写入 [zero_single_qplus_face_to_interior_hermite_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_face_to_interior_hermite_gate.md>)。
+3. 做了 face-to-interior 的第一道 Hermite gate：`m2=1,n1=1` face 的两个一阶 normal quotients 有 exact 负值 witness，所以简单 \(A,B,H\ge0\) 的 Hermite lift 不能作为主线。已写入 [zero_single_qplus_face_to_interior_hermite_gate.md]。
 
 sidecar 审查建议也已吸收：下一步转向 `top-slice endpoint-face lift` 或 `paired-slab AM-GM block`，而不是 full 6D 直接除因子或简单 Hermite lift。
 
@@ -11373,19 +11393,19 @@ sidecar 审查建议也已吸收：下一步转向 `top-slice endpoint-face lift
 
 已新增/更新的核心结果：
 
-- [zero_single_qplus_top_slice_lift_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_top_slice_lift_certificate.md>)
+- [zero_single_qplus_top_slice_lift_certificate.md]
   证明 `diag_lower (2,1)` 可由
   \[
   G=m_1^2n_2^2C_{12}+m_2^2n_1^2C_{21}+R_2,\quad R_2\ge0
   \]
   闭合，`R2` 的 exact Bernstein 负系数为 `0`。
 
-- [zero_single_qplus_top_slice_representative_extension.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_top_slice_representative_extension.md>)
+- [zero_single_qplus_top_slice_representative_extension.md]
   扩展检查结果：
   `diag_lower (2,1)`、`diag_upper (2,1)`、`anti_upper (2,1)` 都由 \(p=2,\gamma=1\) top-slice 证书闭合。
   `anti_lower (0,0)` 仍开放，最好结果是 \(p=4,\gamma=1\)，还剩 `21` 个负 Bernstein 系数。
 
-- 新脚本：[analyze_zero_single_qplus_top_slice_lift.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_top_slice_lift.py>)
+- 新脚本：[analyze_zero_single_qplus_top_slice_lift.py]
   用来复现这些 top-slice lift gates。
 
 当前证明状态：`Qplus` 还没完全闭合，但剩余义务已经明显收窄到 `anti_lower` 的 zero-endpoint quarantine / paired-slab AM-GM 补偿。没有发现严格反例，也没有把任何 numerical screen 当反例。
@@ -11528,13 +11548,13 @@ sidecar 审查建议也已吸收：下一步转向 `top-slice endpoint-face lift
 
 你这个感觉是对的，所以我这轮已经把主线从“继续实验筛查”切回理论证明分解了。
 
-我新增了中文过程文档：[zero_single_qplus_anti_lower_quarantine_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_quarantine_theory.md:1>)。核心进展是：`anti_lower` 剩下的 21 个负 Bernstein support 全部定位到 \(m_2=n_2=0\)、低 \(a,r\)、高 \(m_1,n_1\) 的 corner。然后把它改写成理论义务：
+我新增了中文过程文档：[zero_single_qplus_anti_lower_quarantine_theory.md]。核心进展是：`anti_lower` 剩下的 21 个负 Bernstein support 全部定位到 \(m_2=n_2=0\)、低 \(a,r\)、高 \(m_1,n_1\) 的 corner。然后把它改写成理论义务：
 \[
 F=F(a,0)+F(0,r)+arH,\quad F(a,0)=aQ,\quad F(0,r)=rP
 \]
 其中 \(P,Q\) 已能由 exact Bernstein 闭合，但直接 \(H\ge0\) 失败，所以后面要证明 \(s=1-m_1\)、\(t=1-n_1\) 两个 single-high-end face sublemmas，再做 paired-slab/top-slice lift。
 
-我也同步更新了当前状态：[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:159>) 和 [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:214>)。
+我也同步更新了当前状态：[research_state.md] 和 [work_orders.md]。
 验证：`git diff --check` 干净。没有跑 full pytest。当前仍不是完整 `Qplus` 证明，也不是严格反例；但剩余证明义务已经明显更理论化、更窄了。
 
 > **Assistant working update — 2026-07-05T20:35:25.614Z**
@@ -11645,8 +11665,8 @@ F=F(a,0)+F(0,r)+arH,\quad F(a,0)=aQ,\quad F(0,r)=rP
 
 本轮继续推进了理论证明线，而不是普通实验筛查。
 
-新增并运行了 [analyze_zero_single_qplus_anti_lower_quarantine.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_anti_lower_quarantine.py:1>)，生成了：
-[zero_single_qplus_anti_lower_quarantine_faces.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_anti_lower_quarantine_faces.md:1>) 和对应 JSON。
+新增并运行了 [analyze_zero_single_qplus_anti_lower_quarantine.py]，生成了：
+[zero_single_qplus_anti_lower_quarantine_faces.md] 和对应 JSON。
 
 关键结果：`anti_lower` 剩余义务进一步收窄为
 \[
@@ -11655,7 +11675,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 其中 \(S,T\) 的 \(a=0\)、\(r=0\) 边界，以及边界再除 \(r/a\) 后的 quotient 都已闭合；但 \(S,T\) 本身还没闭合，朴素 \(a/r\) Hermite reserve 也失败。因此下一步应该找 quotient-level 专用分解或 paired-slab AM-GM block，不应回到普通随机筛查。
 
 已同步更新：
-[zero_single_qplus_anti_lower_quarantine_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_quarantine_theory.md:1>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:159>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:214>)。
+[zero_single_qplus_anti_lower_quarantine_theory.md]、[research_state.md]、[work_orders.md]。
 
 验证通过：`py_compile`、新 JSON 的 `json.tool`、`git diff --check`。没有跑 full pytest。当前仍不是完整 `Qplus` 证明，也不是严格反例。
 
@@ -11847,8 +11867,8 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 这轮有实质推进：`anti_lower` 不只是“定位到 corner”，现在已经闭合了一个重要 residual 分支。
 
-新增/扩展了 [analyze_zero_single_qplus_anti_lower_quarantine.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_anti_lower_quarantine.py:1>)，并重生成：
-[zero_single_qplus_anti_lower_quarantine_faces.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_anti_lower_quarantine_faces.md:1>)。
+新增/扩展了 [analyze_zero_single_qplus_anti_lower_quarantine.py]，并重生成：
+[zero_single_qplus_anti_lower_quarantine_faces.md]。
 
 关键结果：
 
@@ -11861,7 +11881,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
   在 `p=2` 时 residual negative count 为 `0`，所以 top-slice residual `R4` 已闭合。
 - 但完整 `anti_lower` 还没闭合，因为 `R4` 是减去 top-slice endpoint controls 后的 residual；下一步要证明这些 endpoint controls 非负，或者换成 controls 已闭合的分解。
 
-已同步更新 [zero_single_qplus_anti_lower_quarantine_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_quarantine_theory.md:1>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:159>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:214>)。
+已同步更新 [zero_single_qplus_anti_lower_quarantine_theory.md]、[research_state.md]、[work_orders.md]。
 
 验证通过：`py_compile`、新 JSON 的 `json.tool`、`git diff --check`。没有跑 full pytest。当前仍不是完整 `Qplus` 证明，也不是严格反例。
 
@@ -11985,8 +12005,8 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 这轮继续往证明闭环推进，主要处理 `anti_lower` 剩余的 endpoint controls。
 
-新增了 [analyze_zero_single_qplus_anti_lower_endpoint_controls.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_anti_lower_endpoint_controls.py:1>)，生成：
-[zero_single_qplus_anti_lower_endpoint_controls.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_anti_lower_endpoint_controls.md:1>)。
+新增了 [analyze_zero_single_qplus_anti_lower_endpoint_controls.py]，生成：
+[zero_single_qplus_anti_lower_endpoint_controls.md]。
 
 当前结论更精确了：
 
@@ -11996,7 +12016,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 - 失败集中在 \(y=a/r\in[3/4,1]\) 的 relative-angle strip；对角边界 \(y=1\) 已闭合。
 - 所以下一步不是继续普通二分，而是处理这个 relative-angle strip，或换一个 controls 已闭合的分解。
 
-我也把这个状态同步到了 [zero_single_qplus_anti_lower_quarantine_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_quarantine_theory.md:1>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:159>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:214>)。
+我也把这个状态同步到了 [zero_single_qplus_anti_lower_quarantine_theory.md]、[research_state.md]、[work_orders.md]。
 
 验证通过：两个新/改脚本 `py_compile`、两个 JSON 的 `json.tool`、`git diff --check`。没有跑 full pytest。当前仍不是完整 `Qplus` 证明，也不是严格反例。
 
@@ -12078,7 +12098,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 具体做了：
 
-- 扩展 [analyze_zero_single_qplus_anti_lower_endpoint_controls.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_zero_single_qplus_anti_lower_endpoint_controls.py:1>)。
+- 扩展 [analyze_zero_single_qplus_anti_lower_endpoint_controls.py]。
 - 对两个 endpoint controls 的剩余 strip 做 \(z=1-y\) 变换。
 - 证明：
   - \(z\ge 1/4\) 外侧区域 Bernstein negative count 为 `0`；
@@ -12091,10 +12111,10 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
   所以 `anti_lower / depth-2 box (0,0)` 已有完整局部证书。
 
 已同步更新：
-[zero_single_qplus_anti_lower_endpoint_controls.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/zero_single_qplus_anti_lower_endpoint_controls.md:1>)、
-[zero_single_qplus_anti_lower_quarantine_theory.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_quarantine_theory.md:1>)、
-[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:159>)、
-[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:214>)。
+[zero_single_qplus_anti_lower_endpoint_controls.md]、
+[zero_single_qplus_anti_lower_quarantine_theory.md]、
+[research_state.md]、
+[work_orders.md]。
 
 验证通过：`py_compile`、两个 JSON 的 `json.tool`、`git diff --check`。没有跑 full pytest。
 
@@ -12180,9 +12200,9 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 可以，而且你这个感觉是对的。现在我已经把路线从“继续实验筛查”改成了 proof-first：
 
-- 新增中文理论文档：[notes/zero_single_qplus_depth2_covering_blueprint.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_qplus_depth2_covering_blueprint.md)
-- 新增 proof review artifacts：[proof_reviews/qplus_depth2_covering/](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/qplus_depth2_covering)
-- 同步更新了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md) 和 [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
+- 新增中文理论文档：[notes/zero_single_qplus_depth2_covering_blueprint.md]
+- 新增 proof review artifacts：[proof_reviews/qplus_depth2_covering/]
+- 同步更新了 [research_state.md] 和 [work_orders.md]
 
 现在理论状态更清楚了：全局 Lyapunov 线目前只得到投影项
 \(\langle \Delta z^{k+1}, r^{k+1}\rangle \le 0\)，但还控制不了 \(\langle B\Delta y,\Delta z\rangle\)，所以不能硬写成收敛证明。更可推进的是 `Qplus` 分支：四个代表盒已经有局部证书，但 depth-2 一共有 20 个 bad boxes，目前只覆盖了 4 个，剩下 16 个需要 `chart-box transport lemma` 或逐盒局部分解证书。
@@ -12638,10 +12658,10 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 已暂停在当前节点，并把现有结果整理到文件里。关键修正是：我核对磁盘证据后发现 `anti_upper (3,0)` 已经有 mirrored quarantine 证书，所以当前不是 `15/20`，而是 `16/20` 已闭合；剩余只剩 `anti_lower` 四个盒子：`(0,1)`, `(1,1)`, `(1,2)`, `(1,3)`。
 
 已更新：
-- [PAUSE_SUMMARY_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/PAUSE_SUMMARY_2026-07-06.md>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
-- [proof_obligation_patches.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/qplus_depth2_covering/proof_obligation_patches.json>)
+- [PAUSE_SUMMARY_2026-07-06.md]
+- [research_state.md]
+- [work_orders.md]
+- [proof_obligation_patches.json]
 
 边界也写清楚了：这仍是 `PC-2 zero_single / Qplus` 的局部 covering lemma，不是完整 ADMM 收敛证明，也没有严格反例。全局 Lyapunov 线仍卡在 `<B Δy, Δz>` 交叉项。
 
@@ -12753,10 +12773,10 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 新增/更新的关键过程文档：
 
-- [diag_lower covering](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_diag_lower_depth2_covering.md>)
-- [diag_upper covering](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_diag_upper_depth2_covering.md>)
-- [anti_upper covering](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_upper_depth2_covering.md>)
-- [anti_lower covering](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_single_qplus_anti_lower_depth2_covering.md>)
+- [diag_lower covering]
+- [diag_upper covering]
+- [anti_upper covering]
+- [anti_lower covering]
 
 新增了两个 verifier/analysis 脚本：
 
@@ -12871,9 +12891,9 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 可以，已经停在一个清楚的暂停点。
 
-当前整理后的结论是：`PC-2 zero_single / Qplus` 的 depth-2 covering lemma 已经从 `16/20` 推到 `20/20`，并通过本地 assembly review。暂停汇总在 [PAUSE_SUMMARY_2026-07-06.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/PAUSE_SUMMARY_2026-07-06.md:1)，核心表在第 18 行附近；总装审查在 [zero_single_qplus_depth2_covering_assembly_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_qplus_depth2_covering_assembly_review.md:1)，状态是 `theorem`。
+当前整理后的结论是：`PC-2 zero_single / Qplus` 的 depth-2 covering lemma 已经从 `16/20` 推到 `20/20`，并通过本地 assembly review。暂停汇总在 [PAUSE_SUMMARY_2026-07-06.md]，核心表在第 18 行附近；总装审查在 [zero_single_qplus_depth2_covering_assembly_review.md]，状态是 `theorem`。
 
-但边界也很明确：这不是完整 ADMM 收敛证明，也不是严格反例。全局 Lyapunov/下降函数路线仍然卡在 `\<B Δy, Δz\>` 交叉项，不能把 projection-only 论证写成收敛证明。当前 verifier verdict 是 `correct_for_depth2_covering_lemma`，见 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/qplus_depth2_covering/verification_report.json:1)。
+但边界也很明确：这不是完整 ADMM 收敛证明，也不是严格反例。全局 Lyapunov/下降函数路线仍然卡在 `\<B Δy, Δz\>` 交叉项，不能把 projection-only 论证写成收敛证明。当前 verifier verdict 是 `correct_for_depth2_covering_lemma`，见 [verification_report.json]。
 
 我还做了两件收尾：
 
@@ -13048,10 +13068,10 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 现在状态已经从“`Qplus depth-2 covering lemma` 完成”推进到：
 
-1. `PC-2 zero_single / Qplus` 已接回 full-chain，见 [zero_single_qplus_full_chain_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_qplus_full_chain_review.md:1)。
-2. `Qconst_minus` 已补独立 proof review，见 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/zero_single_qconst_minus/verification_report.json:1)。
-3. `PC-2 zero_single` canonical representative 已总装为 local theorem，见 [zero_single_pc2_full_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_pc2_full_review.md:1)。
-4. `PC-0` symmetry / reverse-order reduction 已 review，并进一步把 `zero_single` 推广到 ordered class，见 [zero_single_ordered_class_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/zero_single_ordered_class_review.md:1)。
+1. `PC-2 zero_single / Qplus` 已接回 full-chain，见 [zero_single_qplus_full_chain_review.md]。
+2. `Qconst_minus` 已补独立 proof review，见 [verification_report.json]。
+3. `PC-2 zero_single` canonical representative 已总装为 local theorem，见 [zero_single_pc2_full_review.md]。
+4. `PC-0` symmetry / reverse-order reduction 已 review，并进一步把 `zero_single` 推广到 ordered class，见 [zero_single_ordered_class_review.md]。
 
 边界仍然清楚：这不是全局 ADMM 收敛证明，也不是严格反例。当前只是二维 reduced PSD-contraction length-2 里 `zero_single` ordered class 的局部 spectral nonexpansion theorem。`zero_full` 还需要 review，`single_single` 还需要补 cubic Jury/Bernstein 证明。
 
@@ -13099,7 +13119,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 已暂停在一个清晰边界：`zero_single ordered class` 已通过 review，`zero_full` 有 exact certificate 但待 review，`single_single` 仍开放。
 
-我已经整理成中文过程文档：[notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md:1>)，并把它挂进 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:24>) 的 Source Of Truth。
+我已经整理成中文过程文档：[notes/pause_summary_2026-07-06.md]，并把它挂进 [research_state.md] 的 Source Of Truth。
 
 当前结论很明确：还没有全局下降函数、没有严格反例；理论进展主要是 length-2 active-set switching 的局部证明链，已闭合 `single_full` 和 `zero_single`，下一步最小理论任务是 review `zero_full`，再攻 `single_single`。
 
@@ -13241,11 +13261,11 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 本轮继续推进了一步理论闭环。
 
-已把 `zero_full` 从“待 review”升级为本地 theorem：新增 [notes/zero_full_pc1_full_review.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/zero_full_pc1_full_review.md:1>)、[proof_reviews/zero_full_pc1/verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/zero_full_pc1/verification_report.json:1>)，并用 `PC-0` 反序谱归约接受了 `zero_full` ordered class：[proof_reviews/zero_full_ordered_class/verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/zero_full_ordered_class/verification_report.json:1>)。
+已把 `zero_full` 从“待 review”升级为本地 theorem：新增 [notes/zero_full_pc1_full_review.md]、[proof_reviews/zero_full_pc1/verification_report.json]，并用 `PC-0` 反序谱归约接受了 `zero_full` ordered class：[proof_reviews/zero_full_ordered_class/verification_report.json]。
 
-随后进入 `single_single`。新增 [notes/single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:1>)：确认它不能走 `zero_*` 的 quadratic route，必须走 cubic Jury；本地符号探针显示五个 margins 都有 `A(u,v)+xyB(u,v)` parity gate，其中 `Jconst_minus/Jconst_plus` 的 first Bernstein gate 已直接闭合，`Jplus/Jminus/Jmid` 仍需分解或 localization。没有发现严格反例压力。
+随后进入 `single_single`。新增 [notes/single_single_pc3_route.md]：确认它不能走 `zero_*` 的 quadratic route，必须走 cubic Jury；本地符号探针显示五个 margins 都有 `A(u,v)+xyB(u,v)` parity gate，其中 `Jconst_minus/Jconst_plus` 的 first Bernstein gate 已直接闭合，`Jplus/Jminus/Jmid` 仍需分解或 localization。没有发现严格反例压力。
 
-状态文件也已同步：[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:45>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:232>)、[notes/length2_pair_class_consolidation.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length2_pair_class_consolidation.md:24>)。
+状态文件也已同步：[research_state.md]、[work_orders.md]、[notes/length2_pair_class_consolidation.md]。
 
 验证已跑：
 `json.tool` 全部通过；`git diff --check` 干净；`pytest` 的 zero_full 证书测试通过。当前仍不能声明全局 ADMM 收敛或严格反例；下一步最合理的是把 `single_single` parity/first Bernstein gate 固化成脚本化 certificate。
@@ -13369,17 +13389,17 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 这轮完成两件事：
 
 1. 闭合 `single_single` 的两个 constant cubic Jury margins：
-   - 新脚本：[experiments/certify_single_single_jconst_margins.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_single_single_jconst_margins.py:1>)
-   - 输出：[single_single_jconst_margins_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jconst_margins_certificate.md:1>)
-   - Review：[proof_reviews/single_single_jconst_margins/verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/single_single_jconst_margins/verification_report.json:1>)
+   - 新脚本：[experiments/certify_single_single_jconst_margins.py]
+   - 输出：[single_single_jconst_margins_certificate.md]
+   - Review：[proof_reviews/single_single_jconst_margins/verification_report.json]
    - 结论：`1-a3>=0` 和 `1+a3>=0` 已通过 exact Bernstein gate。
 
 2. 推进 `Jminus`：
-   - 新脚本：[experiments/analyze_single_single_jminus_support.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_single_single_jminus_support.py:1>)
-   - 输出：[single_single_jminus_support_analysis.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jminus_support_analysis.md:1>)
+   - 新脚本：[experiments/analyze_single_single_jminus_support.py]
+   - 输出：[single_single_jminus_support_analysis.md]
    - 发现：`A` 已无负 Bernstein 系数；`D=A^2-uvB^2` 只剩 `8` 个负系数，全部集中在 `m1,m2,n1,n2` 的 rank-one projector boundary，值全为 `-11/8`。这是 certificate gap，不是反例。
 
-状态已同步到 [notes/single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:1>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:82>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:182>)。
+状态已同步到 [notes/single_single_pc3_route.md]、[research_state.md]、[work_orders.md]。
 
 验证已跑：
 `json.tool` 全部通过；`git diff --check` 干净；两个新脚本都复跑并与已生成 Markdown/JSON 逐字一致。下一步最合理的是解释 `Jminus` 的 rank-one projector boundary 负 support，或者转向 `Jplus` boundary factorization。
@@ -13492,11 +13512,11 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 已找好暂停点，并把现有结果整理进仓库文档。
 
-主要更新在 [notes/pause_summary_2026-07-06.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md:7)：现在顶部有“当前暂停点快照”，明确写了已闭合部分、开放义务和恢复指令。当前结论是：`single_full`、`zero_full`、`zero_single` 已有本地 review 支撑；`single_single` 是 `SC-1` 前唯一最小开放义务。
+主要更新在 [notes/pause_summary_2026-07-06.md]：现在顶部有“当前暂停点快照”，明确写了已闭合部分、开放义务和恢复指令。当前结论是：`single_full`、`zero_full`、`zero_single` 已有本地 review 支撑；`single_single` 是 `SC-1` 前唯一最小开放义务。
 
-同步更新了 [notes/single_single_pc3_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:107)：`Jconst` 已闭合，`Jminus` 的 rank-one boundary 子问题已闭合，下一步是 `Jminus` boundary-to-interior lift；若卡住，再转 `Jplus` boundary factorization，最后处理 `Jmid`。
+同步更新了 [notes/single_single_pc3_route.md]：`Jconst` 已闭合，`Jminus` 的 rank-one boundary 子问题已闭合，下一步是 `Jminus` boundary-to-interior lift；若卡住，再转 `Jplus` boundary factorization，最后处理 `Jmid`。
 
-新证据报告也已转成中文过程文档：[outputs/wo5_active_set_2026-07-05/single_single_jminus_rank_one_boundary_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jminus_rank_one_boundary_certificate.md:1)。它只证明四个 rank-one projector boundary vertices，不证明完整六维 `Jminus`，更不证明全局 ADMM 收敛。
+新证据报告也已转成中文过程文档：[outputs/wo5_active_set_2026-07-05/single_single_jminus_rank_one_boundary_certificate.md]。它只证明四个 rank-one projector boundary vertices，不证明完整六维 `Jminus`，更不证明全局 ADMM 收敛。
 
 验证已做：重新生成 `Jminus` boundary 证据；新 JSON 通过 `json.tool`；`git diff --check` 干净；并额外对这次涉及的 untracked 文件做了 `git diff --no-index --check` whitespace 检查，干净。
 
@@ -13730,20 +13750,20 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 新增了 full-domain 证书脚本和报告：
 
-- [certify_single_single_jminus_full_domain.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_single_single_jminus_full_domain.py>)
-- [single_single_jminus_full_domain_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jminus_full_domain_certificate.md>)
-- [proof_reviews/single_single_jminus_full_domain](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/single_single_jminus_full_domain/verification_summary.md>)
+- [certify_single_single_jminus_full_domain.py]
+- [single_single_jminus_full_domain_certificate.md]
+- [proof_reviews/single_single_jminus_full_domain]
 
 结论边界是：`single_single` canonical representative 的 `Jminus` margin 已由 exact Bernstein 证书闭合；但这还不是完整 `single_single` cubic Jury certificate，也不是 `SC-1`，更不是全局 ADMM 收敛证明。
 
 同时启动了下一项 `Jplus`：
 
-- [analyze_single_single_jplus_support.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_single_single_jplus_support.py>)
-- [single_single_jplus_support_analysis.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_support_analysis.md>)
+- [analyze_single_single_jplus_support.py]
+- [single_single_jplus_support_analysis.md]
 
 `Jplus A` 已通过 `(s,t)` depth-1 dyadic probe 闭合；当前最小缺口变成 `Jplus D=A^2-uvB^2` 的四个 `(s,t)` 子盒，每个还剩 `126` 个 boundary-supported negative Bernstein coefficients。下一步应只做 `Jplus D` 的 boundary factorization / endpoint controls，然后再处理 `Jmid`。
 
-已同步更新 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)、[notes/single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md>) 和暂停摘要。
+已同步更新 [research_state.md]、[work_orders.md]、[notes/single_single_pc3_route.md] 和暂停摘要。
 
 验证：新 JSON 均通过 `json.tool`，相关脚本通过 `py_compile`，`git diff --check` 干净，untracked 文件也做了 whitespace check。
 
@@ -13903,10 +13923,10 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 我更新了这些位置：
 
-- [pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md:7>)：顶部暂停快照已改成当前真实状态。
-- [single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:229>)：新增 `Jplus Bad-Box Face Diagnostics` 小节。
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:176>)：source-of-truth 和下一步同步到 endpoint-paired boundary factorization。
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:232>)：WO-5 恢复点更新为先做 `Jplus D`，不要回普通 numerical screen。
+- [pause_summary_2026-07-06.md]：顶部暂停快照已改成当前真实状态。
+- [single_single_pc3_route.md]：新增 `Jplus Bad-Box Face Diagnostics` 小节。
+- [research_state.md]：source-of-truth 和下一步同步到 endpoint-paired boundary factorization。
+- [work_orders.md]：WO-5 恢复点更新为先做 `Jplus D`，不要回普通 numerical screen。
 
 验证已跑：相关 JSON 全部通过 `json.tool`，三个相关 Python 脚本通过 `py_compile`，`git diff --check` 干净，更新文档没有行尾空白。两个 sidecar agent 也已关闭。
 
@@ -14170,11 +14190,11 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 已写入：
 
-- [single_single_jplus_bad_vertex_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_bad_vertex_certificate.md:1>)
-- [single_single_jplus_endpoint_candidate_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_endpoint_candidate_gate.md:1>)
-- [single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:270>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:182>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:232>)
+- [single_single_jplus_bad_vertex_certificate.md]
+- [single_single_jplus_endpoint_candidate_gate.md]
+- [single_single_pc3_route.md]
+- [research_state.md]
+- [work_orders.md]
 
 当前最小开放义务进一步收窄为：闭合 `16` 个 paired codim-2 endpoint face restrictions，然后再测试 `p=2, gamma=1/2` 的 face-to-interior remainder。仍不能声明完整 `Jplus D`、`single_single`、`SC-1` 或全局 ADMM 收敛证明完成，也没有严格反例。
 
@@ -14297,11 +14317,11 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 新增主要文件：
 
-- [single_single_jplus_codim2_face_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_codim2_face_certificate.md:1>)
-- [certify_single_single_jplus_codim2_faces.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_single_single_jplus_codim2_faces.py:1>)
-- [single_single_jplus_endpoint_candidate_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_endpoint_candidate_gate.md:1>)
+- [single_single_jplus_codim2_face_certificate.md]
+- [certify_single_single_jplus_codim2_faces.py]
+- [single_single_jplus_endpoint_candidate_gate.md]
 
-状态已经同步到 [single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md:270>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:182>) 和 [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:232>)。
+状态已经同步到 [single_single_pc3_route.md]、[research_state.md] 和 [work_orders.md]。
 
 当前还不能说完整证明完成。现在最小开放义务变成：做 `Jplus D` 四个 bad boxes 的 `p=2, gamma=1/2` face-to-interior remainder gate；之后还要处理 `Jmid`。
 
@@ -14325,7 +14345,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 > **Assistant working update — 2026-07-06T13:44:45.477Z**
 >
-> 我不会新开一堆文件；按剃刀原则，直接更新已有的 [notes/pause_summary_2026-07-06.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md)，并在开头放一个短交接卡。这样你打开一个文件就能判断现在该停在哪里、下次从哪里接。
+> 我不会新开一堆文件；按剃刀原则，直接更新已有的 [notes/pause_summary_2026-07-06.md]，并在开头放一个短交接卡。这样你打开一个文件就能判断现在该停在哪里、下次从哪里接。
 
 > **Assistant working update — 2026-07-06T13:44:51.000Z**
 >
@@ -14345,7 +14365,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 #### Assistant final answer — 2026-07-06T13:45:40.043Z
 
-已暂停并整理到 [notes/pause_summary_2026-07-06.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md)。
+已暂停并整理到 [notes/pause_summary_2026-07-06.md]。
 
 我在文件开头新增了“暂停交接卡”，把当前状态收束成：
 
@@ -14669,7 +14689,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 #### Assistant final answer — 2026-07-06T00:10:04.267Z
 
-已经把 [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>) 从 106 行扩成了一份 443 行的完整研究脉络笔记。
+已经把 [notes/pause_summary_2026-07-06.md] 从 106 行扩成了一份 443 行的完整研究脉络笔记。
 
 现在它按“问题来源 → ADMM 符号 → Lyapunov 线 → fixed-mask 反例线 → switching/SC-1 → 四类代表元 → 当前暂停点 → 下一步”的顺序整理，并明确区分了 `theorem`、`proof_attempt`、`numerical_screen` 和不能声明的结论。
 
@@ -14705,7 +14725,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 #### Assistant final answer — 2026-07-06T00:12:51.155Z
 
-已继续扩写 [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)，重点补了“过程台账”：从 source of truth、问题形式、文献边界、猜想格、Lyapunov blueprint、fixed-active map、pressure candidate、fixed-mask impossible lemma、switching 线、`PC-0` 归约，一直到 `single_single` 当前 probe 的推进过程。
+已继续扩写 [notes/pause_summary_2026-07-06.md]，重点补了“过程台账”：从 source of truth、问题形式、文献边界、猜想格、Lyapunov blueprint、fixed-active map、pressure candidate、fixed-mask impossible lemma、switching 线、`PC-0` 归约，一直到 `single_single` 当前 probe 的推进过程。
 
 也把最新的 `notes/single_single_pc3_route.md` 状态接进去了：`single_single` 已有 cubic parity gate 和 first Bernstein probe，`Jconst_minus/Jconst_plus` 初步闭合，但 `Jplus/Jminus/Jmid` 仍未形成 theorem。
 
@@ -14743,7 +14763,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 已按你的意思补进去：重点不是宏观总结，而是中间推导和实验过程。
 
-我在 [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>) 新增了 `3.6 推导卡点与实验台账`，现在写清楚了：
+我在 [notes/pause_summary_2026-07-06.md] 新增了 `3.6 推导卡点与实验台账`，现在写清楚了：
 
 - Lyapunov 推导具体卡在 FNE 展开后的 \(\langle B\Delta y,\Delta z\rangle\)；
 - fixed-active map 怎么从 \(T_D\) 约化到 \(R_D\)，非交换情形哪里退不下去；
@@ -14791,7 +14811,7 @@ F|_{s=0}=tS(a,r,t),\qquad F|_{t=0}=sT(a,r,s).
 
 #### Assistant final answer — 2026-07-06T00:31:08.542Z
 
-已按你说的重写了：[notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)。
+已按你说的重写了：[notes/pause_summary_2026-07-06.md]。
 
 这版不再按旧的流水账重复追加，而是重排成：
 
@@ -14874,7 +14894,7 @@ but projection-only Lyapunov proof is incomplete. 这里要具体写出你的尝
 
 我已经把 `I.5 Lyapunov 线退不下去的位置` 具体展开了，改在这里：
 
-[notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)
+[notes/pause_summary_2026-07-06.md]
 
 现在这一节不只是列 `G1-G4`，而是先写了实际尝试过程：
 
@@ -14996,10 +15016,10 @@ but projection-only Lyapunov proof is incomplete. 这里要具体写出你的尝
 准确状态是：
 
 - **已用**：本地 `admm-proof-workflow`、已有 `paper-to-skill` SkillCards、以及刚刚对你给的两页 PDF 做了单独抽取。
-- **刚补上**：把 PDF 转成了 [papers/markdown/two_page_methods/paper.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/markdown/two_page_methods/paper.md)，并抽成 [vi_prediction_correction_generalized_ppa.yaml](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/skills/two_page_methods/skill_cards/vi_prediction_correction_generalized_ppa.yaml)。
+- **刚补上**：把 PDF 转成了 [papers/markdown/two_page_methods/paper.md]，并抽成 [vi_prediction_correction_generalized_ppa.yaml]。
 - **没严格做完**：还没有按 VeryMath / AI4Math 的 Phase 3 `proof-blueprint-review` 给 VI/PPA 框架开单独审查 gate。所以不能说“VI/PPA 已经完整用来证明/否证 direct ADMM”。
 
-我也写了路由说明：[notes/vi_ppa_framework_toolchain_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/vi_ppa_framework_toolchain_route.md)。
+我也写了路由说明：[notes/vi_ppa_framework_toolchain_route.md]。
 
 我的判断是：**VI/PPA 框架能用，但它首先应该用来审查 direct ADMM 是否能嵌入 prediction-correction contraction 条件**：
 
@@ -15109,15 +15129,15 @@ G = Q^T + Q - M^T H M >= 0
 
 已落盘的核心产物：
 
-- [proof_reviews/vi_ppa_direct_admm/proof_blueprint.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/proof_blueprint.md)
-- [proof_reviews/vi_ppa_direct_admm/verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/verification_report.json)
-- [proof_reviews/vi_ppa_direct_admm/verification_summary.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/verification_summary.md)
-- [proof_reviews/vi_ppa_direct_admm/repair_hints.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/repair_hints.md)
+- [proof_reviews/vi_ppa_direct_admm/proof_blueprint.md]
+- [proof_reviews/vi_ppa_direct_admm/verification_report.json]
+- [proof_reviews/vi_ppa_direct_admm/verification_summary.md]
+- [proof_reviews/vi_ppa_direct_admm/repair_hints.md]
 
 我也把你给的两页 PDF 抽成了带行号的 skill source：
 
-- [papers/markdown/two_page_methods/paper.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/markdown/two_page_methods/paper.md)
-- [papers/skills/two_page_methods/skill_cards/vi_prediction_correction_generalized_ppa.yaml](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/papers/skills/two_page_methods/skill_cards/vi_prediction_correction_generalized_ppa.yaml)
+- [papers/markdown/two_page_methods/paper.md]
+- [papers/skills/two_page_methods/skill_cards/vi_prediction_correction_generalized_ppa.yaml]
 
 并回写了状态文件：`research_state.md`、`work_orders.md`、`docs/proof_obligations.md`、`notes/vi_ppa_framework_toolchain_route.md`。
 
@@ -15202,7 +15222,7 @@ G = Q^T + Q - M^T H M >= 0
 具体做了三件事：
 
 1. 按 `docs/verymath_toolchain_workflow.md` 和 `skills/admm-proof-workflow/SKILL.md` 路由到 `proof-blueprint-review`。
-2. 用已抽取的 He-Yuan 2018 SkillCard / Markdown，把 direct ADMM 的 `v=(y,z,lambda)`、`Q`、`M`、`H`、`G` 具体写到 [q_m_h_derivation.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/q_m_h_derivation.md)。
+2. 用已抽取的 He-Yuan 2018 SkillCard / Markdown，把 direct ADMM 的 `v=(y,z,lambda)`、`Q`、`M`、`H`、`G` 具体写到 [q_m_h_derivation.md]。
 3. 让独立 subagent `Linnaeus` 做只读 proof review，结论是推导 accepted。
 
 当前数学结论是：
@@ -15217,12 +15237,12 @@ Delta v^T G_slack Delta v = - beta ||B Delta y||^2 < 0
 
 我已同步更新：
 
-- [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/verification_report.json)
-- [verification_summary.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/verification_summary.md)
-- [acceptance_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/acceptance_gate.md)
-- [docs/proof_obligations.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/proof_obligations.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)
+- [verification_report.json]
+- [verification_summary.md]
+- [acceptance_gate.md]
+- [docs/proof_obligations.md]
+- [work_orders.md]
+- [research_state.md]
 
 边界也写清楚了：这不是严格反例，也不证明 direct slack ADMM 发散；它只是关闭“直接套 VI/PPA 标准收缩定理”这条证明路线。
 
@@ -15330,7 +15350,7 @@ Delta v^T G_slack Delta v = - beta ||B Delta y||^2 < 0
 
 #### Assistant final answer — 2026-07-06T15:17:47.819Z
 
-已基于你现在推进后的结果，把 [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>) 同步更新了。
+已基于你现在推进后的结果，把 [notes/pause_summary_2026-07-06.md] 同步更新了。
 
 这次主要更新的是 `single_single` 当前状态：
 
@@ -15776,7 +15796,7 @@ Delta v^T G_slack Delta v = - beta ||B Delta y||^2 < 0
 有新的更新，而且有两类。
 
 **1. 新增 VI/PPA direct gate**
-仓库现在多了 [proof_reviews/vi_ppa_direct_admm](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm>)。结论不是正向证明成功，而是更明确地诊断失败：
+仓库现在多了 [proof_reviews/vi_ppa_direct_admm]。结论不是正向证明成功，而是更明确地诊断失败：
 
 - 已经把 He-Yuan VI/PPA 框架具体实例化到 `v=(y,z,lambda)`、`Q`、`M`、`H`、`G`。
 - 独立 reviewer 接受了 `Q,M,H,G` 推导。
@@ -15790,8 +15810,8 @@ Delta v^T G_slack Delta v = - beta ||B Delta y||^2 < 0
 - 这说明标准 VI/PPA 不能直接证明原始 direct slack ADMM 收敛；但这不是严格反例，也不证明发散。
 
 核心文件：
-[verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/verification_report.json>)
-[q_m_h_derivation.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppa_direct_admm/q_m_h_derivation.md>)
+[verification_report.json]
+[q_m_h_derivation.md]
 
 **2. `single_single / Jplus D` 又推进了**
 之前暂停点说下一步是 `p=2, gamma=1/2` face-to-interior remainder gate。现在这一步已经跑过：
@@ -15803,9 +15823,9 @@ Delta v^T G_slack Delta v = - beta ||B Delta y||^2 < 0
 - 这看起来已经把 `Jplus D` 从“开放 gate”推进到“有局部 exact certificate 候选/可整理成 proof artifact”。
 
 核心文件：
-[single_single_jplus_face_to_interior_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_face_to_interior_gate.md>)
-[single_single_jplus_face_control_parameter_search_p1_p2.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_face_control_parameter_search_p1_p2.md>)
-[single_single_jplus_face_control_parameter_search.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/single_single_jplus_face_control_parameter_search.md>)
+[single_single_jplus_face_to_interior_gate.md]
+[single_single_jplus_face_control_parameter_search_p1_p2.md]
+[single_single_jplus_face_control_parameter_search.md]
 
 当前判断：`research_state.md` 和 `pause_summary_2026-07-06.md` 已经有点滞后了。它们还把下一步写成 `p=2, gamma=1/2 face-to-interior gate`；但实际最新状态应改成：
 
@@ -15932,10 +15952,10 @@ endpoint-face independent control search 已找到 exact rational certificates�
 
 改过的文件：
 
-- [notes/pause_summary_2026-07-06.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md)
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- [notes/single_single_pc3_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md)
+- [notes/pause_summary_2026-07-06.md]
+- [research_state.md]
+- [work_orders.md]
+- [notes/single_single_pc3_route.md]
 
 我也检查了旧措辞残留和尾随空白：没有发现旧的“当前最小开放义务是 `p=2,gamma=1/2` gate / 开 proof review”的恢复点残留。没有跑 pytest，因为这次只改 Markdown 状态笔记。
 
@@ -16055,7 +16075,7 @@ vi ppc还有的救吗
 
 可以救，但救的是 **corrected / prediction-correction 版本**，不是直接救原始 direct slack 三块 ADMM 的 VI/PPA 证明。
 
-本轮主线理论已经推进到一个明确局部结论：二维 reduced active-set 模型里，全部 length-2 nonconstant active-mask ordered pair products 的非零谱在闭单位圆内。这个 `SC-1` 局部定理已通过 review，见 [pause_summary_sc1_and_vi_ppc_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_sc1_and_vi_ppc_2026-07-06.md>) 和 [SC-1 review](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/sc1_length2_nonconstant_pairs/verification_report.json>)。
+本轮主线理论已经推进到一个明确局部结论：二维 reduced active-set 模型里，全部 length-2 nonconstant active-mask ordered pair products 的非零谱在闭单位圆内。这个 `SC-1` 局部定理已通过 review，见 [pause_summary_sc1_and_vi_ppc_2026-07-06.md] 和 [SC-1 review]。
 
 VI/PPA/PPC 的判断我也写进状态了：
 
@@ -16138,7 +16158,7 @@ VI/PPA/PPC 的判断我也写进状态了：
    `research_state.md`、`work_orders.md`、`notes/length2_pair_class_consolidation.md`、`notes/single_single_pc3_route.md` 里过期的 `Jplus pending / Jmid open` 状态已更新。当前状态是：`SC-1` 二维 reduced active-set length-2 局部 theorem 已由 `proof_reviews/sc1_length2_nonconstant_pairs/` 接受。
 
 2. 单独写了 VI/PPC 分支
-   新增 [notes/vi_ppc_corrected_algorithm_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md)，结论很明确：
+   新增 [notes/vi_ppc_corrected_algorithm_route.md]，结论很明确：
    原始 direct slack ADMM 的标准 VI/PPA 条件已经失败；VI/PPC 还能救的是 corrected algorithm / prediction-correction 修正算法路线。
 
 3. 把 VI/PPC 挂进 work order
@@ -16271,16 +16291,16 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 已新增/更新：
 
-- [proof_reviews/vi_ppc_corrected_algorithm/q_m_h_g_derivation.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/q_m_h_g_derivation.md)
+- [proof_reviews/vi_ppc_corrected_algorithm/q_m_h_g_derivation.md]
   推出了一个 `z-fixed matrix gate`：构造 \(W=H^{-1}\)、\(M_{\rm corr}=WQ_P\)，使 \((M_{\rm corr})_z=[0,I,0]\)，因此 \(z^{k+1}=\tilde z^k\)。在 \(P_y\succ0\)、\(R,E\) 足够小时，用 Schur complement 得到 \(G\succeq0\)。
 
-- [proof_reviews/vi_ppc_corrected_algorithm/y_feasibility_or_image_space_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/y_feasibility_or_image_space_gate.md)
+- [proof_reviews/vi_ppc_corrected_algorithm/y_feasibility_or_image_space_gate.md]
   证明了新的 blocker：这个 z-fixed correction 一般会移动 \(y\) 或 \(By\)，对任意 closed convex \(Y\) 不自动保持 \(y^{k+1}\in Y\)。所以它只能支持 \(Y=\mathbb R^n\)、不变 affine \(Y\)，或另行证明 image-space executability 的限制版路线。
 
-- [proof_reviews/vi_ppc_corrected_algorithm/verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json)
+- [proof_reviews/vi_ppc_corrected_algorithm/verification_report.json]
   已整合 Goodall 的 multi-agent review，verdict 仍是 `incomplete`，但 gap 已从“能不能保 \(z\)”推进到“general-\(Y\) 是否可执行”。
 
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md) 和 [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md) 已回写最新状态。
+- [research_state.md] 和 [work_orders.md] 已回写最新状态。
 
 验证：
 
@@ -16468,9 +16488,9 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 本轮做了三件事：
 
-- 新增 [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md:1)：明确 `SC-1` 不能推出 length-3，因为缺少 common seminorm / Lyapunov 度量。
-- 新增组合枚举脚本 [experiments/enumerate_length3_switching_classes.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/enumerate_length3_switching_classes.py:1)：length-3 非恒定 words 共 `60` 个，按 cyclic shift + 坐标交换归为 `11` 类。
-- 新增 exact symbolic determinant 检查 [experiments/symbolic_length3_switching_products.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/symbolic_length3_switching_products.py:1)：得到 `L3-1a`，即所有非恒定 length-3 products 都有 `det(product)=0`。
+- 新增 [notes/length3_switching_gate.md]：明确 `SC-1` 不能推出 length-3，因为缺少 common seminorm / Lyapunov 度量。
+- 新增组合枚举脚本 [experiments/enumerate_length3_switching_classes.py]：length-3 非恒定 words 共 `60` 个，按 cyclic shift + 坐标交换归为 `11` 类。
+- 新增 exact symbolic determinant 检查 [experiments/symbolic_length3_switching_products.py]：得到 `L3-1a`，即所有非恒定 length-3 products 都有 `det(product)=0`。
 
 关键理论增量是：
 
@@ -16485,8 +16505,8 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 生成的 artifacts：
 
-- [length3_switching_classes.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_switching_classes.md:1)
-- [length3_switching_symbolic_check.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_switching_symbolic_check.md:1)
+- [length3_switching_classes.md]
+- [length3_switching_symbolic_check.md]
 
 校验已跑：
 
@@ -16607,12 +16627,12 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 本轮新增/推进：
 
-- [experiments/symbolic_length3_cubic_coefficients.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/symbolic_length3_cubic_coefficients.py:1)：对 11 个 length-3 canonical classes 抽取剩余 cubic factor 的 exact coefficients。
-- [outputs/wo5_active_set_2026-07-05/length3_cubic_coefficients.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_cubic_coefficients.md:1)：记录 coefficient gate 摘要，完整表达式在对应 JSON。
-- [experiments/symbolic_length3_jury_margins.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/symbolic_length3_jury_margins.py:1)：构造 `J+`、`J-`、`Jmid`、`Jconst` 的 exact symbolic margin objects。
-- [outputs/wo5_active_set_2026-07-05/length3_jury_margins.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_jury_margins.md:1)：只保存 margin 的长度、operation count、hash，避免巨大公式污染过程文档。
+- [experiments/symbolic_length3_cubic_coefficients.py]：对 11 个 length-3 canonical classes 抽取剩余 cubic factor 的 exact coefficients。
+- [outputs/wo5_active_set_2026-07-05/length3_cubic_coefficients.md]：记录 coefficient gate 摘要，完整表达式在对应 JSON。
+- [experiments/symbolic_length3_jury_margins.py]：构造 `J+`、`J-`、`Jmid`、`Jconst` 的 exact symbolic margin objects。
+- [outputs/wo5_active_set_2026-07-05/length3_jury_margins.md]：只保存 margin 的长度、operation count、hash，避免巨大公式污染过程文档。
 
-同步更新了 [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md:1)、`research_state.md`、`work_orders.md`。
+同步更新了 [notes/length3_switching_gate.md]、`research_state.md`、`work_orders.md`。
 
 当前理论状态：
 
@@ -16682,7 +16702,7 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 本轮推进到了一个可证明的子结论：`L3-2b-coordinatewise` 已闭合。
 
-新增 [experiments/certify_length3_coordinatewise_bernstein.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_length3_coordinatewise_bernstein.py:1)，并生成 [length3_coordinatewise_bernstein_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_coordinatewise_bernstein_certificate.md:1)。
+新增 [experiments/certify_length3_coordinatewise_bernstein.py]，并生成 [length3_coordinatewise_bernstein_certificate.md]。
 
 证明内容是：在 coordinatewise / simultaneous diagonalization 情形下，每个坐标只需分析标量 `A/Z` 两个 `2x2` block。全部 8 个 length-3 words：
 
@@ -16692,8 +16712,8 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 已同步更新：
 
-- [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md:1)
-- [notes/general_active_mask_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/general_active_mask_reduction.md:1)
+- [notes/length3_switching_gate.md]
+- [notes/general_active_mask_reduction.md]
 - `research_state.md`
 - `work_orders.md`
 
@@ -16760,10 +16780,10 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 你现在可以主要看这几个文件：
 
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)
-- [notes/general_active_mask_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/general_active_mask_reduction.md)
+- [research_state.md]
+- [work_orders.md]
+- [notes/length3_switching_gate.md]
+- [notes/general_active_mask_reduction.md]
 
 下一步如果继续，我建议从 `L3-2c` 的 rank-one projector boundary exact symbolic artifact 开始，而不是回到普通数值实验。这个点理论含义清楚：它直接攻击非交换二维耦合的边界子族，但还不能提前称为 theorem。
 
@@ -16899,9 +16919,9 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 已在 `L3-2c` 非交换二维线上推进了一步，但没有过度声称完整证明。
 
-本轮新增了 [analyze_length3_rank_one_projector_boundary.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/analyze_length3_rank_one_projector_boundary.py>)，并生成了 [length3_rank_one_projector_boundary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md:1>) 和对应 JSON。结果是：rank-one projector 边界上 11 个 canonical length-3 classes 全部 exact 分解，去掉零根/允许单位根后为 `6` 个一次、`4` 个二次、`1` 个三次 residual factor；其中 `L3C02/L3C05/L3C06/L3C07/L3C09/L3C11` 这 6 个一次类已经用 `S=x^2+y^2, u=xy` 改写加 exact Sturm 检查闭合，见输出摘要 [line 14](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md:14>)。
+本轮新增了 [analyze_length3_rank_one_projector_boundary.py]，并生成了 [length3_rank_one_projector_boundary.md] 和对应 JSON。结果是：rank-one projector 边界上 11 个 canonical length-3 classes 全部 exact 分解，去掉零根/允许单位根后为 `6` 个一次、`4` 个二次、`1` 个三次 residual factor；其中 `L3C02/L3C05/L3C06/L3C07/L3C09/L3C11` 这 6 个一次类已经用 `S=x^2+y^2, u=xy` 改写加 exact Sturm 检查闭合，见输出摘要 [line 14]。
 
-同步更新了 [notes/length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md:179>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:110>) 和 `work_orders.md`。当前剩余义务明确收窄为：`L3C01/L3C03/L3C04/L3C10` 的二次 residual Schur numerators，以及 `L3C08` 的三次 residual，尤其 `Jmid`。这仍不是完整 `L3-2c` theorem，也不是严格反例。
+同步更新了 [notes/length3_switching_gate.md]、[research_state.md] 和 `work_orders.md`。当前剩余义务明确收窄为：`L3C01/L3C03/L3C04/L3C10` 的二次 residual Schur numerators，以及 `L3C08` 的三次 residual，尤其 `Jmid`。这仍不是完整 `L3-2c` theorem，也不是严格反例。
 
 校验已跑：`py_compile`、重新生成 artifact、`json.tool`、尾随空白扫描、`git diff --check`，并清理了本次产生的 `__pycache__`。
 
@@ -17045,14 +17065,14 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 继续推进了一轮，理论线有实质进展：rank-one projector 边界从“闭合 6 个线性类、剩 5 类”推进到“闭合 10/11 类、只剩 `L3C08`”。
 
-新增/加强内容在 [length3_rank_one_projector_boundary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md:1>)：
+新增/加强内容在 [length3_rank_one_projector_boundary.md]：
 
 - 6 个一次 residual 类已闭合：`L3C02/L3C05/L3C06/L3C07/L3C09/L3C11`。
 - 4 个二次 residual 类也已闭合：`L3C01/L3C03/L3C04/L3C10`。
 - 二次类证书使用同一个 half-domain split：`S=x^2+y^2, u=xy`，分 `u>=0/u<=0` 写成 `S=2a+t`，再用非负系数、AM-GM/square controls 和 half-line Sturm 检查。
 - 唯一剩余是 `L3C08` 三次 residual，核心压力在 `Jmid`；已把 `Jmid` 降为 `alpha=x-y, beta=x+y` 下的偶偶多项式，即证明 `A(U,V)>=0`，`U,V>=0`。
 
-同步更新了 [notes/length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md:179>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:110>) 和 [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:238>)。验证已跑：`py_compile`、脚本重跑、`json.tool`、尾随空白扫描、`git diff --check`，并清理了生成的 pyc。
+同步更新了 [notes/length3_switching_gate.md]、[research_state.md] 和 [work_orders.md]。验证已跑：`py_compile`、脚本重跑、`json.tool`、尾随空白扫描、`git diff --check`，并清理了生成的 pyc。
 
 仍不能声称完整 `L3-2c` 或 ADMM 收敛；当前只是 rank-one projector affine chart 的 `10/11` 边界子定理。
 
@@ -17228,9 +17248,9 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 改动集中在：
 
-- [experiments/analyze_length3_rank_one_projector_boundary.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_length3_rank_one_projector_boundary.py)：加入 `L3C08` 五个 cubic margins 的 `U,V` 降维证书；`Jminus` 用两段分组证书闭合。
-- [outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md)：报告已更新为 `11/11` closed。
-- [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)：中文过程状态已同步，下一步改为 `projective infinity / scaled rank-one / full-rank interior / exterior-power / common seminorm`。
+- [experiments/analyze_length3_rank_one_projector_boundary.py]：加入 `L3C08` 五个 cubic margins 的 `U,V` 降维证书；`Jminus` 用两段分组证书闭合。
+- [outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md]：报告已更新为 `11/11` closed。
+- [notes/length3_switching_gate.md]、[research_state.md]、[work_orders.md]：中文过程状态已同步，下一步改为 `projective infinity / scaled rank-one / full-rank interior / exterior-power / common seminorm`。
 
 `Jminus` 的关键证书是：令 `H=2048*P_r(V)`。`0<=r<=1` 时取 `s=1-r`，系数写成 `s` 和 `1-s` 的非负组合；`r>=1,V>0` 时取 `W=(r-1)V`，把 `H` 分解成非负项，其中核心一元项有平方分解
 `W^4(W-14)^2 + 284W^2(W-152/71)^2 + 271104/71 W^2 + 6144W + 4096`。
@@ -17317,7 +17337,7 @@ VI/PPA/PPC 的判断我也写进状态了：
 
 本轮继续推进了理论证明线，闭合的是上一轮之后的 `projective infinity` 子义务。
 
-已更新 [experiments/analyze_length3_rank_one_projector_boundary.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_length3_rank_one_projector_boundary.py)，新增齐次 rank-one projector 参数：
+已更新 [experiments/analyze_length3_rank_one_projector_boundary.py]，新增齐次 rank-one projector 参数：
 \[
 P(a,b)=\frac{(a,b)(a,b)^T}{a^2+b^2}
 \]
@@ -17325,10 +17345,10 @@ P(a,b)=\frac{(a,b)(a,b)^T}{a^2+b^2}
 
 同步更新了：
 
-- [outputs/.../length3_rank_one_projector_boundary.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_rank_one_projector_boundary.md)
-- [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
+- [outputs/.../length3_rank_one_projector_boundary.md]
+- [notes/length3_switching_gate.md]
+- [research_state.md]
+- [work_orders.md]
 
 当前状态从“rank-one affine boundary closed”推进为：rank-one projector projective boundary closed，`11/11`，包括 projective infinity。仍不能外推为完整 `L3-2c` 或全局 ADMM 收敛；下一步应进入 `scaled rank-one`、`full-rank interior`、`exterior-power certificate` 或 `common seminorm`。
 
@@ -17437,16 +17457,16 @@ P(a,b)=\frac{(a,b)(a,b)^T}{a^2+b^2}
 
 本轮推进到 `scaled rank-one`，但没有把它误报成 theorem。
 
-新增 [experiments/analyze_length3_scaled_rank_one_scaffold.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_length3_scaled_rank_one_scaffold.py)，生成了：
+新增 [experiments/analyze_length3_scaled_rank_one_scaffold.py]，生成了：
 
-- [outputs/.../length3_scaled_rank_one_scaffold.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_scaffold.md)
-- [outputs/.../results/length3_scaled_rank_one_scaffold.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/results/length3_scaled_rank_one_scaffold.json)
+- [outputs/.../length3_scaled_rank_one_scaffold.md]
+- [outputs/.../results/length3_scaled_rank_one_scaffold.json]
 
 结论是：对 \(M=mP_x,N=nP_y,0\le m,n\le1\)，scaled rank-one 释放 `m,n` 后，`11` 个 canonical classes 的 residual degree 分布为 `10` 个二次、`1` 个三次（`L3C08`）。这说明 scaled rank-one 仍可控，但不能由 `m=n=1` projector boundary 直接外推。
 
-我也把三个被排除的捷径写进 scaffold 和 [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)：scale 单调性不成立，`m=n=1` 不是上界代理，`m=0/n=0` 也不自动落入 coordinatewise 子定理。
+我也把三个被排除的捷径写进 scaffold 和 [notes/length3_switching_gate.md]：scale 单调性不成立，`m=n=1` 不是上界代理，`m=0/n=0` 也不自动落入 coordinatewise 子定理。
 
-同步更新了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md) 和 [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)。下一步应为 scaled rank-one 的二次/三次 Schur-Jury margins 构造证书，优先试 `(m,n)` Bernstein + \(S=x^2+y^2,u=xy\) 改写；如果膨胀，再转 exterior-power 或 common seminorm。
+同步更新了 [research_state.md] 和 [work_orders.md]。下一步应为 scaled rank-one 的二次/三次 Schur-Jury margins 构造证书，优先试 `(m,n)` Bernstein + \(S=x^2+y^2,u=xy\) 改写；如果膨胀，再转 exterior-power 或 common seminorm。
 
 验证已跑：`py_compile` 通过，目标 JSON 和 `docs/*.json` 通过 `json.tool`，尾随空白无命中，`git diff --check` 干净，相关 `__pycache__` 已清理。
 
@@ -17461,11 +17481,11 @@ P(a,b)=\frac{(a,b)(a,b)^T}{a^2+b^2}
 当前结论是：`M=mP_x, N=nP_y` 的 11 个 length-3 canonical classes 已经全部符号化；其中 10 类 residual 是二次，只有 `L3C08` 是三次。直接从 `m=n=1` 外推、假设 scale monotonicity、把零尺度面当成坐标情形，这三条捷径都被排除了，所以下一步应从小类开始做真正 Schur/Jury margin certificate，而不是继续普通数值筛查。
 
 已更新/新增：
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
-- [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)
-- [experiments/analyze_length3_scaled_rank_one_scaffold.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/analyze_length3_scaled_rank_one_scaffold.py)
-- [outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_scaffold.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_scaffold.md)
+- [research_state.md]
+- [work_orders.md]
+- [notes/length3_switching_gate.md]
+- [experiments/analyze_length3_scaled_rank_one_scaffold.py]
+- [outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_scaffold.md]
 
 校验也停在干净状态：`py_compile` 通过，相关 JSON 通过 `json.tool`，`docs/*.json` 通过 `json.tool`，`git diff --check` 干净。下一步建议从 `L3C11` 或 `L3C07` 开始做 scaled rank-one 的 Schur/Jury 证书，因为它们表达式复杂度最低。
 
@@ -17604,11 +17624,11 @@ P(a,b)=\frac{(a,b)(a,b)^T}{a^2+b^2}
 本轮新增闭合：scaled rank-one 分支中的 `L3C07 = [0,0] -> [1,1] -> [1,1]`。证明路线是：二次 residual 的 Schur/Jury 三个 margin，先写成 `S=x^2+y^2, u=xy`，再按 `u>=0/u<=0` 半域分解，对 `m,n in [0,1]` 做 degree `(3,3)` Bernstein 展开。所有系数非负，唯一特殊系数用平方配方闭合。独立 subagent reviewer 已复核，认为判据、半域覆盖、Bernstein 逻辑和边界说明都成立。
 
 主要文件：
-- [experiments/certify_length3_scaled_rank_one_l3c07.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_length3_scaled_rank_one_l3c07.py>)
-- [length3_scaled_rank_one_l3c07_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_l3c07_certificate.md>)
-- [notes/length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
+- [experiments/certify_length3_scaled_rank_one_l3c07.py]
+- [length3_scaled_rank_one_l3c07_certificate.md]
+- [notes/length3_switching_gate.md]
+- [research_state.md]
+- [work_orders.md]
 
 校验情况：
 - `py_compile` 通过。
@@ -17714,11 +17734,11 @@ L3C02, L3C07
 ```
 
 新增/更新的主要文件：
-- [experiments/certify_length3_scaled_rank_one_su_classes.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_length3_scaled_rank_one_su_classes.py>)
-- [length3_scaled_rank_one_su_certificates.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_su_certificates.md>)
-- [notes/length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md>)
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
+- [experiments/certify_length3_scaled_rank_one_su_classes.py]
+- [length3_scaled_rank_one_su_certificates.md]
+- [notes/length3_switching_gate.md]
+- [research_state.md]
+- [work_orders.md]
 
 独立 reviewer 已审过：`L3C02` 的二次 Schur/Jury 方向、`S,u` 半域覆盖、三个特殊 Bernstein 系数平方分解都可接受。剩余 `8` 个二次类被标成 `su_symmetry_unavailable`，这只是路线诊断，不是反例；`L3C08` 仍是三次 residual，未进入本批二次证书。
 
@@ -17852,11 +17872,11 @@ L3C02, L3C07
 已暂停在一个干净的 proof checkpoint：`L3C11` scaled rank-one canonical class 已闭合。当前 scaled rank-one 已闭合 `L3C02`、`L3C07`、`L3C11`；还剩 `7` 个二次 residual classes 和 `L3C08` 三次 residual，full-rank interior 也还没处理。没有声称完整 length-3 theorem 或全局 ADMM 收敛。
 
 我已落盘整理到：
-- [notes/pause_summary_l3c11_2026-07-07.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_l3c11_2026-07-07.md)
-- [outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_l3c11_discriminant_certificate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_l3c11_discriminant_certificate.md)
-- [experiments/certify_length3_scaled_rank_one_l3c11_discriminant.py](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/certify_length3_scaled_rank_one_l3c11_discriminant.py)
+- [notes/pause_summary_l3c11_2026-07-07.md]
+- [outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_l3c11_discriminant_certificate.md]
+- [experiments/certify_length3_scaled_rank_one_l3c11_discriminant.py]
 
-也同步更新了 [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)。并行 reviewer 接受核心证书，指出 projective closure 需要更清楚，我已补了齐次 projector 边界说明和脚本防误标 guard。
+也同步更新了 [notes/length3_switching_gate.md]、[research_state.md]、[work_orders.md]。并行 reviewer 接受核心证书，指出 projective closure 需要更清楚，我已补了齐次 projector 边界说明和脚本防误标 guard。
 
 验证已做：`py_compile` 通过；L3C11 证书重新生成通过；L3C11 JSON 和 `docs/*.json` 都通过 `json.tool`；目标文档无 trailing whitespace；`git diff --check` 对已跟踪目标差异干净。没跑全量 `pytest`。这些目标文件当前在 git 状态里仍显示为未跟踪文件。
 
@@ -17942,7 +17962,7 @@ L3C02, L3C07
 
 可以，已经停在一个清楚的中间点。
 
-当前状态：`L3C02/L3C07/L3C11` 已闭合；本轮只做了下一步结构筛选，没有声称新证明。新的暂停总结在 [notes/pause_summary_l3c05_diagnostic_2026-07-07.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_l3c05_diagnostic_2026-07-07.md)。
+当前状态：`L3C02/L3C07/L3C11` 已闭合；本轮只做了下一步结构筛选，没有声称新证明。新的暂停总结在 [notes/pause_summary_l3c05_diagnostic_2026-07-07.md]。
 
 结论很简短：剩余类里 `L3C01/L3C03/L3C04` margins 都是六次，不适合直接复用 `L3C11` 的判别式路线；`L3C05` 的三个 margins 是四次、每个只有 13 个 `x,y` monomial terms，目前最适合作为下一候选。但 `L3C05` 还没有 proof-grade certificate，不能算已证明。
 
@@ -18090,8 +18110,8 @@ L3C02, L3C07
 
 主要改了两处：
 
-- [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)：同步到 2026-07-07 状态。现在写清楚 `single_single Jplus D`、`Jmid`、canonical/ordered assembly 和 `SC-1` length-2 都已 accepted；新的恢复点是 length-3 分支或 VI/PPC corrected-algorithm 分支。
-- [notes/single_single_pc3_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/single_single_pc3_route.md>)：把状态从旧的 `proof_attempt` 改成局部 `theorem` 记录，去掉“当前唯一未闭合”的误导表述，并修正重复标题编号。
+- [notes/pause_summary_2026-07-06.md]：同步到 2026-07-07 状态。现在写清楚 `single_single Jplus D`、`Jmid`、canonical/ordered assembly 和 `SC-1` length-2 都已 accepted；新的恢复点是 length-3 分支或 VI/PPC corrected-algorithm 分支。
+- [notes/single_single_pc3_route.md]：把状态从旧的 `proof_attempt` 改成局部 `theorem` 记录，去掉“当前唯一未闭合”的误导表述，并修正重复标题编号。
 
 我也检查了旧关键词：`pending_independent_review`、`Jmid not scripted`、`single_single 仍开放` 这类当前状态残留已经清掉；尾随空白检查也通过。没有跑 pytest，因为这次只改 Markdown 笔记。
 
@@ -18164,13 +18184,13 @@ L3C02, L3C07
 已暂停在一个更好的节点：`L3C05` 现在已闭合为 scaled rank-one 局部 theorem。
 
 新增并验证的核心文件：
-- [experiments/certify_length3_scaled_rank_one_l3c05_parity.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/certify_length3_scaled_rank_one_l3c05_parity.py)
-- [length3_scaled_rank_one_l3c05_parity_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/wo5_active_set_2026-07-05/length3_scaled_rank_one_l3c05_parity_certificate.md)
-- [notes/pause_summary_l3c05_diagnostic_2026-07-07.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_l3c05_diagnostic_2026-07-07.md)
+- [experiments/certify_length3_scaled_rank_one_l3c05_parity.py]
+- [length3_scaled_rank_one_l3c05_parity_certificate.md]
+- [notes/pause_summary_l3c05_diagnostic_2026-07-07.md]
 
 当前闭合进度变为：`L3C02/L3C05/L3C07/L3C11` 已闭合；scaled rank-one 还剩 `6` 个二次 residual classes 和 `L3C08` 三次 residual。`L3C05` 的证明路线是 \(E+xyO\) parity gate：`Jminus/Jconst` 直接 4D Bernstein 闭合，`Jplus` 通过 `m=n=1` endpoint factor \((a-b)^2(4a^2b+4ab^2+1)\ge0\) 补上。
 
-已同步 [notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)。验证：`py_compile` 通过，JSON 通过 `json.tool`，目标文件无 trailing whitespace，`git diff --check` 干净。没有跑全量 pytest。
+已同步 [notes/length3_switching_gate.md]、[research_state.md]、[work_orders.md]。验证：`py_compile` 通过，JSON 通过 `json.tool`，目标文件无 trailing whitespace，`git diff --check` 干净。没有跑全量 pytest。
 
 ### Turn 67 — User — Task 2 — 2026-07-07T04:03:08.540Z
 
@@ -18214,14 +18234,14 @@ L3C02, L3C07
 
 我补了一个新的停止交接卡：
 
-[notes/pause_summary_2026-07-07.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-07.md>)
+[notes/pause_summary_2026-07-07.md]
 
 里面记录了当前最准确的恢复点：`SC-1` length-2 已过本地 review；length-3 scaled rank-one 已闭合 `L3C02/L3C05/L3C07/L3C11`；下次原算法分支优先从 `L3C06/L3C09/L3C10` 这类剩余二次类继续，修正算法分支从 `vi_ppc_corrected_algorithm_route.md` 继续。
 
 同时我也同步了：
 
-- [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)：把 `L3C05` 从“候选/诊断”更新为已由 parity certificate 闭合。
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)：把新的 7 月 7 日停止交接卡登记进 source of truth。
+- [notes/pause_summary_2026-07-06.md]：把 `L3C05` 从“候选/诊断”更新为已由 parity certificate 闭合。
+- [research_state.md]：把新的 7 月 7 日停止交接卡登记进 source of truth。
 
 检查过旧状态关键词，没有残留 `L3C05 只是诊断`、`pending_independent_review`、`Jmid not scripted` 这类误导恢复点。没跑 pytest，因为这次只改 Markdown 笔记。
 
@@ -18367,11 +18387,11 @@ L3C02, L3C07
 - 一般 closed convex \(Y\) 不能由当前 z-fixed affine \(y\)-correction 覆盖。已补 ADM-G / PCB-ADMM assumption match：ADM-G 更有希望，但需要块序、middle-block feasibility、\(A,B\) full-column-rank；PCB-ADMM 假设更强，作为备选。
 
 主要新增/更新：
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/q_p_predictor_derivation.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/q_p_predictor_derivation.md)
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_unconstrained_theorem.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_unconstrained_theorem.md)
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_vi_blackbox_match.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_vi_blackbox_match.md)
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/gaussian_back_substitution_assumption_match.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/gaussian_back_substitution_assumption_match.md)
-- [<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/pcb_admm_assumption_match.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/pcb_admm_assumption_match.md)
+- [<PROJECT_WORKSPACE>/proof_reviews/vi_ppc_corrected_algorithm/q_p_predictor_derivation.md]
+- [<PROJECT_WORKSPACE>/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_unconstrained_theorem.md]
+- [<PROJECT_WORKSPACE>/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_vi_blackbox_match.md]
+- [<PROJECT_WORKSPACE>/proof_reviews/vi_ppc_corrected_algorithm/gaussian_back_substitution_assumption_match.md]
+- [<PROJECT_WORKSPACE>/proof_reviews/vi_ppc_corrected_algorithm/pcb_admm_assumption_match.md]
 
 也同步了 `verification_report.json`、`proof_obligation_patches.json`、`verification_summary.md`、`acceptance_gate.md`、`research_state.md` 和 `work_orders.md`。验证：相关 JSON 均通过 `json.tool`，目标文件无 trailing whitespace，`git diff --check` 干净。未跑全量 pytest，因为本轮只改过程性证明文档。
 
@@ -18511,9 +18531,9 @@ L3C02, L3C07
 
 已经在修正算法分支找了一个可暂停节点。
 
-当前推进结果：`Y=R^n` 的 z-fixed corrected algorithm 分支多闭合了一个理论组件。新增 [restricted_y_cluster_kkt_limit.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_cluster_kkt_limit.md>)，证明在 \(v^k-\tilde v^k\to0\) 且 \(\tilde x^k\) 有 joint 收敛子列时，predictor cluster point 满足 slack-variable KKT 的 VI 形式。独立 verifier `Avicenna` 已审查并给出 `correct_local`，审查记录在 [restricted_y_cluster_kkt_limit_review.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_cluster_kkt_limit_review.md>)。
+当前推进结果：`Y=R^n` 的 z-fixed corrected algorithm 分支多闭合了一个理论组件。新增 [restricted_y_cluster_kkt_limit.md]，证明在 \(v^k-\tilde v^k\to0\) 且 \(\tilde x^k\) 有 joint 收敛子列时，predictor cluster point 满足 slack-variable KKT 的 VI 形式。独立 verifier `Avicenna` 已审查并给出 `correct_local`，审查记录在 [restricted_y_cluster_kkt_limit_review.md]。
 
-但整体 theorem 还没有 accepted：现在状态是 `Q_P/S_P` 矩阵门本地通过，`cluster-KKT bridge` 本地通过；剩下两个核心缺口是明确 \(x\)-有界性来源，以及匹配一个足够强的 VI/PPC 黑箱来推出全序列收敛。这个状态已同步到 [verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json>)、[acceptance_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/acceptance_gate.md>)、[notes/vi_ppc_corrected_algorithm_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md>)、`research_state.md` 和 `work_orders.md`。
+但整体 theorem 还没有 accepted：现在状态是 `Q_P/S_P` 矩阵门本地通过，`cluster-KKT bridge` 本地通过；剩下两个核心缺口是明确 \(x\)-有界性来源，以及匹配一个足够强的 VI/PPC 黑箱来推出全序列收敛。这个状态已同步到 [verification_report.json]、[acceptance_gate.md]、[notes/vi_ppc_corrected_algorithm_route.md]、`research_state.md` 和 `work_orders.md`。
 
 校验已跑：`proof_reviews/vi_ppc_corrected_algorithm/*.json` 全部通过 `json.tool`，`git diff --check` 干净，目标文档无尾随空格。未跑 pytest，因为这轮只改证明文档和过程账本。
 
@@ -18607,7 +18627,7 @@ L3C02, L3C07
 
 这轮继续推进了修正算法分支的理论闭环，暂停点如下：
 
-新增并审查通过了 [restricted_y_x_boundedness_sources.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_x_boundedness_sources.md>)：把 \(\tilde x^k\) 有界性拆成四个 gate：`x_predictor_bounded`、\(X\) compact、原约束矩阵 \(A\) full column rank、以及 \(\ker A\) coercive/recession 条件。独立 verifier `Mencius` 给出 `correct_local`，审查记录在 [restricted_y_x_boundedness_sources_review.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_x_boundedness_sources_review.md>)。
+新增并审查通过了 [restricted_y_x_boundedness_sources.md]：把 \(\tilde x^k\) 有界性拆成四个 gate：`x_predictor_bounded`、\(X\) compact、原约束矩阵 \(A\) full column rank、以及 \(\ker A\) coercive/recession 条件。独立 verifier `Mencius` 给出 `correct_local`，审查记录在 [restricted_y_x_boundedness_sources_review.md]。
 
 现在修正算法限制版的状态是：
 
@@ -18617,7 +18637,7 @@ L3C02, L3C07
 - \(x\)-boundedness gate：`Mencius` 已本地通过。
 - 剩余主缺口：匹配 VI/PPC 收敛黑箱，决定是否把 `x_predictor_bounded` 写成限制版 theorem 的主假设，并把“原约束矩阵 \(A\) full column rank”写成 corollary。
 
-同步更新了 [verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json>)、[proof_obligation_patches.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/proof_obligation_patches.json>)、[acceptance_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/acceptance_gate.md>)、`research_state.md`、`work_orders.md` 和 [notes/vi_ppc_corrected_algorithm_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md>)。
+同步更新了 [verification_report.json]、[proof_obligation_patches.json]、[acceptance_gate.md]、`research_state.md`、`work_orders.md` 和 [notes/vi_ppc_corrected_algorithm_route.md]。
 
 校验已完成：`proof_reviews/vi_ppc_corrected_algorithm/*.json` 全部通过 `json.tool`，`git diff --check` 干净，目标文档无尾随空格。未跑 pytest，因为本轮只改证明文档和 JSON 账本。
 
@@ -18745,13 +18765,13 @@ L3C02, L3C07
 
 这轮把修正算法分支推进到了一个实质性节点：限制版 theorem 已经本地 `accepted_by_review`。
 
-新增并审查通过了 [restricted_y_essential_convergence_theorem.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_essential_convergence_theorem.md>)。结论精确限定为：
+新增并审查通过了 [restricted_y_essential_convergence_theorem.md]。结论精确限定为：
 
 `restricted Y=R^n, z-fixed corrected algorithm, essential-variable convergence theorem`
 
 也就是在 \(Y=\mathbb R^n\)、\(P_y\succ0\)、\(P_z=0\)、z-fixed correction、small \(R,E\)、solution set 非空、predictor 子问题有解、`x_predictor_bounded` 下，证明 \(v^k=(y^k,z^k,\lambda^k)\) 收敛，且任意 \(x\)-predictor cluster point 与 \(v^\infty\) 构成 KKT 点。它不证明原始 direct ADMM 收敛，也不证明一般 \(Y\)，也不在无唯一性时证明 \(x\) 全序列收敛。
 
-独立 verifier `Maxwell` 给出 `correct_local`，审查记录在 [restricted_y_essential_convergence_theorem_review.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/restricted_y_essential_convergence_theorem_review.md>)。我也同步更新了 [verification_report.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json>)、[acceptance_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/acceptance_gate.md>)、`research_state.md`、`work_orders.md` 和 [notes/vi_ppc_corrected_algorithm_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md>)。
+独立 verifier `Maxwell` 给出 `correct_local`，审查记录在 [restricted_y_essential_convergence_theorem_review.md]。我也同步更新了 [verification_report.json]、[acceptance_gate.md]、`research_state.md`、`work_orders.md` 和 [notes/vi_ppc_corrected_algorithm_route.md]。
 
 校验通过：`proof_reviews/vi_ppc_corrected_algorithm/*.json` 全部通过 `json.tool`，`git diff --check` 干净，目标文档无尾随空格。下一步建议二选一：继续一般 \(Y\) 的 ADM-G / image-space 修正路线，或者回到原始 direct ADMM 的 active-set / switching proof 或 proof-grade counterexample 分支。
 
@@ -18959,11 +18979,11 @@ L3C02, L3C07
 
 已写入这些关键文件：
 
-- [暂停总结](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_vi_ppc_corrected_algorithm_2026-07-07.md)
-- [ADM-G theorem candidate](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/general_y_admg_theorem_candidate.md)
-- [ADM-G verifier review](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/general_y_admg_theorem_candidate_review.md)
-- [修正算法路线矩阵](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/corrected_algorithm_route_matrix.md)
-- [Acceptance gate](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/acceptance_gate.md)
+- [暂停总结]
+- [ADM-G theorem candidate]
+- [ADM-G verifier review]
+- [修正算法路线矩阵]
+- [Acceptance gate]
 
 同步更新了 `research_state.md`、`work_orders.md`、`docs/proof_obligations.md/json`、`verification_report.json`、`proof_obligation_patches.json`、`verification_summary.md` 等状态文件。
 
@@ -19148,12 +19168,12 @@ L3C02, L3C07
 
 本轮主要更新：
 
-- [notes/vi_ppc_corrected_algorithm_route.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md:1)
-- [proof_reviews/vi_ppc_corrected_algorithm/general_y_admg_invariant_x_theorem_candidate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/general_y_admg_invariant_x_theorem_candidate.md:1)
-- [proof_reviews/vi_ppc_corrected_algorithm/image_space_h_projected_fejer_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/image_space_h_projected_fejer_gate.md:1)
-- [notes/pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md:1)
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:1)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:1)
+- [notes/vi_ppc_corrected_algorithm_route.md]
+- [proof_reviews/vi_ppc_corrected_algorithm/general_y_admg_invariant_x_theorem_candidate.md]
+- [proof_reviews/vi_ppc_corrected_algorithm/image_space_h_projected_fejer_gate.md]
+- [notes/pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md]
+- [research_state.md]
+- [work_orders.md]
 
 校验已跑：
 
@@ -19244,9 +19264,9 @@ L3C02, L3C07
 
 - `image_space_h_projected_fejer_gate.md` 已从 open proof obligation 升为 `accepted_by_review_algebraic_image_space_H_projected_Fejer_gate`。
 - 子代理 `Confucius` 独立审查了投影 VI 和 Pythagorean inequality，确认 residual 项符号正确。
-- 新增审查文件：[image_space_h_projected_fejer_gate_review.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/image_space_h_projected_fejer_gate_review.md:1)。
-- 同步更新了 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json:1)、[proof_obligation_patches.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/proof_obligation_patches.json:1)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:1)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:1)。
-- 补回暂停卡：[pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md:1)。
+- 新增审查文件：[image_space_h_projected_fejer_gate_review.md]。
+- 同步更新了 [verification_report.json]、[proof_obligation_patches.json]、[research_state.md]、[work_orders.md]。
+- 补回暂停卡：[pause_summary_vi_ppc_invariant_x_projected_gate_2026-07-07.md]。
 
 当前边界很明确：
 
@@ -19370,9 +19390,9 @@ L3C02, L3C07
 
 我新增并同步了：
 
-- [closed_image_and_lift_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/closed_image_and_lift_gate.md)
-- [closed_image_and_lift_gate_review.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/closed_image_and_lift_gate_review.md)
-- 更新了 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json)、[verification_summary.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_summary.md)、[acceptance_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/acceptance_gate.md)、[research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md) 和暂停总结。
+- [closed_image_and_lift_gate.md]
+- [closed_image_and_lift_gate_review.md]
+- 更新了 [verification_report.json]、[verification_summary.md]、[acceptance_gate.md]、[research_state.md]、[work_orders.md] 和暂停总结。
 
 当前结论很明确：`image_space_h_projected_fejer_gate.md` 的抽象 Fejer 下降是可用的，但不能直接升级成 arbitrary closed convex \(X,Y\) 的收敛定理。Dirac review 判定为 `incomplete`：要继续这条线，必须先把目标改成 `image-regular corrected theorem`，显式加入 closed value functions/domains、fiber attainment、executable selection，以及实际 image predictor 的 \(Q_P,M,H,G\)。
 
@@ -19544,9 +19564,9 @@ git diff --check
 
 改了三处：
 
-- [notes/pause_summary_2026-07-07.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-07.md>)
-- [notes/pause_summary_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_2026-07-06.md>)
-- [notes/pause_summary_sc1_and_vi_ppc_2026-07-06.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary_sc1_and_vi_ppc_2026-07-06.md>)
+- [notes/pause_summary_2026-07-07.md]
+- [notes/pause_summary_2026-07-06.md]
+- [notes/pause_summary_sc1_and_vi_ppc_2026-07-06.md]
 
 也确认了 `L3C05` 现在是已由 parity certificate 闭合，不再是“候选诊断”。检查过旧短语和尾随空白；没跑 pytest，因为只改 Markdown 笔记。
 
@@ -19584,9 +19604,9 @@ git diff --check
 
 #### Assistant final answer — 2026-07-07T05:09:06.998Z
 
-已合并成一个无日期入口：[notes/pause_summary.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary.md)。
+已合并成一个无日期入口：[notes/pause_summary.md]。
 
-我也更新了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)，现在 Source Of Truth 只指向 `notes/pause_summary.md`。旧的 dated pause-summary 文件已经删掉，`notes/pause_summary*.md` 现在只剩这一个文件。
+我也更新了 [research_state.md]，现在 Source Of Truth 只指向 `notes/pause_summary.md`。旧的 dated pause-summary 文件已经删掉，`notes/pause_summary*.md` 现在只剩这一个文件。
 
 验证过：
 - `rg` 已查不到旧的 `pause_summary_2026...` / `pause_summary_l3c...` / `pause_summary_vi_ppc...` 引用。
@@ -19707,14 +19727,14 @@ ADM-G 结论不覆盖 simultaneous general closed convex \(X,Y\)；
 
 #### Assistant final answer — 2026-07-07T05:16:28.699Z
 
-已更新 [notes/pause_summary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary.md:453>)。我把 I.5-I.8 改成了“尝试过程 + 卡住位置”的写法：
+已更新 [notes/pause_summary.md]。我把 I.5-I.8 改成了“尝试过程 + 卡住位置”的写法：
 
 - I.5 详细写了 fixed-mask recurrence、\(R_D\) reduced map、abstract screen、QP pressure candidate、为什么复扩张不能保持 fixed mask、signed-\(q\) tangent 和正实扩张为什么退不下去。
 - I.6 写了 length-2 从反例搜索转成 `SC-1` theorem 的过程，以及为什么不能外推到 length-3。
 - I.7 写了 length-3 的每一步：`60 -> 11` 类、determinant-zero、cubic/Jury scaffold 公式太大、coordinatewise、rank-one projector、scaled rank-one 四个已闭合类，以及剩余缺口。
 - I.8 写了 VI/PPC 修正算法分支的失败/成功边界：direct `Q,M,H,G` 负方向、z-fixed restricted \(Y\)、ADM-G、invariant-\(X\)、primal projection 被降级、image-space Fejer gate 仍开放。
 
-也同步了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)，把最新 dated VI/PPC 暂停卡内容合并进无日期总卡，并删除了那个 dated pause-summary 文件。现在 `notes/pause_summary*.md` 只剩 `notes/pause_summary.md`。
+也同步了 [research_state.md]，把最新 dated VI/PPC 暂停卡内容合并进无日期总卡，并删除了那个 dated pause-summary 文件。现在 `notes/pause_summary*.md` 只剩 `notes/pause_summary.md`。
 
 验证：查过旧 dated pause-summary 引用，已经没有；查过尾随空白，没有问题。没跑 `pytest`，这次是文档整理。
 
@@ -19744,7 +19764,7 @@ ADM-G 结论不覆盖 simultaneous general closed convex \(X,Y\)；
 
 #### Assistant final answer — 2026-07-07T05:21:13.766Z
 
-已按这个方向重写了总卡：[notes/pause_summary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary.md>)。
+已按这个方向重写了总卡：[notes/pause_summary.md]。
 
 现在正文不再像项目文件索引，已经去掉 `notes/`、`proof_reviews/`、`experiments/` 这类路径名，只围绕问题本身写：模型、Lyapunov 卡点、active-set reduced map、fixed-mask 为什么退不下去、length-2/length-3 推进、修正算法边界和反例搜索结论。
 
@@ -19792,7 +19812,7 @@ ADM-G 结论不覆盖 simultaneous general closed convex \(X,Y\)；
 
 #### Assistant final answer — 2026-07-07T05:35:05.448Z
 
-已补上。现在 [notes/pause_summary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary.md:760>) 的 I.8 按前置推导重写了：
+已补上。现在 [notes/pause_summary.md] 的 I.8 按前置推导重写了：
 
 - I.8.1：direct VI/PPA 的 \(Q,M,H,G\) 怎么实例化，以及负方向为什么出现。
 - I.8.2：为什么加 proximalized prediction，怎么从一阶最优性得到 \(Q_P\)，以及 \(S_P=Q_P+Q_P^\top\succ0\) 的 Schur complement 推导。
@@ -19839,11 +19859,11 @@ ADM-G 结论不覆盖 simultaneous general closed convex \(X,Y\)；
 
 新增/更新的关键文件：
 
-- [full_image_state_predictor_route.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/full_image_state_predictor_route.md)
-- [full_image_state_predictor_route_review.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/full_image_state_predictor_route_review.md)
-- [image_predictor_inequality_lemma.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/image_predictor_inequality_lemma.md)
-- [image_regular_corrected_theorem_candidate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/image_regular_corrected_theorem_candidate.md)
-- 同步了 [research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)、[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)、[verification_report.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/verification_report.json)。
+- [full_image_state_predictor_route.md]
+- [full_image_state_predictor_route_review.md]
+- [image_predictor_inequality_lemma.md]
+- [image_regular_corrected_theorem_candidate.md]
+- 同步了 [research_state.md]、[work_orders.md]、[verification_report.json]。
 
 边界很重要：这还不是完整收敛证明，也不是原始 direct ADMM theorem。已局部闭合的是 full-image-state 修正算法的 predictor inequality / SPD / Fejer 接口。下一步如果继续，应扩展成完整 theorem candidate，并审查 cluster KKT、value-function closedness、fiber attainment 和 primal lift。
 
@@ -19986,13 +20006,13 @@ git diff --check
 
 可以在这里暂停。
 
-我参考了 `<LOCAL_HOME>/Downloads/Codex_ADMM_Breakthrough_Prompt.md`，但没有切去执行它的 Stage 1/2，因为当前主线是你指定的 `vi_ppc_corrected_algorithm_route` 修正算法分支。已把这个选择写入 [prompt_alignment_with_current_vi_ppc_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/prompt_alignment_with_current_vi_ppc_route.md)。
+我参考了 `<LOCAL_INPUT_FILE>`，但没有切去执行它的 Stage 1/2，因为当前主线是你指定的 `vi_ppc_corrected_algorithm_route` 修正算法分支。已把这个选择写入 [prompt_alignment_with_current_vi_ppc_route.md]。
 
-本轮核心进展：新增并审查通过了 [full_image_state_convergence_theorem_candidate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/full_image_state_convergence_theorem_candidate.md)。独立 reviewer `Halley` 给出 `correct_local`，已记录在 [full_image_state_convergence_theorem_candidate_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/vi_ppc_corrected_algorithm/full_image_state_convergence_theorem_candidate_review.md)。
+本轮核心进展：新增并审查通过了 [full_image_state_convergence_theorem_candidate.md]。独立 reviewer `Halley` 给出 `correct_local`，已记录在 [full_image_state_convergence_theorem_candidate_review.md]。
 
 结论边界很明确：这是 `image-regular` 假设下的 full-image-state H-projected corrected algorithm 收敛定理。它证明 \(w^k=(a^k,c^k,z^k,\lambda^k)\) 收敛到 image KKT point；若极限 fiber minima attained，可 conditional lift 为 primal KKT。它不是原始 direct ADMM 证明，也不是 arbitrary closed convex \(X,Y\) 定理，也不证明 primal representatives 全序列收敛。
 
-同步更新了 `research_state.md`、`work_orders.md`、[vi_ppc_corrected_algorithm_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md)、`verification_report.json`、`verification_summary.md`、`acceptance_gate.md` 和下降函数卡 [full_image_state_h_projected_fejer_energy.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/knowledge_base/descent_functions/full_image_state_h_projected_fejer_energy.md)。
+同步更新了 `research_state.md`、`work_orders.md`、[vi_ppc_corrected_algorithm_route.md]、`verification_report.json`、`verification_summary.md`、`acceptance_gate.md` 和下降函数卡 [full_image_state_h_projected_fejer_energy.md]。
 
 验证已跑：
 `proof_reviews/vi_ppc_corrected_algorithm/*.json` 全部通过 `json.tool`，`docs/*.json` 全部通过 `json.tool`，`git diff --check` 干净。
@@ -20097,10 +20117,10 @@ git diff --check
 
 产物在：
 
-- [stage0_state_alignment.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage0_state_alignment.md)
-- [schur_cohn_report.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage1_jmid_matrix_certificates/schur_cohn_report.md)
-- [exterior_square_identity_report.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage1_jmid_matrix_certificates/exterior_square_identity_report.md)
-- [stage1_artifact_review.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage1_jmid_matrix_certificates/stage1_artifact_review.md)
+- [stage0_state_alignment.md]
+- [schur_cohn_report.md]
+- [exterior_square_identity_report.md]
+- [stage1_artifact_review.md]
 
 主要结果：
 
@@ -20280,7 +20300,7 @@ git diff --check
 
 已按你给的 breakthrough prompt 推进到 Stage 2 并暂停。
 
-本轮新增了 Stage 2 的 unit-root Jordan / affine drift 搜索脚本：[search_affine_drift_counterexample.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/breakthrough/search_affine_drift_counterexample.py)。输出已写入 [stage2_affine_drift_search](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage2_affine_drift_search)，并补了路线说明 [affine_drift_counterexample_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/affine_drift_counterexample_route.md) 和总报告 [final_report.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/final_report.md)。
+本轮新增了 Stage 2 的 unit-root Jordan / affine drift 搜索脚本：[search_affine_drift_counterexample.py]。输出已写入 [stage2_affine_drift_search]，并补了路线说明 [affine_drift_counterexample_route.md] 和总报告 [final_report.md]。
 
 当前结论：Stage 2 是 `failure_map`，不是证明也不是严格反例。固定 QP 嵌入、二维全部 nonconstant masks、长度 `2..8` 共 `87348` 个 cycles 中：
 - `counterexample_candidate_count = 0`
@@ -20437,11 +20457,11 @@ git diff --check
 这轮新增两块结果：
 
 1. Stage 3A path-complete/common-seminorm gate
-   文件：[path_complete_lyapunov_report.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_path_complete_lyapunov/path_complete_lyapunov_report.md)
-   结论是 `failure_map`：当前无 SDP 求解器，只用 SciPy heuristic search，没有找到可升级的二次型 H。common product residual 约 `5.44e-6`，transition residual 约 `8.92e-3`。对应 proof-review 包已写到 [proof_reviews/breakthrough_path_complete_lyapunov](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/breakthrough_path_complete_lyapunov)。
+   文件：[path_complete_lyapunov_report.md]
+   结论是 `failure_map`：当前无 SDP 求解器，只用 SciPy heuristic search，没有找到可升级的二次型 H。common product residual 约 `5.44e-6`，transition residual 约 `8.92e-3`。对应 proof-review 包已写到 [proof_reviews/breakthrough_path_complete_lyapunov]。
 
 2. Stage 3B exterior-square rank-defect reduction
-   文件：[exterior_square_rank_defect_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/exterior_square_rank_defect_reduction.md)
+   文件：[exterior_square_rank_defect_reduction.md]
    这是本轮真正的理论进展：在 scaled-rank-one 子族里，exact `3x3` minor gate 证明单步 `[0,0]` 和 `[1,1]` 的 rank ≤ 2。因此 priority classes `L3C06/L3C09/L3C10` 满足 `rank(wedge2(P)) <= 1`，从而
    \[
    J_{\rm mid}=\det(I-\wedge^2P)=1-\operatorname{tr}(\wedge^2P).
@@ -20449,10 +20469,10 @@ git diff --check
    `L3C08` 不被这个 rank-defect shortcut 覆盖，仍是硬类。
 
 同步更新了：
-- [progress.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md)
-- [status.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json)
-- [stage3_route_decision.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage3_route_decision.md)
-- [exterior_square_rank_defect_reduction.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/exterior_square_rank_defect_reduction.md)
+- [progress.md]
+- [status.json]
+- [stage3_route_decision.md]
+- [exterior_square_rank_defect_reduction.md]
 
 校验已跑：
 - 新增脚本 `py_compile` 通过
@@ -20538,11 +20558,11 @@ git diff --check
 
 新增/更新的核心文件：
 
-- [l3c09_l3c10_trace_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c09_l3c10_trace_route.md>)
-- [l3c09_l3c10_trace_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/l3c09_l3c10_trace_route.md>)
-- [certify_l3c09_l3c10_trace_route.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c09_l3c10_trace_route.py>)
-- [progress.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md>)
-- [status.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json>)
+- [l3c09_l3c10_trace_route.md]
+- [l3c09_l3c10_trace_route.md]
+- [certify_l3c09_l3c10_trace_route.py]
+- [progress.md]
+- [status.json]
 
 验证已过：
 
@@ -20683,14 +20703,14 @@ git diff --check
 
 这轮推进到了一个更好的暂停点：`L3C10` 已闭合。
 
-我新增了 [certify_l3c10_jplus_triangle_bernstein.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c10_jplus_triangle_bernstein.py>)，把 `L3C10` 剩下的 `quadratic_Jplus_num` 处理完了。核心是：一盒 guard 有 `25` 个负 Bernstein 系数；depth-1 dyadic 后只剩两个坏盒 `[1,1,0,0]` 和 `[1,1,1,1]`；把这两个盒子的 `a,b` square 沿 `a=b` 切成四个 triangular charts 后，全部 exact Bernstein 非负。
+我新增了 [certify_l3c10_jplus_triangle_bernstein.py]，把 `L3C10` 剩下的 `quadratic_Jplus_num` 处理完了。核心是：一盒 guard 有 `25` 个负 Bernstein 系数；depth-1 dyadic 后只剩两个坏盒 `[1,1,0,0]` 和 `[1,1,1,1]`；把这两个盒子的 `a,b` square 沿 `a=b` 切成四个 triangular charts 后，全部 exact Bernstein 非负。
 
 新的证明 artifact 在：
 
-- [l3c10_jplus_triangle_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c10_jplus_triangle_certificate.md>)
-- [l3c10_jplus_triangle_certificate.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c10_jplus_triangle_certificate.json>)
+- [l3c10_jplus_triangle_certificate.md]
+- [l3c10_jplus_triangle_certificate.json]
 
-我也同步更新了 [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[progress.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md>)、[status.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json>) 和 length-3 路线笔记。
+我也同步更新了 [research_state.md]、[progress.md]、[status.json] 和 length-3 路线笔记。
 
 当前状态：
 
@@ -20716,7 +20736,7 @@ git diff --check
 
 > **Assistant working update — 2026-07-08T04:33:31.090Z**
 >
-> 状态确认完毕：本轮不碰 `<LOCAL_HOME>/AI4Math-Skill-Library`，也不退回普通 random screen。接下来我用现有 scaled-rank-one 模板诊断 `L3C01/L3C03/L3C04`，优先找能直接闭合的类。
+> 状态确认完毕：本轮不碰 `<LOCAL_SKILL_LIBRARY>`，也不退回普通 random screen。接下来我用现有 scaled-rank-one 模板诊断 `L3C01/L3C03/L3C04`，优先找能直接闭合的类。
 
 > **Assistant working update — 2026-07-08T04:33:34.771Z**
 >
@@ -20844,9 +20864,9 @@ git diff --check
 
 新增证书脚本和 artifact：
 
-- [certify_l3c04_jplus_triangle_bernstein.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c04_jplus_triangle_bernstein.py>)
-- [l3c04_jplus_triangle_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c04_jplus_triangle_certificate.md>)
-- [l3c04_jplus_triangle_certificate.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c04_jplus_triangle_certificate.json>)
+- [certify_l3c04_jplus_triangle_bernstein.py]
+- [l3c04_jplus_triangle_certificate.md]
+- [l3c04_jplus_triangle_certificate.json]
 
 核心证书结构：
 
@@ -20858,10 +20878,10 @@ git diff --check
 
 已同步更新：
 
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [progress.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md>)
-- [status.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json>)
-- [length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md>)
+- [research_state.md]
+- [progress.md]
+- [status.json]
+- [length3_switching_gate.md]
 
 当前 scaled-rank-one 已闭合类：
 
@@ -21148,9 +21168,9 @@ git diff --check
 
 #### Assistant final answer — 2026-07-08T05:23:57.540Z
 
-已参考 `<LOCAL_HOME>/Downloads/Codex_ADMM_Breakthrough_Prompt.md`，但没有按里面旧状态重启 Stage 0-2；我按当前仓库事实继续推进了 length-3 scaled-rank-one 分支。
+已参考 `<LOCAL_INPUT_FILE>`，但没有按里面旧状态重启 Stage 0-2；我按当前仓库事实继续推进了 length-3 scaled-rank-one 分支。
 
-这次停在一个明确节点：`L3C03` 已闭合为 scaled-rank-one 单类 theorem。新增证书脚本 [certify_l3c03_triangle_bernstein.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c03_triangle_bernstein.py>)，生成报告 [l3c03_triangle_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c03_triangle_certificate.md>) 和 JSON 证据 [l3c03_triangle_certificate.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c03_triangle_certificate.json>)。
+这次停在一个明确节点：`L3C03` 已闭合为 scaled-rank-one 单类 theorem。新增证书脚本 [certify_l3c03_triangle_bernstein.py]，生成报告 [l3c03_triangle_certificate.md] 和 JSON 证据 [l3c03_triangle_certificate.json]。
 
 核心结果：`L3C03=[[0,0],[0,1],[0,1]]` 的三个 quadratic Schur/Jury margins 全部闭合：
 - `Jconst`：一盒 exact Bernstein 闭合。
@@ -21158,7 +21178,7 @@ git diff --check
 - `Jplus`：`E` depth-1 闭合；guard 只剩 `[1,1,0,0]`、`[1,1,1,1]` 两个坏盒，沿 `a=b` 三角化后四个 chart 全部负系数为 0。
 
 已同步中文过程文档和状态：
-[progress.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md>)、[status.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json>)、[research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)、[length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md>)。
+[progress.md]、[status.json]、[research_state.md]、[length3_switching_gate.md]。
 
 当前闭合的 scaled-rank-one classes 变为：
 `L3C02, L3C03, L3C04, L3C05, L3C06, L3C07, L3C09, L3C10, L3C11`
@@ -21458,11 +21478,11 @@ git diff --check
 这轮推进到了一个实质节点：length-3 scaled-rank-one 子族已经 `11/11` canonical classes 闭合。
 
 新增并验证了：
-- [certify_l3c01_triangle_bernstein.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c01_triangle_bernstein.py>)
-- [l3c01_triangle_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c01_triangle_certificate.md>)
-- [certify_l3c08_cubic_bernstein.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_l3c08_cubic_bernstein.py>)
-- [l3c08_cubic_certificate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/l3c08_cubic_certificate.md>)
-- [scaled_rank_one_assembly.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage3_exterior_square/scaled_rank_one_assembly.md>)
+- [certify_l3c01_triangle_bernstein.py]
+- [l3c01_triangle_certificate.md]
+- [certify_l3c08_cubic_bernstein.py]
+- [l3c08_cubic_certificate.md]
+- [scaled_rank_one_assembly.md]
 
 关键结论：
 - `L3C01` 三个 quadratic margins 全部闭合。
@@ -21470,11 +21490,11 @@ git diff --check
 - 当前 assembly 状态：`theorem_for_length3_scaled_rank_one_canonical_classes`，closed `11/11`。
 
 已同步：
-- [research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md>)
-- [work_orders.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md>)
-- [length3_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md>)
-- [progress.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md>)
-- [after_scaled_rank_one_route_decision.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/after_scaled_rank_one_route_decision.md>)
+- [research_state.md]
+- [work_orders.md]
+- [length3_switching_gate.md]
+- [progress.md]
+- [after_scaled_rank_one_route_decision.md]
 
 验证：
 `py_compile` 通过，相关 JSON 通过 `json.tool`，`git diff --check` 干净。没有跑全量 `pytest`。
@@ -21523,17 +21543,17 @@ git diff --check
 
 #### Assistant final answer — 2026-07-08T06:08:34.559Z
 
-已参考 `<LOCAL_HOME>/Downloads/Codex_ADMM_Breakthrough_Prompt.md`。这个 prompt 的边界条件继续有效，但它已经不是当前进度的起点：仓库已经完成 Stage 0-2，并推进到 Stage 3B，闭合了 length-3 scaled-rank-one 的 `11/11` canonical classes。
+已参考 `<LOCAL_INPUT_FILE>`。这个 prompt 的边界条件继续有效，但它已经不是当前进度的起点：仓库已经完成 Stage 0-2，并推进到 Stage 3B，闭合了 length-3 scaled-rank-one 的 `11/11` canonical classes。
 
 我已把对齐结论写入：
 
-[notes/breakthrough_routes/codex_breakthrough_prompt_alignment_2026_07_08.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/codex_breakthrough_prompt_alignment_2026_07_08.md)
+[notes/breakthrough_routes/codex_breakthrough_prompt_alignment_2026_07_08.md]
 
 并同步更新了：
 
-[outputs/breakthrough_attempts/progress.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md)
+[outputs/breakthrough_attempts/progress.md]
 
-[outputs/breakthrough_attempts/status.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json)
+[outputs/breakthrough_attempts/status.json]
 
 当前结论：不应重跑旧 prompt 的 Stage 0-2；下一步应进入 `stage4_full_rank_interior` proof-obligation scaffold。仍然不能声明原始 direct slack-variable 三块 ADMM 全局收敛，也没有 proof-grade counterexample。
 
@@ -21650,11 +21670,11 @@ git diff --check
 
 本轮新增了 full-rank interior 的 proof-obligation scaffold：
 
-[experiments/breakthrough/analyze_length3_full_rank_interior_scaffold.py](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/analyze_length3_full_rank_interior_scaffold.py)
+[experiments/breakthrough/analyze_length3_full_rank_interior_scaffold.py]
 
-[outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_scaffold.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_scaffold.md)
+[outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_scaffold.md]
 
-[notes/breakthrough_routes/stage4_full_rank_interior_route.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_full_rank_interior_route.md)
+[notes/breakthrough_routes/stage4_full_rank_interior_route.md]
 
 核心结论是：scaled-rank-one `11/11` 闭合后，不能直接外推 full-rank interior。Stage 4 当前最小开放义务应先拆成三个 faces：
 
@@ -21668,15 +21688,15 @@ n_isotropic_m_rotated
 
 我也同步更新了：
 
-[research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)
+[research_state.md]
 
-[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)
+[work_orders.md]
 
-[notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)
+[notes/length3_switching_gate.md]
 
-[outputs/breakthrough_attempts/progress.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md)
+[outputs/breakthrough_attempts/progress.md]
 
-[outputs/breakthrough_attempts/status.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json)
+[outputs/breakthrough_attempts/status.json]
 
 验证通过：
 
@@ -21787,11 +21807,11 @@ git diff --check
 
 本轮新增 mixed boundary face 分析：
 
-[experiments/breakthrough/analyze_stage4_mixed_boundary_faces.py](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/analyze_stage4_mixed_boundary_faces.py)
+[experiments/breakthrough/analyze_stage4_mixed_boundary_faces.py]
 
-[outputs/breakthrough_attempts/stage4_full_rank_interior/mixed_boundary_faces.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/mixed_boundary_faces.md)
+[outputs/breakthrough_attempts/stage4_full_rank_interior/mixed_boundary_faces.md]
 
-[notes/breakthrough_routes/stage4_mixed_boundary_faces_route.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_mixed_boundary_faces_route.md)
+[notes/breakthrough_routes/stage4_mixed_boundary_faces_route.md]
 
 主要进展：
 
@@ -21801,13 +21821,13 @@ git diff --check
 
 已同步：
 
-[research_state.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md)
+[research_state.md]
 
-[work_orders.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md)
+[work_orders.md]
 
-[notes/length3_switching_gate.md](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/length3_switching_gate.md)
+[notes/length3_switching_gate.md]
 
-[outputs/breakthrough_attempts/status.json](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json)
+[outputs/breakthrough_attempts/status.json]
 
 验证通过：
 
@@ -22086,13 +22106,13 @@ git diff --check
 
 #### Assistant final answer — 2026-07-09T14:15:01.113Z
 
-已参考 `<LOCAL_HOME>/Downloads/Codex_ADMM_Breakthrough_Prompt.md`。这个 prompt 的 Stage 0-2 在当前仓库里已经被覆盖，所以我没有回滚重跑；我按它的思路继续推进了当前最小开放点：Stage 4C `m_rank_one_n_full` mixed face。
+已参考 `<LOCAL_INPUT_FILE>`。这个 prompt 的 Stage 0-2 在当前仓库里已经被覆盖，所以我没有回滚重跑；我按它的思路继续推进了当前最小开放点：Stage 4C `m_rank_one_n_full` mixed face。
 
 本轮新增并生成：
 
-- [certify_stage4_m_rank_one_n_full_cubic_schur.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_stage4_m_rank_one_n_full_cubic_schur.py)
-- [m_rank_one_n_full_cubic_schur_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/m_rank_one_n_full_cubic_schur_certificate.md)
-- [stage4_m_rank_one_n_full_cubic_schur_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_m_rank_one_n_full_cubic_schur_route.md)
+- [certify_stage4_m_rank_one_n_full_cubic_schur.py]
+- [m_rank_one_n_full_cubic_schur_certificate.md]
+- [stage4_m_rank_one_n_full_cubic_schur_route.md]
 
 结论：Stage 4 参数化下的 `m_rank_one_n_full` face 已闭合，`11/11` canonical classes 全部通过 exact Bernstein 证书；其中 `L3C08/L3C09/L3C10/L3C11` 四个 hard-rank classes 也闭合。现在两个 mixed codim-1 faces 都已闭合：Stage 4B `m_full_n_rank_one`，Stage 4C `m_rank_one_n_full`。
 
@@ -22490,9 +22510,9 @@ git diff --check
 
 本轮新增并生成了：
 
-- [certify_stage4_n_isotropic_m_rotated_cubic_schur.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_stage4_n_isotropic_m_rotated_cubic_schur.py)
-- [n_isotropic_m_rotated_cubic_schur_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/n_isotropic_m_rotated_cubic_schur_certificate.md)
-- [stage4_n_isotropic_m_rotated_cubic_schur_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_n_isotropic_m_rotated_cubic_schur_route.md)
+- [certify_stage4_n_isotropic_m_rotated_cubic_schur.py]
+- [n_isotropic_m_rotated_cubic_schur_certificate.md]
+- [stage4_n_isotropic_m_rotated_cubic_schur_route.md]
 
 结论是：在
 `N = nu I`,
@@ -22577,23 +22597,23 @@ git diff --check
 
 #### Assistant final answer — 2026-07-09T15:09:23.059Z
 
-已参考 `<LOCAL_HOME>/Downloads/Codex_ADMM_Breakthrough_Prompt.md`，并把它落到当前节点：旧 prompt 的 Stage 0-2 已经不适合重跑，现在应继承它的 exact failure-map / claim-boundary 纪律，推进 Stage 4E full-rank interior lift。
+已参考 `<LOCAL_INPUT_FILE>`，并把它落到当前节点：旧 prompt 的 Stage 0-2 已经不适合重跑，现在应继承它的 exact failure-map / claim-boundary 纪律，推进 Stage 4E full-rank interior lift。
 
 本轮新增并生成：
 
-- [analyze_stage4_full_rank_interior_lift_pressure.py](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/breakthrough/analyze_stage4_full_rank_interior_lift_pressure.py)
-- [full_rank_interior_lift_pressure.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_lift_pressure.md)
-- [full_rank_interior_lift_pressure.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_lift_pressure.json)
+- [analyze_stage4_full_rank_interior_lift_pressure.py]
+- [full_rank_interior_lift_pressure.md]
+- [full_rank_interior_lift_pressure.json]
 
 结果：exact rational grid 检查了 `2376` 个 full-rank interior 压力点，`negative_margin_count=0`、`zero_margin_count=0`、`determinant_zero_violations=0`。这不是证明，只是 failure map；下一步最合理的是盯 `L3C11` 的 `Jplus/Jmid` 和 `L3C09` 的 `Jconst_upper` 做 symbolic/interval face-to-interior lift。
 
 已同步中文过程文档和状态：
 
-- [stage4_full_rank_interior_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_full_rank_interior_route.md)
-- [progress.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/progress.md)
-- [status.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/status.json)
-- [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md)
-- [work_orders.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/work_orders.md)
+- [stage4_full_rank_interior_route.md]
+- [progress.md]
+- [status.json]
+- [research_state.md]
+- [work_orders.md]
 
 校验已过：`py_compile`、两个关键 JSON 的 `json.tool`、`docs/*.json` 的 `json.tool`、`git diff --check`。当前可以在这个 Stage 4E 节点暂停。
 
@@ -22731,13 +22751,13 @@ git diff --check
 - `L3C11:Jmid`：一盒 Bernstein，negative count `0`
 - `L3C09:Jconst_upper`：一盒 Bernstein，negative count `0`
 
-核心新增脚本是 [certify_stage4_full_rank_interior_target_margins.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_stage4_full_rank_interior_target_margins.py>)。它避免直接展开 `e3**2`，改成先把 `e1/e2/e3` 降到 `c^2=t, s^2=1-t` 后的稀疏 power coefficients，再用字典多项式组合 Schur/Jury margins。
+核心新增脚本是 [certify_stage4_full_rank_interior_target_margins.py]。它避免直接展开 `e3**2`，改成先把 `e1/e2/e3` 降到 `c^2=t, s^2=1-t` 后的稀疏 power coefficients，再用字典多项式组合 Schur/Jury margins。
 
 主要输出：
 
-- [full_rank_interior_target_margin_bernstein.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_target_margin_bernstein.md>)
-- [full_rank_interior_target_margin_bernstein.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_target_margin_bernstein.json>)
-- 已同步 [stage4_full_rank_interior_route.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_full_rank_interior_route.md>)、`progress.md`、`status.json`、`research_state.md`、`work_orders.md`
+- [full_rank_interior_target_margin_bernstein.md]
+- [full_rank_interior_target_margin_bernstein.json]
+- 已同步 [stage4_full_rank_interior_route.md]、`progress.md`、`status.json`、`research_state.md`、`work_orders.md`
 
 边界仍然明确：这只证明 selected target margins，不是完整 full-rank interior theorem，不是 arbitrary switching theorem，也不是原始 direct ADMM 收敛证明或严格反例。
 
@@ -22839,7 +22859,7 @@ git diff --check
 
 #### Assistant final answer — 2026-07-09T14:05:44.299Z
 
-已更新合并版笔记：[notes/pause_summary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary.md:1>)。
+已更新合并版笔记：[notes/pause_summary.md]。
 
 这次主要同步了三处最新进展：I.7 里把 length-3 scaled-rank-one 改成 `11/11` canonical classes 已闭合，并补了从 parity、trace route、triangle Bernstein 到 `L3C08` cubic 证书的推进过程；同时新增 Stage 4 full-rank interior 说明，明确 `m_full_n_rank_one` face 已闭合但 full-rank interior 仍未闭合。I.8.6 也更新为修正算法分支的最新状态：primal projected route 不闭合，压缩 image state \(v=(c,z,\lambda)\) 失败，full-image-state \(w=(a,c,z,\lambda)\) 在 image-regular 假设下已经是可接受的 corrected theorem。
 
@@ -23093,10 +23113,10 @@ git diff --check
 
 主要证据位置：
 
-- [all-margin assembly](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_all_margin_dyadic_depth1_assembly.md>)
-- [assembly json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage4_full_rank_interior/full_rank_interior_all_margin_dyadic_depth1_assembly.json>)
-- [proof review](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/stage4_full_rank_interior_margin_assembly/acceptance_gate.md>)
-- [Stage 4G 路线记录](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage4_full_rank_interior_route.md>)
+- [all-margin assembly]
+- [assembly json]
+- [proof review]
+- [Stage 4G 路线记录]
 
 我还修正了 assembly JSON 末尾的顶层 `claim_boundary`：之前残留了 “selected margins / open targets” 的旧模板，现在与 `55/55 closed` 一致。没有改 Bernstein records、hash 或 dyadic 证书内容。
 
@@ -23292,10 +23312,10 @@ git diff --check
 
 这轮新增了 Stage 5 arbitrary switching gate，把 Stage 4G 后的开放问题从“泛泛 common seminorm”收窄成可检查的 proof obligations：
 
-- 新脚本：[build_stage5_arbitrary_switching_gate.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/build_stage5_arbitrary_switching_gate.py>)
-- 新 artifact：[arbitrary_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage5_arbitrary_switching/arbitrary_switching_gate.md>)
-- 新路线 note：[stage5_arbitrary_switching_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage5_arbitrary_switching_gate.md>)
-- AS-2 细化 note：[stage5_constant_self_loop_gate.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/breakthrough_routes/stage5_constant_self_loop_gate.md>)
+- 新脚本：[build_stage5_arbitrary_switching_gate.py]
+- 新 artifact：[arbitrary_switching_gate.md]
+- 新路线 note：[stage5_arbitrary_switching_gate.md]
+- AS-2 细化 note：[stage5_constant_self_loop_gate.md]
 
 关键结果：
 
@@ -23460,13 +23480,13 @@ git diff --check
 
 重新规划已写入并提交：
 
-[2026-07-11-true-switching-bridge-first-design.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/docs/superpowers/specs/2026-07-11-true-switching-bridge-first-design.md>)
+[2026-07-11-true-switching-bridge-first-design.md]
 
 核心顺序是：先证明或否定 \(P_{\rm true}\) 与 \(P_{\rm old}\) 的等谱迁移，再决定复用 Stage 4G 证书还是重算 true products，最后才进入 active-region、path-complete 或严格反例分支。
 
 请确认这份书面设计可以进入具体实施计划吗？
 
-::git-commit{cwd="<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计"}
+::git-commit{cwd="<LOCAL_ARTIFACT>"}
 
 > **Assistant working update — 2026-07-11T08:04:23.609Z**
 >
@@ -23664,9 +23684,9 @@ git diff --check
 已先做了一轮低风险仓库整理。
 
 本轮实际改动：
-- 新增仓库入口地图：[docs/repository_map.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/docs/repository_map.md:1)，明确当前读文件顺序、目录分层、文件生命周期和证明状态规则。
-- 更新 README 的入口说明和目录结构，加入 `docs/repository_map.md`、`src/`、`proof_reviews/`：[README.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/README.md:13)。
-- 更新 `research_state.md`，把过时的 “TS-1/TS-2” 恢复点改成当前只进入 `TS-2`：[research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md:354)。
+- 新增仓库入口地图：[docs/repository_map.md]，明确当前读文件顺序、目录分层、文件生命周期和证明状态规则。
+- 更新 README 的入口说明和目录结构，加入 `docs/repository_map.md`、`src/`、`proof_reviews/`：[README.md]。
+- 更新 `research_state.md`，把过时的 “TS-1/TS-2” 恢复点改成当前只进入 `TS-2`：[research_state.md]。
 - 删除三个已跟踪的 `.superpowers/sdd` 临时 scratch report：
   `task-3-generation-report.md`、`task-3-verification-report.md`、`task-4-report.md`。
 - 清理了 `.DS_Store`、`__pycache__`、`.pytest_cache` 这类缓存噪声。
@@ -23807,11 +23827,11 @@ F_{b,c}(r)=G_c(K_br+k),
 
 一起搬回较简单的 legacy \(R_D\) 坐标。
 
-我做了两个独立数值代数检查，包括非方阵 \(B\)，最大恒等式残差约 \(5\times10^{-16}\)。但目前严格状态只能是 `candidate_lemma + numerical_screen`，还需要 exact derivation 和独立 review。它很可能是一篇短而漂亮的结构定理。现有线性基础见 [transfer blueprint](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/stage5_true_switching_transfer/proof_blueprint.md:1>)。
+我做了两个独立数值代数检查，包括非方阵 \(B\)，最大恒等式残差约 \(5\times10^{-16}\)。但目前严格状态只能是 `candidate_lemma + numerical_screen`，还需要 exact derivation 和独立 review。它很可能是一篇短而漂亮的结构定理。现有线性基础见 [transfer blueprint]。
 
 2. TS-2 exact admissibility → cone-restricted Lyapunov——主攻大方向
 
-[TS-2](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/ts2_affine_itinerary_polyhedra.md:1>) 已经把真实 edge 写成半开仿射多面体。初审只是条件接受；其 \(\beta>0\)、\(H_x,H_y\succ0\) API blocker 在当前代码中看起来已修复，定向测试 `8 passed`，下一步只差 follow-up review 和具体 word 的 exact certificate。
+[TS-2] 已经把真实 edge 写成半开仿射多面体。初审只是条件接受；其 \(\beta>0\)、\(H_x,H_y\succ0\) API blocker 在当前代码中看起来已修复，定向测试 `8 passed`，下一步只差 follow-up review 和具体 word 的 exact certificate。
 
 建议顺序：
 
@@ -23841,7 +23861,7 @@ F_{b,c}(r)=G_c(K_br+k),
 - 首选：放宽 full-image-state theorem 的 projection carrier，只真正投影 \(z\)，降低 closed-image-domain 负担；
 - 更有新意但未经审查：把现有额外交叉项 \(L_k^\top(C_k+Z_k)\) 当作 coupled dissipation，而不是 blocker，尝试构造更低维的 essential-state correction。
 
-第二条可能给出更小的 correction state 和更弱 proximal 条件，但必须重新核对符号、Fejér 展开与 \(G_{\rm eff}\succ0\)。详见 [corrected route](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md:1>)。它始终是 modified algorithm，不能称为原始 direct ADMM。
+第二条可能给出更小的 correction state 和更弱 proximal 条件，但必须重新核对符号、Fejér 展开与 \(G_{\rm eff}\succ0\)。详见 [corrected route]。它始终是 modified algorithm，不能称为原始 direct ADMM。
 
 5. 自动研究流程论文
 
@@ -23884,9 +23904,9 @@ affine offset；
 fixed-mask affine drift；
 TS-2 的 itinerary cells
 一起搬回较简单的 legacy \(R_D\) 坐标。
-我做了两个独立数值代数检查，包括非方阵 \(B\)，最大恒等式残差约 \(5\times10^{-16}\)。但目前严格状态只能是 candidate_lemma + numerical_screen，还需要 exact derivation 和独立 review。它很可能是一篇短而漂亮的结构定理。现有线性基础见 [transfer blueprint (line 1)](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/stage5_true_switching_transfer/proof_blueprint.md:1)。
+我做了两个独立数值代数检查，包括非方阵 \(B\)，最大恒等式残差约 \(5\times10^{-16}\)。但目前严格状态只能是 candidate_lemma + numerical_screen，还需要 exact derivation 和独立 review。它很可能是一篇短而漂亮的结构定理。现有线性基础见 [transfer blueprint (line 1)]。
 TS-2 exact admissibility → cone-restricted Lyapunov——主攻大方向
-[TS-2 (line 1)](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/ts2_affine_itinerary_polyhedra.md:1) 已经把真实 edge 写成半开仿射多面体。初审只是条件接受；其 \(\beta>0\)、\(H_x,H_y\succ0\) API blocker 在当前代码中看起来已修复，定向测试 8 passed，下一步只差 follow-up review 和具体 word 的 exact certificate。
+[TS-2 (line 1)] 已经把真实 edge 写成半开仿射多面体。初审只是条件接受；其 \(\beta>0\)、\(H_x,H_y\succ0\) API blocker 在当前代码中看起来已修复，定向测试 8 passed，下一步只差 follow-up review 和具体 word 的 exact certificate。
 建议顺序：
 对固定有理 QP 和 closed word 生成 rational feasible witness 或 Farkas infeasibility certificate；
 将仿射系统齐次化；
@@ -23905,7 +23925,7 @@ TS-2 exact admissibility → cone-restricted Lyapunov——主攻大方向
 若想更稳地形成算法论文，我推荐：
 首选：放宽 full-image-state theorem 的 projection carrier，只真正投影 \(z\)，降低 closed-image-domain 负担；
 更有新意但未经审查：把现有额外交叉项 \(L_k^\top(C_k+Z_k)\) 当作 coupled dissipation，而不是 blocker，尝试构造更低维的 essential-state correction。
-第二条可能给出更小的 correction state 和更弱 proximal 条件，但必须重新核对符号、Fejér 展开与 \(G_{\rm eff}\succ0\)。详见 [corrected route (line 1)](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/vi_ppc_corrected_algorithm_route.md:1)。它始终是 modified algorithm，不能称为原始 direct ADMM。
+第二条可能给出更小的 correction state 和更弱 proximal 条件，但必须重新核对符号、Fejér 展开与 \(G_{\rm eff}\succ0\)。详见 [corrected route (line 1)]。它始终是 modified algorithm，不能称为原始 direct ADMM。
 自动研究流程论文
 仓库最强的方法论故事不是“再做一个 agent orchestration”，而是：
 typed claim-scope graph + semantic-regression / proof-mutation benchmark。
@@ -23977,15 +23997,15 @@ proof/code mutation 的 false acceptance；
 
 已按这条路线推进，并完成两个关键节点：
 
-- [仿射 transfer theorem](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/affine_source_target_transfer.md>) 已通过独立 follow-up review。证明了共同 affine offset、齐次 intertwining 和有限 closed-word 特征多项式 transfer；\(\widehat Q\) 可逆时得到 affine conjugacy。
-- [TS-2 exact admissibility](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage6_exact_admissibility/exact_periodic_itineraries.md>) 已对一个固定有理 SPD QP 完成长度 \(1\) 到 \(4\) 的全部 340 个标记 words 精确消元。
+- [仿射 transfer theorem] 已通过独立 follow-up review。证明了共同 affine offset、齐次 intertwining 和有限 closed-word 特征多项式 transfer；\(\widehat Q\) 可逆时得到 affine conjugacy。
+- [TS-2 exact admissibility] 已对一个固定有理 SPD QP 完成长度 \(1\) 到 \(4\) 的全部 340 个标记 words 精确消元。
 
 精确结果：
 
 - 336 个 word 的唯一周期点违反 canonical edge row；
 - 对应 315 个不同 inadmissible basepoints；
 - 4 个 witness 只是同一个 `[1,0]` self-loop 的重复编码；
-- 结果已由 [独立复核](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/exact_periodic_itineraries/followup_verification.json>) 接受；
+- 结果已由 [独立复核] 接受；
 - 这不是严格反例，也不排除 Jordan/affine drift。
 
 验证：29 项定向测试通过，相关 JSON 全部合法，`git diff --check` 干净。
@@ -24040,8 +24060,8 @@ proof/code mutation 的 false acceptance；
 - **二维分支已收敛为单一精确问题**：分析 rank-one \(M\)、diagonal \(N\) 下 Gray word 的 exact `det(I-P)` 多项式零集。
 - 在确认存在单位根前，不再进行 Jordan、offset、cone search，也不扩展普通长度谱筛查。
 - 已同步 `research_state.md`、`docs/proof_obligations.md` 和主路线文档。
-- 独立复核记录保存在 [verification_report.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/scalar_affine_drift_exclusion/verification_report.json)。
-- 当前暂停点见 [affine_drift_counterexample_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/affine_drift_counterexample_route.md)。
+- 独立复核记录保存在 [verification_report.json]。
+- 当前暂停点见 [affine_drift_counterexample_route.md]。
 
 验证结果：`29 passed`，JSON 通过 `json.tool`，`git diff --check` 干净。当前尚无一般收敛证明或严格反例。
 
@@ -24143,7 +24163,7 @@ proof/code mutation 的 false acceptance；
    - 因此 \(\mu<1\) 时严格无单位根；\(\mu=1\) 退化到已排除的 projector 边界族。
    - 已通过独立 proof review。
 
-主要结果见 [affine_drift_counterexample_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/affine_drift_counterexample_route.md) 和 [scaled_extension_verification.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/gray_word_unit_root/scaled_extension_verification.json)。
+主要结果见 [affine_drift_counterexample_route.md] 和 [scaled_extension_verification.json]。
 
 验证：`31 passed`，全部相关 JSON 合法，`git diff --check` 干净。
 
@@ -24218,7 +24238,7 @@ proof/code mutation 的 false acceptance；
 - 所有有限单位根 faces 都在共同单位方向首次激活时违反 strict target row，因此真实 Gray itinerary cell 为空。
 - independent reviewer verdict：`correct`。
 
-结果见 [affine_drift_counterexample_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/breakthrough_routes/affine_drift_counterexample_route.md) 和 [full_rank_verification.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/gray_word_unit_root/full_rank_verification.json)。
+结果见 [affine_drift_counterexample_route.md] 和 [full_rank_verification.json]。
 
 验证：`32 passed`，全部 JSON 合法，`git diff --check` 干净。
 
@@ -24343,7 +24363,7 @@ Ax^k+By^k+z^k-b\to0,
 
 并且聚点满足原不等式问题的 KKT 条件、互补条件，目标值收敛。
 
-我已将主线重新整理到 [optimization_anchored_quotient_lyapunov_route.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/optimization_anchored_quotient_lyapunov_route.md)。当前最关键的理论关口是：
+我已将主线重新整理到 [optimization_anchored_quotient_lyapunov_route.md]。当前最关键的理论关口是：
 
 1. 从 \(x/y\) 子问题最优性条件推导完整周期的能量恒等式；
 2. 证明零耗散只对应 KKT 解的非唯一中性方向；
@@ -24399,10 +24419,10 @@ Ax^k+By^k+z^k-b\to0,
 
 本轮形成两个独立复核通过的理论节点：
 
-- [一步 KKT 能量恒等式](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/one_step_kkt_energy_identity.md)：精确定位唯一无定号交叉项，并闭合条件 KKT/目标值桥。
-- [静态耦合度量与 cone 障碍](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/full_image_metric_and_cone_obstruction.md)：严格有理 fixed-mask 例证明当前核心能量可连续两步净上升 \(729/8192\)。这是否定当前 Lyapunov，不是 ADMM 发散反例。
+- [一步 KKT 能量恒等式]：精确定位唯一无定号交叉项，并闭合条件 KKT/目标值桥。
+- [静态耦合度量与 cone 障碍]：严格有理 fixed-mask 例证明当前核心能量可连续两步净上升 \(729/8192\)。这是否定当前 Lyapunov，不是 ADMM 发散反例。
 
-最新候选节点在 [history_metric_and_strengthened_gate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/history_metric_and_strengthened_gate.md)。下一主门已收缩为联合 \((B(y-y^\star),\Delta z)\) 的逐 edge cone-restricted 二次证书。
+最新候选节点在 [history_metric_and_strengthened_gate.md]。下一主门已收缩为联合 \((B(y-y^\star),\Delta z)\) 的逐 edge cone-restricted 二次证书。
 
 验证：`29 passed`，所有相关 JSON 有效，`git diff --check` 干净。
 
@@ -24445,7 +24465,7 @@ Ax^k+By^k+z^k-b\to0,
 - strict fixed-mask 能量增长 obstruction 已固化为回归测试。
 - 三轮独立红队后 verdict 为 `ship`。
 
-记录见 [joint_edge_energy_certificate.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/joint_edge_energy_certificate.md)。
+记录见 [joint_edge_energy_certificate.md]。
 
 验证：`38 passed`，相关 JSON 全部有效，`git diff --check` 干净。下一节点是 phase/history correction 与 cone-restricted feasibility。
 
@@ -24455,7 +24475,7 @@ Ax^k+By^k+z^k-b\to0,
 
 > **Assistant working update — 2026-07-11T18:25:32.108Z**
 >
-> 当前 Python 环境没有 SDP 建模器。为不污染仓库或全局环境，我会把 `cvxpy` 临时安装到 `/tmp`，只用于候选生成；任何数值 SDP 结果仍按 screening 处理，最终证书必须回到 exact/interval 或独立代数复核。
+> 当前 Python 环境没有 SDP 建模器。为不污染仓库或全局环境，我会把 `cvxpy` 临时安装到 `<TEMP_DIR>`，只用于候选生成；任何数值 SDP 结果仍按 screening 处理，最终证书必须回到 exact/interval 或独立代数复核。
 
 > **Assistant working update — 2026-07-11T18:27:09.029Z**
 >
@@ -24511,7 +24531,7 @@ Ax^k+By^k+z^k-b\to0,
 - 300 个有理主子式精确验证通过。
 - 独立审稿结论为 `accept`。
 - 定向测试 `16 passed`，JSON 与 `git diff --check` 均干净。
-- 结果见 [fixed_qp_phase_lyapunov_theorem.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/fixed_qp_phase_lyapunov_theorem.md)。
+- 结果见 [fixed_qp_phase_lyapunov_theorem.md]。
 
 当前已暂停，不再开启新的推广分支。
 
@@ -24629,7 +24649,7 @@ Ax^k+By^k+z^k-b\to0,
 \]
 可直接推出全部迭代变量收敛到零。所有结论均有 exact Rational/Bernstein 证书和独立复核，不是数值实验。
 
-暂停总结见 [pause_summary_phase_metric_2026-07-12.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_phase_metric_2026-07-12.md)。全量测试为 `133 passed`，唯一瞬态系统调用失败独立重跑后通过；JSON 和 `git diff --check` 均干净。一般模型的全局收敛或严格反例仍保持开放。
+暂停总结见 [pause_summary_phase_metric_2026-07-12.md]。全量测试为 `133 passed`，唯一瞬态系统调用失败独立重跑后通过；JSON 和 `git diff --check` 均干净。一般模型的全局收敛或严格反例仍保持开放。
 
 #### Assistant final answer — 2026-07-11T20:56:14.505Z
 
@@ -24878,7 +24898,7 @@ H=\frac1{40}
   都严格成立；
 - 该点原 small-gain 常数 \(d\approx1.095>1\)，所以这不是旧门内的另一个例子，而是**严格越过了现有 small-gain/selector-IQC 边界**。
 
-这说明 [对角 Farkas 障碍](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/diagonal_phase_farkas_obstruction.md>) 排除的是过窄的坐标 ansatz，并不是算法本身的稳定性。
+这说明 [对角 Farkas 障碍] 排除的是过窄的坐标 ansatz，并不是算法本身的稳定性。
 
 更重要的是，rhs 和目标一次项只改变共同 offset \(k\)，不改变四个 \(B_b\)。连续 PWA 映射的所有 Jacobian 在同一 \(H\)-范数下收缩，即可沿线段推出全局增量收缩，再用 Banach 定理得到：
 
@@ -24886,7 +24906,7 @@ H=\frac1{40}
 - 任意目标一次项；
 - 任意初值；
 
-下的全局几何收敛。这会直接突破当前 [general \(A,B\) 定理](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/general_ab_small_gain_phase_gate.md>) 的 \(b=0\) 范围。
+下的全局几何收敛。这会直接突破当前 [general \(A,B\) 定理] 的 \(b=0\) 范围。
 
 当前证据等级：**proof attempt / exact rational candidate**，尚需正式 artifact 和独立复核，不能先写成 theorem。
 
@@ -24930,7 +24950,7 @@ H=\frac1{40}
 r_L=r_0
 \]
 
-加上 [TS-2 canonical cells](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/ts2_affine_itinerary_polyhedra.md>) 的全部严格/弱行。固定有理 \(M,N\) 后，这只是关于周期点与 rhs 的有理线性可行性问题；一旦严格 margin \(>0\)，非恒定周期本身就构成 proof-grade 不收敛反例。
+加上 [TS-2 canonical cells] 的全部严格/弱行。固定有理 \(M,N\) 后，这只是关于周期点与 rhs 的有理线性可行性问题；一旦严格 margin \(>0\)，非恒定周期本身就构成 proof-grade 不收敛反例。
 
 若二维始终只有零 margin，再进入 \(m=3\)、length-2 的 9 个 mask-pair 等价类，联合求
 
@@ -25140,7 +25160,7 @@ P_wd=\eta d,\qquad \eta>1
 - 两层均完成 exact 证书、fixed-point/KKT 双向桥和独立复核。
 - 联合回归 `27 passed`，JSON、控制字符及 `git diff --check` 均通过。
 
-总入口：[signed_pwa_two_layer_closure_summary.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/signed_pwa_two_layer_closure_summary.md)
+总入口：[signed_pwa_two_layer_closure_summary.md]
 
 一般非交换高维模型的证明或严格反例仍开放，因此总目标保持 active。3 小时自动研究窗口仍在运行。
 
@@ -25196,15 +25216,15 @@ P_wd=\eta d,\qquad \eta>1
 
 **两层闭环完成**
 
-1. 固定 Gate 外 QP 已证明 direct 三块 ADMM 对任意有限初值全局几何收敛，收缩率为 `99/100`。见 [固定 QP 定理](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/fixed_qp_signed_pwa_contraction_theorem.md)。
+1. 固定 Gate 外 QP 已证明 direct 三块 ADMM 对任意有限初值全局几何收敛，收缩率为 `99/100`。见 [固定 QP 定理]。
 
 2. 结论已扩展至任意 rhs、目标一次项，以及 reduced `(M,N)` 半径 `1/100` 的闭球。统一严格余量为
    \[
    405667/3125000>0.
    \]
-   见 [Affine Family 定理](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/fixed_qp_signed_pwa_affine_family_theorem.md)。
+   见 [Affine Family 定理]。
 
-已补齐原始 ADMM 独立 oracle、符号 affine 恒等式、邻域常数机器重构、完整状态收敛率和双 reviewer provenance。Hubble 最终为 `correct`，Helmholtz 为 `RELEASE`。汇总见 [两层闭环总结](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/signed_pwa_two_layer_closure_summary.md)。
+已补齐原始 ADMM 独立 oracle、符号 affine 恒等式、邻域常数机器重构、完整状态收敛率和双 reviewer provenance。Hubble 最终为 `correct`，Helmholtz 为 `RELEASE`。汇总见 [两层闭环总结]。
 
 验证结果：P0/P1 定向测试 `14 passed`；全量测试 `209 passed, 2 SIGKILL`，两个资源型终止用例隔离复跑均通过。全部相关 JSON 通过 `json.tool`，`git diff --check` 干净。
 
@@ -25262,9 +25282,9 @@ P_wd=\eta d,\qquad \eta>1
 
 本轮形成三个节点：
 
-- [Stage 30/31](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/nested_mask_long_cycle_obligations.md)：严格排除对角子族的 `01/11` 三周期；同时用精确有理实例否定 common averagedness 的普适性，但这不是 ADMM 发散反例。
-- [Stage 32](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/nested_three_cycle_cayley_reduction.md)：一般非交换情形已证明 `E11>0`、`E01>0`、`E00≥0`。
-- [暂停摘要](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_nested_cycles_2026-07-13.md)：记录恢复入口和声明边界。
+- [Stage 30/31]：严格排除对角子族的 `01/11` 三周期；同时用精确有理实例否定 common averagedness 的普适性，但这不是 ADMM 发散反例。
+- [Stage 32]：一般非交换情形已证明 `E11>0`、`E01>0`、`E00≥0`。
+- [暂停摘要]：记录恢复入口和声明边界。
 
 一般三周期还剩两个明确义务：证明 `E00>0`，以及证明 `E10>0` 或找到精确负例。因此一般收敛证明和严格反例都尚未最终闭合。
 
@@ -25311,7 +25331,7 @@ P_wd=\eta d,\qquad \eta>1
 - 唯一剩余义务是证明 \(E_{00}>0\)，等价于排除 \((3i\sqrt3-1)H(i\sqrt3)=2\)。
 - 一般非交换三周期尚未完全排除，目前也没有严格 ADMM 发散反例。
 
-结果汇总见[暂停摘要](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/pause_summary_nested_cycles_2026-07-13.md:1)，独立复核见[Stage33 复核](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/nested_three_cycle_e10/final_summary.md:1)。
+结果汇总见[暂停摘要]，独立复核见[Stage33 复核]。
 
 最终检查：`5 passed`，相关 JSON 全部通过 `json.tool`，无异常控制字符，`git diff --check` 干净。
 
@@ -25389,7 +25409,7 @@ P_wd=\eta d,\qquad \eta>1
 
 #### Assistant final answer — 2026-07-13T14:03:22.781Z
 
-已更新 [notes/pause_summary.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/pause_summary.md:1>)。
+已更新 [notes/pause_summary.md]。
 
 这次同步的是“目前进展”而不是只补一句状态，主要改了：
 
@@ -25529,13 +25549,13 @@ P_wd=\eta d,\qquad \eta>1
 
 主要材料：
 
-- [完整反例证明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/strict_rational_66_cycle_counterexample.md>)
-- [Exact checker](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_strict_rational_66_cycle.py>)
-- [Stage 44 证书](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage44_strict_rational_66_cycle/certificate.json>)
-- [反方风险审计](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/proof_reviews/strict_rational_66_cycle/adversarial_risk_register.md>)
-- [更新后的研究状态](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:803>)
+- [完整反例证明]
+- [Exact checker]
+- [Stage 44 证书]
+- [反方风险审计]
+- [更新后的研究状态]
 
-同时还严格闭合了 nested rank-one 模型的全部四周期排除：[四周期八端点总装](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/nested_length4_all_endpoint_assembly.md>)。
+同时还严格闭合了 nested rank-one 模型的全部四周期排除：[四周期八端点总装]。
 
 验证结果：相关回归 `40 passed`，最终 Stage 41–44 回归 `4 passed`；全量测试运行 15 分钟后因旧重型测试主动停止，停止前 `83 passed`、无失败。当前证据是 Codex 反方审计加 exact rational guard，尚未声称外部独立复核。
 
@@ -25605,10 +25625,10 @@ P_wd=\eta d,\qquad \eta>1
 
 完整整理见：
 
-- [最终结论与证据总表](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/final_resolution_2026-07-14.md>)
-- [反例证明说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/strict_rational_66_cycle_counterexample.md>)
-- [第二套原始状态复算器](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/audit_strict_rational_66_cycle_independent.py>)
-- [第二套 exact certificate](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage45_independent_raw_admm_audit/certificate.json>)
+- [最终结论与证据总表]
+- [反例证明说明]
+- [第二套原始状态复算器]
+- [第二套 exact certificate]
 
 最终验收：两个 certificate 均为 `valid=true`，相关定向测试 `5 passed`。目前唯一保留的可信度边界是：尚未经过外部研究者的独立审稿。
 
@@ -25636,9 +25656,9 @@ P_wd=\eta d,\qquad \eta>1
 
 PDF 报告已生成并完成逐页渲染检查，共 7 页：
 
-[打开 PDF 报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_strict_66_cycle_final_report.pdf>)
+[打开 PDF 报告]
 
-可重复生成脚本：[generate_final_resolution_pdf.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/generate_final_resolution_pdf.py>)。
+可重复生成脚本：[generate_final_resolution_pdf.py]。
 
 ### Turn 105 — User — Task 4 — 2026-07-14T03:13:15.254Z
 
@@ -25684,8 +25704,8 @@ PDF 报告已生成并完成逐页渲染检查，共 7 页：
 
 对，已经用 XeLaTeX 彻底重做，旧版 PDF 已覆盖。新版共 8 页，公式、定理、矩阵、证明链和周期图均为原生 LaTeX 排版。
 
-- [打开新版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_strict_66_cycle_final_report.pdf>)
-- [查看 LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+- [打开新版 PDF]
+- [查看 LaTeX 源文件]
 
 已通过 XeLaTeX 干净编译和逐页渲染检查；无溢出、未定义引用或版面警告。
 
@@ -25739,8 +25759,8 @@ PDF 报告已生成并完成逐页渲染检查，共 7 页：
 
 已经完成学术化重写：
 
-- [学术版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_conditional_convergence_and_66_cycle_report.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1>)
+- [学术版 PDF]
+- [LaTeX 源文件]
 
 新版共 13 页，新增了文献定位、主定理、完整证明链和条件收敛性版图，明确区分：
 
@@ -25782,8 +25802,8 @@ PDF 报告已生成并完成逐页渲染检查，共 7 页：
 
 文件：
 
-- [标准 Article PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_standard_article.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1>)
+- [标准 Article PDF]
+- [LaTeX 源文件]
 
 之前两个 PDF 文件名也已经同步替换为这个新版。
 
@@ -26034,7 +26054,7 @@ m(\mathcal W)
 - 理论不是只追求最终收敛定理，也负责排除错误反例机制、压缩搜索空间。
 - 浮点候选只有经过有理化、严格 itinerary、原算法回代和独立实现复核，才能晋升为 proof-grade counterexample。
 
-完整结论在 [final_resolution_2026-07-14.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/final_resolution_2026-07-14.md>)；反例的数学定义在 [strict_rational_66_cycle_counterexample.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/strict_rational_66_cycle_counterexample.md>)。当前证据是仓库内两套 exact 实现交叉验证，尚未完成外部独立复核。
+完整结论在 [final_resolution_2026-07-14.md]；反例的数学定义在 [strict_rational_66_cycle_counterexample.md]。当前证据是仓库内两套 exact 实现交叉验证，尚未完成外部独立复核。
 
 ### Turn 114 — User — Task 4 — 2026-07-14T08:30:55.979Z
 
@@ -26106,9 +26126,9 @@ m(\mathcal W)
 
 交付文件：
 
-- [最终 15 页 article PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_standard_article.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1>)
-- [VI/PPA 与先例审计](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/prior_art_novelty_audit_2026-07-14.md:1>)
+- [最终 15 页 article PDF]
+- [LaTeX 源文件]
+- [VI/PPA 与先例审计]
 
 验收结果：两项 exact 回归 `2 passed`；Stage 44/45 均为 `valid=true`；引用全部解析；无 overfull/underfull；已逐页检查排版。
 
@@ -26128,7 +26148,7 @@ m(\mathcal W)
 
 已生成 Markdown 文档：
 
-[search_workflow_theory_numerics_counterexample.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/search_workflow_theory_numerics_counterexample.md>)
+[search_workflow_theory_numerics_counterexample.md]
 
 内容包括完整流程图、理论/数值并行路线、逐步缩域过程、66 周期的认证门槛、证据等级和复现命令。仅新增此文件，未修改其他现有内容。
 
@@ -26363,7 +26383,7 @@ m(\mathcal W)
 
 已经整理并严格复核完毕，可以直接把下面的 ZIP 发给老师：
 
-[教师版完整复现包 ZIP](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package_2026-07-14.zip>)
+[教师版完整复现包 ZIP]
 
 核查结果：
 
@@ -26378,13 +26398,13 @@ m(\mathcal W)
 
 包内重点文件：
 
-- [中文运行说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/README_zh.md>)
-- [复现程序](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/reproduce_exact_cycle.py>)
-- [紧凑含线性项序列 CSV](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/results/ordered_orbit_linear_decimal.csv>)
-- [纯二次版本序列 CSV](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/results/ordered_orbit_decimal.csv>)
-- [严格验证摘要](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/results/verification_summary.json>)
-- [反方风险审计](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/STRICT_AUDIT.md>)
-- [完整复跑日志](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package/RERUN_LOG.md>)
+- [中文运行说明]
+- [复现程序]
+- [紧凑含线性项序列 CSV]
+- [纯二次版本序列 CSV]
+- [严格验证摘要]
+- [反方风险审计]
+- [完整复跑日志]
 
 结论边界仍需保留：这是严格的有界、非 KKT、最小周期 66 的不收敛反例，足以否定无条件全局收敛；但目前属于仓库内三实现 exact cross-check，尚未经过外部人类或另一证明系统的独立复核。
 
@@ -26423,9 +26443,9 @@ m(\mathcal W)
 
 已按“原问题本身的理论分析卡点”重写并编译完成：
 
-[学术版 PDF：含完整理论卡点分析](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_academic_report_with_theoretical_bottlenecks.pdf>)
+[学术版 PDF：含完整理论卡点分析]
 
-[LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:291>)
+[LaTeX 源文件]
 
 新增内容包括：
 
@@ -26499,8 +26519,8 @@ m(\mathcal W)
 
 结论表述也已收紧：无条件全局收敛问题已被严格 66 周期反例否定；但最小充分条件、参数鲁棒性及最短周期仍是开放问题。
 
-- [新版 24 页 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_theory_workflow_counterexample_convergence_ablation.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+- [新版 24 页 PDF]
+- [LaTeX 源文件]
 
 已完成 XeLaTeX 无警告编译、逐页版面审计；严格反例两项定向测试结果为 `2 passed`。
 
@@ -26543,8 +26563,8 @@ m(\mathcal W)
 
 已精简为 10 页，只保留四个核心章节。实验流程已改成白话说明，删除术语密集的表格和旁支内容。
 
-- [精简版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+- [精简版 PDF]
+- [LaTeX 源文件]
 
 编译无警告，定向测试 `2 passed`。
 
@@ -26583,8 +26603,8 @@ m(\mathcal W)
 
 新版为12页，版面无溢出，严格反例的两套独立测试均通过：`2 passed`。
 
-- [更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+- [更新后的 PDF]
+- [LaTeX 源文件]
 
 ### Turn 126 — User — Task 4 — 2026-07-14T10:44:28.561Z
 
@@ -27778,7 +27798,7 @@ q^\star=z^\star+\lambda^\star=(-1,1),
 \text{数值发现最终参数}.
 \]
 
-这不影响反例的正确性，因为最终证书不依赖搜索过程；但如果要向老师完整解释“这些数是如何被发现的”，这是应该补上的一段 discovery provenance。核心代码分别在 [Stage 43 局部扩张证书](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_local_expansion_history_obstruction.py:8>) 和 [Stage 44 最终精确证书](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_strict_rational_66_cycle.py:15>)。
+这不影响反例的正确性，因为最终证书不依赖搜索过程；但如果要向老师完整解释“这些数是如何被发现的”，这是应该补上的一段 discovery provenance。核心代码分别在 [Stage 43 局部扩张证书] 和 [Stage 44 最终精确证书]。
 
 ### Turn 131 — User — Task 4 — 2026-07-14T15:07:03.084Z
 
@@ -27801,7 +27821,7 @@ q^\star=z^\star+\lambda^\star=(-1,1),
 
 找到了：它没有被保存成独立的 `.py` 文件，而是以内联 Python 程序的形式留在了 Codex 会话日志里。
 
-原始记录位于 [Codex rollout 日志](<PRIVATE_SESSION_SOURCE>)：
+原始记录位于 [Codex rollout 日志]：
 
 - 第 2438 行：第一次局部网格搜索，随后被中止。
 - 第 2446 行：真正命中反例的 `differential_evolution` 搜索代码。
@@ -27914,7 +27934,7 @@ PY
 
 已经写入并重新生成了你指定的 PDF：
 
-[slack_admm_core_theory_and_counterexample.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
+[slack_admm_core_theory_and_counterexample.pdf]
 
 新增内容位于第 7–9 页，包括：
 
@@ -27930,9 +27950,9 @@ PY
 
 同时恢复了可复现材料：
 
-- [搜索脚本](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/search_stage43_to_strict_66_cycle.py:18>)
-- [seed 与搜索输出](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage43_to_stage44_discovery/search.json>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:487>)
+- [搜索脚本]
+- [seed 与搜索输出]
+- [LaTeX 源文件]
 
 验证结果：搜索命中完全复现，6 个定向测试通过，Stage 44/45 均为 `valid=true`；PDF 共 14 页，LaTeX 日志无引用、溢出或排版警告。
 
@@ -28117,8 +28137,8 @@ u^k\neq u^0\quad(1\le k<66)
 
 已完成数学报告形式的 LaTeX 与 PDF：
 
-- [PDF 报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_search_workflow_mathematical_report.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_search_workflow_mathematical_report.tex>)
+- [PDF 报告]
+- [LaTeX 源文件]
 
 报告共 20 页 A4，包含理论障碍、signed-PWA 约化、fixed-mask 排除、短周期压缩、strict-margin 搜索、66 周期反例及 exact 认证链。
 
@@ -28145,7 +28165,7 @@ u^k\neq u^0\quad(1\le k<66)
 
 已经完整整理并更新 PDF：
 
-[查看最终 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
+[查看最终 PDF]
 
 报告现在明确包含：
 
@@ -28167,7 +28187,7 @@ u^k\neq u^0\quad(1\le k<66)
 - PDF：18 页，LaTeX 干净编译，无越界和未定义引用
 - 额外全仓库回归按你的提醒停止；停止时为 `83 passed`、无失败，不作为反例证明依据
 
-源码见 [LaTeX 报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:505>)，raw 审计见 [独立验证程序](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/audit_strict_rational_66_cycle_independent.py:23>)。
+源码见 [LaTeX 报告]，raw 审计见 [独立验证程序]。
 
 ### Turn 137 — User — Task 4 — 2026-07-14T16:02:40.755Z
 
@@ -28201,11 +28221,11 @@ flowchart TD
 
 已加入，并替换了原来的流程图。新图位于 PDF 第 8 页，完整保留理论线、数值线、长周期发现和 exact 验证链。
 
-[查看更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
+[查看更新后的 PDF]
 
 同时补充了范围说明：“排除”仅指已经证明或穷举检查的 fixed-mask 与短 switching 范围，并非排除所有 switching 轨道。
 
-PDF 保持 18 页，编译无越界、未定义引用或其他版面警告。图源见 [LaTeX 文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:546>)。
+PDF 保持 18 页，编译无越界、未定义引用或其他版面警告。图源见 [LaTeX 文件]。
 
 ### Turn 138 — User — Task 4 — 2026-07-14T16:18:29.955Z
 
@@ -28247,8 +28267,8 @@ PDF 保持 18 页，编译无越界、未定义引用或其他版面警告。图
 
 文件：
 
-- [更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:362>)
+- [更新后的 PDF]
+- [LaTeX 源文件]
 
 ### Turn 139 — User — Task 7 — 2026-07-14T16:20:05.690Z
 
@@ -28326,8 +28346,8 @@ codex 换成 coding agent
 
 文件：
 
-- [新版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [LaTeX 源稿](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:146>)
+- [新版 PDF]
+- [LaTeX 源稿]
 
 ### Turn 143 — User — Task 4 — 2026-07-14T16:43:22.591Z
 
@@ -28351,9 +28371,9 @@ codex 换成 coding agent
 
 已经放在摘要下方并设为“图 1”。原流程图自动顺延为“图 2”。
 
-- [更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [LaTeX 插图位置](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:117>)
-- [项目内图片文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/figures/ai_assisted_research_human_ai_collaboration.png>)
+- [更新后的 PDF]
+- [LaTeX 插图位置]
+- [项目内图片文件]
 
 新版共 33 页，已检查首页图片、图注和分页，无编译或版面警告。
 
@@ -28408,8 +28428,8 @@ Q_1=M^{-1}-I,\qquad Q_2=N^{-1}-I,
 - 报告从 33 页缩减为 32 页。
 - 已重新编译并检查分页，无警告。
 
-[更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-[LaTeX 源稿](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1842>)
+[更新后的 PDF]
+[LaTeX 源稿]
 
 ### Turn 146 — User — Task 4 — 2026-07-14T16:49:42.206Z
 
@@ -28457,8 +28477,8 @@ Q_1=M^{-1}-I,\qquad Q_2=N^{-1}-I,
 - 明确说明图 2 负责展示完整研究流程。
 - 后续真实 ADMM 更新公式现在从 (15) 开始编号。
 
-[更新后的 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-[修改后的 LaTeX 位置](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:483>)
+[更新后的 PDF]
+[修改后的 LaTeX 位置]
 
 ### Turn 147 — User — Task 4 — 2026-07-14T16:53:56.090Z
 
@@ -28489,9 +28509,9 @@ Q_1=M^{-1}-I,\qquad Q_2=N^{-1}-I,
 - 完整参考文献；
 - 不包含第 5–8 节。
 
-[下载前四节 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
+[下载前四节 PDF]
 
-[独立 LaTeX 编译入口](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_first_four_sections.tex>)
+[独立 LaTeX 编译入口]
 
 ### Turn 148 — User — Task 4 — 2026-07-14T18:22:03.367Z
 
@@ -28519,7 +28539,7 @@ Q_1=M^{-1}-I,\qquad Q_2=N^{-1}-I,
 - 正文从第 3 页开始；
 - 新版共 23 页。
 
-[更新后的前四节 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
+[更新后的前四节 PDF]
 
 ### Turn 149 — User — Task 4 — 2026-07-14T18:25:08.537Z
 
@@ -28595,7 +28615,7 @@ Q_1=M^{-1}-I,\qquad Q_2=N^{-1}-I,
 
 可以，LaTeX 源稿和 PDF 都能继续修改。你可以直接在 PDF 上批注，或告诉我页码和改动内容，我会修改源稿并重新生成 PDF。
 
-[LaTeX 源稿](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+[LaTeX 源稿]
 
 ### Turn 154 — User — Task 4 — 2026-07-14T18:42:54.681Z
 
@@ -28681,8 +28701,8 @@ PDF呢
 >
 > 已经生成，文件在这里：
 >
-> - [前四节精简版 PDF](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
-> - [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
+> - [前四节精简版 PDF]
+> - [完整报告 PDF]
 >
 > 两份都已按这轮意见重新编译；我正在收尾全仓库测试。
 
@@ -28694,8 +28714,8 @@ PDF呢
 
 已修改并重新编译：
 
-- [前四节版 PDF（22 页）](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
-- [完整报告 PDF（31 页）](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
+- [前四节版 PDF（22 页）]
+- [完整报告 PDF（31 页）]
 
 本轮已完成：合并相关工作、加入第 3 节研究主线、删除 Stage/seed 搜索日志、统一术语、压缩第 4.6 节，同时完整保留 G1–G6、精确矩阵和证据升级表。
 
@@ -28871,8 +28891,8 @@ x^0=\frac{b}{1-a}.
 
 两份 PDF 均已重新编译，无警告或版面溢出：
 
-- [前四节版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
-- [完整报告 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
+- [前四节版 PDF]
+- [完整报告 PDF]
 
 ### Turn 159 — User — Task 4 — 2026-07-15T00:36:41.210Z
 
@@ -29011,7 +29031,7 @@ x^0=\frac{b}{1-a}.
 
 > 八位小数不是必要的；目前找到的最简单十进制见证只需要四位。四位是当前固定参数族和固定 66 周期词中搜索到的最低位数，但三位“不可能”尚未被证明为全局定理。
 
-审计证书在 [certificate.json](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage46_decimal_precision_audit/certificate.json>)，可复现脚本在 [audit_strict_66_cycle_decimal_precision.py](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/audit_strict_66_cycle_decimal_precision.py>)；相关测试为 `5 passed`。
+审计证书在 [certificate.json]，可复现脚本在 [audit_strict_66_cycle_decimal_precision.py]；相关测试为 `5 passed`。
 
 ### Turn 163 — User — Task 4 — 2026-07-15T02:10:42.408Z
 
@@ -29065,10 +29085,10 @@ x^0=\frac{b}{1-a}.
 
 两个都已修改完成，并重新严格验证。
 
-- [完整版 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
-- [仅前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
-- [最小复现实验](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal)
-- [实验说明](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/README_zh.md)
+- [完整版 PDF]
+- [仅前四节 PDF]
+- [最小复现实验]
+- [实验说明]
 
 现在采用更简单的四位小数参数：
 \[
@@ -29157,11 +29177,11 @@ $$
 
 都已修改完成：
 
-- [详细复现说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/README_zh.md>)：补充了从 \(M,N\) 构造到真实投影验证的完整过程。
-- [Python 实现](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/Python/verify_cycle.py>)：加入五阶段数学注释。
-- [MATLAB 实现](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/MATLAB/verify_cycle_matlab.m>)：加入对应的同结构注释。
-- [完整 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [前四节 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
+- [详细复现说明]：补充了从 \(M,N\) 构造到真实投影验证的完整过程。
+- [Python 实现]：加入五阶段数学注释。
+- [MATLAB 实现]：加入对应的同结构注释。
+- [完整 PDF]
+- [前四节 PDF]
 
 当前所有轨道数值固定显示小数点后 20 位，不再使用科学计数法。Python 与 MATLAB 的 134 行输出逐项完全一致，最小余量均为：
 
@@ -29183,7 +29203,7 @@ $$
 
 是的，已经重新压缩并校验完成：
 
-[下载最新最小复现包](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal_reproduction.zip>)
+[下载最新最小复现包]
 
 压缩包包含最新的 Python、MATLAB、固定 20 位小数结果和详细 README；已排除 `.DS_Store`、`__pycache__` 等无关文件。完整性检测无错误。
 
@@ -29231,8 +29251,8 @@ be7f12dc41faddd483def5957267d0e58194de5c4493fbb183009cf744f11737
 
 文件：
 
-- [完整 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [前四节 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
+- [完整 PDF]
+- [前四节 PDF]
 
 ### Turn 175 — User — Task 4 — 2026-07-15T06:30:03.635Z
 
@@ -29413,8 +29433,8 @@ be7f12dc41faddd483def5957267d0e58194de5c4493fbb183009cf744f11737
 
 我已经把这些关键问题直接写入报告，并加入了“保留什么、丢弃什么”的表格和三道验证门导读。两份 PDF 均重新编译，日志无警告或版面溢出：
 
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)（重点看第 14–16 页）
-- [仅前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)（重点看第 15–17 页）
+- [完整报告 PDF]（重点看第 14–16 页）
+- [仅前四节 PDF]（重点看第 15–17 页）
 
 ### Turn 176 — User — Task 4 — 2026-07-15T06:44:22.647Z
 
@@ -29509,9 +29529,9 @@ be7f12dc41faddd483def5957267d0e58194de5c4493fbb183009cf744f11737
 
 更新后的文件：
 
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)（重点看第 14–16 页）
-- [仅前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)（重点看第 15–17 页）
-- [LaTeX 源文件](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:893)
+- [完整报告 PDF]（重点看第 14–16 页）
+- [仅前四节 PDF]（重点看第 15–17 页）
+- [LaTeX 源文件]
 
 两份 PDF 均重新编译完成，日志中没有未定义引用、公式溢出或排版警告。
 
@@ -29576,8 +29596,8 @@ be7f12dc41faddd483def5957267d0e58194de5c4493fbb183009cf744f11737
 
 同时保留说明：\(y,\xi\) 是两组向量，不是两个自由度；二维实例的约化状态仍然是四维。
 
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
-- [仅前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
+- [完整报告 PDF]
+- [仅前四节 PDF]
 
 两份 PDF 已重新编译，日志无排版或引用警告。
 
@@ -29617,9 +29637,9 @@ z^k=D\xi^k,\qquad
 
 更新后的文件：
 
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
-- [前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
-- [LaTeX 源文件](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:394)
+- [完整报告 PDF]
+- [前四节 PDF]
+- [LaTeX 源文件]
 
 两份 PDF 均已重新编译，日志中没有未定义引用、公式溢出或 LaTeX 警告。
 
@@ -29658,10 +29678,10 @@ z^k=D\xi^k,\qquad
 
 最明显偏离主线的是：
 
-1. [AI 人机协同图](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:117)
-2. [第 5 节后半部分的大量新收敛准则](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1452)
-3. [第 6 节重复性消融](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1770)
-4. [第 8 节工程验收](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1966)
+1. [AI 人机协同图]
+2. [第 5 节后半部分的大量新收敛准则]
+3. [第 6 节重复性消融]
+4. [第 8 节工程验收]
 
 建议最终正文收束为：
 
@@ -29735,9 +29755,9 @@ z^k=D\xi^k,\qquad
 
 文件：
 
-- [精简后的完整报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf>)
-- [更新后的前四节报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex>)
+- [精简后的完整报告]
+- [更新后的前四节报告]
+- [LaTeX 源文件]
 
 ### Turn 185 — User — Task 4 — 2026-07-15T08:25:54.733Z
 
@@ -29775,8 +29795,8 @@ z^k=D\xi^k,\qquad
 
 | 位置 | 问题 | 建议 |
 |---|---|---|
-| [第 2.7 节](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:536) | “固定分支不足以提供放大机制”与后文 \(T_{01}\) 存在模大于 1 的特征值表面矛盾 | 改为：“固定分支的局部谱膨胀不能单独构成真实反例；非恒定二步、三步乘积也未提供谱半径大于 1 的短周期机制。” |
-| [第 4.4 节](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:1350) | 符号词写成 \(00,00,01^{64}\)，但六维映射写成 \(T_0\circ T_1^{64}\circ T_0\)，容易被认为顺序错误 | 增加说明：六维 \(T_d\) 按“下一步的投影掩码”编号，因此出现一次循环移位；两种写法表示同一周期，只是起始相位不同。 |
+| [第 2.7 节] | “固定分支不足以提供放大机制”与后文 \(T_{01}\) 存在模大于 1 的特征值表面矛盾 | 改为：“固定分支的局部谱膨胀不能单独构成真实反例；非恒定二步、三步乘积也未提供谱半径大于 1 的短周期机制。” |
+| [第 4.4 节] | 符号词写成 \(00,00,01^{64}\)，但六维映射写成 \(T_0\circ T_1^{64}\circ T_0\)，容易被认为顺序错误 | 增加说明：六维 \(T_d\) 按“下一步的投影掩码”编号，因此出现一次循环移位；两种写法表示同一周期，只是起始相位不同。 |
 | 第 2–4 节记号 | \(\xi\) 与 \(q\) 的转换没有明确桥接，而且 \(r,b,u,T\) 均有复用 | 增加“第 2 节使用无符号状态 \(\xi=|q|\)，第 3 节恢复带符号状态 \(q\)”；把周期平移 \(r_{a,b}\) 改成 \(\tau_{a,b}\)，段长度 \(a,b\) 改成 \(\ell_0,\ell_1\)，六维映射改成 \(\mathcal T_d\)。 |
 
 ## 建议修改
@@ -29789,7 +29809,7 @@ z^k=D\xi^k,\qquad
   \[
   0.00371052469443529102.
   \]
-  PDF 中是正确的，但[风险登记表](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/strict_rational_66_cycle/adversarial_risk_register.md:12)需要同步。
+  PDF 中是正确的，但[风险登记表]需要同步。
 - LaTeX 使用 `fontset=mac`，本机没有问题，但 Linux 或 arXiv 环境可能失败。正式发布时建议改用可移植字体配置。
 
 ## 可以原样保留
@@ -29808,7 +29828,7 @@ z^k=D\xi^k,\qquad
 - 逐页检查未发现空白页、公式裁切或异常浮动。
 - 当前文献边界也合理：Lew 等人的 2026 工作使用的是不同分组方式，并不是本文直接三块顺序的同一算法。[Lew et al.](https://arxiv.org/abs/2511.08451)
 
-总体评价：**数学证书已经达到仓库内 proof-grade 水平；下一轮应集中处理上述 3 个必改点和记号统一，不需要重写证明。** 当前文件是[前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)和[完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)。
+总体评价：**数学证书已经达到仓库内 proof-grade 水平；下一轮应集中处理上述 3 个必改点和记号统一，不需要重写证明。** 当前文件是[前四节 PDF]和[完整报告 PDF]。
 
 ### Turn 186 — User — Task 4 — 2026-07-15T08:55:54.407Z
 
@@ -29887,8 +29907,8 @@ z^k=D\xi^k,\qquad
 
 已加入摘要下方并作为图 1，首图与摘要完整排在同一页。原来的反例研究流程图已自动顺延为图 2。
 
-- [前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
+- [前四节 PDF]
+- [完整报告 PDF]
 
 两份 PDF 均重新编译通过，无版面或引用警告。
 
@@ -29938,9 +29958,9 @@ z^k=D\xi^k,\qquad
 - \(\mu,\nu\) 的产生方式、差分进化过程及“不是遍历连续参数区域”均已说明。
 - 两份 PDF 已重新编译，无 LaTeX 警告。
 
-[前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
+[前四节 PDF]
 
-[完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
+[完整报告 PDF]
 
 #### Assistant final answer — 2026-07-15T09:38:40.725Z
 
@@ -29953,9 +29973,9 @@ z^k=D\xi^k,\qquad
 - \(\mu,\nu\) 的产生方式、差分进化过程及“不是遍历连续参数区域”均已说明。
 - 两份 PDF 已重新编译，无 LaTeX 警告。
 
-[前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
+[前四节 PDF]
 
-[完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
+[完整报告 PDF]
 
 ### Turn 193 — User — Task 4 — 2026-07-15T09:38:46.274Z
 
@@ -30005,17 +30025,17 @@ z^k=D\xi^k,\qquad
 - 相关定向测试：`8 passed`。
 - 故意换成错误符号词后，真实投影立即不匹配且无法闭合，说明程序不是“预设答案后自证”。
 
-关键实现也合理：候选符号词只用于求周期初值，[真实更新函数](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/Python/verify_cycle.py:109) 不接收 mask，而是直接计算正部投影；完整证明义务集中在[这里](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/Python/verify_cycle.py:199)。当前运行结果见 [check.json](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/Python/results/check.json:1)。
+关键实现也合理：候选符号词只用于求周期初值，[真实更新函数] 不接收 mask，而是直接计算正部投影；完整证明义务集中在[这里]。当前运行结果见 [check.json]。
 
 有三个非核心问题：
 
-1. [research_state.md](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/research_state.md:831) 仍写着旧浮点候选的余量 `0.004341...`。四位有理见证的正确余量是
+1. [research_state.md] 仍写着旧浮点候选的余量 `0.004341...`。四位有理见证的正确余量是
    \[
    0.00371052469443529102.
    \]
    程序和 Stage 44/45 证书是正确的，研究状态文档需要更新。
 
-2. 当前环境没有 MATLAB，所以我没有现场执行 MATLAB 版本；但其源代码逻辑与 Python 对齐，已保存的两份轨道输出完全一致。真正采用不同状态表示的复核来自 [Stage 45 证书](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/breakthrough_attempts/stage45_independent_raw_admm_audit/certificate.json:21)。
+2. 当前环境没有 MATLAB，所以我没有现场执行 MATLAB 版本；但其源代码逻辑与 Python 对齐，已保存的两份轨道输出完全一致。真正采用不同状态表示的复核来自 [Stage 45 证书]。
 
 3. ZIP 中 README 与目录版本只差一个空行，代码和结果文件完全相同，不影响复现。
 
@@ -30051,9 +30071,9 @@ z^k=D\xi^k,\qquad
 
 文件：
 
-- [前四节 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_first_four_sections.pdf)
-- [完整报告 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_core_theory_and_counterexample.pdf)
-- [LaTeX 源码](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_strict_66_cycle_report.tex:387)
+- [前四节 PDF]
+- [完整报告 PDF]
+- [LaTeX 源码]
 
 已检查第 2.6 节的最终渲染，没有公式溢出、未定义引用或异常分页。
 
@@ -30073,7 +30093,7 @@ z^k=D\xi^k,\qquad
 
 最新程序包已重新压缩并验证：
 
-[下载 strict_66_cycle_minimal_reproduction.zip](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/deliverables/strict_66_cycle_minimal/Python/strict_66_cycle_minimal_reproduction.zip)
+[下载 strict_66_cycle_minimal_reproduction.zip]
 
 - 包含 Python、MATLAB、README 和结果文件
 - 已排除旧 ZIP、缓存与 `.DS_Store`
@@ -30124,8 +30144,8 @@ z^k=D\xi^k,\qquad
 
 文件：
 
-- [PDF 短论文](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf)
-- [LaTeX 源文件](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/report/latex/slack_admm_66_cycle_short_paper.tex)
+- [PDF 短论文]
+- [LaTeX 源文件]
 
 已经逐页检查排版，无溢出或编译警告；相关精确反例测试为 `5 passed`。正文中的关键参数全部使用精确分数，没有用小数近似冒充证明数据。
 
@@ -30170,7 +30190,7 @@ y^+=Np,\qquad q^+=(I-N)p+q_+.
 
 精确周期仍然闭合，余量仍大于 \(1/1000\)；相关测试 `5 passed`。PDF 保持 4 页。
 
-[查看更新后的纯二次版本 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf)
+[查看更新后的纯二次版本 PDF]
 
 ### Turn 199 — User — Task 4 — 2026-07-15T14:58:14.293Z
 
@@ -30453,10 +30473,10 @@ z^{k+1}=(q^{k+1})_+,
 
 这说明缩小步长没有消除交叉项，而是把主导复特征值推入了单位圆，从而恢复局部稳定性。目前这是固定反例、固定初值上的数值结论，不是一般收敛定理。
 
-- [完整实验总结](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/tau_multiplier_relaxation_2026-07-15/RUN_SUMMARY.md>)
-- [临界区域收敛图](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/tau_multiplier_relaxation_2026-07-15/figures/critical_region_convergence.svg>)
-- [局部谱半径图](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/tau_multiplier_relaxation_2026-07-15/figures/local_01_spectral_radius.svg>)
-- [实验程序](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/analyze_relaxed_multiplier_66_cycle.py>)
+- [完整实验总结]
+- [临界区域收敛图]
+- [局部谱半径图]
+- [实验程序]
 
 定向回归测试为 `6 passed`。
 
@@ -30530,7 +30550,7 @@ z^{k+1}=(q^{k+1})_+,
 
 ### Turn 205 — User — Task 4 — 2026-07-15T15:41:03.857Z
 
-<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf  老师之前不是说 4，5页，你觉得现在可以吗
+<PROJECT_WORKSPACE>/output/pdf/slack_admm_66_cycle_short_paper.pdf  老师之前不是说 4，5页，你觉得现在可以吗
 
 > **Assistant working update — 2026-07-15T15:41:16.548Z**
 >
@@ -30544,7 +30564,7 @@ z^{k+1}=(q^{k+1})_+,
 
 结论：作为“66 周期反例的四页短文”，当前版本已经可以；但作为对老师最新“缩小乘子步长是否收敛”的完整回应，还缺最后一页。
 
-当前 [PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf) 正好 4 页，排版正常，主线也完整：
+当前 [PDF] 正好 4 页，排版正常，主线也完整：
 
 - 第 1 页：问题、算法和分段仿射化；
 - 第 2–3 页：有理实例、定理和严格证明；
@@ -30617,10 +30637,10 @@ z^{k+1}=(q^{k+1})_+,
 
 已完成五页版：
 
-- [五页短论文 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/slack_admm_66_cycle_short_paper.tex:287>)
-- [精确有理收敛证书](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/tau_multiplier_relaxation_2026-07-15/exact_half_convergence_certificate.json>)
-- [证书生成程序](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_relaxed_multiplier_half_convergence.py>)
+- [五页短论文 PDF]
+- [LaTeX 源文件]
+- [精确有理收敛证书]
+- [证书生成程序]
 
 主要修改：
 
@@ -30646,7 +30666,7 @@ z^{k+1}=(q^{k+1})_+,
 
 有完整表达式，而且是精确有理矩阵。它保存在证书的 `exact_data.lyapunov_matrix` 字段中：
 
-[精确 \(H\) 矩阵证书](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/outputs/tau_multiplier_relaxation_2026-07-15/exact_half_convergence_certificate.json>)
+[精确 \(H\) 矩阵证书]
 
 为便于观察，其小数近似为
 
@@ -30712,7 +30732,7 @@ H-T_{01}^{\mathsf T}HT_{01}=I_6.
 
 PDF 已重新编译并检查排版：
 
-[slack_admm_66_cycle_short_paper.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf>)
+[slack_admm_66_cycle_short_paper.pdf]
 
 ### Turn 209 — User — Task 4 — 2026-07-15T17:11:29.212Z
 
@@ -30789,7 +30809,7 @@ pdf里的证明需要完整一点吗
 
 新增分块公式与证书程序完全一致；精确证书测试结果为 `2 passed`，PDF 编译无警告。
 
-[查看更新后的 5 页 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf>)
+[查看更新后的 5 页 PDF]
 
 ### Turn 211 — User — Task 4 — 2026-07-15T17:20:44.626Z
 
@@ -31282,11 +31302,11 @@ F\left(\frac{51}{100}\right)\succ0.
 
 主要文件：
 
-- [五页论文 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_66_cycle_short_paper.pdf)
-- [完整理论推导](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/notes/relaxed_multiplier_interval_theory.md)
-- [精确认证程序](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/experiments/breakthrough/certify_relaxed_multiplier_interval_theory.py)
-- [机器可读证书](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/outputs/tau_relaxation_theory_2026-07-16/results/certificate.json)
-- [内部验证式审查](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/proof_reviews/relaxed_multiplier_interval_theory/verification_report.md)
+- [五页论文 PDF]
+- [完整理论推导]
+- [精确认证程序]
+- [机器可读证书]
+- [内部验证式审查]
 
 验证结果：PDF 为完整 5 页；核心测试 `8 passed`，全仓回归 `261 passed in 29:40`。证书采用精确有理运算，并通过了内部验证式审查；尚未声称外部独立复核或形式化证明助手认证。
 
@@ -31346,7 +31366,7 @@ F\left(\frac{51}{100}\right)\succ0.
 
 #### Assistant final answer — 2026-07-17T16:45:44.340Z
 
-已按 `bh.pdf` 的叙事节奏完成重构，并同步生成新版 [slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)。
+已按 `bh.pdf` 的叙事节奏完成重构，并同步生成新版 [slack_admm_arxiv.pdf]。
 
 主要调整：
 
@@ -31354,7 +31374,7 @@ F\left(\frac{51}{100}\right)\succ0.
 - 第 3 页依次进入 proof roadmap、计算/AI 边界、贡献和 related work。
 - 证明架构图移到 related work 之后。
 - 保持“数值发现 ≠ 精确证明”和 bounded periodic nonconvergence 的声明边界。
-- 修改已写入 [LaTeX 源稿](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/slack_admm_arxiv.tex:175>)。
+- 修改已写入 [LaTeX 源稿]。
 
 验证结果：19 页，LaTeX 无引用或版式警告；精确证书复跑返回 `valid: true`。按你的要求，后续执行没有使用任何 skill。
 
@@ -31394,7 +31414,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 - AI 工作属于 discovery provenance，不是定理证据，也不等于外部独立复核。
 - 没有虚构 `GPT-5.6 Pro`、`90 minutes` 等仓库未记录的信息。
 
-文末重复的笼统声明已删除。新版为 18 页，编译无警告：[slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)。
+文末重复的笼统声明已删除。新版为 18 页，编译无警告：[slack_admm_arxiv.pdf]。
 
 ### Turn 220 — User — Task 9 — 2026-07-17T17:01:10.615Z
 
@@ -31419,7 +31439,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 新版仍为 17 页，编译无警告，整体叙事现在更接近 `bh.pdf`。
 
-[查看更新后的 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf)
+[查看更新后的 PDF]
 
 ### Turn 221 — User — Task 9 — 2026-07-17T17:04:42.919Z
 
@@ -31444,7 +31464,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 这样读者先直观看到反例，再进入精确证书。可视化现在是第 6 节，主定理证明顺延为第 7 节；首张图也已固定在节标题之后。PDF 仍为 17 页，编译无警告。
 
-[查看更新后的 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf)
+[查看更新后的 PDF]
 
 ### Turn 222 — User — Task 9 — 2026-07-17T17:06:58.375Z
 
@@ -31468,7 +31488,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 现在论文包含可点击的 [GitHub 仓库链接](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate)，同时保留说明：archival DOI 和与投稿版本对应的 immutable release 尚待发布。PDF 编译无警告。
 
-[查看更新后的 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf)
+[查看更新后的 PDF]
 
 ### Turn 223 — User — Task 9 — 2026-07-17T17:10:29.075Z
 
@@ -31488,7 +31508,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 论文由 17 页缩短到 15 页，主定理证明现在更紧凑，编译无警告。
 
-[查看更新后的 PDF](<LOCAL_HOME>/Documents/Slack-variable%20三块%20ADMM%20的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf)
+[查看更新后的 PDF]
 
 ### Turn 224 — User — Task 9 — 2026-07-17T17:13:44.210Z
 
@@ -31554,9 +31574,9 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 文件：
 
-- [新版论文 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
-- [LaTeX 源文件](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/slack_admm_arxiv.tex:76>)
-- [Claim–evidence ledger](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/claim_evidence_ledger.md:1>)
+- [新版论文 PDF]
+- [LaTeX 源文件]
+- [Claim–evidence ledger]
 
 ### Turn 226 — User — Task 9 — 2026-07-17T17:27:03.018Z
 
@@ -31595,7 +31615,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 
 2. 建议一定加入轨道几何图
 
-现成长版论文中的 [轨道几何图](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/fig_cycle_geometry.pdf>) 已经很合适：
+现成长版论文中的 [轨道几何图] 已经很合适：
 
 - 左图展示闭合的 \(q\)-轨道、KKT 点和两个 `00` 相位；
 - 右图展示前两步 `00`、随后 64 步 `01` 的符号变化；
@@ -31715,7 +31735,7 @@ and Ryu (2025); Salim (2025); Bubeck et al. (2025); Alexeev et al. (2025); Alexe
 9. Consequences and open questions
 10. Certificate appendices
 
-完整版大约会从 12 页增加到 15–16 页，但理论完整性会明显提升。相比继续加“美观的图”，这两项更能提高 arXiv 版本的论文价值。当前文件是 [arXiv PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)。
+完整版大约会从 12 页增加到 15–16 页，但理论完整性会明显提升。相比继续加“美观的图”，这两项更能提高 arXiv 版本的论文价值。当前文件是 [arXiv PDF]。
 
 ### Turn 228 — User — Task 9 — 2026-07-17T17:32:12.415Z
 
@@ -31820,7 +31840,7 @@ github我更新了一下
 - 推送 commit：`5f29562`。
 - [GitHub Actions](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/actions/runs/29602434780) 全部通过；松弛证书 `valid: true`，测试 `6 passed`。
 
-本地最新版：[slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+本地最新版：[slack_admm_arxiv.pdf]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -31914,7 +31934,7 @@ AI usage 继续只负责披露“谁协助了什么”；发现逻辑应放在�
 - 新提交：[`6ee392d`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/6ee392d3cea278e0d8caf26ea3fd15981b206ad7)
 - 本地测试 `6 passed`，GitHub Exact certificate CI 已通过。
 
-新版 PDF：[slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+新版 PDF：[slack_admm_arxiv.pdf]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -31932,8 +31952,8 @@ AI usage 继续只负责披露“谁协助了什么”；发现逻辑应放在�
 
 有局部重复，但不是两节整体重复。问题是新加入的“发现过程”稍微侵入了第 6 节的证明职责：
 
-- 第 4 节的候选固定点公式，与第 6 节的精确周期方程形式相同：[源码第 608 行](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/slack_admm_arxiv.tex:608>)。
-- 第 4 节已经预告了 exact closure、132 个符号、raw ADMM equations 和 minimal period；第 6 节又逐项证明：[源码第 622 行](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/latex/arxiv/slack_admm_arxiv.tex:622>)。
+- 第 4 节的候选固定点公式，与第 6 节的精确周期方程形式相同：[源码第 608 行]。
+- 第 4 节已经预告了 exact closure、132 个符号、raw ADMM equations 和 minimal period；第 6 节又逐项证明：[源码第 622 行]。
 - \((00)^2(01)^{64}\) 在第 4 节末单独展示，第 6 节又多次出现。
 
 建议这样分工：
@@ -31989,7 +32009,7 @@ AI usage 继续只负责披露“谁协助了什么”；发现逻辑应放在�
 - PDF 仍为 17 页，编译无版面或引用警告。
 - GitHub 提交 [`8117265`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/8117265bedea7c7680285ae8e9045906081336bd) 只更新了 PDF，没有上传 TeX/Bib；CI 已通过。
 
-新版：[slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+新版：[slack_admm_arxiv.pdf]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -32021,7 +32041,7 @@ AI usage 继续只负责披露“谁协助了什么”；发现逻辑应放在�
 
 正文未改。新版 PDF 仍为 17 页，编译和版面检查正常。GitHub 仅更新 PDF，没有上传源码；提交 [`42a6d5d`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/42a6d5d34b6f9e65778f56e3582b446aa19b08e1)，CI 已通过。
 
-[查看新版 slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+[查看新版 slack_admm_arxiv.pdf]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -32067,7 +32087,7 @@ AI usage 继续只负责披露“谁协助了什么”；发现逻辑应放在�
 - PDF 仍为 17 页，编译与首页版面正常。
 - GitHub 仅更新 PDF；提交 [`0ae9b0e`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/0ae9b0ef7ed03772b0ae08c2d3ac213b057df818)，CI 已通过。
 
-[查看新版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+[查看新版 PDF]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -32111,7 +32131,7 @@ ok
 
 “GitHub repository” 可点击并指向 [identity-slack-admm-cycle-certificate](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate)。仓库目前私有，公开后读者即可访问。
 
-新版 PDF：[slack_admm_arxiv.pdf](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+新版 PDF：[slack_admm_arxiv.pdf]
 
 提交 [`d1cc92d`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/d1cc92d1d7aee341ad4258adfea44b46a76db46b)，仅更新 PDF，CI 已通过。
 
@@ -32149,7 +32169,7 @@ ok
 - 提交：[`997ce52`](https://github.com/ConanXu-math/identity-slack-admm-cycle-certificate/commit/997ce528338475c5aff7550b88990c91365bce5e)
 - Exact certificate CI 已通过。
 
-[查看本地最新版 PDF](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/pdf/slack_admm_arxiv.pdf>)
+[查看本地最新版 PDF]
 
 ::git-stage{cwd="<TEMP_PATH>"}
 ::git-commit{cwd="<TEMP_PATH>"}
@@ -32205,7 +32225,7 @@ ok
 - 文件树与改写前完全一致，论文目录仍只有 PDF。
 - 误建的 GitHub Release 和 `v1.0.0` 标签已删除。
 - 强制更新使用了 `force-with-lease`，Exact certificate CI 已通过。
-- 原 9 条提交已完整备份至 [Git bundle](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/git-backups/identity-slack-admm-before-root-rewrite-20260718.bundle>)。
+- 原 9 条提交已完整备份至 [Git bundle]。
 
 ::git-commit{cwd="<TEMP_PATH>"}
 ::git-push{cwd="<TEMP_PATH>" branch="main"}
@@ -32226,7 +32246,7 @@ ok
 
 Overleaf 压缩包已生成：
 
-[下载 slack_admm_arxiv_overleaf_v1.zip](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/output/overleaf/slack_admm_arxiv_overleaf_v1.zip>)
+[下载 slack_admm_arxiv_overleaf_v1.zip]
 
 包含主 TeX、Bib/BBL 和正文使用的 3 张图片，共 7 个文件。已从 ZIP 全新解压并试编译，生成 17 页 PDF，无缺失引用或版面警告。
 
@@ -32268,7 +32288,7 @@ Overleaf 压缩包已生成：
 
 #### Assistant final answer — 2026-07-19T07:48:00.727Z
 
-报告已完成：[AI 辅助科研过程审计与长程工作分析](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/ai_assisted_research_process_audit_2026-07-19.md:1>)。
+报告已完成：[AI 辅助科研过程审计与长程工作分析]。
 
 核心数字：
 
@@ -32409,13 +32429,13 @@ K3 当前中国区 API 价格是：缓存输入 ¥2/MTok、未缓存输入 ¥20/
 
 原始记录可以直接对照：
 
-- [用户要求“推进到底”](<PRIVATE_SESSION_SOURCE>)
-- [Codex 在人类追问前已经转向全局能量路线](<PRIVATE_SESSION_SOURCE>)
-- [用户追问“收敛性证明没法突破吗”](<PRIVATE_SESSION_SOURCE>)
-- [Stage 43 的局部扩张嵌入](<PRIVATE_SESSION_SOURCE>)
-- [20 万步真实迭代出现持续振荡](<PRIVATE_SESSION_SOURCE>)
-- [找到严格 66 周期窗口](<PRIVATE_SESSION_SOURCE>)
-- [完成 exact rational verification](<PRIVATE_SESSION_SOURCE>)
+- [用户要求“推进到底”]
+- [Codex 在人类追问前已经转向全局能量路线]
+- [用户追问“收敛性证明没法突破吗”]
+- [Stage 43 的局部扩张嵌入]
+- [20 万步真实迭代出现持续振荡]
+- [找到严格 66 周期窗口]
+- [完成 exact rational verification]
 
 ### Stage 不是预先铺好的“寻宝路线”
 
@@ -32437,7 +32457,7 @@ Stage 43、Stage 44 更像是**研究过程中动态产生的里程碑标签**�
 精确有理证书（Stage 44）
 ```
 
-当前状态文件也明确记载了这个因果关系：先有 Stage 43 的 expanding branch，随后“沿该失败方向做真实 ReLU itinerary 搜索”，才产生 Stage 44 的 66 周期，[见 research_state.md](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:822>)。
+当前状态文件也明确记载了这个因果关系：先有 Stage 43 的 expanding branch，随后“沿该失败方向做真实 ReLU itinerary 搜索”，才产生 Stage 44 的 66 周期，[见 research_state.md]。
 
 因此，**真正的关键节点并不是“运行到了 Stage 44”，而是 Codex 把一个失败的证明方向反过来当成反例生成器**。这是整个过程中最有研究含量的转折。
 
@@ -32450,9 +32470,9 @@ Stage 43、Stage 44 更像是**研究过程中动态产生的里程碑标签**�
 - **具体反例发现：Codex 主导。** Stage 43 嵌入、20 万步迭代、66 周期识别、参数优化和有理化，没有来自人的具体数学提示。
 - **证据升级和可信度：人机共同。** 人后来不断追问“真的解决了吗”“严格 check”、要求 MATLAB、独立实现和更短参数，这些没有创造原始反例，但显著提高了它从“候选结果”到“proof-grade certificate”的可信度。
 
-还有一个必须保留的审计边界：**最初发现候选时的临时搜索脚本和原始 seed 输出没有即时冻结**。现在的脚本在注释中明确写的是“Recover the deterministic seed”，即事后确定性重建，[见搜索脚本](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/experiments/breakthrough/search_stage43_to_strict_66_cycle.py:18>)。因此我们能高可信地还原“是谁提出了什么、何时发生了路线转折”，但不能声称原始数值搜索具有逐随机数、逐指令的完整 provenance。
+还有一个必须保留的审计边界：**最初发现候选时的临时搜索脚本和原始 seed 输出没有即时冻结**。现在的脚本在注释中明确写的是“Recover the deterministic seed”，即事后确定性重建，[见搜索脚本]。因此我们能高可信地还原“是谁提出了什么、何时发生了路线转折”，但不能声称原始数值搜索具有逐随机数、逐指令的完整 provenance。
 
-不过这不影响反例本身：数值搜索只负责找到参数，最终 closure、KKT、强凸性、原始 ADMM 更新和 132 个 strict inequalities 都由独立的有理算术重新验证，[见证明说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/notes/strict_rational_66_cycle_counterexample.md:190>)。
+不过这不影响反例本身：数值搜索只负责找到参数，最终 closure、KKT、强凸性、原始 ADMM 更新和 132 个 strict inequalities 都由独立的有理算术重新验证，[见证明说明]。
 
 一句话定性：
 
@@ -32494,11 +32514,11 @@ Stage 43、Stage 44 更像是**研究过程中动态产生的里程碑标签**�
 
 初始附件已经明确包含：
 
-- [把问题设计成 auto-research workflow](<<LOCAL_HOME>/.codex/attachments/<SESSION_ID>/goal-objective.md:4>)
-- [证明与实验两个并行方向](<<LOCAL_HOME>/.codex/attachments/<SESSION_ID>/goal-objective.md:194>)
-- [二维二次问题和谱半径反例搜索](<<LOCAL_HOME>/.codex/attachments/<SESSION_ID>/goal-objective.md:299>)
-- [将研究做成 workflow 和知识库](<<LOCAL_HOME>/.codex/attachments/<SESSION_ID>/goal-objective.md:357>)
-- [从文献、投影恒等式、Lyapunov 到反例搜索的七步路线](<<LOCAL_HOME>/.codex/attachments/<SESSION_ID>/goal-objective.md:483>)
+- [把问题设计成 auto-research workflow]
+- [证明与实验两个并行方向]
+- [二维二次问题和谱半径反例搜索]
+- [将研究做成 workflow 和知识库]
+- [从文献、投影恒等式、Lyapunov 到反例搜索的七步路线]
 
 而且附件第一行写的是“这是 GPT 给我的设计”。所以严格做 provenance 时，应该表述为：
 
@@ -32508,11 +32528,11 @@ Stage 43、Stage 44 更像是**研究过程中动态产生的里程碑标签**�
 
 你不是只在开头给了一个题目。后面还主动规定：
 
-- [使用你们开发的 Skill 仓库](<PRIVATE_SESSION_SOURCE>)
-- [不是泛泛设计 Skill，而是选择部分 Skill 完成研究](<PRIVATE_SESSION_SOURCE>)
-- [过程性文档使用中文](<PRIVATE_SESSION_SOURCE>)
-- [必须遵循 VeryMath 工具链计划](<PRIVATE_SESSION_SOURCE>)
-- [允许 multi-agent，按照闭环运行，直到得到证明或反例](<PRIVATE_SESSION_SOURCE>)
+- [使用你们开发的 Skill 仓库]
+- [不是泛泛设计 Skill，而是选择部分 Skill 完成研究]
+- [过程性文档使用中文]
+- [必须遵循 VeryMath 工具链计划]
+- [允许 multi-agent，按照闭环运行，直到得到证明或反例]
 
 因此，框架的治理目标不是 Codex 自己假定的，而是你逐步校正出来的。
 
@@ -32565,12 +32585,12 @@ Codex 将高层蓝图具体化为：
 | R1 引导式再发现 | 截止 Stage 43 的状态，但隐藏周期长度、参数和 Stage 44 | K3 能否从 Lyapunov 失败方向重新找到严格周期；最推荐 |
 | R2 完全盲跑 | 最初 VeryMath 计划和早期代码，不给 Stage 43/44 | 测试整个 VeryMath 长程科研框架，但成本和不确定性最高 |
 
-R0 可直接使用现有的 [教师复现包](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/strict_rational_66_cycle_teacher_package_2026-07-14.zip>)。
+R0 可直接使用现有的 [教师复现包]。
 
 R1/R2 必须隐藏：
 
-- [research_state.md 从这里开始的最终答案](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/research_state.md:805>)
-- [work_orders.md 的终点更新](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/work_orders.md:469>)
+- [research_state.md 从这里开始的最终答案]
+- [work_orders.md 的终点更新]
 - `notes/strict_rational_66_cycle_counterexample.md`
 - `experiments/breakthrough/search_stage43_to_strict_66_cycle.py`
 - `experiments/breakthrough/certify_strict_rational_66_cycle.py`
@@ -32609,7 +32629,7 @@ admm-kimi-repro/
 
 ## VeryMath 流程需要补的一条关键规则
 
-你最初的计划已经明确了 Skill 分工、Lyapunov 审查和 active-set 搜索，[见原计划](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/计划_基于VeryMath工具链.md:90>)。但如果原样交给 Kimi，它可能停在“某个局部谱半径大于 1”的 numerical screen。
+你最初的计划已经明确了 Skill 分工、Lyapunov 审查和 active-set 搜索，[见原计划]。但如果原样交给 Kimi，它可能停在“某个局部谱半径大于 1”的 numerical screen。
 
 建议把执行 Flow 明确写成：
 
@@ -32693,18 +32713,18 @@ K3 Swarm 官方说明其额度通常是普通 Agent 的数倍，不适合第一�
 是。更准确地说：
 
 - Kimi CLI 和 Python 环境运行在 Docker 容器里。
-- 容器只挂载盲跑副本到 `/workspace`。
+- 容器只挂载盲跑副本到 `<CONTAINER_WORKSPACE>`。
 - 原始完整项目、旧证书和隐藏验收器都不挂载，Kimi 看不到。
-- Kimi 的登录凭证与会话保存在独立 Docker volume `workspace_kimi_state`。
-- Kimi 对 `/workspace` 的修改会同步保留在主机盲跑目录中，容器退出也不会丢失。
+- Kimi 的登录凭证与会话保存在独立 Docker volume `<CONTAINER_STATE_VOLUME>`。
+- Kimi 对 `<CONTAINER_WORKSPACE>` 的修改会同步保留在主机盲跑目录中，容器退出也不会丢失。
 - 刚才的 OAuth 登录请求也是从该容器发起的。
 
 所以不是把整个原项目交给 Kimi，而是：
 
 ```text
 Docker
-├── /workspace    ← 只挂载完全盲跑副本
-└── /kimi-state  ← 独立登录与会话状态
+├── <CONTAINER_WORKSPACE>    ← 只挂载完全盲跑副本
+└── <CONTAINER_STATE>  ← 独立登录与会话状态
 
 宿主机但不挂载
 ├── 原始完整项目
@@ -32773,13 +32793,13 @@ Docker
 - 不提供后来形成的 21 篇队列、论文 Markdown、SkillCards、候选 Lyapunov、实验代码、stage 信息或已知结果。
 - 每次人类干预都写入 provenance 日志，最终才能判断关键节点属于 `agent-originated`、`human-triggered` 还是 `mixed`。
 
-详细边界见 [研究预备阶段边界报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/PREPARATION_BOUNDARY_REPORT.md:5>)，可运行包是 [Kimi K3 v2 ZIP](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/kimi_k3_admm_process_blind_workspace_v2.zip>)。
+详细边界见 [研究预备阶段边界报告]，可运行包是 [Kimi K3 v2 ZIP]。
 
-是放在 Docker 里的：Kimi CLI、Python、MinerU 转换依赖和研究 workspace 都在容器中；真实 MinerU token 只放本地 `.env`。目前四个启动审批仍是 pending，见 [HUMAN_APPROVALS.yaml](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/workspace/inputs/HUMAN_APPROVALS.yaml:4>)。容器、泄漏扫描、ZIP 和拒绝未审批启动均已验证，[构建报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/audit/BUILD_REPORT.md:24>)有完整记录。
+是放在 Docker 里的：Kimi CLI、Python、MinerU 转换依赖和研究 workspace 都在容器中；真实 MinerU token 只放本地 `.env`。目前四个启动审批仍是 pending，见 [HUMAN_APPROVALS.yaml]。容器、泄漏扫描、ZIP 和拒绝未审批启动均已验证，[构建报告]有完整记录。
 
 当前尚未启动 K3，所以这次准备工作的 K3 token 和费用都是 0。下一步只需确定：是否允许上传 brief 和三张截图、是否允许下载开放论文、MinerU token 是否已在本地配置，以及本轮预算/时长上限。
 
-::git-commit{cwd="<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/workspace"}
+::git-commit{cwd="<LOCAL_ARTIFACT>"}
 
 ### Turn 257 — User — Task 10 — 2026-07-20T10:09:43.615Z
 
@@ -32805,9 +32825,9 @@ Docker
 现在只缺三个数字：**最高预算多少元、最长运行多少小时、最多多少个 goal turns？**
 请直接回复如：`500 元 / 12 小时 / 50 turns`。
 
-在数字确认前，启动器会拒绝运行；当前 K3 token 和费用仍为 0。状态见 [HUMAN_APPROVALS.yaml](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/workspace/inputs/HUMAN_APPROVALS.yaml:4>)。
+在数字确认前，启动器会拒绝运行；当前 K3 token 和费用仍为 0。状态见 [HUMAN_APPROVALS.yaml]。
 
-::git-commit{cwd="<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_process_blind_v2/workspace"}
+::git-commit{cwd="<LOCAL_ARTIFACT>"}
 
 ### Turn 258 — User — Task 10 — 2026-07-20T10:12:18.415Z
 
@@ -32858,17 +32878,17 @@ Docker
 
 Local-lite 已完成，Docker v2 保留但不参与实际研究。可直接使用：
 
-- [Local-lite ZIP](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/kimi_k3_admm_local_lite_v1.zip>)
-- [三分钟启动说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/START_HERE.md:1>)
-- [首条研究 Prompt](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/START_GOAL.txt:1>)
+- [Local-lite ZIP]
+- [三分钟启动说明]
+- [首条研究 Prompt]
 
 建议把 ZIP 解压到原成果仓库之外，然后：
 
 ```bash
-cd /你的新目录/workspace
+cd <NEW_WORKSPACE>
 bash scripts/check_local_workspace.sh
 
-MINERU_ENV_FILE='<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/.env' \
+MINERU_ENV_FILE='<LOCAL_ENV_FILE>' \
   bash scripts/start_kimi_local.sh
 ```
 
@@ -32881,7 +32901,7 @@ MINERU_ENV_FILE='<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性�
 
 只保留四个自然 checkpoint：论文范围、SkillCards 综合、长程预算、最终独立验证。ZIP 解压测试、Kimi 0.28.0 启动、skills、输入哈希和泄漏检查均已通过；尚未调用 K3 API，费用为 0。
 
-::git-commit{cwd="<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace"}
+::git-commit{cwd="<LOCAL_ARTIFACT>"}
 
 ### Turn 260 — User — Task 10 — 2026-07-20T12:40:42.048Z
 
@@ -32954,11 +32974,11 @@ local_lite_validation=passed
 
 入口文件：
 
-- [启动说明](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/README.md>)
-- [START_GOAL.txt](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/START_GOAL.txt>)
-- [RUN_CONTRACT.yaml](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/RUN_CONTRACT.yaml>)
-- [当前 checkpoint](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/state/checkpoint.md>)
-- [人类干预记录](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1/workspace/state/human_interventions.jsonl>)
+- [启动说明]
+- [START_GOAL.txt]
+- [RUN_CONTRACT.yaml]
+- [当前 checkpoint]
+- [人类干预记录]
 
 顺便说明：上次“删除多余文件”尚未执行，因为还没有确定删除范围。两个旧 Docker 包仍在，但不影响 local-lite 运行。
 
@@ -33020,7 +33040,7 @@ local_lite_validation=passed
 将 ZIP 解压到完成项目之外的一个全新目录，然后：
 
 ```bash
-cd /你的新目录/workspace
+cd <NEW_WORKSPACE>
 bash scripts/check_local_workspace.sh
 kimi --skills-dir .agents/skills
 ```
@@ -33054,7 +33074,7 @@ kimi_k3_process_blind_v2（8.2 MB）
 
 共约 46.2 MB，清空废纸篓前可以恢复。
 
-当前使用的 [kimi_k3_local_lite_v1](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/deliverables/kimi_k3_local_lite_v1>) 已保留，ZIP 哈希未变。
+当前使用的 [kimi_k3_local_lite_v1] 已保留，ZIP 哈希未变。
 
 ### Turn 263 — User — Task 10 — 2026-07-20T12:52:16.521Z
 
@@ -33150,7 +33170,7 @@ K3 当前国内 API 价格是：
 合计：约 ¥7905
 ```
 
-这不是 Codex 的实际账单，也不是 Kimi 的确定报价；K3 tokenizer、工具历史和缓存机制不同。而且[过程审计报告](<<LOCAL_HOME>/Documents/Slack-variable 三块 ADMM 的收敛性分析与自动研究流程设计/report/ai_assisted_research_process_audit_2026-07-19.md>)记录了 14 个主 session 和 251 个 subagent session，目前只有部分日志保留可用 token 数，因此 **¥7905 更像一个可观察下界**。
+这不是 Codex 的实际账单，也不是 Kimi 的确定报价；K3 tokenizer、工具历史和缓存机制不同。而且[过程审计报告]记录了 14 个主 session 和 251 个 subagent session，目前只有部分日志保留可用 token 数，因此 **¥7905 更像一个可观察下界**。
 
 ## 我建议的省钱方案
 
@@ -33429,3 +33449,286 @@ OpenRouter 的优点是：
 > Codex Pro + Kimi 官方 ¥99 + 智谱免费20M tokens
 
 这是目前最经济、来源也最清楚的组合。OpenRouter更适合作为统一 API 的第二阶段，不建议第一轮就把所有模型都放到自动路由里。
+
+## Kimi Code K3 interaction
+
+## 2026-07-22
+
+### Turn 1 — User — 2026-07-22T07:55:12.576Z
+
+请独立研究 `inputs/problem_statement.md` 中的数学问题，并把 `inputs/teacher_slides/` 中的三张材料作为原始输入。
+
+你可以自行选择本工作区提供的 Skills、研究顺序、理论方法、文献路线和计算实验。请从公开的第一手资料出发，不要预设结论，并明确区分文献事实、猜想、数值证据和严格结论。
+
+请持续记录你的计划、依据、命令、结果和未解决问题。涉及付费服务、凭据、敏感数据、破坏性操作或高成本长程计算时，先征得我的确认。
+
+#### Kimi assistant message — 2026-07-22T07:55:37.589Z
+
+我先阅读问题陈述和原始材料，了解任务全貌。
+
+#### Kimi assistant message — 2026-07-22T08:06:16.215Z
+
+我已经读完问题陈述和三张教师幻灯片。问题很清楚：这是关于**带松弛变量的直接顺序三块 ADMM**（把 $Ax+By\le b$ 化为 $Ax+By+z=b,\ z\ge0$ 后直接用 (1.4) 型迭代）是否收敛的问题——正是幻灯片第 3 页所述的公开猜想（约束矩阵含单位阵 $[A,B,I]$ 且 $\theta_3=\delta_{\mathbb R^m_+}$ 的特殊三块结构，CHYY 的一般三块反例不覆盖此情形）。
+
+我先建立研究框架：检查运行环境、建立研究日志，然后并行开展文献调查与理论/数值工作。
+
+#### Kimi assistant message — 2026-07-22T08:56:22.982Z
+
+目标已建立。现在写研究日志骨架、列任务清单，并并行启动文献调查（后台子代理），同时我自己推导理论结构。
+
+#### Kimi assistant message — 2026-07-22T09:06:28.481Z
+
+三个文献代理已在后台运行。现在我做理论推导并把结果固化到笔记里。
+
+#### Kimi assistant message — 2026-07-22T09:08:58.412Z
+
+理论笔记已固化。现在写实验代码：先实现核心迭代库与 t-化简的等价性测试，再复现 CHYY 发散例。
+
+#### Kimi assistant message — 2026-07-22T09:09:45.142Z
+
+我重写一下测试文件——目标函数处理有笔误，清理后重跑。
+
+#### Kimi assistant message — 2026-07-22T09:23:28.587Z
+
+**重大发现**：约 10 万组随机子空间对、全部符号模式下，齐次松弛情形的迭代矩阵谱半径**从未超过 1**（总是恰好取到 1）——与 CHYY 一般三块情形（容易 >1）形成鲜明对比。这提示一个可严格证明的定理。事实上我已在推导中得到完整证明：
+
+**定理 H（齐次情形非扩张性）**：对任意正交投影 $P, Q$ 与 0/1 对角阵 $D_+$，模式矩阵 $M_\sigma$ 的所有特征值满足 $|\mu|\le 1$。证明要点：对 $\mu\neq1$ 的特征对，令 $u=p+t$，由特征方程可推出 $Pu=0$、$Qt=0$、$\mu u=(I-P)D_-(I-Q)u$，而右端算子范数 $\le1$，故 $|\mu|\le1$。
+
+这意味着 **CHYY 型发散机制（固定锥内几何扩张）对松弛结构不可能发生**——一个可独立复核的严格否定性结果。我现在把这个证明数值核验并写成定理文件，然后进攻更一般的二次目标情形（投影 $P,Q$ 变成一般对称 PSD 收缩 $T_A, T_B$，证明不再直接适用）。
+
+#### Kimi assistant message — 2026-07-22T09:23:46.425Z
+
+收到，继续自主推进。运行定理 H 的数值核验，并启动二次目标类的对抗谱搜索。
+
+#### Kimi assistant message — 2026-07-22T09:35:33.998Z
+
+双射核验通过（修复后 `spec(M)∖{0,1}` 与 `spec(S|kerP)` 完全一致）。更重要的是，我发现证明可以**推广到任意凸二次目标**：把投影 $P,Q$ 换成一般对称 PSD 收缩 $T_A,T_B$ 后，用 $\varphi(\mu,T)=\mu(\mu I-T)^{-1}(I-T)$ 的谱范数估计（对 $|\mu|>1$ 有 $\|\varphi\|\le1$）同样推出矛盾。我把它记为**定理 Q**，它覆盖任意凸二次 $\theta_1,\theta_2$（$b=0$）。现在数值验证定理 Q 并更新笔记。
+
+#### Kimi assistant message — 2026-07-22T09:37:49.610Z
+
+L1 文献代理完成了。读取其结果，同时重读日志文件以便更新。
+
+#### Kimi assistant message — 2026-07-22T11:43:52.252Z
+
+现在做 exp3b（V-增量形态分析）和轻量版 exp5（JSR 估计）。
+
+#### Kimi assistant message — 2026-07-22T11:56:25.973Z
+
+现在写证明义务文档，把未闭合的问题精确表述出来。
+
+#### Kimi assistant message — 2026-07-22T11:57:31.279Z
+
+趁 exp5-lite 在后台运行，我检查一下是否有 SDP 求解器可用于共同 Lyapunov 搜索（对 O1 义务的数值攻坚）。
+
+#### Kimi assistant message — 2026-07-22T12:46:32.405Z
+
+现在撰写最终报告（主要交付物）。
+
+#### Kimi assistant message — 2026-07-22T12:54:34.804Z
+
+全部关键测试通过。最后通读报告前半部分确认一致性。
+
+#### Kimi assistant message — 2026-07-22T12:55:11.186Z
+
+报告通读无误。补齐日志开头的"事实与结论登记表"（原为占位符），然后收尾。
+
+#### Kimi assistant message — 2026-07-22T12:55:42.839Z
+
+所有完成标准已满足。收尾：更新任务状态并完成目标。
+
+#### Kimi assistant message — 2026-07-22T12:56:12.562Z
+
+研究完成。核心结论如下：
+
+## 问题判定
+
+该问题正是何炳生提出的公开猜想（教师幻灯片 = 其报告《ADMM 20年》slide 49）。**截至 2026-07-22，猜想仍开放**——He–Xu–Yuan（arXiv:2107.01897 / *Handbook of Numerical Analysis* 2023）处理完全相同的模型并明确声明未知；CHYY 反例的全部 771 篇施引文献中无覆盖此结构的证明或反例。我未能（也未声称）闭合它，但取得了可独立复核的部分成果：
+
+## 新的严格结果（附完整证明）
+
+- **影子变量框架**：令 $t=z+\lambda/\beta$，算法精确化为 $(y,t)$ 上的封闭迭代（数值验证轨迹完全一致）——松弛三块 ADMM 恰是"乘子允许越界并触发正交投影"的两块 ADMM。
+- **定理 Q**（含零目标特例定理 H）：对任意凸二次 $\theta_1,\theta_2$、任意 $A,B$、$b=0$，每个符号模式锥内的迭代矩阵**所有特征值模 $\le 1$**。证明要点：$|\mu|>1$ 时 $\|\varphi(\mu,T)\|=\|\mu(\mu I-T)^{-1}(I-T)\|\le1$，于是 $W=\varphi_A D_-\varphi_B$ 收缩，矛盾。
+- **推论**：一般凸目标在 KKT 点处的线性化同样谱半径 $\le 1$（$-\nabla T_A$ 恒为对称 PSD 收缩）——**CHYY 型局部几何排斥在此结构中不可能发生**。由此划定边界：反例（若存在）必须依赖跨模式切换或全局非线性机制，且不在齐次凸二次类中。
+
+## 数值证据（种子/命令齐全，非证明）
+
+- 复现 CHYY 发散例（同一迭代矩阵，$\rho=1.0278393033$）验证实现正确。
+- >10⁵ 组对抗性随机实例（含谱半径爬山扰动）从未出现扩张；96 个带已知 KKT 解的实际问题（条件数至 $10^4$、含 $\ell_1$、近秩亏）全部收敛。
+- 切换层面：深度 ≤40 束搜索未发现扩张循环，长 4000 随机乘积速率 ≈1，与 JSR=1 一致。
+- 负发现：朴素两块式 Lyapunov 在 16/96 轨道上有早期增量——该证明路线被数值否证，与猜想之难一致。
+
+## 交付物
+
+- `report/main.md`——最终报告（文献事实/猜想/数值证据/严格结论四类标注）
+- `research/01–04`——t-化简推导、定理 H、定理 Q、证明义务 O1–O4（核心：JSR≤1 是否普遍成立）
+- `experiments/`（9 个脚本 + README + results/*.json，全程种子固定）、`references/literature_notes.md`（第一手文献档案）、`RESEARCH_LOG.md`（全程日志）
+
+**未闭合**：全局收敛证明（归约为"任意切换有界 + Opial 型论证"）及 m=1 最小情形，已在 `research/04_proof_obligations.md` 中精确表述。过程中未使用任何付费服务或凭据，计算均为秒—分钟级。
+
+### Turn 2 — User — 2026-07-22T13:02:30.853Z
+
+继续，理论证明和反例搜索并行
+
+#### Kimi assistant message — 2026-07-22T13:05:42.107Z
+
+继续研究，两条线并行：理论证明（主攻 m=1 完全分析与 JSR 有界性）与反例搜索（可实现扩张周期轨道 + 对抗优化）。先建新目标，然后启动后台计算搜索，我在前台做理论。
+
+#### Kimi assistant message — 2026-07-22T13:14:58.876Z
+
+**发现严重实现错误**：线性化时我把 $|t|$ 错写成了 $D_+t$（$=\max(t,0)$），而正确的是 $|t|=(D_+-D_-)t$——这影响所有谱分析代码（exp2/2b/4/5/6/7）以及定理 H/Q 的证明路径（证明中 $(\mu I-P)u=(I-P)D_-t$ 那一步依赖错误的矩阵）。手工推导的 m=1 矩阵用的公式反而是对的。必须立即停掉 exp7、修正代码、重跑谱分析——正确系统是否仍满足 $\rho\le1$ 现在是**开放问题**（两种可能：修复证明，或发现反例）。
+
+#### Kimi assistant message — 2026-07-22T13:15:25.666Z
+
+exp8（用正确 |t| 的实现）完成了，先读取结果。然后给 `homog_slack_matrix` 补上与 `homog_slack_step` 的一致性校验——这正是当初漏掉、导致 bug 溜过去的检查。
+
+#### Kimi assistant message — 2026-07-22T13:36:30.471Z
+
+修正脚本因文本不匹配中断。逐个检查文件实际内容再修。
+
+#### Kimi assistant message — 2026-07-22T13:40:03.657Z
+
+全部修正。更新任务清单，然后启动决定性实验（修正矩阵下的自洽扩张方向大规模搜索 + exp7 重跑），同时我更正文档。
+
+#### Kimi assistant message — 2026-07-22T13:57:31.690Z
+
+两个搜索都完成了，而且出现了**决定性转机**：
+
+- **exp9**（30000 实例 × 742752 个模式）：9002 个实例存在 $\rho>1$ 的模式矩阵，但**自洽扩张方向数为 0**——扩张特征值从不与符号模式匹配。
+- **exp7-fixed**：600 实例的可实现扩张周期轨道穷举，零发现；exp5-fixed：乘积从不增长（JSR≤1 证据加强）。
+
+这提示正确的定理不是"所有特征值 $\le1$"，而是"**实特征值 $\le1$**"。受此启发我重新推导，并找到了一个**可严格证明的挽救定理**：
+
+**定理 S**：对任意对称 PSD 收缩 $T_A,T_B$ 与任意模式，真模式矩阵的每个**实**特征值 $\mu\le1$。证明（关键三步）：
+- (I1) $T_A(u-2t_-)=\mu u-t_-$，(I2) $\mu(u-t)=T_B(\mu u-t_+)$，其中 $u=p+t$，$t_\pm=D_\pm t$；
+- 由 $T^2\preceq T$（$0\preceq T\preceq I$）得 $\|Tv\|^2\le\langle Tv,v\rangle$，分别作用于 (I1)(I2) 得不等式 (X)、(Y')；
+- (X)+(Y') 相加、用 $\langle t_-,t_+\rangle=0$ 化简并除以 $\mu-1>0$：$\mu\|u\|^2+\|t\|^2\le\langle u,t\rangle\le\|u\|\|t\|$；但 AM-GM 给出 $\mu\|u\|^2+\|t\|^2\ge2\sqrt\mu\|u\|\|t\|$，故 $(2\sqrt\mu-1)\|u\|\|t\|\le0$，$\mu>1$ 时迫使 $u=0$ 或 $t=0$，代回均矛盾。∎
+
+含义：**固定锥内几何发散不可能**（复特征值/负特征值会把轨道旋出锥外），与 exp9 的零自洽完全一致。先数值核验定理 S，然后写定理文件、更正文档。
+
+#### Kimi assistant message — 2026-07-22T14:19:51.617Z
+
+现在给 research/02、03 加撤回声明，更新日志。
+
+#### Kimi assistant message — 2026-07-22T14:22:04.374Z
+
+报告需要大幅修订（(M_σ) 定义本身也含错误）。整体重写 `report/main.md` 更稳妥。
+
+### Turn 3 — User — 2026-07-22T15:18:27.337Z
+
+继续，理论证明和反例搜索并行
+
+[No visible assistant text was recorded before the next user input.]
+
+### Turn 4 — User — 2026-07-22T15:50:04.224Z
+
+继续，理论证明和反例搜索并行
+
+#### Kimi assistant message — 2026-07-22T16:05:37.985Z
+
+目标完成标准核对：理论线（定理 M1 完整证明 + JSR 尝试受阻点记录）、反例线（覆盖面与零发现记录）、实验溯源（代码/种子/结果）均已就位并写入报告 v3 与日志。收尾。
+
+#### Kimi assistant message — 2026-07-22T16:06:08.601Z
+
+本轮目标完成。两条线的成果如下：
+
+## 关键转折：发现并修正一处严重错误
+
+线性化时把 $|t|=(D_+-D_-)t$ 误写为 $D_+t$，导致 v1 的"定理 H/Q"证明覆盖的是一个不同算法（原始子问题缺乘子项）——已正式撤回（`research/02、03` 标记），并补上了当初缺失的"矩阵 vs 逐步仿真"一致性校验（500 例 PASS）。修正后真系统的图景完全不同：**模式矩阵可以有复特征值 $|\mu|>1$**。
+
+## 理论线（严格结果）
+
+- **定理 S**（`research/06`）：真模式矩阵的每个**实**特征值 $\mu\le1$（任意对称 PSD 收缩、任意模式）。证明用 $T^2\preceq T\Rightarrow\|Tv\|^2\le\langle Tv,v\rangle$ 作用于特征方程 (I1)(I2)，两不等式相加得 $(\mu-1)[\mu\|u\|^2+\|t\|^2-\langle u,t\rangle]\le0$，与 AM–GM 矛盾。⟹ **CHYY 型单锥几何发散不可能**（复特征值驱动旋转自行出锥）。核验：75 万个模式中实 $\mu>1$ 计数为 0。
+- **定理 M1**（`research/05`）：**$m=1$（单约束）齐次凸二次类全局线性收敛**到 KKT 点。机制：$M_-$ 秩 1 使状态落到射线上，射线出发的 $M_+$ 轨道 $t_k=c(1-\tau_B)(\tau_A^{k+1}-\tau_B^{k+1})/(\tau_A-\tau_B)>0$ 恒正故不再切换。矩阵、射线性质、$t_k$ 公式均经机器精度核验，退化 $\tau=1$ 情形收敛到非零不动点。
+- **JSR/有界性证明尝试**（`research/07`，五条路线均记录受阻点）：单步不等式对化简出无定号交叉项；14 种单调量候选全部被数值否决；**CQLF 的 SDP 检查 54/60 族可行、4 族不可行——通用共同二次 Lyapunov 路线不成立**。
+
+## 反例线（系统性零发现，覆盖面已记录）
+
+- exp9：30000 实例 × 742752 模式，自洽扩张方向 0；
+- exp7-fixed：600 实例可实现扩张周期轨道穷举（m=2 序列≤8，m=3 序列≤5），0；
+- exp10：228 个含复 $|\mu|>1$ 实例的扩张特征平面定向仿真（24 角度×2000 步），最大增长仅 1.93×；
+- exp8：对抗爬山 1.976× 封顶；ℓ1 目标、非齐次 $b\neq0$ 各 0/300。
+
+所有实验含代码、种子、结果（`experiments/results/*.json`），报告已更新至 v3（`report/main.md`），日志含完整错误更正轨迹（`RESEARCH_LOG.md`）。
+
+**当前总判定**：猜想仍开放，但证据大幅向"收敛"倾斜——唯一已知发散机制被定理 S 严格排除，$m=1$ 已完全解决，所有对抗性搜索零发现；剩余障碍精确定位为"无限切换/复模累积"问题（义务 O1–O5 及后续计算路线已写入 `research/04、07`）。
+
+### Turn 5 — User — 2026-07-22T16:14:41.522Z
+
+继续，理论证明和反例搜索并行
+
+#### Kimi assistant message — 2026-07-22T16:16:39.502Z
+
+继续第三轮。本轮的突破口选择：上一轮遗留的最有价值线索是"复特征值 $|\mu|>1$ 存在但被定理 S 排除在单锥之外"——那么**不动点自身所在的锥**（KKT 锥）若含复 $|\mu|>1$，KKT 点可能局部排斥，这正是非齐次情形反例最可能的藏身之处，且此前从未被定向检验过。建目标，两线并行推进。
+
+#### Kimi assistant message — 2026-07-22T16:19:04.810Z
+
+写两个后台搜索脚本并启动，然后做理论。
+
+#### Kimi assistant message — 2026-07-22T16:21:13.056Z
+
+两个搜索在后台运行。现在写条件/局部收敛定理（Track A 本轮主件）。
+
+#### Kimi assistant message — 2026-07-22T16:21:24.302Z
+
+两个后台搜索都完成了，读取结果。
+
+### Turn 6 — User — 2026-07-22T16:45:57.859Z
+
+继续，理论证明和反例搜索并行
+
+[No visible assistant text was recorded before the next user input.]
+
+### Turn 7 — User — 2026-07-22T17:00:59.184Z
+
+继续，理论证明和反例搜索并行
+
+#### Kimi assistant message — 2026-07-22T17:31:33.494Z
+
+精确与浮点版本现在一致（2.2e-16）。重跑 exp19。
+
+#### Kimi assistant message — 2026-07-22T17:34:03.001Z
+
+替换时误删了 §1 与头部元信息，补回。
+
+#### Kimi assistant message — 2026-07-22T18:04:24.609Z
+
+精确算术本身很快（<1s 量级）——进程可能在正常计算但输出被块缓冲，也可能真卡住了。查看该 PID 的 CPU 占用判断。
+
+#### Kimi assistant message — 2026-07-22T18:09:08.747Z
+
+目标审计通过：理论线（条件定理 + KKT 锥谱结论）与反例线（定向搜索 → 精确认证的严格反例）均完成，报告 v4 与日志已更新。收尾。
+
+#### Kimi assistant message — 2026-07-22T18:09:36.800Z
+
+第三轮目标完成。**核心结果：何炳生猜想被否证**——构造出严格反例并完成精确有理算术认证。
+
+## 反例（严格结论）
+
+- **实例**：m=3，θ₁,θ₂ 强凸二次（min eig=0.0038），X=Y=R³，A,B 可逆，β=1，KKT 点唯一——满足 `problem_statement.md` 全部假设。构造方法：正交投影对 ε-严格化（ε=0.0038）+ KKT-by-construction（活跃集 (−,−,+)），使 KKT 锥模式矩阵含复特征值 |μ|≈1.034>1，KKT 点局部排斥。
+- **发现**：直接 ADMM 从**开集初值**收敛到一个**周期 23 的吸引周期轨道**（模式序列 `[5,5,5,5,5,6,6,6,6,6,6,6,4,4,0,4,4,4,4,4,4,4,4]`），而非解。
+- **精确认证**（`experiments/exp19b_exact_yt.py`，1.6 秒）：以精确有理算术验证——F,G 前主子式全正、det A,B≠0（Bareiss）、KKT 锥精确不动点、**Φ²³(v̂)=v̂ 精确成立**、全程符号模式精确一致、特征多项式经 **Jury 判据**全部根在开单位圆内（ρ≈0.769 ⟹ 局部吸引）。另有 8 个锁频窗口（周期 18–1819，ρ∈[0.77,0.98]）同法认证；ε 扫描呈 Arnol'd 舌结构（ε=1e-3 为拟周期不变圆环，20 万步不收敛）。
+
+## 机制理论（严格）
+
+- **定理 S**：本结构模式矩阵的**实特征值 ≤1**——CHYY 型"发散到无穷"被松弛结构排除；反例只能以跨锥切换形式存在（本反例正是如此：有界但不收敛）。
+- **命题 C1–C3**：模式稳定化 ⟹ 收敛（谱条件下）；KKT 锥复 |μ|>1 ⟹ 局部排斥。
+- **定理 M1**：m=1（单约束）全局线性收敛——猜想的最小情形为真。
+- 解释力强：不收敛是稀薄现象（KKT 锥复 |μ|>1 基率 ~0.2–0.8%，96/96 常规实例收敛），与实践体验一致；也解释了该猜想多年"既无证明也无反例"的原因。
+
+## 过程诚信
+
+研究中发现并更正两处自身错误：v1"定理 H/Q"因 |t| 线性化笔误撤回（其正确替代为定理 S）；exp19 移植矩阵块时漏项，被"w* 距 v* 达 347"的校验捕获后修正。全部过程记录于 `RESEARCH_LOG.md`。
+
+## 交付物
+
+`report/main.md`（v4，结论改为"猜想被否证"）、`research/01–09`（框架、定理 S/M1/C1–C3、证明尝试记录、反例定理）、`experiments/`（19 个脚本 + 认证链 + README + results/ 全部 json/npz 数据）、`references/`（文献档案）。
+
+**开放问题**（`research/04` v3）：本结构中轨道是否总有界；m=2 是否存在反例；保证收敛的充分谱条件（KKT 锥复模 ≤1？）；β 鲁棒性；不收敛初值集的测度刻画。
+
+## 2026-07-23
+
+### Turn 8 — User — 2026-07-23T02:13:47.524Z
+
+你这个反例是怎么发现的
+
+[No visible assistant text was recorded before the session ended.]

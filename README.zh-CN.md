@@ -20,7 +20,7 @@ Constraint Block](https://arxiv.org/abs/2608.14396)”**。仓库为两个固定
 | 查看精确机器证书 | [`certificates/`](certificates/) |
 | 了解每个检查器究竟证明什么 | [复现与证书契约](docs/REPRODUCIBILITY.md) |
 | 追踪 Codex 与 Kimi 的发现过程 | [研究阶段索引](research-process/INDEX.md) |
-| 阅读脱敏后的 Codex 交互记录 | [合并后的交互记录](INTERACTION_TRANSCRIPT.md) · [原始文本](https://raw.githubusercontent.com/ConanXu-math/identity-slack-admm-cycle-certificate/main/INTERACTION_TRANSCRIPT.md) |
+| 阅读脱敏后的 Codex 与 Kimi 交互记录 | [合并后的交互记录](INTERACTION_TRANSCRIPT.md) · [原始文本](https://raw.githubusercontent.com/ConanXu-math/identity-slack-admm-cycle-certificate/main/INTERACTION_TRANSCRIPT.md) |
 | 查看时间、token 与 agent 统计 | [计算过程说明](provenance/README.md) |
 | 运行独立 MATLAB 检查 | [MATLAB 说明](matlab/README.md) |
 
@@ -149,7 +149,7 @@ NumPy/LAPACK 计算的谱半径属于数值 sanity check，跨平台比较使用
 - `review` 表示内部检查，不是外部同行评审。
 
 仓库有意排除了原生 session 文件、凭据、私人配置、本机绝对路径、缓存与重复的
-大批量输出。用户可见的 Codex 交互经过脱敏后合并为一份独立文档：
+大批量输出。用户可见的 Codex 与 Kimi Code K3 交互经过脱敏后合并为一份独立文档：
 [`INTERACTION_TRANSCRIPT.md`](INTERACTION_TRANSCRIPT.md)。`research-process/`
 中保留的 168 个过程文件由
 [`research-process/manifest.json`](research-process/manifest.json) 记录哈希，并由 CI 检查。

@@ -21,7 +21,7 @@ ADMM has a bounded non-KKT periodic sequence, despite a unique KKT point.
 | Inspect the exact machine certificates | [`certificates/`](certificates/) |
 | Understand what each checker proves | [Reproducibility contract](docs/REPRODUCIBILITY.md) |
 | Follow the Codex and Kimi discovery routes | [Research-stage index](research-process/INDEX.md) |
-| Read the privacy-redacted Codex interaction | [Consolidated transcript](INTERACTION_TRANSCRIPT.md) · [Raw text](https://raw.githubusercontent.com/ConanXu-math/identity-slack-admm-cycle-certificate/main/INTERACTION_TRANSCRIPT.md) |
+| Read the privacy-redacted Codex and Kimi interactions | [Consolidated transcript](INTERACTION_TRANSCRIPT.md) · [Raw text](https://raw.githubusercontent.com/ConanXu-math/identity-slack-admm-cycle-certificate/main/INTERACTION_TRANSCRIPT.md) |
 | Review time, token, and agent accounting | [Computational provenance](provenance/README.md) |
 | Run the independent MATLAB check | [MATLAB instructions](matlab/README.md) |
 
@@ -167,8 +167,9 @@ Archive labels matter:
 
 Raw native session files, credentials, private configuration, local absolute
 paths, caches, and repetitive bulk outputs are intentionally excluded. A
-single privacy-redacted transcript of the user-visible Codex interaction is
-published separately as [`INTERACTION_TRANSCRIPT.md`](INTERACTION_TRANSCRIPT.md).
+single privacy-redacted transcript of the user-visible Codex and Kimi Code K3
+interactions is published separately as
+[`INTERACTION_TRANSCRIPT.md`](INTERACTION_TRANSCRIPT.md).
 The 168 retained files in `research-process/` are covered by
 [`research-process/manifest.json`](research-process/manifest.json) and checked
 in CI.
